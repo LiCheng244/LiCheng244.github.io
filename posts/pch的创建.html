@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,项目配置," />
 
 
 
@@ -84,16 +84,23 @@
 
 
 
-<meta name="description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://www.licheng.date/categories/index.html">
+<meta name="description" content="引言
+在Xcode6之前, 创建一个新工程 Xcode会在 Supporting files 文件夹下面自动创建一个名为“工程名-Prefix.pch”文件, 也是一个头文件, pch头文件的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。Xcode6以后创建项目时, 不再会自动生成pch文件, 需要我们手动创建.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 关于pch文件的创建与配置">
+<meta property="og:url" content="http://www.licheng.date/posts/pch的创建.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
-<meta property="og:updated_time" content="2016-11-06T03:01:09.000Z">
+<meta property="og:description" content="引言
+在Xcode6之前, 创建一个新工程 Xcode会在 Supporting files 文件夹下面自动创建一个名为“工程名-Prefix.pch”文件, 也是一个头文件, pch头文件的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。Xcode6以后创建项目时, 不再会自动生成pch文件, 需要我们手动创建.">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-a1ba4bb86439eb2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-33c0f71c97041e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-95572e917b302a33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-03T06:10:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
+<meta name="twitter:title" content="iOS开发 关于pch文件的创建与配置">
+<meta name="twitter:description" content="引言
+在Xcode6之前, 创建一个新工程 Xcode会在 Supporting files 文件夹下面自动创建一个名为“工程名-Prefix.pch”文件, 也是一个头文件, pch头文件的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。Xcode6以后创建项目时, 不再会自动生成pch文件, 需要我们手动创建.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-a1ba4bb86439eb2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -114,16 +121,10 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/categories/"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/pch的创建.html"/>
 
 
-  <title>
-  
-
-  
-    分类 | LiCheng的博客
-  
-</title>
+  <title> iOS开发 关于pch文件的创建与配置 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -244,16 +245,168 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
     
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 1 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 关于pch文件的创建与配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/pch的创建.html" class="leancloud_visitors" data-flag-title="iOS开发 关于pch文件的创建与配置">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">9</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>在Xcode6之前, 创建一个新工程 Xcode会在 Supporting files 文件夹下面自动创建一个名为“工程名-Prefix.pch”文件, 也是一个头文件, pch头文件的内容能被项目中的其他所有源文件共享和访问。是一个预编译文件。<br>Xcode6以后创建项目时, 不再会自动生成pch文件, 需要我们手动创建.</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h3 id="pch的作用"><a href="#pch的作用" class="headerlink" title="pch的作用"></a>pch的作用</h3><ul>
+<li>存放一些全局的宏定义(整个项目中都用得上的宏);</li>
+<li>用来包含一些大多数类所用到的头文件(整个项目中都用得上的头文件);</li>
+<li>设置自动打开或者关闭日志输出功能;</li>
+</ul>
+<h3 id="在Xcode6以后的版本中添加pch文件"><a href="#在Xcode6以后的版本中添加pch文件" class="headerlink" title="在Xcode6以后的版本中添加pch文件"></a>在Xcode6以后的版本中添加pch文件</h3><ol>
+<li>command+N, 打开新建文件窗口: iOS -&gt; Other -&gt; PCH File, 创建一个pch文件: <img src="http://upload-images.jianshu.io/upload_images/1975627-a1ba4bb86439eb2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>在工程的 Targets 里边的 Building Setting 中搜索 Prefix Header, 然后把 Precompile Prefix Header 右边的NO改为Yes, 预编译后的pch文件会被缓存起来, 可以提高编译速度, 如图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1975627-33c0f71c97041e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>设置pch文件的路径, $(SRCROOT)代表工程的根目录，然后后边还要加上pch在当前项目的路径，所以完整的pch文件的路径就是：<code>$(SRCROOT)/PchDemo/Tools/PrefixHeader.pch</code> ; 知道了pch文件的目录, 接下来我们就可以设置了, 在工程的 Targets 里边的 Building Setting 中搜索 Prefix Header, 找到 Prefix Header 属性, 双击后面空白处, 将pch的路径填写到里面, 如图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1975627-95572e917b302a33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>command + B 编译一下, 如果没有报错, 说明pch文件的创建和配置成功了.</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/项目配置/" rel="tag">#项目配置</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/集合遍历.html" rel="next" title="iOS 遍历集合(NSArray，NSDictionary、NSSet)方法总结">
+                <i class="fa fa-chevron-left"></i> iOS 遍历集合(NSArray，NSDictionary、NSSet)方法总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/NSUserDefaults.html" rel="prev" title="iOS 数据存储 NSUserDefaults 的使用">
+                iOS 数据存储 NSUserDefaults 的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -262,6 +415,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -281,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -332,6 +498,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pch的作用"><span class="nav-number">2.</span> <span class="nav-text">pch的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Xcode6以后的版本中添加pch文件"><span class="nav-number">3.</span> <span class="nav-text">在Xcode6以后的版本中添加pch文件</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -428,6 +605,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

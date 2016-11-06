@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="UILabel," />
 
 
 
@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LiCheng的博客">
-<meta property="og:url" content="http://www.licheng.date/archives/index.html">
+<meta name="description" content="引言
+当我们在做一些购物类APP或者是商品展示类的APP时，我们经常会遇到某种商品打折优惠或者抢购的场景。并且为了吸引客户，商家一般把打折商品的现价和原价同时显示出来，进行对比，此时就出现了为展示原价的label添加中划线或者是下划线的需求。我们参考一下驴妈妈的首页：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发  给Label加下划线、中划线">
+<meta property="og:url" content="http://www.licheng.date/posts/给Label加下划线、中划线.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
+<meta property="og:description" content="引言
+当我们在做一些购物类APP或者是商品展示类的APP时，我们经常会遇到某种商品打折优惠或者抢购的场景。并且为了吸引客户，商家一般把打折商品的现价和原价同时显示出来，进行对比，此时就出现了为展示原价的label添加中划线或者是下划线的需求。我们参考一下驴妈妈的首页：">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-b290ef9c1a340919.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-7dfcab97f92a7872.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-03T07:11:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LiCheng的博客">
-<meta name="twitter:description" content="写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~">
+<meta name="twitter:title" content="iOS开发  给Label加下划线、中划线">
+<meta name="twitter:description" content="引言
+当我们在做一些购物类APP或者是商品展示类的APP时，我们经常会遇到某种商品打折优惠或者抢购的场景。并且为了吸引客户，商家一般把打折商品的现价和原价同时显示出来，进行对比，此时就出现了为展示原价的label添加中划线或者是下划线的需求。我们参考一下驴妈妈的首页：">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-b290ef9c1a340919.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -113,10 +120,10 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/archives/"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/给Label加下划线、中划线.html"/>
 
 
-  <title> 归档 | LiCheng的博客 </title>
+  <title> iOS开发  给Label加下划线、中划线 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +144,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -235,329 +242,157 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 9 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/短信验证码按钮效果.html" itemprop="url">
-              
-                <span itemprop="name">iOS 短信验证码倒计时按钮的实现</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T12:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
-              
-                <span itemprop="name">iOS 从经典问题来看 Copy 方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T00:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/CoreData的使用.html" itemprop="url">
-              
-                <span itemprop="name">iOS 数据存储 CoreData的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T00:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/MRC 和ARC 混编.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 MRC 和ARC 混编</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T00:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/NSUserDefaults.html" itemprop="url">
-              
-                <span itemprop="name">iOS 数据存储 NSUserDefaults 的使用</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T00:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/pch的创建.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 关于pch文件的创建与配置</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-01T00:00:00+08:00"
-              content="2016-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/集合遍历.html" itemprop="url">
-              
-                <span itemprop="name">iOS 遍历集合(NSArray，NSDictionary、NSSet)方法总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-31T00:00:00+08:00"
-              content="2016-10-31" >
-          10-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/跳转设置界面.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 APP跳转到相应的设置界面</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-28T12:00:00+08:00"
-              content="2016-10-28" >
-          10-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发  给Label加下划线、中划线
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T00:00:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/给Label加下划线、中划线.html" class="leancloud_visitors" data-flag-title="iOS开发  给Label加下划线、中划线">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>当我们在做一些购物类APP或者是商品展示类的APP时，我们经常会遇到某种商品打折优惠或者抢购的场景。并且为了吸引客户，商家一般把打折商品的现价和原价同时显示出来，进行对比，此时就出现了为展示原价的label添加中划线或者是下划线的需求。<br>我们参考一下驴妈妈的首页：</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975627-b290ef9c1a340919.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="驴妈妈首页－中划线"><br>下面就直接上代码了：</p>
+<h3 id="添加中划线"><a href="#添加中划线" class="headerlink" title="添加中划线"></a>添加中划线</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UILabel</span> * strikeLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">30</span>))];</div><div class="line"><span class="built_in">NSString</span> *textStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@元"</span>, primeCost];</div><div class="line"></div><div class="line"><span class="comment">//中划线</span></div><div class="line"><span class="built_in">NSDictionary</span> *attribtDic = @&#123;<span class="built_in">NSStrikethroughStyleAttributeName</span>: [<span class="built_in">NSNumber</span> numberWithInteger:<span class="built_in">NSUnderlineStyleSingle</span>]&#125;;</div><div class="line"><span class="built_in">NSMutableAttributedString</span> *attribtStr = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:textStr attributes:attribtDic];</div><div class="line">      </div><div class="line"><span class="comment">// 赋值</span></div><div class="line">strikeLabel.attributedText = attribtStr;</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.view addSubview:strikeLabel];</div></pre></td></tr></table></figure>
+<h3 id="添加下划线"><a href="#添加下划线" class="headerlink" title="添加下划线"></a>添加下划线</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UILabel</span> *underlineLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">30</span>))];</div><div class="line"><span class="built_in">NSString</span> *textStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@元"</span>, primeCost];</div><div class="line"></div><div class="line"><span class="comment">// 下划线</span></div><div class="line"><span class="built_in">NSDictionary</span> *attribtDic = @&#123;<span class="built_in">NSUnderlineStyleAttributeName</span>: [<span class="built_in">NSNumber</span> numberWithInteger:<span class="built_in">NSUnderlineStyleSingle</span>]&#125;;</div><div class="line"><span class="built_in">NSMutableAttributedString</span> *attribtStr = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:textStr attributes:attribtDic];</div><div class="line"></div><div class="line"><span class="comment">//赋值</span></div><div class="line">underlineLabel.attributedText = attribtStr;</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.view addSubview:underlineLabel];</div></pre></td></tr></table></figure>
+<p>效果如图所示：<br><img src="http://upload-images.jianshu.io/upload_images/1975627-7dfcab97f92a7872.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UILabel/" rel="tag">#UILabel</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/跳转设置界面.html" rel="prev" title="iOS开发 APP跳转到相应的设置界面">
+                iOS开发 APP跳转到相应的设置界面 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -565,6 +400,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -584,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -635,6 +483,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加中划线"><span class="nav-number">2.</span> <span class="nav-text">添加中划线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加下划线"><span class="nav-number">3.</span> <span class="nav-text">添加下划线</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -731,11 +590,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
 
 
   

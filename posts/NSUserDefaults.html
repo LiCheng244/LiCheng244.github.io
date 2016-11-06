@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,数据存储," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="简介:
+NSUserDefaults是一个单例，在整个程序中只有一个实例对象，他可以用于数据的永久保存，而且简单实用，这是它可以让数据自由传递的一个前提。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 数据存储 NSUserDefaults 的使用">
+<meta property="og:url" content="http://www.licheng.date/posts/NSUserDefaults.html">
+<meta property="og:site_name" content="LiCheng的博客">
+<meta property="og:description" content="简介:
+NSUserDefaults是一个单例，在整个程序中只有一个实例对象，他可以用于数据的永久保存，而且简单实用，这是它可以让数据自由传递的一个前提。">
+<meta property="og:updated_time" content="2016-11-03T06:17:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 数据存储 NSUserDefaults 的使用">
+<meta name="twitter:description" content="简介:
+NSUserDefaults是一个单例，在整个程序中只有一个实例对象，他可以用于数据的永久保存，而且简单实用，这是它可以让数据自由传递的一个前提。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng.date/posts/NSUserDefaults.html"/>
+
+
+  <title> iOS 数据存储 NSUserDefaults 的使用 | LiCheng的博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">LiCheng的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 数据存储 NSUserDefaults 的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/NSUserDefaults.html" class="leancloud_visitors" data-flag-title="iOS 数据存储 NSUserDefaults 的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h3><blockquote>
+<p>NSUserDefaults是一个单例，在整个程序中只有一个实例对象，他可以用于数据的永久保存，而且简单实用，这是它可以让数据自由传递的一个前提。</p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p>NSUserDefaults适合  存储轻量级  的本地数据  ，比如要保存一个登陆界面的数据，用户名、密码之类的，个人觉得使用NSUserDefaults是首选。下次再登陆的时候就可以直接从NSUserDefaults里面读取上次登陆的信息。就像读字符串一样，直接读取就可以了。</p>
+<p>用NSUserDefaults存储的数据下次程序运行的时候依然存在 .它的数据存储在应用程序内置的一个plist文件里, 在/Library/Prefereces沙盒路径下.</p>
+<p><strong>支持数据格式:</strong><br><br>NSNumber ( Integer、Float、Double )<br>NSString<br>NSArray<br>NSDictionary<br>BOOL类型<br>NSDate</p>
+</blockquote>
+<p><hr></p>
+<h3 id="简单类型数据"><a href="#简单类型数据" class="headerlink" title="简单类型数据"></a>简单类型数据</h3><h4 id="读写-NSUserDefaults-中"><a href="#读写-NSUserDefaults-中" class="headerlink" title="读写 NSUserDefaults 中:"></a>读写 NSUserDefaults 中:</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 1. 创建NSUserDefaults单例:</span></div><div class="line"><span class="built_in">NSUserDefaults</span> *defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line"></div><div class="line"><span class="comment">// 2. 数据写入:</span></div><div class="line">  <span class="comment">// 通过 key 值 来存入 和 读取数据</span></div><div class="line">[defaults setInteger:<span class="number">23</span> forKey:<span class="string">@"myInteger"</span>];</div><div class="line">  <span class="comment">// 注意：对相同的Key赋值约等于一次覆盖，要保证每一个Key的唯一性</span></div><div class="line"></div><div class="line"><span class="comment">// 3. 将数据 立即存入到 磁盘:</span></div><div class="line">[defaults synchronize];</div><div class="line"></div><div class="line"><span class="comment">// 4. 通过key值 按照写入对应类型 读取数据 有返回值</span></div><div class="line"><span class="built_in">NSInteger</span> *myInteger = [defaults integerForKey:<span class="string">@"myInteger"</span>];</div></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p>NSUserDefaults 存储的对象全是不可变的（这一点非常关键，弄错的话程序会出bug），例如，如果我想要存储一个 NSMutableArray 对象，我必须先创建一个不可变数组（NSArray）再将它存入NSUserDefaults中去，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableArray</span> *mutableArray = [<span class="built_in">NSMutableArray</span> arrayWithObjects:<span class="string">@"123"</span>,<span class="string">@"234"</span>, <span class="literal">nil</span>];</div><div class="line"><span class="built_in">NSArray</span> * array = [<span class="built_in">NSArray</span> arrayWithArray:mutableArray];</div><div class="line"><span class="built_in">NSUserDefaults</span> *user = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line">[user setObject:array forKey:<span class="string">@"记住存放的一定是不可变的"</span>];</div></pre></td></tr></table></figure>
+<p>取出数据是一样的，想要用NSUserDefaults中的数据给可变数组赋值, 先给出一个错误的写法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*---------错误的赋值方法-----------*/</span></div><div class="line"><span class="built_in">NSUserDefaults</span> *user = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line"><span class="comment">//这样写后，mutableArray 就变成了不可变数组了，如果你要在数组中添加或删除数据就会出现bug</span></div><div class="line"><span class="built_in">NSMutableArray</span> *mutableArray = [user objectForKey:<span class="string">@"记住存放的一定是不可变的"</span>];</div></pre></td></tr></table></figure>
+<p>正确的写法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">/*--------正确的赋值方法----------*/</span></div><div class="line">  <span class="built_in">NSUserDefaults</span> *user = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line"></div><div class="line">  <span class="built_in">NSMutableArray</span> *mutableArray = [<span class="built_in">NSMutableArray</span></div><div class="line">arrayWithArray:[user objectForKey:<span class="string">@"记住存放的一定是不可变的"</span>]];</div></pre></td></tr></table></figure>
+<p><hr></p>
+<h3 id="自定义类型数据"><a href="#自定义类型数据" class="headerlink" title="自定义类型数据"></a>自定义类型数据</h3><p>使用NSKeyedArchiver 对数据进行归档 反归档.</p>
+<h4 id="将自定义类型转换为NSData类型"><a href="#将自定义类型转换为NSData类型" class="headerlink" title="将自定义类型转换为NSData类型:"></a>将自定义类型转换为NSData类型:</h4><blockquote>
+<p>当数据重复而且多的时候（例如想存储全班同学的学号，姓名，性别（这个数据量可能太大了 ）），如果不用SQLite 存储 （多数据最好还是用这个），可以选择使用归档，再将文件写入本地，但是这种方式和 NSUserDefaults 比起来麻烦多了（因为NSFileManage 本来就挺复杂） ，但是问题是，NSUserDefaults 本身不支持自定义对象的存储，不过它支持NSData的类型，可以转化为 NSdata 类型 。</p>
+</blockquote>
+<p>我们先建立一个叫Student 的类，这个类里有三个属性(姓名, 年龄, 性别）,代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *sex;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>我们要做的就是将Student类型变成NSData类型 ，那么就必须实现<strong><em>归档</em></strong>：<br>这里要实现 在.h 文件中申明 NSCoding 协议，再 在 .m 中实现 <code>encodeWithCoder</code> 方法 和<br><code>initWithCoder</code> 方法就可以了 ：<br>.h 中修改,代码如下 ：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span>  &lt;<span class="title">NSCoding</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *sex;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>.m中加入代码 ：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"Student.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Student</span></span></div><div class="line"><span class="comment">// 归档</span></div><div class="line">-(<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder&#123;</div><div class="line">    </div><div class="line">    [aCoder encodeObject:<span class="keyword">self</span>.name forKey:<span class="string">@"name"</span>];</div><div class="line">    [aCoder encodeObject:<span class="keyword">self</span>.age forKey:<span class="string">@"age"</span>];</div><div class="line">    [aCoder encodeObject:<span class="keyword">self</span>.sex forKey:<span class="string">@"sex"</span>];</div><div class="line">&#125;</div><div class="line"><span class="comment">// 反归档</span></div><div class="line">-(<span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</div><div class="line">        <span class="keyword">self</span>.age = [aDecoder decodeObjectForKey:<span class="string">@"age"</span>];</div><div class="line">        <span class="keyword">self</span>.sex = [aDecoder decodeObjectForKey:<span class="string">@"sex"</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>这样做就可以将自定义类型转变为NSData类型了,  下来进行 写入 和 读取.</p>
+<h4 id="写入数据"><a href="#写入数据" class="headerlink" title="写入数据:"></a>写入数据:</h4><p>如果要存储全班同学的信息，我们可以建一个NSMutableArray 来存放全班同学的信息（里面存储的全是NSData对象）在需要存储的地方加入代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 首先，要建立一个可变数组来存储 NSDate对象</span></div><div class="line">Student *student = [[Student alloc] init];</div><div class="line"></div><div class="line"><span class="comment">// 下面进行的是对student对象的 name, age, sex 赋值</span></div><div class="line">student.name = <span class="string">@"张三"</span>;</div><div class="line">student.age = <span class="string">@"20"</span>;</div><div class="line">student.sex = <span class="string">@"男"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 将student对象转换成为NSData类型</span></div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:student];</div><div class="line"></div><div class="line"><span class="comment">// 保存学生信息</span></div><div class="line"><span class="built_in">NSUserDefaults</span> *user = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line">[user setObject:data forKey:<span class="string">@"oneStudent"</span>];</div></pre></td></tr></table></figure>
+<p>如果你想存储全班同学的信息，你还要用一个for循环将data 放入 dataArray中.</p>
+<h4 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据:"></a>读取数据:</h4><p>例如还原一个学生的数据：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSUserDefaults</span> *user = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line"></div><div class="line"><span class="comment">// 读取data数据</span></div><div class="line"><span class="built_in">NSData</span> *data = [user objectForKey:<span class="string">@"oneStudent"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 将data类型转换成student类型</span></div><div class="line">Student *student = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithData:data];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, student.name);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, student.age);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, student.sex);</div></pre></td></tr></table></figure>
+<hr>
+
+<p>总之，NSUserDefaults 在我们编写代码中是最常用的一个永久保存数据的方法，也是最简单的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/数据存储/" rel="tag">#数据存储</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/pch的创建.html" rel="next" title="iOS开发 关于pch文件的创建与配置">
+                <i class="fa fa-chevron-left"></i> iOS开发 关于pch文件的创建与配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/MRC 和ARC 混编.html" rel="prev" title="iOS开发 MRC 和ARC 混编">
+                iOS开发 MRC 和ARC 混编 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">写写代码, 做做设计, 记录着工作和学习的中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单类型数据"><span class="nav-number">2.</span> <span class="nav-text">简单类型数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读写-NSUserDefaults-中"><span class="nav-number">2.1.</span> <span class="nav-text">读写 NSUserDefaults 中:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.2.</span> <span class="nav-text">注意:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义类型数据"><span class="nav-number">3.</span> <span class="nav-text">自定义类型数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将自定义类型转换为NSData类型"><span class="nav-number">3.1.</span> <span class="nav-text">将自定义类型转换为NSData类型:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入数据"><span class="nav-number">3.2.</span> <span class="nav-text">写入数据:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取数据"><span class="nav-number">3.3.</span> <span class="nav-text">读取数据:</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

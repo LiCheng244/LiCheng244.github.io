@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title></title>
+      <url>http://www.licheng.date/posts/14785933237379.html</url>
+      <content type="html"><![CDATA[<h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><blockquote>
+<p>hdskkas</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"nihao.h"</span></span></div><div class="line">@paddjs</div><div class="line"><span class="built_in">NSString</span> *name;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[iOS开发 - 深入理解控制器与类]]></title>
+      <url>http://www.licheng.date/posts/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8E%E7%B1%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>ViewController是iOS开发中MVC模式中的C(视图控制器)，ViewController是view的controller，ViewController的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</p>
+</blockquote>
+<a id="more"></a>
+<p>在IOS中，有两类ViewController:    </p>
+<blockquote>
+<ul>
+<li><p>一类主要用于<b>展示内容</b>，比如<code>UIViewController</code>、<code>UITableViewController</code>等，同时还可以自定义继承自UIViewController的ViewController；</p>
+</li>
+<li><p>另一类是<b>ViewController容器</b>，<code>UINavigationViewController</code>和<code>UITabBarController</code>等，UINavigationController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理ViewController。</p>
+</li>
+</ul>
+</blockquote>
+<p>不管是哪类ViewController,都继承自UIViewController</p>
+<hr>
+<h3 id="UIViewController-–-gt-生命周期方法"><a href="#UIViewController-–-gt-生命周期方法" class="headerlink" title="UIViewController –&gt; 生命周期方法"></a>UIViewController –&gt; 生命周期方法</h3><h4 id="控制器从创建到销毁方法的执行顺序"><a href="#控制器从创建到销毁方法的执行顺序" class="headerlink" title="控制器从创建到销毁方法的执行顺序"></a>控制器从创建到销毁方法的执行顺序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">load-&gt;initialize-&gt;init(initWithNibName)—&gt;  </div><div class="line">loadView—&gt;viewDidLoad—&gt;viewWillApper—&gt;viewDidApper—&gt;  </div><div class="line">viewWillDisapper—&gt;viewDidDisapper—&gt;viewWillUnload-&gt;  </div><div class="line">viewDidUnload—&gt;dealloc</div></pre></td></tr></table></figure>
+<p>其中<code>viewWillUnload</code>跟<code>viewDidUnLoad</code> 在iOS6以后就过期了.<br>收到<code>low-memory</code>时系统不会释放<code>view</code>，而只是释放<code>controller</code>的<code>resource</code>。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点:"></a>注意点:</h4><ul>
+<li><p><code>LoadView:</code>    </p>
+<ol>
+<li>控制器调用loadView方法创建控制器的view.当控制器的view存在了就不会调用.</li>
+<li>不要再LoadView中调用<code>[super loadView]</code>,会影响CPU性能</li>
+<li>苹果官方文档:    <ul>
+<li><blockquote>
+<p>You should never call this method directly. The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>当系统要展示这个控制器view的时候,会先去view的getter方法中寻找有没有返回view,如果<code>view == nil</code>,系统就会主动去调用这个方法.</p>
+</li>
+<li><p>控制器的view都是懒加载,当需要展示的时候才会去创建</p>
+<ol>
+<li>懒加载:重写getter方法</li>
+<li>好处:不用管什么时候需要创建,做到要用时再创建</li>
+</ol>
+</li>
+</ul>
+<h4 id="view的加载过程"><a href="#view的加载过程" class="headerlink" title="view的加载过程"></a>view的加载过程</h4>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[iOS 短信验证码倒计时按钮的实现]]></title>
       <url>http://www.licheng.date/posts/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8C%89%E9%92%AE%E6%95%88%E6%9E%9C.html</url>
       <content type="html"><![CDATA[<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
@@ -22,33 +78,15 @@
     </entry>
     
     <entry>
-      <title><![CDATA[iOS 从经典问题来看 Copy 方法]]></title>
-      <url>http://www.licheng.date/posts/Copy%E6%93%8D%E4%BD%9C.html</url>
-      <content type="html"><![CDATA[<p>在初学 iOS 的时候，可能会被灌输这么一个常识，切记: <strong>NSString 的 property 的修饰变量要写作 copy ，而不是 strong。</strong>那么这是为什么？</p>
-<blockquote>
-<p><strong>经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?</strong></p>
+      <title><![CDATA[iOS开发 MRC 和ARC 混编]]></title>
+      <url>http://www.licheng.date/posts/MRC%20%E5%92%8CARC%20%E6%B7%B7%E7%BC%96.html</url>
+      <content type="html"><![CDATA[<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决：</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="Copy操作"><a href="#Copy操作" class="headerlink" title="Copy操作"></a>Copy操作</h2><p>###测试1:<br>模拟一个程序设计错误的场景。有一个叫做 Person 的 Class，其中它拥有一个 NSString 类型的 <code>s_name</code> 属性（代表 name 是 strong），我们想给一个对象的<code>s_name</code> 赋值，并且之前的赋值变量还想重复使用到其他场景。所以，我们在引入这个 Class 的 ViewController 进行如下操作：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSMutableString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">    </div><div class="line">    [name appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果在 Person 这个 Class 中，我们的 <code>s_name</code> 的修饰属性是 <code>strong</code> 的话，会看到如下输出结果:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS</div><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS Source Probe</div></pre></td></tr></table></figure>
-<p>但是，我们操作的仅仅是对 <code>s_name</code>那个变量，为什么连属性当中的 <code>s_name</code> 也会被改变？对这段代码稍做修改，重新测试。</p>
-<h3 id="测试2"><a href="#测试2" class="headerlink" title="测试2:"></a>测试2:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line"></div><div class="line">    name = <span class="string">@"iOS Source Probe"</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这一次我们看到了输出结果是正常的：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div></pre></td></tr></table></figure>
-<h3 id="测试3"><a href="#测试3" class="headerlink" title="测试3:"></a>测试3:</h3><p>再来做第三个实验，我们换用 <code>copy</code> 类型的成员 <code>c_name</code>，来替换测试1中的 <code>s_name</code> ，查看一下输出结果:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:03:40.226 TestCopy[64922:20479646] iOS</div><div class="line">2016-08-12 06:03:40.227 TestCopy[64922:20479646] iOS</div></pre></td></tr></table></figure>
-<p>做过如上三个实验，或许你会知道对 property 使用 copy 修饰属性的原因了。也就是在一个特定场景下：</p>
-<blockquote>
-<p></p><p style="color:#990000"><strong>当我们通过一个 NSMutableString 对 NSString 变量进行赋值，如果 NSString 的 property 是 strong 类型的时候，就会随着 NSMutableString 类型的变量一起变化。</strong></p><p></p>
-</blockquote>
-<p>这个猜测是正确的, 但是为什么呢? 继续测试:</p>
-<h3 id="测试4"><a href="#测试4" class="headerlink" title="测试4:"></a>测试4:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test4 &#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_a = str;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_a);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_b = [str <span class="keyword">copy</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出地址后，我们发现以下结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:15:45.169 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0xa00000000534f693</div></pre></td></tr></table></figure>
-<p>发现当令 NSString 对象指针指向一个 NSMutableString 类型变量通过 copy 方法返回的对象，则会对其进行<strong>深复制</strong>。这也就是我们一直所说的在一个 Class 的成员是 NSString 类型的时候，修饰属性应该使用 copy ，其实就是在使用 mutable 对象进行赋值的时候，防止 mutable 对象的改变从而影响成员变量。从 MRC 的角度来看待修饰属性，若一个属性的关键字为 retain （可等同于 strong ），则在进行指针的指向修改时，如上面的<code>self.one.name = str</code>，其实是执行了<code>self.one.name = [str retain]</code>，而 copy 类型的属性则会执行<code>self.one.name = [str copy]</code>。</p>
-<p>而在 Test 2 中，我们的实验是将一个 NSString 对象指向另外一个 NSString 对象，那么如果前者是 copy 的成员，还会进行<strong>深复制</strong>吗？进行下面的 Test 5，我们令 c_name 的修饰变量为 copy。</p>
+<h3 id="ARC项目-加入-MRC-文件"><a href="#ARC项目-加入-MRC-文件" class="headerlink" title="ARC项目 : 加入 MRC 文件"></a>ARC项目 : 加入 MRC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fno-objc-arc</code></p>
+<h3 id="MRC项目-加入-ARC-文件"><a href="#MRC项目-加入-ARC-文件" class="headerlink" title="MRC项目 : 加入 ARC 文件"></a>MRC项目 : 加入 ARC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fobjc-arc</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC 和 ARC 混编"></p>
 ]]></content>
     </entry>
     
@@ -109,19 +147,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[iOS开发 MRC 和ARC 混编]]></title>
-      <url>http://www.licheng.date/posts/MRC%20%E5%92%8CARC%20%E6%B7%B7%E7%BC%96.html</url>
-      <content type="html"><![CDATA[<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
-<p>iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决：</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="ARC项目-加入-MRC-文件"><a href="#ARC项目-加入-MRC-文件" class="headerlink" title="ARC项目 : 加入 MRC 文件"></a>ARC项目 : 加入 MRC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fno-objc-arc</code></p>
-<h3 id="MRC项目-加入-ARC-文件"><a href="#MRC项目-加入-ARC-文件" class="headerlink" title="MRC项目 : 加入 ARC 文件"></a>MRC项目 : 加入 ARC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fobjc-arc</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC 和 ARC 混编"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[iOS 数据存储 NSUserDefaults 的使用]]></title>
       <url>http://www.licheng.date/posts/NSUserDefaults.html</url>
       <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h3><blockquote>
@@ -161,6 +186,37 @@
 <hr>
 
 <p>总之，NSUserDefaults 在我们编写代码中是最常用的一个永久保存数据的方法，也是最简单的。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[iOS 从经典问题来看 Copy 方法]]></title>
+      <url>http://www.licheng.date/posts/Copy%E6%93%8D%E4%BD%9C.html</url>
+      <content type="html"><![CDATA[<p>在初学 iOS 的时候，可能会被灌输这么一个常识，切记: <strong>NSString 的 property 的修饰变量要写作 copy ，而不是 strong。</strong>那么这是为什么？</p>
+<blockquote>
+<p><strong>经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?</strong></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Copy操作"><a href="#Copy操作" class="headerlink" title="Copy操作"></a>Copy操作</h2><p>###测试1:<br>模拟一个程序设计错误的场景。有一个叫做 Person 的 Class，其中它拥有一个 NSString 类型的 <code>s_name</code> 属性（代表 name 是 strong），我们想给一个对象的<code>s_name</code> 赋值，并且之前的赋值变量还想重复使用到其他场景。所以，我们在引入这个 Class 的 ViewController 进行如下操作：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSMutableString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">    </div><div class="line">    [name appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果在 Person 这个 Class 中，我们的 <code>s_name</code> 的修饰属性是 <code>strong</code> 的话，会看到如下输出结果:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS</div><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS Source Probe</div></pre></td></tr></table></figure>
+<p>但是，我们操作的仅仅是对 <code>s_name</code>那个变量，为什么连属性当中的 <code>s_name</code> 也会被改变？对这段代码稍做修改，重新测试。</p>
+<h3 id="测试2"><a href="#测试2" class="headerlink" title="测试2:"></a>测试2:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line"></div><div class="line">    name = <span class="string">@"iOS Source Probe"</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这一次我们看到了输出结果是正常的：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div></pre></td></tr></table></figure>
+<h3 id="测试3"><a href="#测试3" class="headerlink" title="测试3:"></a>测试3:</h3><p>再来做第三个实验，我们换用 <code>copy</code> 类型的成员 <code>c_name</code>，来替换测试1中的 <code>s_name</code> ，查看一下输出结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:03:40.226 TestCopy[64922:20479646] iOS</div><div class="line">2016-08-12 06:03:40.227 TestCopy[64922:20479646] iOS</div></pre></td></tr></table></figure>
+<p>做过如上三个实验，或许你会知道对 property 使用 copy 修饰属性的原因了。也就是在一个特定场景下：</p>
+<blockquote>
+<p></p><p style="color:#990000"><strong>当我们通过一个 NSMutableString 对 NSString 变量进行赋值，如果 NSString 的 property 是 strong 类型的时候，就会随着 NSMutableString 类型的变量一起变化。</strong></p><p></p>
+</blockquote>
+<p>这个猜测是正确的, 但是为什么呢? 继续测试:</p>
+<h3 id="测试4"><a href="#测试4" class="headerlink" title="测试4:"></a>测试4:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test4 &#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_a = str;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_a);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_b = [str <span class="keyword">copy</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出地址后，我们发现以下结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:15:45.169 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0xa00000000534f693</div></pre></td></tr></table></figure>
+<p>发现当令 NSString 对象指针指向一个 NSMutableString 类型变量通过 copy 方法返回的对象，则会对其进行<strong>深复制</strong>。这也就是我们一直所说的在一个 Class 的成员是 NSString 类型的时候，修饰属性应该使用 copy ，其实就是在使用 mutable 对象进行赋值的时候，防止 mutable 对象的改变从而影响成员变量。从 MRC 的角度来看待修饰属性，若一个属性的关键字为 retain （可等同于 strong ），则在进行指针的指向修改时，如上面的<code>self.one.name = str</code>，其实是执行了<code>self.one.name = [str retain]</code>，而 copy 类型的属性则会执行<code>self.one.name = [str copy]</code>。</p>
+<p>而在 Test 2 中，我们的实验是将一个 NSString 对象指向另外一个 NSString 对象，那么如果前者是 copy 的成员，还会进行<strong>深复制</strong>吗？进行下面的 Test 5，我们令 c_name 的修饰变量为 copy。</p>
 ]]></content>
     </entry>
     

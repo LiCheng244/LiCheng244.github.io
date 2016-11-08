@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,控制器," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LiCheng的博客">
-<meta property="og:url" content="http://www.licheng.date/tags/跳转/index.html">
+<meta name="description" content="简介
+ViewController是iOS开发中MVC模式中的C(视图控制器)，ViewController是view的controller，ViewController的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 深入理解控制器与类">
+<meta property="og:url" content="http://www.licheng.date/posts/深入理解控制器与类.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
+<meta property="og:description" content="简介
+ViewController是iOS开发中MVC模式中的C(视图控制器)，ViewController是view的controller，ViewController的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。">
+<meta property="og:updated_time" content="2016-11-08T09:52:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LiCheng的博客">
-<meta name="twitter:description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
+<meta name="twitter:title" content="iOS开发 - 深入理解控制器与类">
+<meta name="twitter:description" content="简介
+ViewController是iOS开发中MVC模式中的C(视图控制器)，ViewController是view的controller，ViewController的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。">
 
 
 
@@ -113,10 +117,10 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/tags/跳转/"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/深入理解控制器与类.html"/>
 
 
-  <title> 标签: 跳转 | LiCheng的博客 </title>
+  <title> iOS开发 - 深入理解控制器与类 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -258,46 +262,202 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        跳转
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - 深入理解控制器与类
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T12:00:00+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/深入理解控制器与类.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/深入理解控制器与类.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/深入理解控制器与类.html" class="leancloud_visitors" data-flag-title="iOS开发 - 深入理解控制器与类">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>ViewController是iOS开发中MVC模式中的C(视图控制器)，ViewController是view的controller，ViewController的职责主要包括管理内部各个view的加载显示和卸载，同时负责与其他ViewController的通信和协调。</p>
+</blockquote>
+<a id="more"></a>
+<p>在IOS中，有两类ViewController:    </p>
+<blockquote>
+<ul>
+<li><p>一类主要用于<b>展示内容</b>，比如<code>UIViewController</code>、<code>UITableViewController</code>等，同时还可以自定义继承自UIViewController的ViewController；</p>
+</li>
+<li><p>另一类是<b>ViewController容器</b>，<code>UINavigationViewController</code>和<code>UITabBarController</code>等，UINavigationController是以Stack的形式来存储和管理ViewController，UITabBarController是以Array的形式来管理ViewController。</p>
+</li>
+</ul>
+</blockquote>
+<p>不管是哪类ViewController,都继承自UIViewController</p>
+<hr>
+<h3 id="UIViewController-–-gt-生命周期方法"><a href="#UIViewController-–-gt-生命周期方法" class="headerlink" title="UIViewController –&gt; 生命周期方法"></a>UIViewController –&gt; 生命周期方法</h3><h4 id="控制器从创建到销毁方法的执行顺序"><a href="#控制器从创建到销毁方法的执行顺序" class="headerlink" title="控制器从创建到销毁方法的执行顺序"></a>控制器从创建到销毁方法的执行顺序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">load-&gt;initialize-&gt;init(initWithNibName)—&gt;  </div><div class="line">loadView—&gt;viewDidLoad—&gt;viewWillApper—&gt;viewDidApper—&gt;  </div><div class="line">viewWillDisapper—&gt;viewDidDisapper—&gt;viewWillUnload-&gt;  </div><div class="line">viewDidUnload—&gt;dealloc</div></pre></td></tr></table></figure>
+<p>其中<code>viewWillUnload</code>跟<code>viewDidUnLoad</code> 在iOS6以后就过期了.<br>收到<code>low-memory</code>时系统不会释放<code>view</code>，而只是释放<code>controller</code>的<code>resource</code>。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点:"></a>注意点:</h4><ul>
+<li><p><code>LoadView:</code>    </p>
+<ol>
+<li>控制器调用loadView方法创建控制器的view.当控制器的view存在了就不会调用.</li>
+<li>不要再LoadView中调用<code>[super loadView]</code>,会影响CPU性能</li>
+<li>苹果官方文档:    <ul>
+<li><blockquote>
+<p>You should never call this method directly. The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>当系统要展示这个控制器view的时候,会先去view的getter方法中寻找有没有返回view,如果<code>view == nil</code>,系统就会主动去调用这个方法.</p>
+</li>
+<li><p>控制器的view都是懒加载,当需要展示的时候才会去创建</p>
+<ol>
+<li>懒加载:重写getter方法</li>
+<li>好处:不用管什么时候需要创建,做到要用时再创建</li>
+</ol>
+</li>
+</ul>
+<h4 id="view的加载过程"><a href="#view的加载过程" class="headerlink" title="view的加载过程"></a>view的加载过程</h4>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/posts/跳转设置界面.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 APP跳转到相应的设置界面</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-28T12:00:00+08:00"
-              content="2016-10-28" >
-          10-28
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/控制器/" rel="tag">#控制器</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/短信验证码按钮效果.html" rel="next" title="iOS 短信验证码倒计时按钮的实现">
+                <i class="fa fa-chevron-left"></i> iOS 短信验证码倒计时按钮的实现
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/14785933237379.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -305,6 +465,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/深入理解控制器与类.html"
+           data-title="iOS开发 - 深入理解控制器与类" data-url="http://www.licheng.date/posts/深入理解控制器与类.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -324,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -375,6 +552,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIViewController-–-gt-生命周期方法"><span class="nav-number">2.</span> <span class="nav-text">UIViewController –> 生命周期方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#控制器从创建到销毁方法的执行顺序"><span class="nav-number">2.1.</span> <span class="nav-text">控制器从创建到销毁方法的执行顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">2.2.</span> <span class="nav-text">注意点:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#view的加载过程"><span class="nav-number">2.3.</span> <span class="nav-text">view的加载过程</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -471,6 +659,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

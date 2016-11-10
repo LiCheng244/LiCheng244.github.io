@@ -392,6 +392,164 @@
             
               
                 
+                <a class="post-title-link" href="/posts/load和initialize的区别  .html" itemprop="url">
+                  iOS开发 +(void)load 和 +(void)initialize 的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-10T12:00:00+08:00" content="2016-11-10">
+              2016-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/load和initialize的区别  .html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/load和initialize的区别  .html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/load和initialize的区别  .html" class="leancloud_visitors" data-flag-title="iOS开发 +(void)load 和 +(void)initialize 的区别">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>&#x5728;iOS&#x5F00;&#x53D1;&#x4E2D;,&#x5C31;&#x50CF;Application&#x6709;&#x751F;&#x547D;&#x5468;&#x671F;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x5728;Objective-C&#x7684;&#x7C7B;&#x88AB;&#x52A0;&#x8F7D;&#x548C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x65B9;&#x6CD5;&#x56DE;&#x8C03;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9002;&#x5F53;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x505A;&#x4E00;&#x4E9B;&#x5B9A;&#x5236;&#x5904;&#x7406;&#x3002;&#x800C;&#x8FD9;&#x6B63;&#x662F;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x6240;&#x8981;&#x4ECB;&#x7ECD;&#x7684; <b style="background-color:#f7eef1;color:#c75c8c">-(void)init</b> &#x548C; <b style="background-color:#f7eef1;color:#c75c8c">+(void)initialize</b> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x505A;&#x5230;&#x7684;&#x3002; </p>
+</blockquote>
+<h3 id="load&#x548C;initialize&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;"><a href="#load&#x548C;initialize&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;" class="headerlink" title="load&#x548C;initialize&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;"></a>load&#x548C;initialize&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;</h3><p> load &#x548C; initialize &#x6709;&#x5F88;&#x591A;&#x5171;&#x540C;&#x7279;&#x70B9;&#xFF0C;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x5217;&#x4E00;&#x4E0B;&#xFF1A;   </p>
+<ul>
+<li>&#x5728;&#x4E0D;&#x8003;&#x8651;&#x5F00;&#x53D1;&#x8005;&#x4E3B;&#x52A8;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7CFB;&#x7EDF;&#x6700;&#x591A;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x6B21;  </li>
+<li>&#x5982;&#x679C;&#x7236;&#x7C7B;&#x548C;&#x5B50;&#x7C7B;&#x90FD;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x7236;&#x7C7B;&#x7684;&#x8C03;&#x7528;&#x4E00;&#x5B9A;&#x5728;&#x5B50;&#x7C7B;&#x4E4B;&#x524D;  </li>
+<li>&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x5E94;&#x7528;&#x8FD0;&#x884C;&#x63D0;&#x524D;&#x521B;&#x5EFA;&#x5408;&#x9002;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;  </li>
+<li>&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x90FD;&#x4E0D;&#x8981;&#x8FC7;&#x91CD;&#x5730;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x9664;&#x975E;&#x771F;&#x6B63;&#x5FC5;&#x8981;  </li>
+</ul>
+<h3 id="load&#x65B9;&#x6CD5;"><a href="#load&#x65B9;&#x6CD5;" class="headerlink" title="+load&#x65B9;&#x6CD5;"></a>+load&#x65B9;&#x6CD5;</h3><ul>
+<li>&#x8C03;&#x7528;&#x65F6;&#x673A;&#x6BD4;&#x8F83;&#x65E9;&#xFF0C;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x6709;&#x4E0D;&#x786E;&#x5B9A;&#x56E0;&#x7D20;&#x3002;&#x901A;&#x5E38;&#x90FD;&#x662F; App &#x542F;&#x52A8;&#x524D;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C;&#x5F53; load &#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x7C7B;&#x90FD;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x4E14;&#x53EF;&#x7528;&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x8FD8;&#x8981;&#x81EA;&#x5DF1;&#x8D1F;&#x8D23;&#x505A; auto release &#x5904;&#x7406;.</li>
+<li>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7C7B;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; load &#x65B9;&#x6CD5;&#x5C31;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;,&#x4E0D;&#x4F1A;&#x8003;&#x8651;&#x5BF9; NSObject &#x7684;&#x7EE7;&#x627F;.</li>
+<li>&#x7236;&#x7C7B;&#x7684; load &#x65B9;&#x6CD5;&#x4F1A;&#x4F18;&#x5148;&#x4E8E;&#x5B50;&#x7C7B;&#x8C03;&#x7528;,&#x7C7B;&#x522B;&#x7684; load &#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x6700;&#x540E;&#x8C03;&#x7528;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x89E6;&#x53D1; initialize &#x7684;&#x8C03;&#x7528;&#x3002;</li>
+</ul>
+<p><strong>&#x901A;&#x4FD7;&#x7684;&#x8BB2;:</strong><br>&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x4E4B;&#x524D;&#x4F1A;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x7684;(&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x7684;) +load &#x65B9;&#x6CD5;(&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x5C31;&#x4E0D;&#x8C03;&#x7528;&#x54AF;),&#x6309;(&#x7236;&#x7C7B;-&gt;&#x5B50;&#x7C7B;-&gt;&#x7C7B;&#x522B;)&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528;.</p>
+<h3 id="initialize&#x65B9;&#x6CD5;"><a href="#initialize&#x65B9;&#x6CD5;" class="headerlink" title="+initialize&#x65B9;&#x6CD5;"></a>+initialize&#x65B9;&#x6CD5;</h3><ul>
+<li>initialize &#x7684;&#x81EA;&#x7136;&#x8C03;&#x7528;&#x662F;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x4E3B;&#x52A8;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7C7B;&#x7684;&#x65F6;&#x5019; (&#x7B2C;&#x4E00;&#x6B21; alloc &#x65F6;)</li>
+<li>&#x5728; initialize &#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x57FA;&#x672C;&#x5065;&#x5168;&#x3002;</li>
+<li>initialize &#x7684;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x662F;&#x80FD;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;</li>
+<li>&#x548C; load &#x4E0D;&#x540C;&#xFF0C;&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x4E0D;&#x5B9E;&#x73B0; initialize &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x628A;&#x7236;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x8FC7;&#x6765;&#x8C03;&#x7528;&#x4E00;&#x904D;&#x3002;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#xFF0C;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x88AB;&#x6267;&#x884C;&#x8FC7;&#x4E00;&#x6B21;&#x4E86;&#xFF0C;&#x540C;&#x6837;&#x4E0D;&#x9700;&#x8981; super &#x8C03;&#x7528;&#x3002;</li>
+</ul>
+<p><strong>&#x901A;&#x4FD7;&#x7684;&#x8BB2;:</strong><br>&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x4E4B;&#x540E;,&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;(&#x4E5F;&#x5C31;&#x662F;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7A7A;&#x95F4;alloc&#x7684;&#x65F6;&#x5019;),&#x4F1A;&#x8C03;&#x7528;&#x8BE5;&#x7C7B;&#x7684; +initialize &#x65B9;&#x6CD5;&#x4E14;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;. </p>
+<p><strong>&#x8C03;&#x7528;&#x987A;&#x5E8F;:</strong><br>1.&#x5982;&#x679C;&#x7236;&#x7C7B;&#x7684; initialize &#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x4F1A;&#x5148;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684; initialize &#x65B9;&#x6CD5;)<br>2.&#x5982;&#x679C;&#x8BE5;&#x7C7B;&#x6709;&#x7C7B;&#x522B;&#x53EA;&#x4F1A;&#x8C03;&#x7528;&#x7C7B;&#x522B;&#x7684; +initialize (&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x7C7B;&#x522B;&#x4F1A;&#x8C03;&#x7528;&#x67D0;&#x4E00;&#x4E2A;&#x7C7B;&#x522B;&#x7684; initialize &#x65B9;&#x6CD5;,&#x5176;&#x4ED6;&#x7684;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;)]</p>
+<p>&#x7531;&#x4E8E; initialize &#x7684;&#x8FD9;&#x4E9B;&#x7279;&#x70B9;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x5E94;&#x7528;&#x6BD4; load &#x8981;&#x7565;&#x5FAE;&#x5E7F;&#x6CDB;&#x4E00;&#x4E9B;&#x3002;&#x53EF;&#x7528;&#x6765;&#x505A;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#xFF0C;&#x6216;&#x8005;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x6848;&#x3002;</p>
+<h3 id="&#x5B98;&#x65B9;&#x6587;&#x6863;"><a href="#&#x5B98;&#x65B9;&#x6587;&#x6863;" class="headerlink" title="&#x5B98;&#x65B9;&#x6587;&#x6863;"></a>&#x5B98;&#x65B9;&#x6587;&#x6863;</h3><p>Apple&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5F88;&#x6E05;&#x695A;&#x5730;&#x8BF4;&#x660E;&#x4E86; initialize &#x548C; load &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF1A;</p>
+<blockquote>
+<p>load &#x662F;&#x53EA;&#x8981;&#x7C7B;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x88AB;&#x5F15;&#x7528;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x800C; initialize &#x662F;&#x5728;&#x7C7B;&#x6216;&#x8005;&#x5176;&#x5B50;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x524D;&#x8C03;&#x7528;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x7C7B;&#x6CA1;&#x6709;&#x88AB;&#x5F15;&#x7528;&#x8FDB;&#x9879;&#x76EE;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x6709; load &#x8C03;&#x7528;&#xFF1B;&#x4F46;&#x5373;&#x4F7F;&#x7C7B;&#x6587;&#x4EF6;&#x88AB;&#x5F15;&#x7528;&#x8FDB;&#x6765;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#xFF0C;&#x90A3;&#x4E48; initialize &#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+<p>&#x539F;&#x6587;&#x51FA;&#x5904;: <a href="http://blog.csdn.net/u010476174/article/details/48468737" target="_blank" rel="external">IOS&#x5F00;&#x53D1;+(void)load&#x4E0E;+(void)initialize&#x533A;&#x522B;</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/posts/深入理解控制器与类.html" itemprop="url">
                   iOS开发 - 深入理解控制器与类以及view的加载
                 </a>
@@ -790,8 +948,8 @@
             
               
                 
-                <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
-                  iOS 从经典问题来看 Copy 方法
+                <a class="post-title-link" href="/posts/MRC 和ARC 混编.html" itemprop="url">
+                  iOS开发 MRC 和ARC 混编
                 </a>
               
             
@@ -834,8 +992,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
+                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -845,7 +1003,7 @@
 
           
           
-             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
+             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 MRC 和ARC 混编">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -868,12 +1026,11 @@
 
       
         
-          <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
+          <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
+<p>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/Copy操作.html#more" rel="contents">
+            <a class="btn" href="/posts/MRC 和ARC 混编.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1057,8 +1214,8 @@
             
               
                 
-                <a class="post-title-link" href="/posts/MRC 和ARC 混编.html" itemprop="url">
-                  iOS开发 MRC 和ARC 混编
+                <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
+                  iOS 从经典问题来看 Copy 方法
                 </a>
               
             
@@ -1101,8 +1258,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
+                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1112,7 +1269,7 @@
 
           
           
-             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 MRC 和ARC 混编">
+             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1135,144 +1292,12 @@
 
       
         
-          <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
-<p>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
+          <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/MRC 和ARC 混编.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/posts/pch的创建.html" itemprop="url">
-                  iOS开发 关于pch文件的创建与配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
-              2016-11-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/pch的创建.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/pch的创建.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/posts/pch的创建.html" class="leancloud_visitors" data-flag-title="iOS开发 关于pch文件的创建与配置">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
-<p>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;<br>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;.</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/pch的创建.html#more" rel="contents">
+            <a class="btn" href="/posts/Copy操作.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1347,7 +1372,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1364,7 +1389,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

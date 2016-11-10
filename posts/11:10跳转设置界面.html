@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据存储," />
+  <meta name="keywords" content="iOS,跳转," />
 
 
 
@@ -84,27 +84,19 @@
 
 
 
-<meta name="description" content="简介
-CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的封装, 数据保存到一个数据库文件中(表).iOS5 以后才出现.它提供了对象-关系映射(ORM)的功能, 既能够将oc对象转化成数据保存在sqlite文件中, 也能将保存在数据库中的数据还原成oc对象.数据操作期间, 我们不需要编写任何的sql语句.数据最终的存储类型可以是：SQLite数据库，XML，二">
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x5D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 数据存储 CoreData的使用">
-<meta property="og:url" content="http://www.licheng.date/posts/CoreData的使用.html">
+<meta property="og:title" content="iOS开发 APP跳转到相应的设置界面">
+<meta property="og:url" content="http://www.licheng.date/posts/11:10跳转设置界面.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="简介
-CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的封装, 数据保存到一个数据库文件中(表).iOS5 以后才出现.它提供了对象-关系映射(ORM)的功能, 既能够将oc对象转化成数据保存在sqlite文件中, 也能将保存在数据库中的数据还原成oc对象.数据操作期间, 我们不需要编写任何的sql语句.数据最终的存储类型可以是：SQLite数据库，XML，二">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-036a03dec180ca9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-0a11757c6d46ff45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-7b81372c0979bb12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-543672f4693585b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-d50caf04845c5c6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-8c49644ef29bb95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-11-03T06:42:14.000Z">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x5D">
+<meta property="og:updated_time" content="2016-11-10T03:11:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 数据存储 CoreData的使用">
-<meta name="twitter:description" content="简介
-CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的封装, 数据保存到一个数据库文件中(表).iOS5 以后才出现.它提供了对象-关系映射(ORM)的功能, 既能够将oc对象转化成数据保存在sqlite文件中, 也能将保存在数据库中的数据还原成oc对象.数据操作期间, 我们不需要编写任何的sql语句.数据最终的存储类型可以是：SQLite数据库，XML，二">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS开发 APP跳转到相应的设置界面">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x5D">
 
 
 
@@ -125,10 +117,10 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/posts/CoreData的使用.html"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/11:10跳转设置界面.html"/>
 
 
-  <title> iOS 数据存储 CoreData的使用 | LiCheng的博客 </title>
+  <title> iOS开发 APP跳转到相应的设置界面 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +283,7 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
             
             
               
-                iOS 数据存储 CoreData的使用
+                iOS开发 APP跳转到相应的设置界面
               
             
           </h1>
@@ -303,8 +295,8 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
-              2016-11-03
+            <time itemprop="dateCreated" datetime="2016-10-28T12:00:00+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
@@ -333,8 +325,8 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/CoreData的使用.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/CoreData的使用.html" itemprop="commentsCount"></span>
+                <a href="/posts/11:10跳转设置界面.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/11:10跳转设置界面.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -344,7 +336,7 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
 
           
           
-             <span id="/posts/CoreData的使用.html" class="leancloud_visitors" data-flag-title="iOS 数据存储 CoreData的使用">
+             <span id="/posts/11:10跳转设置界面.html" class="leancloud_visitors" data-flag-title="iOS开发 APP跳转到相应的设置界面">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -366,56 +358,203 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
       
 
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
-<p>CoreData 是数据持久化存储的最佳方式.<br>CoreData 是基于 sqlite 的封装, 数据保存到一个数据库文件中(表).<br>iOS5 以后才出现.<br>它提供了对象-关系映射(ORM)的功能, 既能够将oc对象转化成数据保存在sqlite文件中, 也能将保存在数据库中的数据还原成oc对象.<br>数据操作期间, 我们不需要编写任何的sql语句.<br>数据最终的存储类型可以是：SQLite数据库，XML，二进制，内存里，或自定义数据类型.<br>好处：能够合理管理内存,避免使用sql的麻烦, 更高效. 不需要我们手动去创建model类, 可以通过一些操作, 制动生成.</p>
+        <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
+<p>&#x5728; iOS5.0 &#x4E4B;&#x540E; apple &#x5F00;&#x653E;&#x4E86; app &#x5BF9; setting &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; app &#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0; setting &#x7684;&#x8DF3;&#x8F6C;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
-<li><strong>NSManagedObjectContext</strong> 临时数据库 向<strong>NSPersistentStoreCoordinator</strong> 持久化存储助理 发送一个key(model名字)</li>
-<li><strong>NSPersistentStoreCoordinator</strong> 通过这个key 在 <strong>NSManagedObjectModel</strong> 数据模型中 找到这个model 对应的 表</li>
-<li><strong>NSManagedObjectModel</strong> 将这个表名  返回给 <strong>NSPersistentStoreCoordinator</strong></li>
-<li><strong>NSPersistentStoreCoordinator</strong> 通过 表名 找到 给表的 file 路径</li>
-<li><strong> NSPersistentStoreCoordinator </strong> 将这个路径 返回给  <strong>NSManagedObjectContext</strong></li>
-<li><strong>NSManagedObjectContext</strong> 对 数据进行 处理(增, 删 , 该, 查)</li>
-<li><strong>NSManagedObjectContext </strong><br>保存数据 save</li>
-</ol>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ol>
-<li><b style="color:red">创建模型文件:</b>一个模型文件相当于一个数据库.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><b style="color:red">添加实体:</b> <em>一个实体相当于一个表.(点击下面add entity 添加表, 点击atttibutes的+号 添加属性)</em><br><img src="http://upload-images.jianshu.io/upload_images/1975627-036a03dec180ca9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><b style="color:red">创建实体类:</b> 相当于模型类model.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-0a11757c6d46ff45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li><p><b style="color:red">生成上下文, 来关联模型文件生成数据库</b><br>生成上下文时, 如果有多个数据库,且生成多个数据库文件时, 要使用不同的上下文进行操作.</p>
-</li>
-<li><p><b style="color:red">从数据库查询对象</b><br>  过滤查询, 排序查询, 分组查询等等</p>
-</li>
-<li><p><b style="color:red">更新数据</b><br>  前提: 先查询, 再修改数据</p>
-</li>
-<li><p><b style="color:red">删除数据</b><br>  前提: 先查询, 再删除数据</p>
-</li>
-<li><p><b style="color:red">多表关联</b><br>  在relationships添加与其他表的关联<br>  注意: 添加完关联后, 该表的实体类要删除重新生成<br><img src="http://upload-images.jianshu.io/upload_images/1975627-7b81372c0979bb12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><b style="color:red">多个数据库</b><br>  生成上下文时, 如果有多个数据库,且生成多个数据库文件时, 要使用不同的上下文进行操作.</li>
-</ol>
-<h3 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h3><p>(1)<code>NSManagedObjectContext</code>（被管理的数据上下文）<br>操作实际内容（操作持久层） 临时数据库<br>作用：插入数据，查询数据，删除数据</p>
-<p>(2)<code>NSManagedObjectModel</code>（被管理的数据模型）<br>数据库所有表格或数据结构，包含各实体的定义信息    数据模型<br>作用：添加实体的属性，建立属性之间的关系<br>操作方法：视图编辑器，或代码</p>
-<p>(3)<code>NSPersistentStoreCoordinator</code>（持久化存储助理）<br>相当于数据库的连接器<br>作用：设置数据存储的名字，位置，存储方式，和存储时机</p>
-<p>(4)<code>NSManagedObject</code>（被管理的数据记录）<br>相当于数据库中的表格记录</p>
-<p>(5)<code>NSFetchRequest</code>（获取数据的请求）<br>相当于查询语句  查询时 要建立请求对象</p>
-<p>(6)<code>NSEntityDescription</code>（实体结构）<br>相当于表格结构</p>
-<p>(7)后缀为.xcdatamodeld的包<br>里面是.xcdatamodel文件，用数据模型编辑器编辑 . 编译后为.momd或.mom文件</p>
-<h3 id="SQLiteManager工具"><a href="#SQLiteManager工具" class="headerlink" title="SQLiteManager工具"></a>SQLiteManager工具</h3><ul>
-<li><p><code>Z_PK</code> : 主键 <code>ZDEPART</code>: 外键<br><img src="http://upload-images.jianshu.io/upload_images/1975627-543672f4693585b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-<li><p>打开CoreData的sql语句:<br>按照下图操作后, 使用CoreData时 会在控制台输出sql语句:<br><img src="http://upload-images.jianshu.io/upload_images/1975627-d50caf04845c5c6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>添加-com.apple.CoreData.SQLDebug 和 1 两行<br>注意: 这两行的顺序如图所示, 不能调换.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-8c49644ef29bb95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-</ul>
-<h3 id="SQLite-和-CoreData-的对比"><a href="#SQLite-和-CoreData-的对比" class="headerlink" title="SQLite 和 CoreData 的对比"></a>SQLite 和 CoreData 的对比</h3><blockquote>
-<ol>
-<li>sqlite是纯C语言存储方式.</li>
-<li>CoreData是对sqlite的封装, 它的数据的保存直接使用对象, 不用再写sql语句.</li>
-<li>性能方面: sqlite 优于 CoreData</li>
-<li>什么时候使用sqlite 和 CoreData?<br>  如果数据库表关联比较复杂时, 三四张表都关联, 那就使用sqlite<br>  如果数据库表结构比较简单, 表之间没有关系, 使用CoreData</li>
-</ol>
-</blockquote>
+<h3 id="&#x7528;&#x6CD5;"><a href="#&#x7528;&#x6CD5;" class="headerlink" title="&#x7528;&#x6CD5;"></a>&#x7528;&#x6CD5;</h3><p>&#x5176;&#x5B9E;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#x4E3B;&#x8981;&#x662F;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span>*url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;prefs:root=&#x53C2;&#x6570;&quot;</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url]</div><div class="line">{</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url]; </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="&#x5E38;&#x7528;&#x53C2;&#x6570;"><a href="#&#x5E38;&#x7528;&#x53C2;&#x6570;" class="headerlink" title="&#x5E38;&#x7528;&#x53C2;&#x6570;"></a>&#x5E38;&#x7528;&#x53C2;&#x6570;</h3><table>
+<thead>
+<tr>
+<th>&#x82F1;&#x6587;</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x4E2D;&#x6587;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>About</td>
+<td>prefs : root=General&amp;path=About</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>prefs:root=General&amp;path=ACCESSIBILITY</td>
+<td></td>
+</tr>
+<tr>
+<td>Airplane Mode On</td>
+<td>prefs:root=AIRPLANE_MODE</td>
+<td>&#x98DE;&#x884C;&#x6A21;&#x5F0F;</td>
+</tr>
+<tr>
+<td>Auto-Lock</td>
+<td>prefs:root=General&amp;path=AUTOLOCK</td>
+<td></td>
+</tr>
+<tr>
+<td>Brightness</td>
+<td>prefs:root=Brightness</td>
+<td></td>
+</tr>
+<tr>
+<td>Bluetooth</td>
+<td>prefs:root=General&amp;path=Bluetooth</td>
+<td>&#x84DD;&#x7259;</td>
+</tr>
+<tr>
+<td>Date &amp; Time</td>
+<td>prefs:root=General&amp;path=DATE_AND_TIME</td>
+<td>&#x65E5;&#x671F;</td>
+</tr>
+<tr>
+<td>FaceTime</td>
+<td>prefs:root=FACETIME</td>
+<td>&#x89C6;&#x9891;</td>
+</tr>
+<tr>
+<td>General</td>
+<td>prefs:root=General</td>
+<td></td>
+</tr>
+<tr>
+<td>Keyboard</td>
+<td>prefs:root=General&amp;path=Keyboard</td>
+<td>&#x952E;&#x76D8;</td>
+</tr>
+<tr>
+<td>iCloud</td>
+<td>prefs:root=CASTLE</td>
+<td>&#x4E91;</td>
+</tr>
+<tr>
+<td>iCloud Storage &amp; Backup</td>
+<td>prefs:root=CASTLE&amp;path=STORAGE_AND_BACKUP</td>
+<td>&#x4E91;&#x5B58;&#x50A8;&#x4E0E;&#x5907;&#x4EFD;</td>
+</tr>
+<tr>
+<td>International</td>
+<td>prefs:root=General&amp;path=INTERNATIONAL</td>
+<td></td>
+</tr>
+<tr>
+<td>Location Services</td>
+<td>prefs:root=LOCATION_SERVICES</td>
+<td>&#x4F4D;&#x7F6E;&#x670D;&#x52A1;</td>
+</tr>
+<tr>
+<td>Music</td>
+<td>prefs:root=MUSIC</td>
+<td>&#x97F3;&#x4E50;</td>
+</tr>
+<tr>
+<td>Music Equalizer</td>
+<td>prefs:root=MUSIC&amp;path=EQ</td>
+<td>&#x97F3;&#x4E50;&#x5747;&#x8861;&#x5668;</td>
+</tr>
+<tr>
+<td>Music Volume Limit</td>
+<td>prefs:root=MUSIC&amp;path=VolumeLimit</td>
+<td>&#x97F3;&#x4E50;&#x97F3;&#x91CF;&#x9650;&#x5236;</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>prefs:root=General&amp;path=Network</td>
+<td>&#x7F51;&#x7EDC;</td>
+</tr>
+<tr>
+<td>Nike + iPod</td>
+<td>prefs:root=NIKE_PLUS_IPOD</td>
+<td></td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>prefs:root=NOTES</td>
+<td></td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>prefs:root=NOTIFICATIONS_ID</td>
+<td>&#x901A;&#x77E5;</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td>prefs:root=Phone</td>
+<td>&#x7535;&#x8BDD;</td>
+</tr>
+<tr>
+<td>Photos</td>
+<td>prefs:root=Photos</td>
+<td>&#x7167;&#x7247;</td>
+</tr>
+<tr>
+<td>Profile</td>
+<td>prefs:root=General&amp;path=ManagedConfigurationList</td>
+<td></td>
+</tr>
+<tr>
+<td>Reset</td>
+<td>prefs:root=General&amp;path=Reset</td>
+<td>&#x91CD;&#x542F;</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>prefs:root=Safari</td>
+<td>&#x6D4F;&#x89C8;&#x5668;</td>
+</tr>
+<tr>
+<td>Siri</td>
+<td>prefs:root=General&amp;path=Assistant</td>
+<td>&#x8BED;&#x97F3;&#x63A7;&#x5236;</td>
+</tr>
+<tr>
+<td>Sounds</td>
+<td>prefs:root=Sounds</td>
+<td>&#x97F3;&#x6548;</td>
+</tr>
+<tr>
+<td>Software Update</td>
+<td>prefs:root=General&amp;path=SOFTWARE_UPDATE_LINK</td>
+<td>&#x8F6F;&#x4EF6;&#x66F4;&#x65B0;</td>
+</tr>
+<tr>
+<td>Store</td>
+<td>prefs:root=STORE</td>
+<td></td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td>prefs:root=TWITTER</td>
+<td>&#x535A;&#x5BA2;</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>prefs:root=General&amp;path=USAGE</td>
+<td></td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>prefs:root=General&amp;path=Network/VPN</td>
+<td></td>
+</tr>
+<tr>
+<td>Wallpaper</td>
+<td>prefs:root=Wallpaper</td>
+<td>&#x58C1;&#x7EB8;</td>
+</tr>
+<tr>
+<td>Wi-Fi</td>
+<td>prefs:root=WIFI  INTERNET_TETHERING</td>
+<td>&#x65E0;&#x7EBF;&#x7F51;</td>
+</tr>
+<tr>
+<td>Internet_tethering</td>
+<td>prefs:root= INTERNET_TETHERING</td>
+<td>&#x7F51;&#x7EDC;&#x5171;&#x4EAB;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6709;&#x4E00;&#x4E9B;&#x6CA1;&#x6709;&#x67E5;&#x5230;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;, &#x5927;&#x5BB6;&#x67E5;&#x5230;&#x7684;&#x53EF;&#x4EE5;&#x5728;&#x4E0B;&#x65B9;&#x8BC4;&#x8BBA;,&#x8C22;&#x8C22;!</p>
 
       
     </div>
@@ -438,7 +577,9 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
       
         <div class="post-tags">
           
-            <a href="/tags/数据存储/" rel="tag">#数据存储</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/跳转/" rel="tag">#跳转</a>
           
         </div>
       
@@ -447,16 +588,16 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/NSUserDefaults.html" rel="next" title="iOS 数据存储 NSUserDefaults 的使用">
-                <i class="fa fa-chevron-left"></i> iOS 数据存储 NSUserDefaults 的使用
+              <a href="/posts/11:10给Label加下划线、中划线.html" rel="next" title="iOS开发  给Label加下划线、中划线">
+                <i class="fa fa-chevron-left"></i> iOS开发  给Label加下划线、中划线
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/MRC 和ARC 混编.html" rel="prev" title="iOS开发 MRC 和ARC 混编">
-                iOS开发 MRC 和ARC 混编 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/11:10集合遍历.html" rel="prev" title="iOS 遍历集合(NSArray，NSDictionary、NSSet)方法总结">
+                iOS 遍历集合(NSArray，NSDictionary、NSSet)方法总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -483,8 +624,8 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/CoreData的使用.html"
-           data-title="iOS 数据存储 CoreData的使用" data-url="http://www.licheng.date/posts/CoreData的使用.html">
+      <div class="ds-thread" data-thread-key="posts/11:10跳转设置界面.html"
+           data-title="iOS开发 APP跳转到相应的设置界面" data-url="http://www.licheng.date/posts/11:10跳转设置界面.html">
       </div>
     
   </div>
@@ -529,7 +670,7 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -575,7 +716,7 @@ CoreData 是数据持久化存储的最佳方式.CoreData 是基于 sqlite 的�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">3.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成"><span class="nav-number">4.</span> <span class="nav-text">构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLiteManager工具"><span class="nav-number">5.</span> <span class="nav-text">SQLiteManager工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite-和-CoreData-的对比"><span class="nav-number">6.</span> <span class="nav-text">SQLite 和 CoreData 的对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用参数"><span class="nav-number">3.</span> <span class="nav-text">常用参数</span></a></li></ol></div>
             
           </div>
         </section>

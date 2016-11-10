@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="项目配置," />
+  <meta name="keywords" content="数据存储," />
 
 
 
@@ -84,21 +84,27 @@
 
 
 
-<meta name="description" content="引言
-iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一">
+<meta name="description" content="&amp;#x7B80;&amp;#x4ECB;
+CoreData &amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x5B58;&amp;#x50A8;&amp;#x7684;&amp;#x6700;&amp;#x4F73;&amp;#x65B9;&amp;#x5F0F;.CoreData &amp;#x662F;&amp;#x57FA;&amp;#x4E8E; sqlite &amp;#x7684;&amp;#x5C01;&amp;#x88C5;, &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发 MRC 和ARC 混编">
-<meta property="og:url" content="http://www.licheng.date/posts/MRC 和ARC 混编.html">
+<meta property="og:title" content="iOS 数据存储 CoreData的使用">
+<meta property="og:url" content="http://www.licheng.date/posts/11:10CoreData的使用.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="引言
-iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-11-03T07:11:12.000Z">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x4ECB;
+CoreData &amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x5B58;&amp;#x50A8;&amp;#x7684;&amp;#x6700;&amp;#x4F73;&amp;#x65B9;&amp;#x5F0F;.CoreData &amp;#x662F;&amp;#x57FA;&amp;#x4E8E; sqlite &amp;#x7684;&amp;#x5C01;&amp;#x88C5;, &amp;#">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-036a03dec180ca9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-0a11757c6d46ff45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-7b81372c0979bb12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-543672f4693585b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-d50caf04845c5c6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-8c49644ef29bb95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-11-10T03:12:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发 MRC 和ARC 混编">
-<meta name="twitter:description" content="引言
-iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS 数据存储 CoreData的使用">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x4ECB;
+CoreData &amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x6301;&amp;#x4E45;&amp;#x5316;&amp;#x5B58;&amp;#x50A8;&amp;#x7684;&amp;#x6700;&amp;#x4F73;&amp;#x65B9;&amp;#x5F0F;.CoreData &amp;#x662F;&amp;#x57FA;&amp;#x4E8E; sqlite &amp;#x7684;&amp;#x5C01;&amp;#x88C5;, &amp;#">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -119,10 +125,10 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/posts/MRC 和ARC 混编.html"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/11:10CoreData的使用.html"/>
 
 
-  <title> iOS开发 MRC 和ARC 混编 | LiCheng的博客 </title>
+  <title> iOS 数据存储 CoreData的使用 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +291,7 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
             
             
               
-                iOS开发 MRC 和ARC 混编
+                iOS 数据存储 CoreData的使用
               
             
           </h1>
@@ -327,8 +333,8 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
+                <a href="/posts/11:10CoreData的使用.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/11:10CoreData的使用.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,7 +344,7 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
 
           
           
-             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 MRC 和ARC 混编">
+             <span id="/posts/11:10CoreData的使用.html" class="leancloud_visitors" data-flag-title="iOS 数据存储 CoreData的使用">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,13 +366,60 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
       
 
       
-        <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><blockquote>
-<p>iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引用计数）来代替之前的MRC（Manual Reference Counting：人工引用计数）来进行内存管理。使用ARC会减少很多代码和忘了释放对象的苦恼。但是事情都有两面性。使用了ARC之后如果你想复用以前写过的使用MRC的类， 就会出报错。这时候怎么办？方法比较简单， 只需要做下面的一个步骤就可以解决：</p>
+        <h3 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</h3><blockquote>
+<p>CoreData &#x662F;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x5F0F;.<br>CoreData &#x662F;&#x57FA;&#x4E8E; sqlite &#x7684;&#x5C01;&#x88C5;, &#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x4E2D;(&#x8868;).<br>iOS5 &#x4EE5;&#x540E;&#x624D;&#x51FA;&#x73B0;.<br>&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x8C61;-&#x5173;&#x7CFB;&#x6620;&#x5C04;(ORM)&#x7684;&#x529F;&#x80FD;, &#x65E2;&#x80FD;&#x591F;&#x5C06;oc&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x6210;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;sqlite&#x6587;&#x4EF6;&#x4E2D;, &#x4E5F;&#x80FD;&#x5C06;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8FD8;&#x539F;&#x6210;oc&#x5BF9;&#x8C61;.<br>&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x671F;&#x95F4;, &#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4EFB;&#x4F55;&#x7684;sql&#x8BED;&#x53E5;.<br>&#x6570;&#x636E;&#x6700;&#x7EC8;&#x7684;&#x5B58;&#x50A8;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;SQLite&#x6570;&#x636E;&#x5E93;&#xFF0C;XML&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#xFF0C;&#x5185;&#x5B58;&#x91CC;&#xFF0C;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x7C7B;&#x578B;.<br>&#x597D;&#x5904;&#xFF1A;&#x80FD;&#x591F;&#x5408;&#x7406;&#x7BA1;&#x7406;&#x5185;&#x5B58;,&#x907F;&#x514D;&#x4F7F;&#x7528;sql&#x7684;&#x9EBB;&#x70E6;, &#x66F4;&#x9AD8;&#x6548;. &#x4E0D;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x53BB;&#x521B;&#x5EFA;model&#x7C7B;, &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;, &#x5236;&#x52A8;&#x751F;&#x6210;.</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="ARC项目-加入-MRC-文件"><a href="#ARC项目-加入-MRC-文件" class="headerlink" title="ARC项目 : 加入 MRC 文件"></a>ARC项目 : 加入 MRC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fno-objc-arc</code></p>
-<h3 id="MRC项目-加入-ARC-文件"><a href="#MRC项目-加入-ARC-文件" class="headerlink" title="MRC项目 : 加入 ARC 文件"></a>MRC项目 : 加入 ARC 文件</h3><p>需要设置:<br>选择target －&gt; build phases －&gt; compile sources －&gt; 单击ARC的文件将<code>compiler flags</code>设置为： <code>-fobjc-arc</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC 和 ARC 混编"></p>
+<h3 id="&#x5DE5;&#x4F5C;&#x539F;&#x7406;"><a href="#&#x5DE5;&#x4F5C;&#x539F;&#x7406;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x539F;&#x7406;"></a>&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3><ol>
+<li><strong>NSManagedObjectContext</strong> &#x4E34;&#x65F6;&#x6570;&#x636E;&#x5E93; &#x5411;<strong>NSPersistentStoreCoordinator</strong> &#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x52A9;&#x7406; &#x53D1;&#x9001;&#x4E00;&#x4E2A;key(model&#x540D;&#x5B57;)</li>
+<li><strong>NSPersistentStoreCoordinator</strong> &#x901A;&#x8FC7;&#x8FD9;&#x4E2A;key &#x5728; <strong>NSManagedObjectModel</strong> &#x6570;&#x636E;&#x6A21;&#x578B;&#x4E2D; &#x627E;&#x5230;&#x8FD9;&#x4E2A;model &#x5BF9;&#x5E94;&#x7684; &#x8868;</li>
+<li><strong>NSManagedObjectModel</strong> &#x5C06;&#x8FD9;&#x4E2A;&#x8868;&#x540D;  &#x8FD4;&#x56DE;&#x7ED9; <strong>NSPersistentStoreCoordinator</strong></li>
+<li><strong>NSPersistentStoreCoordinator</strong> &#x901A;&#x8FC7; &#x8868;&#x540D; &#x627E;&#x5230; &#x7ED9;&#x8868;&#x7684; file &#x8DEF;&#x5F84;</li>
+<li><strong>NSPersistentStoreCoordinator</strong> &#x5C06;&#x8FD9;&#x4E2A;&#x8DEF;&#x5F84; &#x8FD4;&#x56DE;&#x7ED9; <strong>NSManagedObjectContext</strong></li>
+<li><strong>NSManagedObjectContext</strong> &#x5BF9; &#x6570;&#x636E;&#x8FDB;&#x884C; &#x5904;&#x7406;(&#x589E;, &#x5220; , &#x8BE5;, &#x67E5;)</li>
+<li><strong>NSManagedObjectContext</strong> &#x4FDD;&#x5B58;&#x6570;&#x636E; save</li>
+</ol>
+<h3 id="&#x4F7F;&#x7528;&#x6B65;&#x9AA4;"><a href="#&#x4F7F;&#x7528;&#x6B65;&#x9AA4;" class="headerlink" title="&#x4F7F;&#x7528;&#x6B65;&#x9AA4;"></a>&#x4F7F;&#x7528;&#x6B65;&#x9AA4;</h3><ol>
+<li><b style="color:red">&#x521B;&#x5EFA;&#x6A21;&#x578B;&#x6587;&#x4EF6;:</b>&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-57ef108b72733513.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><b style="color:red">&#x6DFB;&#x52A0;&#x5B9E;&#x4F53;:</b> <em>&#x4E00;&#x4E2A;&#x5B9E;&#x4F53;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x8868;.(&#x70B9;&#x51FB;&#x4E0B;&#x9762;add entity &#x6DFB;&#x52A0;&#x8868;, &#x70B9;&#x51FB;atttibutes&#x7684;+&#x53F7; &#x6DFB;&#x52A0;&#x5C5E;&#x6027;)</em><br><img src="http://upload-images.jianshu.io/upload_images/1975627-036a03dec180ca9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><b style="color:red">&#x521B;&#x5EFA;&#x5B9E;&#x4F53;&#x7C7B;:</b> &#x76F8;&#x5F53;&#x4E8E;&#x6A21;&#x578B;&#x7C7B;model.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-0a11757c6d46ff45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><p><b style="color:red">&#x751F;&#x6210;&#x4E0A;&#x4E0B;&#x6587;, &#x6765;&#x5173;&#x8054;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x751F;&#x6210;&#x6570;&#x636E;&#x5E93;</b><br>&#x751F;&#x6210;&#x4E0A;&#x4E0B;&#x6587;&#x65F6;, &#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;,&#x4E14;&#x751F;&#x6210;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x65F6;, &#x8981;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;.</p>
+</li>
+<li><p><b style="color:red">&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x5BF9;&#x8C61;</b><br>  &#x8FC7;&#x6EE4;&#x67E5;&#x8BE2;, &#x6392;&#x5E8F;&#x67E5;&#x8BE2;, &#x5206;&#x7EC4;&#x67E5;&#x8BE2;&#x7B49;&#x7B49;</p>
+</li>
+<li><p><b style="color:red">&#x66F4;&#x65B0;&#x6570;&#x636E;</b><br>  &#x524D;&#x63D0;: &#x5148;&#x67E5;&#x8BE2;, &#x518D;&#x4FEE;&#x6539;&#x6570;&#x636E;</p>
+</li>
+<li><p><b style="color:red">&#x5220;&#x9664;&#x6570;&#x636E;</b><br>  &#x524D;&#x63D0;: &#x5148;&#x67E5;&#x8BE2;, &#x518D;&#x5220;&#x9664;&#x6570;&#x636E;</p>
+</li>
+<li><p><b style="color:red">&#x591A;&#x8868;&#x5173;&#x8054;</b><br>  &#x5728;relationships&#x6DFB;&#x52A0;&#x4E0E;&#x5176;&#x4ED6;&#x8868;&#x7684;&#x5173;&#x8054;<br>  &#x6CE8;&#x610F;: &#x6DFB;&#x52A0;&#x5B8C;&#x5173;&#x8054;&#x540E;, &#x8BE5;&#x8868;&#x7684;&#x5B9E;&#x4F53;&#x7C7B;&#x8981;&#x5220;&#x9664;&#x91CD;&#x65B0;&#x751F;&#x6210;<br><img src="http://upload-images.jianshu.io/upload_images/1975627-7b81372c0979bb12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><b style="color:red">&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;</b><br>  &#x751F;&#x6210;&#x4E0A;&#x4E0B;&#x6587;&#x65F6;, &#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;,&#x4E14;&#x751F;&#x6210;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x65F6;, &#x8981;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;.</li>
+</ol>
+<h3 id="&#x6784;&#x6210;"><a href="#&#x6784;&#x6210;" class="headerlink" title="&#x6784;&#x6210;"></a>&#x6784;&#x6210;</h3><p>(1)<code>NSManagedObjectContext</code>&#xFF08;&#x88AB;&#x7BA1;&#x7406;&#x7684;&#x6570;&#x636E;&#x4E0A;&#x4E0B;&#x6587;&#xFF09;<br>&#x64CD;&#x4F5C;&#x5B9E;&#x9645;&#x5185;&#x5BB9;&#xFF08;&#x64CD;&#x4F5C;&#x6301;&#x4E45;&#x5C42;&#xFF09; &#x4E34;&#x65F6;&#x6570;&#x636E;&#x5E93;<br>&#x4F5C;&#x7528;&#xFF1A;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#xFF0C;&#x5220;&#x9664;&#x6570;&#x636E;</p>
+<p>(2)<code>NSManagedObjectModel</code>&#xFF08;&#x88AB;&#x7BA1;&#x7406;&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;&#xFF09;<br>&#x6570;&#x636E;&#x5E93;&#x6240;&#x6709;&#x8868;&#x683C;&#x6216;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5305;&#x542B;&#x5404;&#x5B9E;&#x4F53;&#x7684;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;    &#x6570;&#x636E;&#x6A21;&#x578B;<br>&#x4F5C;&#x7528;&#xFF1A;&#x6DFB;&#x52A0;&#x5B9E;&#x4F53;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5EFA;&#x7ACB;&#x5C5E;&#x6027;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;<br>&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF1A;&#x89C6;&#x56FE;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x6216;&#x4EE3;&#x7801;</p>
+<p>(3)<code>NSPersistentStoreCoordinator</code>&#xFF08;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x52A9;&#x7406;&#xFF09;<br>&#x76F8;&#x5F53;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x7684;&#x8FDE;&#x63A5;&#x5668;<br>&#x4F5C;&#x7528;&#xFF1A;&#x8BBE;&#x7F6E;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4F4D;&#x7F6E;&#xFF0C;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;&#xFF0C;&#x548C;&#x5B58;&#x50A8;&#x65F6;&#x673A;</p>
+<p>(4)<code>NSManagedObject</code>&#xFF08;&#x88AB;&#x7BA1;&#x7406;&#x7684;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#xFF09;<br>&#x76F8;&#x5F53;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x683C;&#x8BB0;&#x5F55;</p>
+<p>(5)<code>NSFetchRequest</code>&#xFF08;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7684;&#x8BF7;&#x6C42;&#xFF09;<br>&#x76F8;&#x5F53;&#x4E8E;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;  &#x67E5;&#x8BE2;&#x65F6; &#x8981;&#x5EFA;&#x7ACB;&#x8BF7;&#x6C42;&#x5BF9;&#x8C61;</p>
+<p>(6)<code>NSEntityDescription</code>&#xFF08;&#x5B9E;&#x4F53;&#x7ED3;&#x6784;&#xFF09;<br>&#x76F8;&#x5F53;&#x4E8E;&#x8868;&#x683C;&#x7ED3;&#x6784;</p>
+<p>(7)&#x540E;&#x7F00;&#x4E3A;.xcdatamodeld&#x7684;&#x5305;<br>&#x91CC;&#x9762;&#x662F;.xcdatamodel&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6570;&#x636E;&#x6A21;&#x578B;&#x7F16;&#x8F91;&#x5668;&#x7F16;&#x8F91; . &#x7F16;&#x8BD1;&#x540E;&#x4E3A;.momd&#x6216;.mom&#x6587;&#x4EF6;</p>
+<h3 id="SQLiteManager&#x5DE5;&#x5177;"><a href="#SQLiteManager&#x5DE5;&#x5177;" class="headerlink" title="SQLiteManager&#x5DE5;&#x5177;"></a>SQLiteManager&#x5DE5;&#x5177;</h3><ul>
+<li><p><code>Z_PK</code> : &#x4E3B;&#x952E; <code>ZDEPART</code>: &#x5916;&#x952E;<br><img src="http://upload-images.jianshu.io/upload_images/1975627-543672f4693585b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>&#x6253;&#x5F00;CoreData&#x7684;sql&#x8BED;&#x53E5;:<br>&#x6309;&#x7167;&#x4E0B;&#x56FE;&#x64CD;&#x4F5C;&#x540E;, &#x4F7F;&#x7528;CoreData&#x65F6; &#x4F1A;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x51FA;sql&#x8BED;&#x53E5;:<br><img src="http://upload-images.jianshu.io/upload_images/1975627-d50caf04845c5c6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>&#x6DFB;&#x52A0;-com.apple.CoreData.SQLDebug &#x548C; 1 &#x4E24;&#x884C;<br>&#x6CE8;&#x610F;: &#x8FD9;&#x4E24;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x5982;&#x56FE;&#x6240;&#x793A;, &#x4E0D;&#x80FD;&#x8C03;&#x6362;.<br><img src="http://upload-images.jianshu.io/upload_images/1975627-8c49644ef29bb95f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+</ul>
+<h3 id="SQLite-&#x548C;-CoreData-&#x7684;&#x5BF9;&#x6BD4;"><a href="#SQLite-&#x548C;-CoreData-&#x7684;&#x5BF9;&#x6BD4;" class="headerlink" title="SQLite &#x548C; CoreData &#x7684;&#x5BF9;&#x6BD4;"></a>SQLite &#x548C; CoreData &#x7684;&#x5BF9;&#x6BD4;</h3><blockquote>
+<ol>
+<li>sqlite&#x662F;&#x7EAF;C&#x8BED;&#x8A00;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;.</li>
+<li>CoreData&#x662F;&#x5BF9;sqlite&#x7684;&#x5C01;&#x88C5;, &#x5B83;&#x7684;&#x6570;&#x636E;&#x7684;&#x4FDD;&#x5B58;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;, &#x4E0D;&#x7528;&#x518D;&#x5199;sql&#x8BED;&#x53E5;.</li>
+<li>&#x6027;&#x80FD;&#x65B9;&#x9762;: sqlite &#x4F18;&#x4E8E; CoreData</li>
+<li>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x4F7F;&#x7528;sqlite &#x548C; CoreData?<ul>
+<li>&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x8868;&#x5173;&#x8054;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x65F6;, &#x4E09;&#x56DB;&#x5F20;&#x8868;&#x90FD;&#x5173;&#x8054;, &#x90A3;&#x5C31;&#x4F7F;&#x7528;sqlite</li>
+<li>&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x8868;&#x7ED3;&#x6784;&#x6BD4;&#x8F83;&#x7B80;&#x5355;, &#x8868;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x5173;&#x7CFB;, &#x4F7F;&#x7528;CoreData</li>
+</ul>
+</li>
+</ol>
+</blockquote>
 
       
     </div>
@@ -389,7 +442,7 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
       
         <div class="post-tags">
           
-            <a href="/tags/项目配置/" rel="tag">#项目配置</a>
+            <a href="/tags/数据存储/" rel="tag">#数据存储</a>
           
         </div>
       
@@ -398,16 +451,16 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/CoreData的使用.html" rel="next" title="iOS 数据存储 CoreData的使用">
-                <i class="fa fa-chevron-left"></i> iOS 数据存储 CoreData的使用
+              <a href="/posts/11:10NSUserDefaults.html" rel="next" title="iOS 数据存储 NSUserDefaults 的使用">
+                <i class="fa fa-chevron-left"></i> iOS 数据存储 NSUserDefaults 的使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/短信验证码按钮效果.html" rel="prev" title="iOS 短信验证码倒计时按钮的实现">
-                iOS 短信验证码倒计时按钮的实现 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/11:10MRC 和ARC 混编.html" rel="prev" title="iOS开发 MRC 和ARC 混编">
+                iOS开发 MRC 和ARC 混编 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -434,8 +487,8 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/MRC 和ARC 混编.html"
-           data-title="iOS开发 MRC 和ARC 混编" data-url="http://www.licheng.date/posts/MRC 和ARC 混编.html">
+      <div class="ds-thread" data-thread-key="posts/11:10CoreData的使用.html"
+           data-title="iOS 数据存储 CoreData的使用" data-url="http://www.licheng.date/posts/11:10CoreData的使用.html">
       </div>
     
   </div>
@@ -480,7 +533,7 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -526,7 +579,7 @@ iOS5.0以后就开始可以使用ARC（ Automatic Reference Counting：自动引
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARC项目-加入-MRC-文件"><span class="nav-number">2.</span> <span class="nav-text">ARC项目 : 加入 MRC 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MRC项目-加入-ARC-文件"><span class="nav-number">3.</span> <span class="nav-text">MRC项目 : 加入 ARC 文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">3.</span> <span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构成"><span class="nav-number">4.</span> <span class="nav-text">构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLiteManager工具"><span class="nav-number">5.</span> <span class="nav-text">SQLiteManager工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite-和-CoreData-的对比"><span class="nav-number">6.</span> <span class="nav-text">SQLite 和 CoreData 的对比</span></a></li></ol></div>
             
           </div>
         </section>

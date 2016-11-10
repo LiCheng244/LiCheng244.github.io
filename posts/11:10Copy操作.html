@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="在初学 iOS 的时候，可能会被灌输这么一个常识，切记: NSString 的 property 的修饰变量要写作 copy ，而不是 strong。那么这是为什么？
-
-经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?">
+<meta name="description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 从经典问题来看 Copy 方法">
-<meta property="og:url" content="http://www.licheng.date/posts/Copy操作.html">
+<meta property="og:url" content="http://www.licheng.date/posts/11:10Copy操作.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="在初学 iOS 的时候，可能会被灌输这么一个常识，切记: NSString 的 property 的修饰变量要写作 copy ，而不是 strong。那么这是为什么？
-
-经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?">
-<meta property="og:updated_time" content="2016-11-03T06:17:39.000Z">
+<meta property="og:description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
+<meta property="og:updated_time" content="2016-11-10T03:11:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 从经典问题来看 Copy 方法">
-<meta name="twitter:description" content="在初学 iOS 的时候，可能会被灌输这么一个常识，切记: NSString 的 property 的修饰变量要写作 copy ，而不是 strong。那么这是为什么？
-
-经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
 
 
 
@@ -120,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/posts/Copy操作.html"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/11:10Copy操作.html"/>
 
 
   <title> iOS 从经典问题来看 Copy 方法 | LiCheng的博客 </title>
@@ -328,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
+                <a href="/posts/11:10Copy操作.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/11:10Copy操作.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -339,7 +333,7 @@
 
           
           
-             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
+             <span id="/posts/11:10Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,31 +355,31 @@
       
 
       
-        <p>在初学 iOS 的时候，可能会被灌输这么一个常识，切记: <strong>NSString 的 property 的修饰变量要写作 copy ，而不是 strong。</strong>那么这是为什么？</p>
+        <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
 <blockquote>
-<p><strong>经典面试题：为什么 NSString 类型成员变量的修饰属性用 copy 而不是 strong (或 retain ) ?</strong></p>
+<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
 </blockquote>
 <a id="more"></a>
-<h2 id="Copy操作"><a href="#Copy操作" class="headerlink" title="Copy操作"></a>Copy操作</h2><p>###测试1:<br>模拟一个程序设计错误的场景。有一个叫做 Person 的 Class，其中它拥有一个 NSString 类型的 <code>s_name</code> 属性（代表 name 是 strong），我们想给一个对象的<code>s_name</code> 赋值，并且之前的赋值变量还想重复使用到其他场景。所以，我们在引入这个 Class 的 ViewController 进行如下操作：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSMutableString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">    </div><div class="line">    [name appendString:<span class="string">@" Source Probe"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果在 Person 这个 Class 中，我们的 <code>s_name</code> 的修饰属性是 <code>strong</code> 的话，会看到如下输出结果:</p>
+<h2 id="Copy&#x64CD;&#x4F5C;"><a href="#Copy&#x64CD;&#x4F5C;" class="headerlink" title="Copy&#x64CD;&#x4F5C;"></a>Copy&#x64CD;&#x4F5C;</h2><p>###&#x6D4B;&#x8BD5;1:<br>&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x9519;&#x8BEF;&#x7684;&#x573A;&#x666F;&#x3002;&#x6709;&#x4E00;&#x4E2A;&#x53EB;&#x505A; Person &#x7684; Class&#xFF0C;&#x5176;&#x4E2D;&#x5B83;&#x62E5;&#x6709;&#x4E00;&#x4E2A; NSString &#x7C7B;&#x578B;&#x7684; <code>s_name</code> &#x5C5E;&#x6027;&#xFF08;&#x4EE3;&#x8868; name &#x662F; strong&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x7ED9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;<code>s_name</code> &#x8D4B;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x4E4B;&#x524D;&#x7684;&#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8FD8;&#x60F3;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x5230;&#x5176;&#x4ED6;&#x573A;&#x666F;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x5F15;&#x5165;&#x8FD9;&#x4E2A; Class &#x7684; ViewController &#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1 {</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSMutableString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">    </div><div class="line">    [name appendString:<span class="string">@&quot; Source Probe&quot;</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x5728; Person &#x8FD9;&#x4E2A; Class &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684; <code>s_name</code> &#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x662F; <code>strong</code> &#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;&#x7ED3;&#x679C;:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS</div><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS Source Probe</div></pre></td></tr></table></figure>
-<p>但是，我们操作的仅仅是对 <code>s_name</code>那个变量，为什么连属性当中的 <code>s_name</code> 也会被改变？对这段代码稍做修改，重新测试。</p>
-<h3 id="测试2"><a href="#测试2" class="headerlink" title="测试2:"></a>测试2:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2 &#123;</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line"></div><div class="line">    name = <span class="string">@"iOS Source Probe"</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这一次我们看到了输出结果是正常的：</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x7684;&#x4EC5;&#x4EC5;&#x662F;&#x5BF9; <code>s_name</code>&#x90A3;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8FDE;&#x5C5E;&#x6027;&#x5F53;&#x4E2D;&#x7684; <code>s_name</code> &#x4E5F;&#x4F1A;&#x88AB;&#x6539;&#x53D8;&#xFF1F;&#x5BF9;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7A0D;&#x505A;&#x4FEE;&#x6539;&#xFF0C;&#x91CD;&#x65B0;&#x6D4B;&#x8BD5;&#x3002;</p>
+<h3 id="&#x6D4B;&#x8BD5;2"><a href="#&#x6D4B;&#x8BD5;2" class="headerlink" title="&#x6D4B;&#x8BD5;2:"></a>&#x6D4B;&#x8BD5;2:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2 {</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line"></div><div class="line">    name = <span class="string">@&quot;iOS Source Probe&quot;</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E00;&#x6B21;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E86;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF1A;</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div></pre></td></tr></table></figure>
-<h3 id="测试3"><a href="#测试3" class="headerlink" title="测试3:"></a>测试3:</h3><p>再来做第三个实验，我们换用 <code>copy</code> 类型的成员 <code>c_name</code>，来替换测试1中的 <code>s_name</code> ，查看一下输出结果:</p>
+<h3 id="&#x6D4B;&#x8BD5;3"><a href="#&#x6D4B;&#x8BD5;3" class="headerlink" title="&#x6D4B;&#x8BD5;3:"></a>&#x6D4B;&#x8BD5;3:</h3><p>&#x518D;&#x6765;&#x505A;&#x7B2C;&#x4E09;&#x4E2A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x6362;&#x7528; <code>copy</code> &#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458; <code>c_name</code>&#xFF0C;&#x6765;&#x66FF;&#x6362;&#x6D4B;&#x8BD5;1&#x4E2D;&#x7684; <code>s_name</code> &#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x8F93;&#x51FA;&#x7ED3;&#x679C;:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:03:40.226 TestCopy[64922:20479646] iOS</div><div class="line">2016-08-12 06:03:40.227 TestCopy[64922:20479646] iOS</div></pre></td></tr></table></figure>
-<p>做过如上三个实验，或许你会知道对 property 使用 copy 修饰属性的原因了。也就是在一个特定场景下：</p>
+<p>&#x505A;&#x8FC7;&#x5982;&#x4E0A;&#x4E09;&#x4E2A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6216;&#x8BB8;&#x4F60;&#x4F1A;&#x77E5;&#x9053;&#x5BF9; property &#x4F7F;&#x7528; copy &#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7684;&#x539F;&#x56E0;&#x4E86;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x573A;&#x666F;&#x4E0B;&#xFF1A;</p>
 <blockquote>
-<p></p><p style="color:#990000"><strong>当我们通过一个 NSMutableString 对 NSString 变量进行赋值，如果 NSString 的 property 是 strong 类型的时候，就会随着 NSMutableString 类型的变量一起变化。</strong></p><p></p>
+<p></p><p style="color:#990000"><strong>&#x5F53;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A; NSMutableString &#x5BF9; NSString &#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x5982;&#x679C; NSString &#x7684; property &#x662F; strong &#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x968F;&#x7740; NSMutableString &#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x4E00;&#x8D77;&#x53D8;&#x5316;&#x3002;</strong></p><p></p>
 </blockquote>
-<p>这个猜测是正确的, 但是为什么呢? 继续测试:</p>
-<h3 id="测试4"><a href="#测试4" class="headerlink" title="测试4:"></a>测试4:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test4 &#123;</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@"iOS"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_a = str;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_a);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_b = [str <span class="keyword">copy</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, str_b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出地址后，我们发现以下结果：</p>
+<p>&#x8FD9;&#x4E2A;&#x731C;&#x6D4B;&#x662F;&#x6B63;&#x786E;&#x7684;, &#x4F46;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;? &#x7EE7;&#x7EED;&#x6D4B;&#x8BD5;:</p>
+<h3 id="&#x6D4B;&#x8BD5;4"><a href="#&#x6D4B;&#x8BD5;4" class="headerlink" title="&#x6D4B;&#x8BD5;4:"></a>&#x6D4B;&#x8BD5;4:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test4 {</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_a = str;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str_a);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_b = [str <span class="keyword">copy</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str_b);</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8F93;&#x51FA;&#x5730;&#x5740;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x4EE5;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:15:45.169 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0xa00000000534f693</div></pre></td></tr></table></figure>
-<p>发现当令 NSString 对象指针指向一个 NSMutableString 类型变量通过 copy 方法返回的对象，则会对其进行<strong>深复制</strong>。这也就是我们一直所说的在一个 Class 的成员是 NSString 类型的时候，修饰属性应该使用 copy ，其实就是在使用 mutable 对象进行赋值的时候，防止 mutable 对象的改变从而影响成员变量。从 MRC 的角度来看待修饰属性，若一个属性的关键字为 retain （可等同于 strong ），则在进行指针的指向修改时，如上面的<code>self.one.name = str</code>，其实是执行了<code>self.one.name = [str retain]</code>，而 copy 类型的属性则会执行<code>self.one.name = [str copy]</code>。</p>
-<p>而在 Test 2 中，我们的实验是将一个 NSString 对象指向另外一个 NSString 对象，那么如果前者是 copy 的成员，还会进行<strong>深复制</strong>吗？进行下面的 Test 5，我们令 c_name 的修饰变量为 copy。</p>
+<p>&#x53D1;&#x73B0;&#x5F53;&#x4EE4; NSString &#x5BF9;&#x8C61;&#x6307;&#x9488;&#x6307;&#x5411;&#x4E00;&#x4E2A; NSMutableString &#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x901A;&#x8FC7; copy &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;<strong>&#x6DF1;&#x590D;&#x5236;</strong>&#x3002;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x6240;&#x8BF4;&#x7684;&#x5728;&#x4E00;&#x4E2A; Class &#x7684;&#x6210;&#x5458;&#x662F; NSString &#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; copy &#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5728;&#x4F7F;&#x7528; mutable &#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9632;&#x6B62; mutable &#x5BF9;&#x8C61;&#x7684;&#x6539;&#x53D8;&#x4ECE;&#x800C;&#x5F71;&#x54CD;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3002;&#x4ECE; MRC &#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#x5F85;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#xFF0C;&#x82E5;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x5173;&#x952E;&#x5B57;&#x4E3A; retain &#xFF08;&#x53EF;&#x7B49;&#x540C;&#x4E8E; strong &#xFF09;&#xFF0C;&#x5219;&#x5728;&#x8FDB;&#x884C;&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x5982;&#x4E0A;&#x9762;&#x7684;<code>self.one.name = str</code>&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x6267;&#x884C;&#x4E86;<code>self.one.name = [str retain]</code>&#xFF0C;&#x800C; copy &#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x5219;&#x4F1A;&#x6267;&#x884C;<code>self.one.name = [str copy]</code>&#x3002;</p>
+<p>&#x800C;&#x5728; Test 2 &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9A8C;&#x662F;&#x5C06;&#x4E00;&#x4E2A; NSString &#x5BF9;&#x8C61;&#x6307;&#x5411;&#x53E6;&#x5916;&#x4E00;&#x4E2A; NSString &#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x524D;&#x8005;&#x662F; copy &#x7684;&#x6210;&#x5458;&#xFF0C;&#x8FD8;&#x4F1A;&#x8FDB;&#x884C;<strong>&#x6DF1;&#x590D;&#x5236;</strong>&#x5417;&#xFF1F;&#x8FDB;&#x884C;&#x4E0B;&#x9762;&#x7684; Test 5&#xFF0C;&#x6211;&#x4EEC;&#x4EE4; c_name &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x4E3A; copy&#x3002;</p>
 
       
     </div>
@@ -419,16 +413,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/pch的创建.html" rel="next" title="iOS开发 关于pch文件的创建与配置">
-                <i class="fa fa-chevron-left"></i> iOS开发 关于pch文件的创建与配置
+              <a href="/posts/11:10MRC 和ARC 混编.html" rel="next" title="iOS开发 MRC 和ARC 混编">
+                <i class="fa fa-chevron-left"></i> iOS开发 MRC 和ARC 混编
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/NSUserDefaults.html" rel="prev" title="iOS 数据存储 NSUserDefaults 的使用">
-                iOS 数据存储 NSUserDefaults 的使用 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/11:10短信验证码按钮效果.html" rel="prev" title="iOS 短信验证码倒计时按钮的实现">
+                iOS 短信验证码倒计时按钮的实现 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -455,8 +449,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/Copy操作.html"
-           data-title="iOS 从经典问题来看 Copy 方法" data-url="http://www.licheng.date/posts/Copy操作.html">
+      <div class="ds-thread" data-thread-key="posts/11:10Copy操作.html"
+           data-title="iOS 从经典问题来看 Copy 方法" data-url="http://www.licheng.date/posts/11:10Copy操作.html">
       </div>
     
   </div>
@@ -501,7 +495,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

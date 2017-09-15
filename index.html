@@ -87,7 +87,7 @@
 <meta name="description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LiCheng的博客">
-<meta property="og:url" content="http://www.licheng.date/index.html">
+<meta property="og:url" content="http://www.licheng244.com/index.html">
 <meta property="og:site_name" content="LiCheng的博客">
 <meta property="og:description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/"/>
+  <link rel="canonical" href="http://www.licheng244.com/"/>
 
 
   <title> LiCheng的博客 </title>
@@ -1212,8 +1212,8 @@
             
               
                 
-                <a class="post-title-link" href="/posts/MRC 和ARC 混编.html" itemprop="url">
-                  iOS开发 MRC 和ARC 混编
+                <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
+                  iOS 从经典问题来看 Copy 方法
                 </a>
               
             
@@ -1256,8 +1256,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
+                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1267,7 +1267,7 @@
 
           
           
-             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 MRC 和ARC 混编">
+             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1290,11 +1290,12 @@
 
       
         
-          <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
-<p>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
+          <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/MRC 和ARC 混编.html#more" rel="contents">
+            <a class="btn" href="/posts/Copy操作.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

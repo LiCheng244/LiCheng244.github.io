@@ -282,8 +282,8 @@
             
               
                 
-                <a class="post-title-link" href="/posts/CoreData的使用.html" itemprop="url">
-                  iOS开发 - 数据存储 CoreData 的使用
+                <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
+                  iOS开发 - 从经典问题来看 Copy 方法
                 </a>
               
             
@@ -310,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发-高级/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发__高级</span>
+                  <a href="/categories/iOS开发-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发__OC</span>
                   </a>
                 </span>
 
@@ -326,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/CoreData的使用.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/CoreData的使用.html" itemprop="commentsCount"></span>
+                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,7 +337,7 @@
 
           
           
-             <span id="/posts/CoreData的使用.html" class="leancloud_visitors" data-flag-title="iOS开发 - 数据存储 CoreData 的使用">
+             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS开发 - 从经典问题来看 Copy 方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,11 +360,145 @@
 
       
         
-          <h3 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</h3><blockquote>
-<p>CoreData &#x662F;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x5F0F;.<br>CoreData &#x662F;&#x57FA;&#x4E8E; sqlite &#x7684;&#x5C01;&#x88C5;, &#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x4E2D;(&#x8868;).<br>iOS5 &#x4EE5;&#x540E;&#x624D;&#x51FA;&#x73B0;.<br>&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x8C61;-&#x5173;&#x7CFB;&#x6620;&#x5C04;(ORM)&#x7684;&#x529F;&#x80FD;, &#x65E2;&#x80FD;&#x591F;&#x5C06;oc&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x6210;&#x6570;&#x636E;&#x4FDD;&#x5B58;&#x5728;sqlite&#x6587;&#x4EF6;&#x4E2D;, &#x4E5F;&#x80FD;&#x5C06;&#x4FDD;&#x5B58;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8FD8;&#x539F;&#x6210;oc&#x5BF9;&#x8C61;.<br>&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x671F;&#x95F4;, &#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x5199;&#x4EFB;&#x4F55;&#x7684;sql&#x8BED;&#x53E5;.<br>&#x6570;&#x636E;&#x6700;&#x7EC8;&#x7684;&#x5B58;&#x50A8;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;SQLite&#x6570;&#x636E;&#x5E93;&#xFF0C;XML&#xFF0C;&#x4E8C;&#x8FDB;&#x5236;&#xFF0C;&#x5185;&#x5B58;&#x91CC;&#xFF0C;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x7C7B;&#x578B;.<br>&#x597D;&#x5904;&#xFF1A;&#x80FD;&#x591F;&#x5408;&#x7406;&#x7BA1;&#x7406;&#x5185;&#x5B58;,&#x907F;&#x514D;&#x4F7F;&#x7528;sql&#x7684;&#x9EBB;&#x70E6;, &#x66F4;&#x9AD8;&#x6548;. &#x4E0D;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x53BB;&#x521B;&#x5EFA;model&#x7C7B;, &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;, &#x5236;&#x52A8;&#x751F;&#x6210;.</p>
+          <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/CoreData的使用.html#more" rel="contents">
+            <a class="btn" href="/posts/Copy操作.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/MRC 和ARC 混编.html" itemprop="url">
+                  iOS开发 - MRC 和 ARC 混编
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
+              2016-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发-项目管理/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发_项目管理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 - MRC 和 ARC 混编">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
+<p>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/MRC 和ARC 混编.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -498,140 +632,6 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/NSUserDefaults.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/posts/Copy操作.html" itemprop="url">
-                  iOS开发 - 从经典问题来看 Copy 方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
-              2016-11-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发-OC/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发__OC</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS开发 - 从经典问题来看 Copy 方法">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/Copy操作.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1246,7 +1246,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,OC关键字," />
+  <meta name="keywords" content="属性设置," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
+<meta name="description" content="1. &amp;#x63A7;&amp;#x5236;&amp;#x624B;&amp;#x673A;&amp;#x7684;&amp;#x5C4F;&amp;#x5E55;&amp;#x4EAE;&amp;#x5EA6;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;123456#pragma mark -- &amp;#x8BBE;&amp;#x7F6E;&amp;#x4EAE;&amp;#x5EA6;// value &amp;#xFF1A;&amp;#x5C4F;&amp;#x5E55;&amp;#x7684;&amp;#x4EA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 从经典问题来看 Copy 方法">
-<meta property="og:url" content="http://www.licheng.date/posts/Copy操作.html">
+<meta property="og:title" content="iOS 通过代码调节屏幕亮度">
+<meta property="og:url" content="http://www.licheng.date/posts/代码控制屏幕亮度.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
-<meta property="og:updated_time" content="2016-11-10T03:11:27.000Z">
+<meta property="og:description" content="1. &amp;#x63A7;&amp;#x5236;&amp;#x624B;&amp;#x673A;&amp;#x7684;&amp;#x5C4F;&amp;#x5E55;&amp;#x4EAE;&amp;#x5EA6;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;123456#pragma mark -- &amp;#x8BBE;&amp;#x7F6E;&amp;#x4EAE;&amp;#x5EA6;// value &amp;#xFF1A;&amp;#x5C4F;&amp;#x5E55;&amp;#x7684;&amp;#x4EA">
+<meta property="og:updated_time" content="2017-09-15T06:36:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 从经典问题来看 Copy 方法">
-<meta name="twitter:description" content="&amp;#x5728;&amp;#x521D;&amp;#x5B66; iOS &amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x704C;&amp;#x8F93;&amp;#x8FD9;&amp;#x4E48;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E38;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;: NSString &amp;#x7684;">
+<meta name="twitter:title" content="iOS 通过代码调节屏幕亮度">
+<meta name="twitter:description" content="1. &amp;#x63A7;&amp;#x5236;&amp;#x624B;&amp;#x673A;&amp;#x7684;&amp;#x5C4F;&amp;#x5E55;&amp;#x4EAE;&amp;#x5EA6;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;123456#pragma mark -- &amp;#x8BBE;&amp;#x7F6E;&amp;#x4EAE;&amp;#x5EA6;// value &amp;#xFF1A;&amp;#x5C4F;&amp;#x5E55;&amp;#x7684;&amp;#x4EA">
 
 
 
@@ -114,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng.date/posts/Copy操作.html"/>
+  <link rel="canonical" href="http://www.licheng.date/posts/代码控制屏幕亮度.html"/>
 
 
-  <title> iOS 从经典问题来看 Copy 方法 | LiCheng的博客 </title>
+  <title> iOS 通过代码调节屏幕亮度 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +280,7 @@
             
             
               
-                iOS 从经典问题来看 Copy 方法
+                iOS 通过代码调节屏幕亮度
               
             
           </h1>
@@ -292,8 +292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
-              2016-11-03
+            <time itemprop="dateCreated" datetime="2017-09-15T12:00:00+08:00" content="2017-09-15">
+              2017-09-15
             </time>
           </span>
 
@@ -306,8 +306,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/iOS-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS_OC</span>
                   </a>
                 </span>
 
@@ -322,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/Copy操作.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/Copy操作.html" itemprop="commentsCount"></span>
+                <a href="/posts/代码控制屏幕亮度.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/代码控制屏幕亮度.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -333,7 +333,7 @@
 
           
           
-             <span id="/posts/Copy操作.html" class="leancloud_visitors" data-flag-title="iOS 从经典问题来看 Copy 方法">
+             <span id="/posts/代码控制屏幕亮度.html" class="leancloud_visitors" data-flag-title="iOS 通过代码调节屏幕亮度">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,31 +355,18 @@
       
 
       
-        <p>&#x5728;&#x521D;&#x5B66; iOS &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x704C;&#x8F93;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x5E38;&#x8BC6;&#xFF0C;&#x5207;&#x8BB0;: <strong>NSString &#x7684; property &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x8981;&#x5199;&#x4F5C; copy &#xFF0C;&#x800C;&#x4E0D;&#x662F; strong&#x3002;</strong>&#x90A3;&#x4E48;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p><strong>&#x7ECF;&#x5178;&#x9762;&#x8BD5;&#x9898;&#xFF1A;&#x4E3A;&#x4EC0;&#x4E48; NSString &#x7C7B;&#x578B;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7528; copy &#x800C;&#x4E0D;&#x662F; strong (&#x6216; retain ) ?</strong></p>
-</blockquote>
+        <h3 id="1-&#x63A7;&#x5236;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;"><a href="#1-&#x63A7;&#x5236;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;" class="headerlink" title="1. &#x63A7;&#x5236;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;"></a>1. &#x63A7;&#x5236;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;</h3><h4 id="&#x65B9;&#x6CD5;&#xFF1A;"><a href="#&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="&#x65B9;&#x6CD5;&#xFF1A;"></a>&#x65B9;&#x6CD5;&#xFF1A;</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark -- &#x8BBE;&#x7F6E;&#x4EAE;&#x5EA6;</span></div><div class="line"><span class="comment">// value &#xFF1A;&#x5C4F;&#x5E55;&#x7684;&#x4EAE;&#x5EA6;&#x503C; &#x8FD9;&#x4E2A;&#x503C;&#x4ECB;&#x4E8E;0&#x548C;1&#x4E4B;&#x95F4;</span></div><div class="line">[[<span class="built_in">UIScreen</span> mainScreen] setBrightness: value];</div><div class="line"></div><div class="line"><span class="meta">#pragma mark -- &#x83B7;&#x53D6;&#x4EAE;&#x5EA6;</span></div><div class="line"><span class="built_in">CGFloat</span> *brightness = [[<span class="built_in">UIScreen</span> mainScreen] brightness];</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Copy&#x64CD;&#x4F5C;"><a href="#Copy&#x64CD;&#x4F5C;" class="headerlink" title="Copy&#x64CD;&#x4F5C;"></a>Copy&#x64CD;&#x4F5C;</h2><p>###&#x6D4B;&#x8BD5;1:<br>&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x9519;&#x8BEF;&#x7684;&#x573A;&#x666F;&#x3002;&#x6709;&#x4E00;&#x4E2A;&#x53EB;&#x505A; Person &#x7684; Class&#xFF0C;&#x5176;&#x4E2D;&#x5B83;&#x62E5;&#x6709;&#x4E00;&#x4E2A; NSString &#x7C7B;&#x578B;&#x7684; <code>s_name</code> &#x5C5E;&#x6027;&#xFF08;&#x4EE3;&#x8868; name &#x662F; strong&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x7ED9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;<code>s_name</code> &#x8D4B;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x4E4B;&#x524D;&#x7684;&#x8D4B;&#x503C;&#x53D8;&#x91CF;&#x8FD8;&#x60F3;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x5230;&#x5176;&#x4ED6;&#x573A;&#x666F;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x5F15;&#x5165;&#x8FD9;&#x4E2A; Class &#x7684; ViewController &#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test1 {</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSMutableString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">    </div><div class="line">    [name appendString:<span class="string">@&quot; Source Probe&quot;</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x5982;&#x679C;&#x5728; Person &#x8FD9;&#x4E2A; Class &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684; <code>s_name</code> &#x7684;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x662F; <code>strong</code> &#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x8F93;&#x51FA;&#x7ED3;&#x679C;:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS</div><div class="line">2016-08-12 05:51:21.262 TestCopy[64714:20449045] iOS Source Probe</div></pre></td></tr></table></figure>
-<p>&#x4F46;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x64CD;&#x4F5C;&#x7684;&#x4EC5;&#x4EC5;&#x662F;&#x5BF9; <code>s_name</code>&#x90A3;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8FDE;&#x5C5E;&#x6027;&#x5F53;&#x4E2D;&#x7684; <code>s_name</code> &#x4E5F;&#x4F1A;&#x88AB;&#x6539;&#x53D8;&#xFF1F;&#x5BF9;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x7A0D;&#x505A;&#x4FEE;&#x6539;&#xFF0C;&#x91CD;&#x65B0;&#x6D4B;&#x8BD5;&#x3002;</p>
-<h3 id="&#x6D4B;&#x8BD5;2"><a href="#&#x6D4B;&#x8BD5;2" class="headerlink" title="&#x6D4B;&#x8BD5;2:"></a>&#x6D4B;&#x8BD5;2:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test2 {</div><div class="line">    <span class="keyword">self</span>.one = [[Person alloc] init];</div><div class="line">    <span class="built_in">NSString</span> *name = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    <span class="keyword">self</span>.one.s_name = name;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line"></div><div class="line">    name = <span class="string">@&quot;iOS Source Probe&quot;</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, <span class="keyword">self</span>.one.s_name);</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x8FD9;&#x4E00;&#x6B21;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4E86;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF1A;</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div><div class="line"><span class="number">2016</span><span class="number">-08</span><span class="number">-12</span> <span class="number">05</span>:<span class="number">56</span>:<span class="number">57.162</span> TestCopy[<span class="number">64842</span>:<span class="number">20459179</span>] iOS</div></pre></td></tr></table></figure>
-<h3 id="&#x6D4B;&#x8BD5;3"><a href="#&#x6D4B;&#x8BD5;3" class="headerlink" title="&#x6D4B;&#x8BD5;3:"></a>&#x6D4B;&#x8BD5;3:</h3><p>&#x518D;&#x6765;&#x505A;&#x7B2C;&#x4E09;&#x4E2A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x6362;&#x7528; <code>copy</code> &#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458; <code>c_name</code>&#xFF0C;&#x6765;&#x66FF;&#x6362;&#x6D4B;&#x8BD5;1&#x4E2D;&#x7684; <code>s_name</code> &#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x8F93;&#x51FA;&#x7ED3;&#x679C;:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:03:40.226 TestCopy[64922:20479646] iOS</div><div class="line">2016-08-12 06:03:40.227 TestCopy[64922:20479646] iOS</div></pre></td></tr></table></figure>
-<p>&#x505A;&#x8FC7;&#x5982;&#x4E0A;&#x4E09;&#x4E2A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6216;&#x8BB8;&#x4F60;&#x4F1A;&#x77E5;&#x9053;&#x5BF9; property &#x4F7F;&#x7528; copy &#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x7684;&#x539F;&#x56E0;&#x4E86;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x573A;&#x666F;&#x4E0B;&#xFF1A;</p>
-<blockquote>
-<p></p><p style="color:#990000"><strong>&#x5F53;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A; NSMutableString &#x5BF9; NSString &#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x5982;&#x679C; NSString &#x7684; property &#x662F; strong &#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x968F;&#x7740; NSMutableString &#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x4E00;&#x8D77;&#x53D8;&#x5316;&#x3002;</strong></p><p></p>
+<h4 id="&#x6CE8;&#x610F;&#xFF1A;"><a href="#&#x6CE8;&#x610F;&#xFF1A;" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h4><ol>
+<li>&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A; &#x5373;&#x65F6;&#x66F4;&#x6539;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;&#xFF0C;&#x65E0;&#x9700;&#x624B;&#x52A8;&#x5237;&#x65B0;&#xFF1B;</li>
+<li>&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x8C03;&#x6574;&#x4E86;&#x6574;&#x4E2A;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;&#xFF0C;&#x5E76;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x5F53;&#x524D; APP &#x7684;&#x4EAE;&#x5EA6;&#xFF1B; </li>
+<li>&#x8FD9;&#x4E2A;&#x4EAE;&#x5EA6;&#x5728;&#x5B8C;&#x5168;&#x9000;&#x51FA;&#x5F53;&#x524D; APP &#x540E;&#x8FD8;&#x662F;&#x4F1A;&#x7EE7;&#x7EED;&#x4FDD;&#x6301;&#x7684;&#xFF1B;</li>
+</ol>
+<hr>
+<h3 id="2-&#x63A7;&#x5236;&#x5F53;&#x524D;-APP-&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;"><a href="#2-&#x63A7;&#x5236;&#x5F53;&#x524D;-APP-&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;" class="headerlink" title="2. &#x63A7;&#x5236;&#x5F53;&#x524D; APP &#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;"></a>2. &#x63A7;&#x5236;&#x5F53;&#x524D; APP &#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;</h3><h4 id="&#x601D;&#x8DEF;&#xFF1A;"><a href="#&#x601D;&#x8DEF;&#xFF1A;" class="headerlink" title="&#x601D;&#x8DEF;&#xFF1A;"></a>&#x601D;&#x8DEF;&#xFF1A;</h4><blockquote>
+<p>&#x4E0A;&#x8FF0;&#x7684;&#x65B9;&#x5F0F;&#x53EA;&#x80FD;&#x5168;&#x5C40;&#x4FEE;&#x6539;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x4EAE;&#x5EA6;&#xFF0C; &#x8981;&#x53EA;&#x5BF9;&#x5F53;&#x524D; APP &#x4EAE;&#x5EA6;&#x4FEE;&#x6539;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FDB;&#x5165; APP &#x4E4B;&#x524D;&#x5C06;&#x5F53;&#x524D;&#x4EAE;&#x5EA6;&#x503C;&#x4FDD;&#x5B58;&#xFF0C; &#x5728; APP &#x9000;&#x51FA;&#x65F6;&#x5C06;&#x5F53;&#x524D;&#x4EAE;&#x5EA6;&#x8FD8;&#x539F;&#x3002;</p>
 </blockquote>
-<p>&#x8FD9;&#x4E2A;&#x731C;&#x6D4B;&#x662F;&#x6B63;&#x786E;&#x7684;, &#x4F46;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;? &#x7EE7;&#x7EED;&#x6D4B;&#x8BD5;:</p>
-<h3 id="&#x6D4B;&#x8BD5;4"><a href="#&#x6D4B;&#x8BD5;4" class="headerlink" title="&#x6D4B;&#x8BD5;4:"></a>&#x6D4B;&#x8BD5;4:</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)test4 {</div><div class="line">    <span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> stringWithFormat:<span class="string">@&quot;iOS&quot;</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_a = str;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str_a);</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *str_b = [str <span class="keyword">copy</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%p&quot;</span>, str_b);</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x8F93;&#x51FA;&#x5730;&#x5740;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x4EE5;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2016-08-12 06:15:45.169 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0x7faf28429e70</div><div class="line">2016-08-12 06:15:45.170 TestCopy[65230:20515110] 0xa00000000534f693</div></pre></td></tr></table></figure>
-<p>&#x53D1;&#x73B0;&#x5F53;&#x4EE4; NSString &#x5BF9;&#x8C61;&#x6307;&#x9488;&#x6307;&#x5411;&#x4E00;&#x4E2A; NSMutableString &#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x901A;&#x8FC7; copy &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;<strong>&#x6DF1;&#x590D;&#x5236;</strong>&#x3002;&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x6240;&#x8BF4;&#x7684;&#x5728;&#x4E00;&#x4E2A; Class &#x7684;&#x6210;&#x5458;&#x662F; NSString &#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; copy &#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5728;&#x4F7F;&#x7528; mutable &#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9632;&#x6B62; mutable &#x5BF9;&#x8C61;&#x7684;&#x6539;&#x53D8;&#x4ECE;&#x800C;&#x5F71;&#x54CD;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3002;&#x4ECE; MRC &#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#x5F85;&#x4FEE;&#x9970;&#x5C5E;&#x6027;&#xFF0C;&#x82E5;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x5173;&#x952E;&#x5B57;&#x4E3A; retain &#xFF08;&#x53EF;&#x7B49;&#x540C;&#x4E8E; strong &#xFF09;&#xFF0C;&#x5219;&#x5728;&#x8FDB;&#x884C;&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x5982;&#x4E0A;&#x9762;&#x7684;<code>self.one.name = str</code>&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x6267;&#x884C;&#x4E86;<code>self.one.name = [str retain]</code>&#xFF0C;&#x800C; copy &#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x5219;&#x4F1A;&#x6267;&#x884C;<code>self.one.name = [str copy]</code>&#x3002;</p>
-<p>&#x800C;&#x5728; Test 2 &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9A8C;&#x662F;&#x5C06;&#x4E00;&#x4E2A; NSString &#x5BF9;&#x8C61;&#x6307;&#x5411;&#x53E6;&#x5916;&#x4E00;&#x4E2A; NSString &#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x524D;&#x8005;&#x662F; copy &#x7684;&#x6210;&#x5458;&#xFF0C;&#x8FD8;&#x4F1A;&#x8FDB;&#x884C;<strong>&#x6DF1;&#x590D;&#x5236;</strong>&#x5417;&#xFF1F;&#x8FDB;&#x884C;&#x4E0B;&#x9762;&#x7684; Test 5&#xFF0C;&#x6211;&#x4EEC;&#x4EE4; c_name &#x7684;&#x4FEE;&#x9970;&#x53D8;&#x91CF;&#x4E3A; copy&#x3002;</p>
+<h4 id="&#x5B9E;&#x73B0;&#xFF1A;"><a href="#&#x5B9E;&#x73B0;&#xFF1A;" class="headerlink" title="&#x5B9E;&#x73B0;&#xFF1A;"></a>&#x5B9E;&#x73B0;&#xFF1A;</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark -- &#x7A0B;&#x5E8F;&#x542F;&#x52A8;</span></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions {</div><div class="line"></div><div class="line">   <span class="comment">// 1. &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x624B;&#x673A;&#x4EAE;&#x5EA6;</span></div><div class="line">   <span class="built_in">CGFloat</span> *brightness = [[<span class="built_in">UIScreen</span> mainScreen] brightness];</div><div class="line">   <span class="keyword">self</span>.brightness = brightness;</div><div class="line">	</div><div class="line">   <span class="comment">// 2. &#x5BF9;&#x5F53;&#x524D; APP &#x8BBE;&#x7F6E;&#x7279;&#x6709;&#x4EAE;&#x5EA6;</span></div><div class="line">   [[<span class="built_in">UIScreen</span> mainScreen] setBrightness:<span class="number">1</span>];</div><div class="line"></div><div class="line">   <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="meta">#pragma mark -- &#x7A0B;&#x5E8F;&#x5C06;&#x8981;&#x8FDB;&#x5165;&#x540E;&#x53F0;</span></div><div class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application {</div><div class="line"></div><div class="line">   <span class="comment">// &#x8FD8;&#x539F;&#x539F;&#x6765;&#x7684;&#x4EAE;&#x5EA6;</span></div><div class="line">   [[<span class="built_in">UIScreen</span> mainScreen] setBrightness:<span class="keyword">self</span>.brightness];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="meta">#pragma mark -- &#x7A0B;&#x5E8F;&#x5C06;&#x8981;&#x8FDB;&#x5165;&#x524D;&#x53F0;</span></div><div class="line">-(<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application {</div><div class="line">	</div><div class="line">   <span class="comment">// &#x5BF9;&#x5F53;&#x524D; APP &#x8BBE;&#x7F6E;&#x7279;&#x6709;&#x4EAE;&#x5EA6;</span></div><div class="line">   [[<span class="built_in">UIScreen</span> mainScreen] setBrightness:<span class="number">1</span>];</div><div class="line">}</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -402,9 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-            <a href="/tags/OC关键字/" rel="tag">#OC关键字</a>
+            <a href="/tags/属性设置/" rel="tag">#属性设置</a>
           
         </div>
       
@@ -413,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/pch的创建.html" rel="next" title="iOS开发 关于pch文件的创建与配置">
-                <i class="fa fa-chevron-left"></i> iOS开发 关于pch文件的创建与配置
+              <a href="/posts/团队之间编程规范.html" rel="next" title="iOS开发 团队之间编程规范">
+                <i class="fa fa-chevron-left"></i> iOS开发 团队之间编程规范
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/NSUserDefaults.html" rel="prev" title="iOS 数据存储 NSUserDefaults 的使用">
-                iOS 数据存储 NSUserDefaults 的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -449,8 +430,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/Copy操作.html"
-           data-title="iOS 从经典问题来看 Copy 方法" data-url="http://www.licheng.date/posts/Copy操作.html">
+      <div class="ds-thread" data-thread-key="posts/代码控制屏幕亮度.html"
+           data-title="iOS 通过代码调节屏幕亮度" data-url="http://www.licheng.date/posts/代码控制屏幕亮度.html">
       </div>
     
   </div>
@@ -541,7 +522,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Copy操作"><span class="nav-number">1.</span> <span class="nav-text">Copy操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试2"><span class="nav-number">1.1.</span> <span class="nav-text">测试2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试3"><span class="nav-number">1.2.</span> <span class="nav-text">测试3:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试4"><span class="nav-number">1.3.</span> <span class="nav-text">测试4:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-控制手机的屏幕亮度"><span class="nav-number">1.</span> <span class="nav-text">1. 控制手机的屏幕亮度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法："><span class="nav-number">1.1.</span> <span class="nav-text">方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意："><span class="nav-number">1.2.</span> <span class="nav-text">注意：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-控制当前-APP-的屏幕亮度"><span class="nav-number">2.</span> <span class="nav-text">2. 控制当前 APP 的屏幕亮度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">2.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现："><span class="nav-number">2.2.</span> <span class="nav-text">实现：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="项目配置," />
+  <meta name="keywords" content="编译报错," />
 
 
 
@@ -84,21 +84,20 @@
 
 
 
-<meta name="description" content="&amp;#x5F15;&amp;#x8A00;
-iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;ARC&amp;#xFF08; Automatic Reference Counting&amp;#xFF1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5F15;&amp;#x7528;&amp;#x8BA1;&amp;#x6570;&amp;#xFF09;&amp;">
+<meta name="description" content="&amp;#x539F;&amp;#x56E0;:&amp;#x5BFC;&amp;#x5165;&amp;#x4E86;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x7684; bundle &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5185;&amp;#x90E8; info.plist &amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x7684; executable file &amp;#x5C5E;&amp;#x6027;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发 - MRC 和 ARC 混编">
-<meta property="og:url" content="http://www.licheng244.com/posts/MRC 和ARC 混编.html">
+<meta property="og:title" content="iOS开发 - 提审报错 ITMS-90535">
+<meta property="og:url" content="http://www.licheng244.com/posts/2017-09/18-2.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;
-iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;ARC&amp;#xFF08; Automatic Reference Counting&amp;#xFF1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5F15;&amp;#x7528;&amp;#x8BA1;&amp;#x6570;&amp;#xFF09;&amp;">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-09-15T09:00:27.000Z">
+<meta property="og:description" content="&amp;#x539F;&amp;#x56E0;:&amp;#x5BFC;&amp;#x5165;&amp;#x4E86;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x7684; bundle &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5185;&amp;#x90E8; info.plist &amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x7684; executable file &amp;#x5C5E;&amp;#x6027;&amp;">
+<meta property="og:image" content="http://oger6j5h3.bkt.clouddn.com/20150929014021112.jpg">
+<meta property="og:image" content="http://oger6j5h3.bkt.clouddn.com/Center.png">
+<meta property="og:image" content="http://oger6j5h3.bkt.clouddn.com/Centeccr.png">
+<meta property="og:updated_time" content="2017-09-18T09:12:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发 - MRC 和 ARC 混编">
-<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;
-iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;ARC&amp;#xFF08; Automatic Reference Counting&amp;#xFF1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5F15;&amp;#x7528;&amp;#x8BA1;&amp;#x6570;&amp;#xFF09;&amp;">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS开发 - 提审报错 ITMS-90535">
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x56E0;:&amp;#x5BFC;&amp;#x5165;&amp;#x4E86;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;&amp;#x7684; bundle &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5185;&amp;#x90E8; info.plist &amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x7684; executable file &amp;#x5C5E;&amp;#x6027;&amp;">
+<meta name="twitter:image" content="http://oger6j5h3.bkt.clouddn.com/20150929014021112.jpg">
 
 
 
@@ -119,10 +118,10 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
 
 
 
-  <link rel="canonical" href="http://www.licheng244.com/posts/MRC 和ARC 混编.html"/>
+  <link rel="canonical" href="http://www.licheng244.com/posts/2017-09/18-2.html"/>
 
 
-  <title> iOS开发 - MRC 和 ARC 混编 | LiCheng的博客 </title>
+  <title> iOS开发 - 提审报错 ITMS-90535 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +284,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
             
             
               
-                iOS开发 - MRC 和 ARC 混编
+                iOS开发 - 提审报错 ITMS-90535
               
             
           </h1>
@@ -297,8 +296,8 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-03T00:00:00+08:00" content="2016-11-03">
-              2016-11-03
+            <time itemprop="dateCreated" datetime="2017-09-18T12:00:00+08:00" content="2017-09-18">
+              2017-09-18
             </time>
           </span>
 
@@ -311,8 +310,8 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发-项目管理/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发_项目管理</span>
+                  <a href="/categories/iOS开发-错误收集/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发__错误收集</span>
                   </a>
                 </span>
 
@@ -327,8 +326,8 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/MRC 和ARC 混编.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/MRC 和ARC 混编.html" itemprop="commentsCount"></span>
+                <a href="/posts/2017-09/18-2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/2017-09/18-2.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,7 +337,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
 
           
           
-             <span id="/posts/MRC 和ARC 混编.html" class="leancloud_visitors" data-flag-title="iOS开发 - MRC 和 ARC 混编">
+             <span id="/posts/2017-09/18-2.html" class="leancloud_visitors" data-flag-title="iOS开发 - 提审报错 ITMS-90535">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -360,13 +359,18 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
       
 
       
-        <h3 id="&#x5F15;&#x8A00;"><a href="#&#x5F15;&#x8A00;" class="headerlink" title="&#x5F15;&#x8A00;"></a>&#x5F15;&#x8A00;</h3><blockquote>
-<p>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
+        <blockquote>
+<p><strong>&#x539F;&#x56E0;:</strong><br>&#x5BFC;&#x5165;&#x4E86;&#x7B2C;&#x4E09;&#x65B9;&#x7684; bundle &#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x90E8; info.plist &#x6587;&#x4EF6;&#x4E2D;&#x7684; executable file &#x5C5E;&#x6027;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x6240;&#x5BFC;&#x81F4;&#x7684;&#x3002;<br><a id="more"></a></p>
 </blockquote>
-<a id="more"></a>
-<h3 id="ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;"><a href="#ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;" class="headerlink" title="ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;"></a>ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fno-objc-arc</code></p>
-<h3 id="MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;"><a href="#MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;" class="headerlink" title="MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;"></a>MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fobjc-arc</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC &#x548C; ARC &#x6DF7;&#x7F16;"></p>
+<h3 id="&#x9519;&#x8BEF;&#x4FE1;&#x606F;"><a href="#&#x9519;&#x8BEF;&#x4FE1;&#x606F;" class="headerlink" title="&#x9519;&#x8BEF;&#x4FE1;&#x606F;"></a>&#x9519;&#x8BEF;&#x4FE1;&#x606F;</h3><p><img src="http://oger6j5h3.bkt.clouddn.com/20150929014021112.jpg" alt="&#x9519;&#x8BEF;&#x4FE1;&#x606F;"></p>
+<h3 id="&#x89E3;&#x51B3;&#x65B9;&#x5F0F;"><a href="#&#x89E3;&#x51B3;&#x65B9;&#x5F0F;" class="headerlink" title="&#x89E3;&#x51B3;&#x65B9;&#x5F0F;"></a>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;</h3><ol>
+<li><p>&#x627E;&#x5230;&#x62A5;&#x9519;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x7684; info.plist &#x6587;&#x4EF6;:<br><img src="http://oger6j5h3.bkt.clouddn.com/Center.png" alt=""></p>
+</li>
+<li><p>&#x5220;&#x9664;&#x7BAD;&#x5934;&#x6307;&#x5411;&#x7684; executable file &#x8FD9;&#x4E00;&#x884C;:<br><img src="http://oger6j5h3.bkt.clouddn.com/Centeccr.png" alt=""></p>
+</li>
+<li><p>ok &#xFF0C;&#x91CD;&#x65B0;&#x6253;&#x5305;&#x4E0A;&#x4F20;&#x3002;</p>
+</li>
+</ol>
 
       
     </div>
@@ -389,7 +393,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
       
         <div class="post-tags">
           
-            <a href="/tags/项目配置/" rel="tag">#项目配置</a>
+            <a href="/tags/编译报错/" rel="tag">#编译报错</a>
           
         </div>
       
@@ -398,17 +402,13 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/CoreData的使用.html" rel="next" title="iOS开发 - 数据存储 CoreData 的使用">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 数据存储 CoreData 的使用
+              <a href="/posts/2017-09/18-1.html" rel="next" title="iOS开发 - 强制转换屏幕方向">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 强制转换屏幕方向
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/NSUserDefaults.html" rel="prev" title="iOS开发 - 数据存储 NSUserDefaults 的使用">
-                iOS开发 - 数据存储 NSUserDefaults 的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,8 +434,8 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/MRC 和ARC 混编.html"
-           data-title="iOS开发 - MRC 和 ARC 混编" data-url="http://www.licheng244.com/posts/MRC 和ARC 混编.html">
+      <div class="ds-thread" data-thread-key="posts/2017-09/18-2.html"
+           data-title="iOS开发 - 提审报错 ITMS-90535" data-url="http://www.licheng244.com/posts/2017-09/18-2.html">
       </div>
     
   </div>
@@ -480,7 +480,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -488,7 +488,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -497,7 +497,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -526,7 +526,7 @@ iOS5.0&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x5F00;&amp;#x59CB;&amp;#x53EF;&a
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARC项目-加入-MRC-文件"><span class="nav-number">2.</span> <span class="nav-text">ARC项目 : 加入 MRC 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MRC项目-加入-ARC-文件"><span class="nav-number">3.</span> <span class="nav-text">MRC项目 : 加入 ARC 文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误信息"><span class="nav-number">1.</span> <span class="nav-text">错误信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方式"><span class="nav-number">2.</span> <span class="nav-text">解决方式</span></a></li></ol></div>
             
           </div>
         </section>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="运行原理," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LiCheng的博客">
-<meta property="og:url" content="http://www.licheng244.com/categories/iOS开发-OC/index.html">
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;iOS&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;,&amp;#x5C31;&amp;#x50CF;Application&amp;#x6709;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x56DE;&amp;#x8C03;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x5728;Objective-C&amp;#x7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 -  +(void)load 和 +(void)initialize 的区别">
+<meta property="og:url" content="http://www.licheng244.com/posts/0216-11/10-1.html">
 <meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;iOS&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;,&amp;#x5C31;&amp;#x50CF;Application&amp;#x6709;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x56DE;&amp;#x8C03;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x5728;Objective-C&amp;#x7">
+<meta property="og:updated_time" content="2017-09-18T09:03:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LiCheng的博客">
-<meta name="twitter:description" content="| 写写代码 | 做做设计 | 记录着工作和学习中的点点滴滴 ~~~">
+<meta name="twitter:title" content="iOS开发 -  +(void)load 和 +(void)initialize 的区别">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;iOS&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;,&amp;#x5C31;&amp;#x50CF;Application&amp;#x6709;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x56DE;&amp;#x8C03;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x5728;Objective-C&amp;#x7">
 
 
 
@@ -113,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://www.licheng244.com/categories/iOS开发-OC/"/>
+  <link rel="canonical" href="http://www.licheng244.com/posts/0216-11/10-1.html"/>
 
 
-  <title> 分类: iOS开发__OC | LiCheng的博客 </title>
+  <title> iOS开发 -  +(void)load 和 +(void)initialize 的区别 | LiCheng的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +138,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -258,131 +259,191 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        iOS开发__OC
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/2017-09/15-2.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 - 通过代码调节屏幕亮度</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-15T12:00:00+08:00"
-              content="2017-09-15" >
-          09-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/0216-11/10-1.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 -  +(void)load 和 +(void)initialize 的区别</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-10T12:00:00+08:00"
-              content="2016-11-10" >
-          11-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/0216-11/03-6.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 - 从经典问题来看 Copy 方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-03T00:00:00+08:00"
-              content="2016-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/posts/2016-10/31-1.html" itemprop="url">
-              
-                <span itemprop="name">iOS开发 - 遍历集合(NSArray，NSDictionary、NSSet)方法总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-31T00:00:00+08:00"
-              content="2016-10-31" >
-          10-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 -  +(void)load 和 +(void)initialize 的区别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-10T12:00:00+08:00" content="2016-11-10">
+              2016-11-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发__OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/0216-11/10-1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/0216-11/10-1.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/posts/0216-11/10-1.html" class="leancloud_visitors" data-flag-title="iOS开发 -  +(void)load 和 +(void)initialize 的区别">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;iOS&#x5F00;&#x53D1;&#x4E2D;,&#x5C31;&#x50CF;Application&#x6709;&#x751F;&#x547D;&#x5468;&#x671F;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x5728;Objective-C&#x7684;&#x7C7B;&#x88AB;&#x52A0;&#x8F7D;&#x548C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6536;&#x5230;&#x65B9;&#x6CD5;&#x56DE;&#x8C03;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9002;&#x5F53;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x505A;&#x4E00;&#x4E9B;&#x5B9A;&#x5236;&#x5904;&#x7406;&#x3002;&#x800C;&#x8FD9;&#x6B63;&#x662F;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x6240;&#x8981;&#x4ECB;&#x7ECD;&#x7684; <b style="background-color:#f7eef1;color:#c75c8c">-(void)init</b> &#x548C; <b style="background-color:#f7eef1;color:#c75c8c">+(void)initialize</b> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x505A;&#x5230;&#x7684;&#x3002; </p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h3 id="load-&#x548C;-initialize-&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;"><a href="#load-&#x548C;-initialize-&#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;" class="headerlink" title="load &#x548C; initialize &#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;"></a>load &#x548C; initialize &#x7684;&#x5171;&#x540C;&#x7279;&#x70B9;</h3><p> load &#x548C; initialize &#x6709;&#x5F88;&#x591A;&#x5171;&#x540C;&#x7279;&#x70B9;&#xFF0C;&#x4E0B;&#x9762;&#x7B80;&#x5355;&#x5217;&#x4E00;&#x4E0B;&#xFF1A;   </p>
+<ul>
+<li>&#x5728;&#x4E0D;&#x8003;&#x8651;&#x5F00;&#x53D1;&#x8005;&#x4E3B;&#x52A8;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7CFB;&#x7EDF;&#x6700;&#x591A;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x6B21;  </li>
+<li>&#x5982;&#x679C;&#x7236;&#x7C7B;&#x548C;&#x5B50;&#x7C7B;&#x90FD;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x7236;&#x7C7B;&#x7684;&#x8C03;&#x7528;&#x4E00;&#x5B9A;&#x5728;&#x5B50;&#x7C7B;&#x4E4B;&#x524D;  </li>
+<li>&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x5E94;&#x7528;&#x8FD0;&#x884C;&#x63D0;&#x524D;&#x521B;&#x5EFA;&#x5408;&#x9002;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;  </li>
+<li>&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x90FD;&#x4E0D;&#x8981;&#x8FC7;&#x91CD;&#x5730;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x9664;&#x975E;&#x771F;&#x6B63;&#x5FC5;&#x8981;  </li>
+</ul>
+<h3 id="load&#x65B9;&#x6CD5;"><a href="#load&#x65B9;&#x6CD5;" class="headerlink" title="+load&#x65B9;&#x6CD5;"></a>+load&#x65B9;&#x6CD5;</h3><ul>
+<li>&#x8C03;&#x7528;&#x65F6;&#x673A;&#x6BD4;&#x8F83;&#x65E9;&#xFF0C;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x6709;&#x4E0D;&#x786E;&#x5B9A;&#x56E0;&#x7D20;&#x3002;&#x901A;&#x5E38;&#x90FD;&#x662F; App &#x542F;&#x52A8;&#x524D;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF0C;&#x5F53; load &#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x7C7B;&#x90FD;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x4E14;&#x53EF;&#x7528;&#xFF0C;&#x5FC5;&#x8981;&#x65F6;&#x8FD8;&#x8981;&#x81EA;&#x5DF1;&#x8D1F;&#x8D23;&#x505A; auto release &#x5904;&#x7406;.</li>
+<li>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7C7B;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; load &#x65B9;&#x6CD5;&#x5C31;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;,&#x4E0D;&#x4F1A;&#x8003;&#x8651;&#x5BF9; NSObject &#x7684;&#x7EE7;&#x627F;.</li>
+<li>&#x7236;&#x7C7B;&#x7684; load &#x65B9;&#x6CD5;&#x4F1A;&#x4F18;&#x5148;&#x4E8E;&#x5B50;&#x7C7B;&#x8C03;&#x7528;,&#x7C7B;&#x522B;&#x7684; load &#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x6700;&#x540E;&#x8C03;&#x7528;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x89E6;&#x53D1; initialize &#x7684;&#x8C03;&#x7528;&#x3002;</li>
+</ul>
+<p><strong>&#x901A;&#x4FD7;&#x7684;&#x8BB2;:</strong><br>&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x4E4B;&#x524D;&#x4F1A;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x7684;(&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x7684;) +load &#x65B9;&#x6CD5;(&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x5C31;&#x4E0D;&#x8C03;&#x7528;&#x54AF;),&#x6309;(&#x7236;&#x7C7B;-&gt;&#x5B50;&#x7C7B;-&gt;&#x7C7B;&#x522B;)&#x7684;&#x987A;&#x5E8F;&#x8C03;&#x7528;.</p>
+<h3 id="initialize&#x65B9;&#x6CD5;"><a href="#initialize&#x65B9;&#x6CD5;" class="headerlink" title="+initialize&#x65B9;&#x6CD5;"></a>+initialize&#x65B9;&#x6CD5;</h3><ul>
+<li>initialize &#x7684;&#x81EA;&#x7136;&#x8C03;&#x7528;&#x662F;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x4E3B;&#x52A8;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7C7B;&#x7684;&#x65F6;&#x5019; (&#x7B2C;&#x4E00;&#x6B21; alloc &#x65F6;)</li>
+<li>&#x5728; initialize &#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5E94;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x57FA;&#x672C;&#x5065;&#x5168;&#x3002;</li>
+<li>initialize &#x7684;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x662F;&#x80FD;&#x4FDD;&#x8BC1;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;</li>
+<li>&#x548C; load &#x4E0D;&#x540C;&#xFF0C;&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x4E0D;&#x5B9E;&#x73B0; initialize &#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x628A;&#x7236;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x8FC7;&#x6765;&#x8C03;&#x7528;&#x4E00;&#x904D;&#x3002;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#xFF0C;&#x7236;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x88AB;&#x6267;&#x884C;&#x8FC7;&#x4E00;&#x6B21;&#x4E86;&#xFF0C;&#x540C;&#x6837;&#x4E0D;&#x9700;&#x8981; super &#x8C03;&#x7528;&#x3002;</li>
+</ul>
+<p><strong>&#x901A;&#x4FD7;&#x7684;&#x8BB2;:</strong><br>&#x5728;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x4E4B;&#x540E;,&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;(&#x4E5F;&#x5C31;&#x662F;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7A7A;&#x95F4;alloc&#x7684;&#x65F6;&#x5019;),&#x4F1A;&#x8C03;&#x7528;&#x8BE5;&#x7C7B;&#x7684; +initialize &#x65B9;&#x6CD5;&#x4E14;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;. </p>
+<p><strong>&#x8C03;&#x7528;&#x987A;&#x5E8F;:</strong><br>1.&#x5982;&#x679C;&#x7236;&#x7C7B;&#x7684; initialize &#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x4F1A;&#x5148;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684; initialize &#x65B9;&#x6CD5;)<br>2.&#x5982;&#x679C;&#x8BE5;&#x7C7B;&#x6709;&#x7C7B;&#x522B;&#x53EA;&#x4F1A;&#x8C03;&#x7528;&#x7C7B;&#x522B;&#x7684; +initialize (&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x7C7B;&#x522B;&#x4F1A;&#x8C03;&#x7528;&#x67D0;&#x4E00;&#x4E2A;&#x7C7B;&#x522B;&#x7684; initialize &#x65B9;&#x6CD5;,&#x5176;&#x4ED6;&#x7684;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;)]</p>
+<p>&#x7531;&#x4E8E; initialize &#x7684;&#x8FD9;&#x4E9B;&#x7279;&#x70B9;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x5E94;&#x7528;&#x6BD4; load &#x8981;&#x7565;&#x5FAE;&#x5E7F;&#x6CDB;&#x4E00;&#x4E9B;&#x3002;&#x53EF;&#x7528;&#x6765;&#x505A;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#xFF0C;&#x6216;&#x8005;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x6848;&#x3002;</p>
+<h3 id="&#x5B98;&#x65B9;&#x6587;&#x6863;"><a href="#&#x5B98;&#x65B9;&#x6587;&#x6863;" class="headerlink" title="&#x5B98;&#x65B9;&#x6587;&#x6863;"></a>&#x5B98;&#x65B9;&#x6587;&#x6863;</h3><p>Apple&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5F88;&#x6E05;&#x695A;&#x5730;&#x8BF4;&#x660E;&#x4E86; initialize &#x548C; load &#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF1A;</p>
+<blockquote>
+<p>load &#x662F;&#x53EA;&#x8981;&#x7C7B;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x88AB;&#x5F15;&#x7528;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x800C; initialize &#x662F;&#x5728;&#x7C7B;&#x6216;&#x8005;&#x5176;&#x5B50;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x524D;&#x8C03;&#x7528;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x7C7B;&#x6CA1;&#x6709;&#x88AB;&#x5F15;&#x7528;&#x8FDB;&#x9879;&#x76EE;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x6709; load &#x8C03;&#x7528;&#xFF1B;&#x4F46;&#x5373;&#x4F7F;&#x7C7B;&#x6587;&#x4EF6;&#x88AB;&#x5F15;&#x7528;&#x8FDB;&#x6765;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#xFF0C;&#x90A3;&#x4E48; initialize &#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/运行原理/" rel="tag">#运行原理</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/0216-11/08-1.html" rel="next" title="iOS开发 - 深入理解控制器与类以及view的加载">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 深入理解控制器与类以及view的加载
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/2017-09/06-1.html" rel="prev" title="iOS开发 - 团队之间编程规范">
+                iOS开发 - 团队之间编程规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -390,6 +451,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/0216-11/10-1.html"
+           data-title="iOS开发 -  +(void)load 和 +(void)initialize 的区别" data-url="http://www.licheng244.com/posts/0216-11/10-1.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -409,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -460,6 +538,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#load-和-initialize-的共同特点"><span class="nav-number">1.</span> <span class="nav-text">load 和 initialize 的共同特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load方法"><span class="nav-number">2.</span> <span class="nav-text">+load方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initialize方法"><span class="nav-number">3.</span> <span class="nav-text">+initialize方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方文档"><span class="nav-number">4.</span> <span class="nav-text">官方文档</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -556,6 +645,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 

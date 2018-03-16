@@ -236,6 +236,20 @@
     </entry>
     
     <entry>
+      <title><![CDATA[iOS开发 - MRC 和 ARC 混编]]></title>
+      <url>http://www.licheng244.com/posts/2016-11/03-5.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h3 id="ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;"><a href="#ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;" class="headerlink" title="ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;"></a>ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fno-objc-arc</code></p>
+<h3 id="MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;"><a href="#MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;" class="headerlink" title="MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;"></a>MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fobjc-arc</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC &#x548C; ARC &#x6DF7;&#x7F16;"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[iOS开发 - 数据存储 CoreData 的使用]]></title>
       <url>http://www.licheng244.com/posts/2016-11/03-2.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -337,20 +351,6 @@
 <hr>
 
 <p>&#x603B;&#x4E4B;&#xFF0C;NSUserDefaults &#x5728;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x4E2D;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x3002;</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[iOS开发 - MRC 和 ARC 混编]]></title>
-      <url>http://www.licheng244.com/posts/2016-11/03-5.html</url>
-      <content type="html"><![CDATA[<blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>iOS5.0&#x4EE5;&#x540E;&#x5C31;&#x5F00;&#x59CB;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ARC&#xFF08; Automatic Reference Counting&#xFF1A;&#x81EA;&#x52A8;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x4EE3;&#x66FF;&#x4E4B;&#x524D;&#x7684;MRC&#xFF08;Manual Reference Counting&#xFF1A;&#x4EBA;&#x5DE5;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#xFF09;&#x6765;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x3002;&#x4F7F;&#x7528;ARC&#x4F1A;&#x51CF;&#x5C11;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x548C;&#x5FD8;&#x4E86;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;&#x82E6;&#x607C;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x60C5;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#x3002;&#x4F7F;&#x7528;&#x4E86;ARC&#x4E4B;&#x540E;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x590D;&#x7528;&#x4EE5;&#x524D;&#x5199;&#x8FC7;&#x7684;&#x4F7F;&#x7528;MRC&#x7684;&#x7C7B;&#xFF0C; &#x5C31;&#x4F1A;&#x51FA;&#x62A5;&#x9519;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C; &#x53EA;&#x9700;&#x8981;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#xFF1A;</p>
-</blockquote>
-<a id="more"></a>
-<hr>
-<h3 id="ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;"><a href="#ARC&#x9879;&#x76EE;-&#x52A0;&#x5165;-MRC-&#x6587;&#x4EF6;" class="headerlink" title="ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;"></a>ARC&#x9879;&#x76EE; : &#x52A0;&#x5165; MRC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fno-objc-arc</code></p>
-<h3 id="MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;"><a href="#MRC&#x9879;&#x76EE;-&#x52A0;&#x5165;-ARC-&#x6587;&#x4EF6;" class="headerlink" title="MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;"></a>MRC&#x9879;&#x76EE; : &#x52A0;&#x5165; ARC &#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x8BBE;&#x7F6E;:<br>&#x9009;&#x62E9;target &#xFF0D;&gt; build phases &#xFF0D;&gt; compile sources &#xFF0D;&gt; &#x5355;&#x51FB;ARC&#x7684;&#x6587;&#x4EF6;&#x5C06;<code>compiler flags</code>&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A; <code>-fobjc-arc</code></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1975627-602a02608d8f497a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MRC &#x548C; ARC &#x6DF7;&#x7F16;"></p>
 ]]></content>
     </entry>
     
@@ -495,7 +495,7 @@
       <title><![CDATA[iOS开发 - APP 跳转到相应的设置界面]]></title>
       <url>http://www.licheng244.com/posts/2016-10/28-1.html</url>
       <content type="html"><![CDATA[<blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728; iOS5.0 &#x4E4B;&#x540E; apple &#x5F00;&#x653E;&#x4E86; app &#x5BF9; setting &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; app &#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0; setting &#x7684;&#x8DF3;&#x8F6C;&#x3002;</p>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728; iOS5.0 &#x4E4B;&#x540E; apple &#x5F00;&#x653E;&#x4E86; app &#x5BF9; <code>setting</code> &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>app</code> &#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0; setting &#x7684;&#x8DF3;&#x8F6C;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
 <h3 id="&#x7528;&#x6CD5;"><a href="#&#x7528;&#x6CD5;" class="headerlink" title="&#x7528;&#x6CD5;"></a>&#x7528;&#x6CD5;</h3><p>&#x5176;&#x5B9E;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#x4E3B;&#x8981;&#x662F;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span>*url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;prefs:root=&#x53C2;&#x6570;&quot;</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url]</div><div class="line">{</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url]; </div><div class="line">}</div></pre></td></tr></table></figure></p>

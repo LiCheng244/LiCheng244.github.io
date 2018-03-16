@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.licheng244.com/posts/2016-10/28-1.html">
 <meta property="og:site_name" content="LiCheng的博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x5">
-<meta property="og:updated_time" content="2017-09-18T09:12:28.000Z">
+<meta property="og:updated_time" content="2018-03-16T09:44:03.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - APP 跳转到相应的设置界面">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x5">
@@ -367,7 +367,7 @@
 
       
         <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728; iOS5.0 &#x4E4B;&#x540E; apple &#x5F00;&#x653E;&#x4E86; app &#x5BF9; setting &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; app &#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0; setting &#x7684;&#x8DF3;&#x8F6C;&#x3002;</p>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728; iOS5.0 &#x4E4B;&#x540E; apple &#x5F00;&#x653E;&#x4E86; app &#x5BF9; <code>setting</code> &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>app</code> &#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0; setting &#x7684;&#x8DF3;&#x8F6C;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
 <h3 id="&#x7528;&#x6CD5;"><a href="#&#x7528;&#x6CD5;" class="headerlink" title="&#x7528;&#x6CD5;"></a>&#x7528;&#x6CD5;</h3><p>&#x5176;&#x5B9E;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#x4E3B;&#x8981;&#x662F;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span>*url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;prefs:root=&#x53C2;&#x6570;&quot;</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url]</div><div class="line">{</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url]; </div><div class="line">}</div></pre></td></tr></table></figure></p>
@@ -585,7 +585,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/APP跳转/" rel="tag"><i class="fa fa-tag"></i>APP跳转</a>
+            <a href="/tags/APP跳转/" rel="tag"><i class="fa fa-tag"> </i>APP跳转</a>
           
         </div>
       

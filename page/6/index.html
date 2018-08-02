@@ -309,144 +309,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIView.html" itemprop="url">
-                  iOS开发 - UIView 使用细节
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
-              2016-11-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__02【 UI 知识 】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIView.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIView.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-          
-
-          
-          
-             <span id="/posts/02 UI 知识/UIView.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIView 使用细节">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController"><a href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController" class="headerlink" title="&#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController"></a>&#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController</h3><h4 id="&#x83B7;&#x53D6;"><a href="#&#x83B7;&#x53D6;" class="headerlink" title="&#x83B7;&#x53D6;:"></a>&#x83B7;&#x53D6;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">- (<span class="built_in">UIViewController</span> *)getCurrentViewController{</div><div class="line">- </div><div class="line">	<span class="keyword">for</span> (<span class="built_in">UIView</span> *next = [<span class="keyword">self</span> superview]; next; next = next.superview) {</div><div class="line">		<span class="built_in">UIResponder</span> *nextResponder = [next nextResponder];</div><div class="line">		<span class="keyword">if</span> ([nextResponder isKindOfClass:[<span class="built_in">UIViewController</span> <span class="keyword">class</span>]]) {</div><div class="line">			<span class="keyword">return</span> (<span class="built_in">UIViewController</span>*)nextResponder;</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIView.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-  		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/posts/性能优化/09 - 性能优化.html" itemprop="url">
                   title
                 </a>
@@ -588,147 +450,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/支付相关/07 - 支付相关.html" itemprop="url">
-                  title
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
-              2016-11-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-07【-支付相关-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__07【 支付相关 】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/支付相关/07 - 支付相关.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/支付相关/07 - 支付相关.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-          
-
-          
-          
-             <span id="/posts/支付相关/07 - 支付相关.html" class="leancloud_visitors" data-flag-title="title">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
-<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/支付相关/07 - 支付相关.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-  		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/posts/02 UI 知识/UIWindow.html" itemprop="url">
                   iOS开发 - UIWindow 的基本使用
                 </a>
@@ -812,147 +533,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A; window &#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x753B;&#x677F;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x7684; view &#x8BA4;&#x4E3A;&#x662F;&#x753B;&#x7EB8;, &#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x64CD;&#x4F5C; window&#xFF0C;&#x800C;&#x662F;&#x64CD;&#x4F5C;&#x5176;&#x5185;&#x90E8;&#x7684; view&#x3002;window &#x662F;&#x4E00;&#x4E2A;&#x8BD5;&#x56FE;&#x5BB9;&#x5668;&#xFF0C;&#x6211;&#x4EEC;&#x4ECA;&#x540E;&#x5728; window &#x4E0A;&#x6DFB;&#x52A0;&#x8BD5;&#x56FE;&#x624D;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;&#x51E1;&#x662F;&#x6DFB;&#x52A0;&#x5230; window &#x4E0A;&#x7684;&#x8BD5;&#x56FE;&#xFF0C;&#x8BD5;&#x56FE;&#x7684; window &#x5C5E;&#x6027;&#x4E0D;&#x518D;&#x4E3A;&#x7A7A;&#x3002;</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02 UI 知识/UIWindow.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-  		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/posts/多线程/05 - 多线程.html" itemprop="url">
-                  title
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
-              2016-11-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-05【-多线程-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__05【 多线程 】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/多线程/05 - 多线程.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/多线程/05 - 多线程.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-          
-
-          
-          
-             <span id="/posts/多线程/05 - 多线程.html" class="leancloud_visitors" data-flag-title="title">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
-<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/多线程/05 - 多线程.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1150,7 +730,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/产品设计/24 - 产品设计.html" itemprop="url">
+                <a class="post-title-link" href="/posts/支付相关/07 - 支付相关.html" itemprop="url">
                   title
                 </a>
               
@@ -1178,8 +758,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-24【-产品设计-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__24【 产品设计 】</span>
+                  <a href="/categories/iOS-07【-支付相关-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__07【 支付相关 】</span>
                   </a>
                 </span>
 
@@ -1194,8 +774,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/产品设计/24 - 产品设计.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/产品设计/24 - 产品设计.html" itemprop="commentsCount"></span>
+                <a href="/posts/支付相关/07 - 支付相关.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/支付相关/07 - 支付相关.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1206,7 +786,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/产品设计/24 - 产品设计.html" class="leancloud_visitors" data-flag-title="title">
+             <span id="/posts/支付相关/07 - 支付相关.html" class="leancloud_visitors" data-flag-title="title">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1234,7 +814,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/产品设计/24 - 产品设计.html#more" rel="contents">
+            <a class="btn" href="/posts/支付相关/07 - 支付相关.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1411,11 +991,434 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/小技巧/19 - 小技巧.html" itemprop="url">
+                  title
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-19【-小技巧-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__19【 小技巧 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/小技巧/19 - 小技巧.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/小技巧/19 - 小技巧.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/小技巧/19 - 小技巧.html" class="leancloud_visitors" data-flag-title="title">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
+<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/小技巧/19 - 小技巧.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/安全攻防/11 - 安全攻防.html" itemprop="url">
+                  title
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-11【-安全攻防-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__11【 安全攻防 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/安全攻防/11 - 安全攻防.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/安全攻防/11 - 安全攻防.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/安全攻防/11 - 安全攻防.html" class="leancloud_visitors" data-flag-title="title">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
+<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/安全攻防/11 - 安全攻防.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/第三方库/13 - 第三方库.html" itemprop="url">
+                  title
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-13【-第三方库-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__13【 第三方库 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/第三方库/13 - 第三方库.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/第三方库/13 - 第三方库.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/第三方库/13 - 第三方库.html" class="leancloud_visitors" data-flag-title="title">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
+<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/第三方库/13 - 第三方库.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1455,7 +1458,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">68</span>
+              <span class="site-state-item-count">76</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1472,7 +1475,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

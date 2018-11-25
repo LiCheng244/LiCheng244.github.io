@@ -1,0 +1,1016 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OC关键字," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x7406;&amp;#x89E3;&amp;#x201D;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x201C;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0D;&amp;#x4EC5;&amp;#x4EC5;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x54F2;&amp;#x5B66;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x4E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同">
+<meta property="og:url" content="http://www.licheng244.com/posts/01OC知识/Null.html">
+<meta property="og:site_name" content="LiCheng的博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x7406;&amp;#x89E3;&amp;#x201D;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x201C;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0D;&amp;#x4EC5;&amp;#x4EC5;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x54F2;&amp;#x5B66;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x4E">
+<meta property="og:updated_time" content="2018-11-25T06:50:13.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x7406;&amp;#x89E3;&amp;#x201D;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x201C;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x4E0D;&amp;#x4EC5;&amp;#x4EC5;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x54F2;&amp;#x5B66;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x4E">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/01OC知识/Null.html"/>
+
+
+  <title> iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同 | LiCheng的博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">LiCheng的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-11-01T00:00:00+08:00" content="2018-11-01">
+              2018-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-01【-OC-知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__01【 OC 知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/01OC知识/Null.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/01OC知识/Null.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/01OC知识/Null.html" class="leancloud_visitors" data-flag-title="iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x7406;&#x89E3;&#x201D;&#x4E0D;&#x5B58;&#x5728;&#x201C;&#x7684;&#x6982;&#x5FF5;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x54F2;&#x5B66;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x9645;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x662F;&#x6709;&#x5F62;&#x5B87;&#x5B99;&#x7684;&#x5C45;&#x6C11;&#xFF0C;&#x800C;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#x903B;&#x8F91;&#x5B87;&#x5B99;&#x7684;&#x5B58;&#x5728;&#x4E0D;&#x786E;&#x5B9A;&#x6027;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x7CFB;&#x7EDF;&#x7684;&#x7269;&#x7406;&#x4F53;&#x73B0;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x9762;&#x4E34;&#x4E00;&#x4E2A;&#x68D8;&#x624B;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x5982;&#x4F55;&#x7528;&#x201D;&#x5B58;&#x5728;&#x201C;&#x8868;&#x8FBE;&#x201D;&#x4E0D;&#x5B58;&#x5728;&#x201C;&#x3002; -&#x2013; &#x6458;&#x81EA; NSHipster</p>
+</blockquote>
+<a id="more"></a>
+<p>&#x8FD9;&#x6BB5;&#x8BDD;&#x8BFB;&#x8D77;&#x6765;&#x602A;&#x602A;&#x7684;&#xFF0C;&#x6BD5;&#x7ADF;&#x662F;&#x7FFB;&#x8BD1;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x5927;&#x6982;&#x610F;&#x601D;&#x662F;&#x8BF4;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x5982;&#x4F55;&#x63CF;&#x8FF0;&#x201D;&#x4E0D;&#x5B58;&#x5728;&#x201C;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x5F88;&#x91CD;&#x8981;&#x3002;</p>
+<p>&#x5728; C &#x8BED;&#x8A00;&#x4E2D;&#x7528; 0 &#x6765;&#x4F5C;&#x4E3A;&#x201C;&#x4E0D;&#x5B58;&#x5728;&#x201D;&#x7684;&#x539F;&#x59CB;&#x503C;&#xFF0C;&#x800C;&#x7528; <code>NULL</code> &#x4F5C;&#x4E3A;&#x6307;&#x9488;&#x7A7A;&#x503C;&#x3002;<br>&#x5728; Objective&#xFF0D;C &#x4E2D;&#xFF0C;&#x5219;&#x6709;&#x51E0;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x8868;&#x793A;&#x201C;&#x4E0D;&#x5B58;&#x5728;&#x201D;&#xFF0C;&#x5206;&#x522B;&#x6709;&#xFF1A;<code>NULL</code>&#x3001;<code>nil</code>&#x3001;<code>Nil</code>&#x3001;<code>NSNull</code>&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x51E0;&#x79CD;&#x7A7A;&#x503C;&#x7684;&#x5B9A;&#x4E49;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x4E0A;&#x7684;&#x4E0D;&#x540C;&#x3002;</p>
+<hr>
+<h3 id="I-NULL"><a href="#I-NULL" class="headerlink" title="I. NULL"></a>I. NULL</h3><p>NULL &#x5B9A;&#x4E49;&#x5728; <code>usr/include/sys/_types/_null.h</code> &#x6587;&#x4EF6;&#x91CC;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#ifndef NULL </span></div><div class="line"><span class="meta">#define NULL  __DARWIN_NULL</span></div><div class="line"><span class="meta">#endif  /* NULL */</span></div></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D; <code>__DARWIN_NULL</code> &#x7684;&#x5B9A;&#x4E49;&#x5728; <code>usr/include/sys/__types.h</code>&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#ifdef __cplusplus</span></div><div class="line"><span class="meta">#  ifdef __GNUG__</span></div><div class="line"><span class="meta">#    define __DARWIN_NULL __null</span></div><div class="line"><span class="meta">#  else /* ! __GNUG__ */</span></div><div class="line"><span class="meta">#    ifdef __LP64__</span></div><div class="line"><span class="meta">#      define __DARWIN_NULL (0L)</span></div><div class="line"><span class="meta">#    else /* !__LP64__ */</span></div><div class="line"><span class="meta">#      define __DARWIN_NULL 0</span></div><div class="line"><span class="meta">#    endif /* __LP64__ */</span></div><div class="line"><span class="meta">#  endif /* __GNUG__ */</span></div><div class="line"><span class="meta">#else /* ! __cplusplus */</span></div><div class="line"><span class="meta">#  define __DARWIN_NULL ((void *)0)</span></div><div class="line"><span class="meta">#endif /* __cplusplus */</span></div></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x9996;&#x5148;&#x5B9A;&#x4E49;&#x5728; C++ &#x73AF;&#x5883;&#x4E0B;&#x4E0D;&#x540C;&#x7F16;&#x8BD1;&#x5668;&#x7684; <code>__DARWIN_NULL</code>&#x7684;&#x53D6;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5B9A;&#x4E86;&#x5176;&#x4ED6;&#x73AF;&#x5883;&#x4E0B;<code>__DARWIN_NULL</code>&#x7684;&#x503C;&#xFF0C;<strong>&#x56E0;&#x6B64;&#x5728; Objective-C &#x4E2D; NULL &#x7684;&#x6700;&#x7EC8;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#define NULL ((void*)0)</span></div></pre></td></tr></table></figure>
+<p>&#x5373; NULL &#x672C;&#x8D28;&#x4E0A;&#x662F;&#xFF1A;<code>(void*)0</code>&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;"><a href="#&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;" class="headerlink" title="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;"></a>&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;</h4><p>NULL &#x4E00;&#x822C;&#x7528;&#x4E8E;&#x8868;&#x793A; C &#x6307;&#x9488;&#x7A7A;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> *pointerToInt = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">char</span> *pointerToChar = <span class="literal">NULL</span>;</div><div class="line"><span class="keyword">struct</span> TreeNode *rootNode = <span class="literal">NULL</span>;</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="II-nil"><a href="#II-nil" class="headerlink" title="II. nil"></a>II. nil</h3><p>nil &#x5B9A;&#x4E49;&#x5728; usr/include/objc/objc.h &#x6587;&#x4EF6;&#x91CC;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#ifndef nil</span></div><div class="line"><span class="meta">#  if __has_feature(cxx_nullptr)</span></div><div class="line"><span class="meta">#    define nil nullptr</span></div><div class="line"><span class="meta">#  else</span></div><div class="line"><span class="meta">#    define nil __DARWIN_NULL</span></div><div class="line"><span class="meta">#  endif</span></div><div class="line"><span class="meta">#endif</span></div></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D; <code>__has_feature(cxx_nullptr)</code> &#x7528;&#x4E8E;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x73AF;&#x5883;&#x662F;&#x5426;&#x6709; C++ &#x7684; <code>nullptr</code> &#x7279;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;nil &#x5B9A;&#x4E49;&#x4E3A; <code>nullptr</code>&#xFF0C;&#x5426;&#x5219; nil &#x5B9A;&#x4E49;&#x4E3A; <code>__DARWIN_NULL</code></p>
+<p>&#x6240;&#x4EE5;&#x5728; Objective-C &#x4E2D; nil &#x7684;&#x6700;&#x7EC8;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#define nil ((void*)0)</span></div></pre></td></tr></table></figure>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<strong>nil &#x672C;&#x8D28;&#x4E0A;&#x4E5F;&#x662F;&#xFF1A;<code>(void *)0</code>&#xFF0C;&#x4E0E; NULL &#x4E00;&#x81F4;</strong>&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-1"><a href="#&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-1" class="headerlink" title="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;"></a>&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;</h4><p>nil &#x7528;&#x4E8E;&#x8868;&#x793A;&#x6307;&#x5411; Objective-C &#x5BF9;&#x8C61;&#xFF08;id &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528; @interface &#x58F0;&#x660E;&#x7684; OC &#x5BF9;&#x8C61;&#xFF09;&#x7684;&#x6307;&#x9488;&#x4E3A;&#x7A7A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *someString = <span class="literal">nil</span>;</div><div class="line"><span class="built_in">NSURL</span> *someURL = <span class="literal">nil</span>;</div><div class="line"><span class="keyword">id</span> someObject = <span class="literal">nil</span>;</div><div class="line"> </div><div class="line"><span class="keyword">if</span> (anotherObject == <span class="literal">nil</span>) <span class="comment">// do something</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="III-Nil"><a href="#III-Nil" class="headerlink" title="III. Nil"></a>III. Nil</h3><p>Nil &#x5B9A;&#x4E49;&#x5728; <code>usr/include/objc/objc.h</code> &#x6587;&#x4EF6;&#x91CC;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#ifndef Nil</span></div><div class="line"><span class="meta">#  if __has_feature(cxx_nullptr)</span></div><div class="line"><span class="meta">#    define Nil nullptr</span></div><div class="line"><span class="meta">#  else</span></div><div class="line"><span class="meta">#    define Nil __DARWIN_NULL</span></div><div class="line"><span class="meta">#  endif</span></div><div class="line"><span class="meta">#endif</span></div></pre></td></tr></table></figure>
+<p>&#x4E0E;&#x4E0A;&#x8FF0; nil &#x4E00;&#x81F4;&#xFF0C;<strong>Nil &#x672C;&#x8D28;&#x4E0A;&#x4E5F;&#x662F;&#xFF1A;<code>(void *)0</code></strong>&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-2"><a href="#&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-2" class="headerlink" title="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;"></a>&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;</h4><p>Nil &#x7528;&#x4E8E;&#x8868;&#x793A;&#x6307;&#x5411; Objective-C &#x7C7B;&#xFF08;Class&#xFF09;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#x4E3A;&#x7A7A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">Class someClass = Nil;</div><div class="line">Class anotherClass = [<span class="built_in">NSString</span> <span class="keyword">class</span>];</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="IV-NSNull"><a href="#IV-NSNull" class="headerlink" title="IV. NSNull"></a>IV. NSNull</h3><p>NSNull &#x5B9A;&#x4E49;&#x5728; NSNull.h &#x6587;&#x4EF6;&#x91CC;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#import </div><div class="line"> </div><div class="line">NS_ASSUME_NONNULL_BEGIN</div><div class="line"> </div><div class="line">@interface NSNull : NSObject </div><div class="line"> </div><div class="line">+ (NSNull *)null;</div><div class="line"> </div><div class="line">@end</div><div class="line"> </div><div class="line">NS_ASSUME_NONNULL_END</div></pre></td></tr></table></figure>
+<p>&#x4ECE;&#x4E0A;&#x8FF0;&#x5B9A;&#x4E49;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x77E5; NSNull &#x662F;&#x4E00;&#x4E2A; Objective-C &#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x7A7A;&#x503C;&#x7684;&#x7C7B;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#x65B9;&#x6CD5;&#xFF1A;<code>+[NSNull null]</code>&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5728;&#x96C6;&#x5408;&#x5BF9;&#x8C61;&#x4E2D;&#x4FDD;&#x5B58;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x5360;&#x4F4D;&#x5BF9;&#x8C61;&#x3002;</p>
+<h4 id="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-3"><a href="#&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;-3" class="headerlink" title="&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;"></a>&#x4F7F;&#x7528;&#x60EF;&#x4F8B;&#xFF1A;</h4><p>&#x5728; <code>Foundation</code> &#x96C6;&#x5408;&#x5BF9;&#x8C61;&#xFF08;NSArray&#x3001;NSDictionary&#x3001;NSSet &#x7B49;&#xFF09;&#x4E2D;&#xFF0C; nil &#x901A;&#x5E38;&#x88AB;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x96C6;&#x5408;&#x5BF9;&#x8C61;&#x7ED3;&#x675F;&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x7528; nil &#x6765;&#x5B58;&#x50A8;&#x4E00;&#x4E2A;&#x7A7A;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x7528; <code>[NSNull null]</code> &#x7A7A;&#x5BF9;&#x8C61;&#x6765;&#x5B58;&#x50A8;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5728; NSDictionary &#x7684; <code>-objectForKey:</code> &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x5B57;&#x5178;&#x4E2D; key &#x5BF9;&#x5E94;&#x7684;&#x503C;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE; nil&#xFF0C;&#x8868;&#x660E;&#x5F53;&#x524D; key &#x5728;&#x5B57;&#x5178;&#x4E2D;&#x672A;&#x6DFB;&#x52A0;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x660E;&#x786E;&#x8868;&#x793A;&#x67D0;&#x4E00; key &#x5DF2;&#x7ECF;&#x5728;&#x5B57;&#x5178;&#x4E2D;&#x6DFB;&#x52A0;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x6CA1;&#x6709;&#x503C;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x7528;<code>[NSNull null]</code> &#x6765;&#x8D4B;&#x503C;&#x8868;&#x793A;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x5F53; NSArray &#x91CC;&#x9047;&#x5230; nil &#x65F6;&#xFF0C;&#x5C31;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x7684;&#x5143;&#x7D20;&#x622A;&#x6B62;&#x4E86;&#xFF0C;&#x5373; NSArray &#x53EA;&#x5173;&#x6CE8; nil &#x4E4B;&#x524D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;nil &#x4E4B;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x629B;&#x5F03;&#x3002;</span></div><div class="line"><span class="built_in">NSArray</span> *array = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@&quot;one&quot;</span>, <span class="string">@&quot;two&quot;</span>, <span class="literal">nil</span>];</div><div class="line"> </div><div class="line"><span class="comment">// &#x9519;&#x8BEF;&#x7684;&#x4F7F;&#x7528;</span></div><div class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</div><div class="line">[dict setObject:<span class="literal">nil</span> forKey:<span class="string">@&quot;someKey&quot;</span>];</div><div class="line"> </div><div class="line"><span class="comment">// &#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;</span></div><div class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</div><div class="line">[dict setObject:[<span class="built_in">NSNull</span> null] forKey:<span class="string">@&quot;someKey&quot;</span>];</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="V-NIL-&#x6216;-NSNil"><a href="#V-NIL-&#x6216;-NSNil" class="headerlink" title="V. NIL &#x6216; NSNil"></a>V. NIL &#x6216; NSNil</h3><p><strong>Objective-C &#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x7B26;&#x53F7;&#xFF01;&#xFF01;&#xFF01;</strong></p>
+<hr>
+<h3 id="&#x2165;-&#x603B;&#x7ED3;"><a href="#&#x2165;-&#x603B;&#x7ED3;" class="headerlink" title="&#x2165;. &#x603B;&#x7ED3;"></a>&#x2165;. &#x603B;&#x7ED3;</h3><p>&#x4ECE;&#x4E0A;&#x8FF0;&#x5206;&#x6790;&#x6211;&#x4EEC;&#x53EF;&#x77E5;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F; <code>NULL</code>&#x3001;<code>nil</code> &#x8FD8;&#x662F;<code>Nil</code>&#xFF0C;&#x5B83;&#x4EEC;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x662F; <code>(void *)0</code>&#xFF0C;&#x53EA;&#x662F;&#x5199;&#x6CD5;&#x4E0D;&#x540C;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x610F;&#x4E49;&#x662F;&#x4E3A;&#x4E86;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x867D;&#x7136;&#x5B83;&#x4EEC;&#x503C;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7406;&#x89E3;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5B57;&#x9762;&#x610F;&#x4E49;&#x5E76;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x573A;&#x666F;&#xFF0C;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x660E;&#x786E;&#xFF0C;&#x589E;&#x52A0;&#x53EF;&#x8BFB;&#x6027;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x6807;&#x5FD7;</th>
+<th style="text-align:left">&#x503C;</th>
+<th style="text-align:left">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">NULL</td>
+<td style="text-align:left">(void *)0</td>
+<td style="text-align:left">C &#x6307;&#x9488;&#x7684;&#x5B57;&#x9762;&#x7A7A;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">nil</td>
+<td style="text-align:left">(id)0</td>
+<td style="text-align:left">Objective-C &#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x9762;&#x7A7A;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">Nil</td>
+<td style="text-align:left">(Class)0</td>
+<td style="text-align:left">Objective-C &#x7C7B;&#x7684;&#x5B57;&#x9762;&#x7A7A;&#x503C;</td>
+</tr>
+<tr>
+<td style="text-align:left">NSNull</td>
+<td style="text-align:left">[NSNull null]</td>
+<td style="text-align:left">&#x7528;&#x6765;&#x8868;&#x793A;&#x7A7A;&#x503C;&#x7684; Objective-C &#x5BF9;&#x8C61;</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OC关键字/" rel="tag"><i class="fa fa-tag"></i>OC关键字</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/第三方库/AFNetworking.html" rel="next" title="iOS开发 - 关于 AFNetworking">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 关于 AFNetworking
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/01OC知识/Null.html"
+           data-title="iOS开发 - OC 中 NULL、nil、Nil、NSNull 的定义及不同" data-url="http://www.licheng244.com/posts/01OC知识/Null.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-NULL"><span class="nav-text">I. NULL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用惯例："><span class="nav-text">使用惯例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-nil"><span class="nav-text">II. nil</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用惯例：-1"><span class="nav-text">使用惯例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-Nil"><span class="nav-text">III. Nil</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用惯例：-2"><span class="nav-text">使用惯例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-NSNull"><span class="nav-text">IV. NSNull</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用惯例：-3"><span class="nav-text">使用惯例：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-NIL-或-NSNil"><span class="nav-text">V. NIL 或 NSNil</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅵ-总结"><span class="nav-text">Ⅵ. 总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

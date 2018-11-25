@@ -309,7 +309,148 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIAlertController.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/AutoLayout.html" itemprop="url">
+                  iOS开发 - AutoLayout 使用细节
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-11T00:00:00+08:00" content="2018-05-11">
+              2018-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__02【 UI 知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/02UI知识/AutoLayout.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/AutoLayout.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/02UI知识/AutoLayout.html" class="leancloud_visitors" data-flag-title="iOS开发 - AutoLayout 使用细节">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"><a href="#&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;" class="headerlink" title="&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"></a>&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;</h3><blockquote>
+<p>&#x6BD4;&#x5982;&#xFF1A;&#x5B50;&#x89C6;&#x56FE;&#x8DDD;&#x79BB;&#x7236;&#x89C6;&#x56FE;A &#x5E95;&#x90E8;20&#xFF0C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;&#x5B50;&#x89C6;&#x56FE;&#x8DDD;&#x79BB;&#x7236;&#x89C6;&#x56FE;B &#x5E95;&#x90E8;20&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5B50;&#x89C6;&#x56FE;&#x7684; top &#x7EA6;&#x675F;&#x4E2D;&#x7684;&#x7236;&#x89C6;&#x56FE;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 1. &#x5220;&#x9664;&#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x7684;&#x7EA6;&#x675F;</span></div><div class="line">[<span class="built_in">NSLayoutConstraint</span> deactivateConstraints:@[<span class="keyword">self</span>.orderTopCon]];</div><div class="line"></div><div class="line"><span class="comment">// 2. &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7EA6;&#x675F;</span></div><div class="line"><span class="built_in">NSLayoutConstraint</span> *topCon = [<span class="built_in">NSLayoutConstraint</span> constraintWithItem:<span class="keyword">self</span>.orderBgView attribute:(<span class="built_in">NSLayoutAttributeTop</span>) relatedBy:<span class="number">0</span> toItem:<span class="keyword">self</span>.iconBgView attribute:(<span class="built_in">NSLayoutAttributeBottom</span>) multiplier:<span class="number">1</span> constant:<span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="comment">// 3. &#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x7EA6;&#x675F;</span></div><div class="line">[<span class="built_in">NSLayoutConstraint</span> activateConstraints:@[topCon]];</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/02UI知识/AutoLayout.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/02UI知识/UIAlertController.html" itemprop="url">
                   iOS开发 - UIAlertController 使用细节
                 </a>
               
@@ -353,8 +494,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIAlertController.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIAlertController.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UIAlertController.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIAlertController.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -365,7 +506,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UIAlertController.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIAlertController 使用细节">
+             <span id="/posts/02UI知识/UIAlertController.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIAlertController 使用细节">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,7 +532,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           <h3 id="&#x57FA;&#x672C;&#x4F7F;&#x7528;"><a href="#&#x57FA;&#x672C;&#x4F7F;&#x7528;" class="headerlink" title="&#x57FA;&#x672C;&#x4F7F;&#x7528;"></a>&#x57FA;&#x672C;&#x4F7F;&#x7528;</h3><p>&#x5173;&#x4E8E;&#x63D0;&#x793A;&#x6846;, &#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;&#x63D0;&#x793A;&#x6846;&#x6709;&#x65F6;&#x53EF;&#x80FD;&#x6EE1;&#x8DB3;&#x4E0D;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;, &#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6846;&#x7684;&#x53D6;&#x6D88;&#x6309;&#x94AE;&#x6211;&#x9700;&#x8981;&#x7070;&#x8272;&#x5B57;&#x4F53;&#x663E;&#x793A;, &#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x63D0;&#x793A;&#x6846;&#x7684;&#x6837;&#x5F0F;&#x4E86;&#x3002;</p>
 <p>&#x82F9;&#x679C;&#x81EA;iOS8&#x5F00;&#x59CB;&#xFF0C;&#x5C31;&#x5DF2;&#x7ECF;&#x5E9F;&#x5F03;&#x4E86;&#x4E4B;&#x524D;&#x7528;&#x4E8E;&#x754C;&#x9762;&#x63D0;&#x9192;&#x7684;<code>UIAlertView</code>&#x7C7B;&#x4EE5;&#x53CA;<code>UIActionSheet</code>&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;<code>UIAlertController</code>&#x4EE5;&#x53CA;<code>UIAlertAction</code>&#xFF0C;&#x4ECE;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x6765;&#x770B;&#xFF0C;&#x82F9;&#x679C;&#x628A;&#x4E4B;&#x524D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;/&#x6837;&#x5F0F;&#x7684;&#x901A;&#x77E5;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#x7EDF;&#x4E00;&#xFF0C;&#x7B80;&#x5316;&#x4E86;&#x6709;&#x5173;&#x63D0;&#x9192;&#x529F;&#x80FD;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIAlertController.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UIAlertController.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -448,7 +589,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIScrollView底层实现.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/UIScrollView底层实现.html" itemprop="url">
                   iOS开发 - UIScrollView 底层实现
                 </a>
               
@@ -492,8 +633,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIScrollView底层实现.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIScrollView底层实现.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UIScrollView底层实现.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIScrollView底层实现.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -504,7 +645,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UIScrollView底层实现.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIScrollView 底层实现">
+             <span id="/posts/02UI知识/UIScrollView底层实现.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIScrollView 底层实现">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -527,7 +668,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;"><a href="#&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;" class="headerlink" title="&#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;"></a>&#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;</h3><p>&#x5728; iOS &#x5F00;&#x53D1;&#x4E2D;&#x6211;&#x4EEC;&#x4F1A;&#x5927;&#x91CF;&#x7528;&#x5230; <code>scrollView</code> &#x8FD9;&#x4E2A;&#x63A7;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684; <code>tableView/collectionview/textView</code> &#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x5B83;&#x3002;scrollView &#x7684;&#x9891;&#x7E41;&#x4F7F;&#x7528;&#x8BA9;&#x6211;&#x5BF9;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x4EA7;&#x751F;&#x4E86;&#x5174;&#x8DA3;&#xFF0C;&#x5B83;&#x5230;&#x5E95;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; scrollView &#xFF1F;</p>
+          <hr>
+<h3 id="I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;"><a href="#I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;" class="headerlink" title="I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;"></a>I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;</h3><blockquote>
+<p>&#x5728; iOS &#x5F00;&#x53D1;&#x4E2D;&#x6211;&#x4EEC;&#x4F1A;&#x5927;&#x91CF;&#x7528;&#x5230; <code>scrollView</code> &#x8FD9;&#x4E2A;&#x63A7;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684; <code>tableView/collectionview/textView</code> &#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x5B83;&#x3002;scrollView &#x7684;&#x9891;&#x7E41;&#x4F7F;&#x7528;&#x8BA9;&#x6211;&#x5BF9;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x4EA7;&#x751F;&#x4E86;&#x5174;&#x8DA3;&#xFF0C;&#x5B83;&#x5230;&#x5E95;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; scrollView &#xFF1F;</p>
+</blockquote>
 <p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x601D;&#x8003;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
 <ul>
 <li><code>scrollView</code> &#x7EE7;&#x627F;&#x81EA;&#x8C01;&#xFF0C;&#x5B83;&#x5982;&#x4F55;&#x68C0;&#x6D4B;&#x5230;&#x624B;&#x6307;&#x6ED1;&#x52A8;&#xFF1F;</li>
@@ -536,7 +680,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 </ul>
 <p>&#x901A;&#x8FC7;&#x4E00;&#x6B65;&#x6B65;&#x89E3;&#x51B3;&#x4E0A;&#x8FB9;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684; scrollView&#x3002;<br></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIScrollView底层实现.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UIScrollView底层实现.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -593,145 +737,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIImage.html" itemprop="url">
-                  iOS开发 - UIImage 使用细节
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-05-08T00:00:00+08:00" content="2018-05-08">
-              2018-05-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__02【 UI 知识 】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIImage.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIImage.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-          
-
-          
-          
-             <span id="/posts/02 UI 知识/UIImage.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIImage 使用细节">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x7684;&#x5185;&#x5BB9;"><a href="#&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x7684;&#x5185;&#x5BB9;" class="headerlink" title="&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x7684;&#x5185;&#x5BB9;"></a>&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x7684;&#x5185;&#x5BB9;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x521B;&#x5EFA;&#x7EAF;&#x8272;&#x56FE;&#x7247;</span></div><div class="line"><span class="keyword">self</span>.imgView.clearsContextBeforeDrawing = <span class="literal">YES</span>;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIImage.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-  		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/posts/02 UI 知识/UITableView.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/UITableView.html" itemprop="url">
                   iOS开发 - UITableView 使用细节
                 </a>
               
@@ -775,8 +781,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UITableView.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UITableView.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UITableView.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UITableView.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -787,7 +793,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UITableView.html" class="leancloud_visitors" data-flag-title="iOS开发 - UITableView 使用细节">
+             <span id="/posts/02UI知识/UITableView.html" class="leancloud_visitors" data-flag-title="iOS开发 - UITableView 使用细节">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -812,7 +818,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h3 id="&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684;-cell"><a href="#&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684;-cell" class="headerlink" title="&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684; cell"></a>&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684; cell</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.tableFooterView = [[<span class="built_in">UIView</span> alloc] init];</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UITableView.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UITableView.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -869,7 +875,145 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIButton设置图片.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/UIImage.html" itemprop="url">
+                  iOS开发 - UIImage 使用细节
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-08T00:00:00+08:00" content="2018-05-08">
+              2018-05-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__02【 UI 知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/02UI知识/UIImage.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIImage.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/02UI知识/UIImage.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIImage 使用细节">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;"><a href="#&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;" class="headerlink" title="&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;"></a>&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x6E05;&#x9664;</span></div><div class="line"><span class="keyword">self</span>.imgView.clearsContextBeforeDrawing = <span class="literal">YES</span>;</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/02UI知识/UIImage.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/posts/02UI知识/UIButton设置图片.html" itemprop="url">
                   iOS开发 - UIButton 设置图片和文字布局样式
                 </a>
               
@@ -913,8 +1057,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIButton设置图片.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIButton设置图片.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UIButton设置图片.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIButton设置图片.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -925,7 +1069,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UIButton设置图片.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 设置图片和文字布局样式">
+             <span id="/posts/02UI知识/UIButton设置图片.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 设置图片和文字布局样式">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -953,7 +1097,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <li>&#x5982;&#x679C;&#x53EA;&#x6709; title&#xFF0C;&#x90A3;&#x5B83;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x90FD;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#x7684;&#xFF0C;image&#x4E5F;&#x662F;&#x4E00;&#x6837;&#xFF1B;</li>
 <li>&#x5982;&#x679C;&#x540C;&#x65F6;&#x6709;image&#x548C;label&#xFF0C;&#x90A3;&#x8FD9;&#x65F6;&#x5019;image&#x7684;&#x4E0A;&#x5DE6;&#x4E0B;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;label&#x7684;&#xFF1B;title&#x7684;&#x4E0A;&#x53F3;&#x4E0B;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#xFF0C;&#x5DE6;&#x8FB9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;image&#x7684;&#x3002;</li></ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIButton设置图片.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UIButton设置图片.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1010,7 +1154,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIButton扩大点击范围.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/UIButton扩大点击范围.html" itemprop="url">
                   iOS开发 - UIButton 扩大点击范围
                 </a>
               
@@ -1054,8 +1198,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIButton扩大点击范围.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIButton扩大点击范围.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UIButton扩大点击范围.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIButton扩大点击范围.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1066,7 +1210,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UIButton扩大点击范围.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 扩大点击范围">
+             <span id="/posts/02UI知识/UIButton扩大点击范围.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 扩大点击范围">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1091,7 +1235,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h3 id="&#x65B9;&#x5F0F;"><a href="#&#x65B9;&#x5F0F;" class="headerlink" title="&#x65B9;&#x5F0F;:"></a>&#x65B9;&#x5F0F;:</h3><p>&#x91CD;&#x5199;&#x4E00;&#x4E2A; Button &#x7C7B;&#xFF0C;&#x8FD9;&#x4E2A; button &#x7C7B;&#x7EE7;&#x627F; UIButton &#xFF0C;&#x91CD;&#x5199;<code>- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event;</code>&#x65B9;&#x6CD5;&#x4E2D;&#x4FEE;&#x6539; bounds &#x7684;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6269;&#x5927;&#x6309;&#x94AE;&#x7684;&#x70B9;&#x51FB;&#x533A;&#x57DF;&#x3002; </p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIButton扩大点击范围.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UIButton扩大点击范围.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1148,7 +1292,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               
                 
-                <a class="post-title-link" href="/posts/02 UI 知识/UIButton防重复点击.html" itemprop="url">
+                <a class="post-title-link" href="/posts/02UI知识/UIButton防重复点击.html" itemprop="url">
                   iOS开发 - UIButton 防止重复点击
                 </a>
               
@@ -1192,8 +1336,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UIButton防重复点击.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UIButton防重复点击.html" itemprop="commentsCount"></span>
+                <a href="/posts/02UI知识/UIButton防重复点击.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UIButton防重复点击.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1204,7 +1348,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02 UI 知识/UIButton防重复点击.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 防止重复点击">
+             <span id="/posts/02UI知识/UIButton防重复点击.html" class="leancloud_visitors" data-flag-title="iOS开发 - UIButton 防止重复点击">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1230,145 +1374,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           <h3 id="&#x65B9;&#x5F0F;&#x4E00;"><a href="#&#x65B9;&#x5F0F;&#x4E00;" class="headerlink" title="&#x65B9;&#x5F0F;&#x4E00;"></a>&#x65B9;&#x5F0F;&#x4E00;</h3><h4 id="userInteractionEnabled"><a href="#userInteractionEnabled" class="headerlink" title="userInteractionEnabled:"></a>userInteractionEnabled:</h4><p>&#x4F7F;&#x7528; UIButton &#x7684; <code>userInteractionEnabled</code> &#x5C5E;&#x6027;&#x3002;&#x5728;&#x70B9;&#x51FB;&#x540E;&#xFF0C;&#x7981;&#x6B62;UIButton&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x76F4;&#x5230;&#x5B8C;&#x6210;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#x518D;&#x5C06;&#x5176; button &#x7684;&#x4EA4;&#x4E92;&#x6253;&#x5F00;&#x5373;&#x53EF;&#x3002;</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">-(<span class="keyword">void</span>)actionFixMultiClick_enabled:(<span class="built_in">UIButton</span> *)sender {</div><div class="line">	sender.userInteractionEnabled = <span class="literal">NO</span>;</div><div class="line">	[<span class="keyword">self</span> btnClickedOperations];</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)btnClickedOperations {</div><div class="line"></div><div class="line">	<span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^{</div><div class="line">		btn.userInteractionEnabled = <span class="literal">YES</span>;</div><div class="line">	});</div><div class="line">}</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UIButton防重复点击.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-  		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/posts/02 UI 知识/UITextFiled.html" itemprop="url">
-                  iOS开发 - UITextFiled 使用细节
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-05-04T00:00:00+08:00" content="2018-05-04">
-              2018-05-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__02【 UI 知识 】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/posts/02 UI 知识/UITextFiled.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02 UI 知识/UITextFiled.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-          
-
-          
-          
-             <span id="/posts/02 UI 知识/UITextFiled.html" class="leancloud_visitors" data-flag-title="iOS开发 - UITextFiled 使用细节">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="&#x4E00;-&#x5E38;&#x7528;&#x5C5E;&#x6027;"><a href="#&#x4E00;-&#x5E38;&#x7528;&#x5C5E;&#x6027;" class="headerlink" title="&#x4E00; &#x5E38;&#x7528;&#x5C5E;&#x6027;"></a>&#x4E00; &#x5E38;&#x7528;&#x5C5E;&#x6027;</h3><h4 id="&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;"><a href="#&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;" class="headerlink" title="&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;:"></a>&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">textFiled.text 				<span class="comment">// &#x83B7;&#x53D6;&#x6587;&#x672C;&#x5185;&#x5BB9;</span></div><div class="line">textFiled.textColor 		<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x7684;&#x989C;&#x8272;</span></div><div class="line">textFiled.textAlignment 	<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;(&#x6C34;&#x5E73;&#x65B9;&#x5411;)</span></div><div class="line"></div><div class="line">textFiled.font 				<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5B57;&#x4F53;</span></div><div class="line">textField.font = [<span class="built_in">UIFont</span> fontWithName:@&#x201C;Helevetica-Bold&#x201D; size: <span class="number">20</span>]; <span class="comment">// &#x9ED1;&#x4F53;&#x52A0;&#x7C97;</span></div><div class="line"></div><div class="line">textFiled.placeholder 		<span class="comment">// &#x8BBE;&#x7F6E;&#x5360;&#x4F4D;&#x7B26;(&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8F93;&#x5165;&#x65F6;,&#x7ED9;&#x51FA;&#x7684;&#x63D0;&#x793A;&#x5B57;&#x7B26;&#x4E32;)</span></div><div class="line"></div><div class="line">textFiled.autocapitalizationType <span class="comment">// &#x8BBE;&#x7F6E;&#x9996;&#x5B57;&#x6BCD;&#x662F;&#x5426;&#x5927;&#x5199;</span></div><div class="line"></div><div class="line">textFiled.autocorrectionType <span class="comment">//&#x662F;&#x5426;&#x7EA0;&#x9519;</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div><div class="line">	<span class="built_in">UITextAutocorrectionTypeDefault</span>, <span class="comment">//&#x9ED8;&#x8BA4;</span></div><div class="line">	<span class="built_in">UITextAutocorrectionTypeNo</span>, <span class="comment">//&#x4E0D;&#x81EA;&#x52A8;&#x7EA0;&#x9519;</span></div><div class="line">	<span class="built_in">UITextAutocorrectionTypeYes</span>, <span class="comment">//&#x81EA;&#x52A8;&#x7EA0;&#x9519;</span></div><div class="line">} <span class="built_in">UITextAutocorrectionType</span>;</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02 UI 知识/UITextFiled.html#more" rel="contents">
+            <a class="btn" href="/posts/02UI知识/UIButton防重复点击.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1408,7 +1414,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1448,7 +1454,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-count">90</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1465,7 +1471,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

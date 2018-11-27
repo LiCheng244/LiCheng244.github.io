@@ -105,9 +105,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 - 总结 Objective-C 的 self. 用法">
 <meta property="og:url" content="http://www.licheng244.com/posts/01OC知识/对象初始化.html">
-<meta property="og:site_name" content="LiCheng的博客">
+<meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5173;&amp;#x4E8E;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;self.&amp;#x8D4B;&amp;#x503C;&amp;#x7684;&amp;#x95EE;&amp;#x9898;">
-<meta property="og:updated_time" content="2018-11-25T07:12:59.570Z">
+<meta property="og:updated_time" content="2018-11-27T08:31:32.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 总结 Objective-C 的 self. 用法">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5173;&amp;#x4E8E;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;self.&amp;#x8D4B;&amp;#x503C;&amp;#x7684;&amp;#x95EE;&amp;#x9898;">
@@ -134,7 +134,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   <link rel="canonical" href="http://www.licheng244.com/posts/01OC知识/对象初始化.html"/>
 
 
-  <title> iOS开发 - 总结 Objective-C 的 self. 用法 | LiCheng的博客 </title>
+  <title> iOS开发 - 总结 Objective-C 的 self. 用法 | 博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -165,11 +165,11 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">LiCheng的博客</span>
+      <span class="site-title">博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">写代码</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -388,8 +388,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5173;&#x4E8E;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;self.&#x8D4B;&#x503C;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x548C;Objective-C&#x7684;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;&#x6709;&#x5173;, &#x7F51;&#x4E0A;&#x5F88;&#x591A;&#x4EBA;&#x4E5F;&#x90FD;&#x8FD9;&#x4E48;&#x89E3;&#x7B54;&#x7684;,&#x4E0D;&#x8FC7;&#x5982;&#x4F55;&#x4E0E;&#x5B58;&#x53D6;&#x65B9;&#x5F0F;&#x6709;&#x5173;&#x7A76;&#x7ADF;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x5173;&#x7CFB;&#x5C31;&#x5F88;&#x5C11;&#x6709;&#x540C;&#x5B66;&#x56DE;&#x7B54;&#x4E86;&#x3002;&#x6211;&#x603B;&#x7ED3;&#x4E86;&#x4E00;&#x4E0B;, &#x53D1;&#x51FA;&#x6765;&#x7ED9;&#x5927;&#x5BB6;&#x53C2;&#x8003;. &#x6709;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x8BF7;&#x5927;&#x5BB6;&#x65A7;&#x6B63;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
-<hr>
-<h3 id="I-&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;"><a href="#I-&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;" class="headerlink" title="I. &#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;"></a>I. &#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;</h3><p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F1A;&#x5728;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x91CC;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;:</p>
+<h3 id="I-&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;"><a href="#I-&#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;" class="headerlink" title="I. &#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;"></a>I. &#x5B98;&#x65B9;&#x6587;&#x6863;&#x4EE3;&#x7801;</h3><hr>
+<p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F1A;&#x5728;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x91CC;&#x770B;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;:</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">MyClass.h </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> : <span class="title">NSObject</span> </span>{ </div><div class="line">	MyObject *myObject; </div><div class="line">} </div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">retain</span>) MyObject *myObject; </div><div class="line"><span class="keyword">@end</span> </div><div class="line"></div><div class="line"></div><div class="line">MyClass.m </div><div class="line"> </div><div class="line"><span class="keyword">@synthesize</span> myObject; </div><div class="line"></div><div class="line">- (<span class="keyword">id</span>)init { </div><div class="line">	<span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init]){ </div><div class="line">		MyObject * aMyObject = [[MyObject alloc] init]; </div><div class="line">		<span class="keyword">self</span>.myObject = aMyObject; </div><div class="line">		[aMyObject release]; </div><div class="line">	} </div><div class="line">	<span class="keyword">return</span> <span class="keyword">self</span>; </div><div class="line">}</div></pre></td></tr></table></figure>
 <p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>Student</code>&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;NSObject&#x7C7B;&#xFF0C;&#x4EE3;&#x7801;&#xFF1A;</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span> </span></div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span>{ </div><div class="line"> </div><div class="line">	<span class="built_in">NSString</span> *idd; </div><div class="line">	<span class="built_in">NSString</span> *name; </div><div class="line">	} </div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">retain</span>) <span class="built_in">NSString</span> *idd; </div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">retain</span>) <span class="built_in">NSString</span> *name; </div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
@@ -403,8 +403,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p>Student.m&#x6587;&#x4EF6; &#x4EE3;&#x7801;&#xFF1A;</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&quot;Student.h&quot;</span> </span></div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Student</span> </span></div><div class="line"><span class="keyword">@synthesize</span> idd = _idd; </div><div class="line"><span class="keyword">@synthesize</span> name = _name; </div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)dealloc { </div><div class="line"></div><div class="line">	[_idd release]; </div><div class="line">	_idd = <span class="literal">nil</span>; </div><div class="line">	[_name release]; </div><div class="line">	_name = <span class="literal">nil</span>; </div><div class="line">	[<span class="keyword">super</span> dealloc]; </div><div class="line">} </div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>&#x53EF;&#x4EE5;&#x6CE8;&#x610F;&#x5230;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#xFF0C;&#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5728;.h&#x6587;&#x4EF6;name&#x53D8;&#x91CF;&#x6539;&#x5199;&#x4E3A;&#x4E86;_name;&#x5728;.m&#x6587;&#x4EF6;&#x4E2D;<code>@sythesize</code>&#x7684;&#x5199;&#x6CD5;&#x4E5F;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#x3002;<br>&#x5982;&#x679C;&#x901A;&#x8FC7;&#x65B9;&#x6CD5;<code>self._name</code>&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;xcode&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x793A;&#x9519;&#x8BEF;&#xFF0C;&#x5176;&#x5B9E;&#x8FD9;&#x4E5F;&#x5C31;&#x8BF4;&#x660E;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4F7F;&#x7528;<code>self.name</code>&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7684;&#x662F;student&#x7C7B;name&#x7684;get&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x7406;name&#x7684;set&#x65B9;&#x6CD5;&#x4EA6;&#x662F;&#x5982;&#x6B64;&#x3002;<br>&#x6709;&#x4EBA;&#x5C31;&#x95EE;, &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x8FD9;&#x4E48;&#x590D;&#x6742;&#x7684;&#x8D4B;&#x503C;? &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x52A0;<code>self.</code> ? &#x76F4;&#x63A5;&#x5199;&#x6210;<code>self.myObject = [[MyObject alloc] init];</code>&#x4E0D;&#x662F;&#x4E5F;&#x6CA1;&#x6709;&#x9519;&#x4E48;? &#x4E0D;&#x52A0;self&#x6709;&#x65F6;&#x597D;&#x50CF;&#x4E5F;&#x662F;&#x6B63;&#x5E38;&#x7684;?</p>
-<hr>
-<h3 id="II-&#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;"><a href="#II-&#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;" class="headerlink" title="II. &#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;"></a>II. &#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;</h3><p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x7684;&#x5185;&#x5BB9;:</p>
+<p><br></p>
+<h3 id="II-&#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;"><a href="#II-&#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;" class="headerlink" title="II. &#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;"></a>II. &#x4ECE;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x6765;&#x8BF4;&#x660E;&#x533A;&#x522B;</h3><hr>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x7684;&#x5185;&#x5BB9;:</p>
 <p>ViewController.h&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;Student&#x7C7B;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span> </span></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">Student</span>; </span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> : <span class="title">UIViewController</span></span>{   </div><div class="line">	Student *_student; </div><div class="line">} </div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">retain</span>) Student *student; </div><div class="line">   </div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 <p>ViewController.m&#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#xFF1A;</p>
@@ -423,8 +424,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">MyClass.h </div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> : <span class="title">NSObject</span> </span>{ </div><div class="line">    MyObject * _myObject; </div><div class="line">} </div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">retain</span>) MyObject *myObject; </div><div class="line"><span class="keyword">@end</span> </div><div class="line">MyClass.m </div><div class="line"><span class="keyword">@synthesize</span> myObject = _myObject;</div></pre></td></tr></table></figure>
 <p>OK, &#x4F60;&#x73B0;&#x5728;&#x518D;&#x8BD5;&#x4E0B;, &#x5982;&#x679C;&#x4F60;&#x7528;<code>self._myObject = aMyObject;</code> &#x6216;&#x8005; <code>myObject = aMyObject;</code> &#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;.</p>
 <p>&#x4E3A;&#x4EC0;&#x4E48;&#x5462;, &#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x548C;Obj-c&#x7684;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;&#x6709;&#x5173;&#x4E86;. &#x8BF4;&#x767D;&#x4E86;&#x5F88;&#x7B80;&#x5355; , &#x5927;&#x5BB6;&#x90FD;&#x77E5;&#x9053;, <code>@property (nonatomic, retain) MyObject *myObject;</code>&#x662F;&#x4E3A;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;, &#x53EA;&#x662F;&#x5E73;&#x65F6;&#x6211;&#x4EEC;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x548C;&#x5C5E;&#x6027;&#x540D;&#x662F;&#x4E00;&#x6837;&#x7684;,&#x73B0;&#x5728;&#x4F60;&#x628A;&#x5B83;&#x5199;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x540D;&#x5B57;, &#x5C31;&#x4F1A;&#x5F88;&#x6E05;&#x695A;&#x4E86;. <code>_myObject</code>&#x662F;&#x5C5E;&#x6027;&#x672C;&#x8EAB;,<code>myObject</code>&#x662F;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;&#x540D;.</p>
-<hr>
-<h3 id="III-&#x603B;&#x7ED3;"><a href="#III-&#x603B;&#x7ED3;" class="headerlink" title="III. &#x603B;&#x7ED3;"></a>III. &#x603B;&#x7ED3;</h3><p>&#x73B0;&#x5728;&#x56DE;&#x5934;&#x8BF4;&#x8BF4;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x7684;&#x90A3;&#x56DB;&#x4E2A;&#x8D4B;&#x503C;, &#x5F53;&#x4E0D;&#x7528;<code>self.</code>&#x7684;&#x65F6;&#x5019;,  &#x90A3;&#x53E5;&#x8BDD;&#x53EA;&#x662F;&#x4E00;&#x822C;&#x7684;&#x8D4B;&#x503C;, &#x628A;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x8D4B;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x6307;&#x9488;, &#x4E0D;&#x4F1A;&#x5BF9;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x6709;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;, &#x6240;&#x4EE5;2&#x4E2D;&#x4E0D;&#x8981;&#x6700;&#x540E;<code>[aMyObject release];</code>&#x8FD9;&#x53E5;&#x8BDD;&#x548C;4&#x662F;&#x4E00;&#x56DE;&#x4E8B;.</p>
+<p><br></p>
+<h3 id="III-&#x603B;&#x7ED3;"><a href="#III-&#x603B;&#x7ED3;" class="headerlink" title="III. &#x603B;&#x7ED3;"></a>III. &#x603B;&#x7ED3;</h3><hr>
+<p>&#x73B0;&#x5728;&#x56DE;&#x5934;&#x8BF4;&#x8BF4;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x7684;&#x90A3;&#x56DB;&#x4E2A;&#x8D4B;&#x503C;, &#x5F53;&#x4E0D;&#x7528;<code>self.</code>&#x7684;&#x65F6;&#x5019;,  &#x90A3;&#x53E5;&#x8BDD;&#x53EA;&#x662F;&#x4E00;&#x822C;&#x7684;&#x8D4B;&#x503C;, &#x628A;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x8D4B;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x6307;&#x9488;, &#x4E0D;&#x4F1A;&#x5BF9;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x6709;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;, &#x6240;&#x4EE5;2&#x4E2D;&#x4E0D;&#x8981;&#x6700;&#x540E;<code>[aMyObject release];</code>&#x8FD9;&#x53E5;&#x8BDD;&#x548C;4&#x662F;&#x4E00;&#x56DE;&#x4E8B;.</p>
 <p>1&#x548C;3, &#x5F53;&#x8C03;&#x7528;<code>setMyObject:</code>&#x65B9;&#x6CD5;&#x65F6;, &#x5BF9;<code>newValue</code> &#x505A;&#x4E86;&#x4E00;&#x6B21;<code>retain</code>&#x64CD;&#x4F5C;, &#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x628A;&#x539F;&#x6765;&#x7684;<code>newValue</code>&#x91CA;&#x653E;&#x6389;, &#x4E0D;&#x7136;&#x5C31;&#x4F1A;&#x5185;&#x5B58;&#x6CC4;&#x9732;, &#x5728;1&#x91CC;, &#x6211;&#x4EEC;&#x6709;&#x4E2A;<code>aMyObject</code>&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x91CA;&#x653E;, &#x5728;3&#x91CC;, &#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x91CA;&#x653E;&#x5B83;, &#x6240;&#x4EE5;, &#x5728;3&#x91CC;, &#x6211;&#x4EEC;&#x4F1A;&#x591A;&#x51FA;&#x6765;&#x4E00;&#x4E2A;<code>retainCount</code>. &#x5185;&#x5B58;&#x6CC4;&#x9732;&#x4E86;.</p>
 <p>&#x8BF4;&#x4E86;&#x8FD9;&#x4E48;&#x591A;, &#x6211;&#x53EA;&#x60F3;&#x8BA9;&#x5927;&#x5BB6;&#x6E05;&#x695A;, &#x4EC0;&#x4E48;&#x662F;&#x8C03;&#x7528;&#x5C5E;&#x6027;&#x672C;&#x8EAB;, &#x4EC0;&#x4E48;&#x662F;&#x8C03;&#x7528;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;. &#x600E;&#x4E48;&#x6837;&#x624D;&#x80FD;&#x907F;&#x514D;&#x5185;&#x5B58;&#x6CC4;&#x9732;, &#x800C;&#x4E14;, &#x4EE5;&#x4E0A;&#x4F8B;&#x5B50;&#x91CC;&#x662F;&#x5728;&#x81EA;&#x5DF1;&#x7C7B;&#x91CC;&#x7684;&#x8C03;&#x7528;, &#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x7C7B;&#x88AB;&#x522B;&#x7684;&#x7C7B;&#x8C03;&#x7528;&#x65F6;, &#x66F4;&#x8981;&#x6CE8;&#x610F;&#x4E00;&#x4E9B;,</p>
 <p>&#x987A;&#x4FBF;&#x8BF4;&#x4E00;&#x4E0B;, &#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;&#x5176;&#x5B83;&#x7C7B;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;, &#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;, &#x4F60;&#x53EF;&#x4EE5;&#x7528;<code>myClass -&gt; myObject</code>&#x6765;&#x8BBF;&#x95EE;, &#x8FD9;&#x6837;&#x662F;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;, &#x4E0D;&#x8FC7;&#x4F60;&#x5148;&#x8981;&#x628A;<code>myObject</code>&#x8BBE;&#x6210;<code>@public.</code> &#x4F46;&#x8FD9;&#x4E2A;&#x662F;&#x5B98;&#x65B9;&#x4E0D;&#x63D0;&#x5021;&#x7684;,</p>
@@ -475,16 +477,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/01OC知识/alloc和init.html" rel="next" title="iOS开发 - 创建对象时 alloc 和 init 的作用">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 创建对象时 alloc 和 init 的作用
+              <a href="/posts/设计模式/06 - 设计模式.html" rel="next" title="title">
+                <i class="fa fa-chevron-left"></i> title
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/支付相关/07 - 支付相关.html" rel="prev" title="title">
-                title <i class="fa fa-chevron-right"></i>
+              <a href="/posts/第三方库/SDWebImage.html" rel="prev" title="iOS开发 - SDWebImage 框架实现原理">
+                iOS开发 - SDWebImage 框架实现原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

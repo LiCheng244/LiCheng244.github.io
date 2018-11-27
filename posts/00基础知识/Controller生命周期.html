@@ -101,16 +101,19 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
 
-<meta name="description" content="&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;">
+<meta name="description" content="I. &amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;
+// &amp;#x975E;storyBoard(xib&amp;#x6216;&amp;#x975E;xib)&amp;#x90FD;&amp;#x8D70;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 - ViewController 的生命周期">
 <meta property="og:url" content="http://www.licheng244.com/posts/00基础知识/Controller生命周期.html">
-<meta property="og:site_name" content="LiCheng的博客">
-<meta property="og:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;">
-<meta property="og:updated_time" content="2018-07-23T06:16:09.862Z">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="I. &amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;
+// &amp;#x975E;storyBoard(xib&amp;#x6216;&amp;#x975E;xib)&amp;#x90FD;&amp;#x8D70;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBun">
+<meta property="og:updated_time" content="2018-11-27T08:29:43.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - ViewController 的生命周期">
-<meta name="twitter:description" content="&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;">
+<meta name="twitter:description" content="I. &amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;
+// &amp;#x975E;storyBoard(xib&amp;#x6216;&amp;#x975E;xib)&amp;#x90FD;&amp;#x8D70;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBun">
 
 
 
@@ -134,7 +137,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   <link rel="canonical" href="http://www.licheng244.com/posts/00基础知识/Controller生命周期.html"/>
 
 
-  <title> iOS开发 - ViewController 的生命周期 | LiCheng的博客 </title>
+  <title> iOS开发 - ViewController 的生命周期 | 博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -165,11 +168,11 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">LiCheng的博客</span>
+      <span class="site-title">博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+  <p class="site-subtitle">写代码</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -383,10 +386,12 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
 
       
-        <h3 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3><a id="more"></a>
+        <a id="more"></a>
+<h3 id="I-&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#I-&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="I. &#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>I. &#x5E38;&#x7528;&#x65B9;&#x6CD5;</h3><hr>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x975E;storyBoard(xib&#x6216;&#x975E;xib)&#x90FD;&#x8D70;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">instancetype</span>)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil {</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {</div><div class="line">}</div><div class="line"><span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// storyBoard&#x8D70;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder {</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder]) {</div><div class="line">}</div><div class="line"><span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// xib &#x52A0;&#x8F7D; &#x5B8C;&#x6210;</span></div><div class="line">- (<span class="keyword">void</span>)awakeFromNib {</div><div class="line">[<span class="keyword">super</span> awakeFromNib];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x52A0;&#x8F7D;&#x89C6;&#x56FE;(&#x9ED8;&#x8BA4;&#x4ECE;nib)</span></div><div class="line">- (<span class="keyword">void</span>)loadView {</div><div class="line"></div><div class="line"><span class="keyword">self</span>.view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x63A7;&#x5236;&#x5668;&#x4E2D;&#x7684;&#x89C6;&#x56FE;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#xFF0C;viewController&#x81EA;&#x5E26;&#x7684;view&#x52A0;&#x8F7D;&#x5B8C;&#x6210;</span></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad {</div><div class="line">[<span class="keyword">super</span> viewDidLoad];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x5C06;&#x8981;&#x51FA;&#x73B0;</span></div><div class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated {</div><div class="line">[<span class="keyword">super</span> viewWillAppear:animated];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// view &#x5373;&#x5C06;&#x5E03;&#x5C40;&#x5176; Subviews</span></div><div class="line">- (<span class="keyword">void</span>)viewWillLayoutSubviews {</div><div class="line">[<span class="keyword">super</span> viewWillLayoutSubviews];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// view &#x5DF2;&#x7ECF;&#x5E03;&#x5C40;&#x5176; Subviews</span></div><div class="line">- (<span class="keyword">void</span>)viewDidLayoutSubviews {</div><div class="line">[<span class="keyword">super</span> viewDidLayoutSubviews];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x5DF2;&#x7ECF;&#x51FA;&#x73B0;</span></div><div class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated {</div><div class="line">[<span class="keyword">super</span> viewDidAppear:animated];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x5C06;&#x8981;&#x6D88;&#x5931;</span></div><div class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated {</div><div class="line">[<span class="keyword">super</span> viewWillDisappear:animated];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x5DF2;&#x7ECF;&#x6D88;&#x5931;</span></div><div class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated {</div><div class="line">[<span class="keyword">super</span> viewDidDisappear:animated];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x51FA;&#x73B0;&#x5185;&#x5B58;&#x8B66;&#x544A;</span></div><div class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning {</div><div class="line">[<span class="keyword">super</span> didReceiveMemoryWarning];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x89C6;&#x56FE;&#x88AB;&#x9500;&#x6BC1;</span></div><div class="line">- (<span class="keyword">void</span>)dealloc {</div><div class="line">}</div></pre></td></tr></table></figure>
-<hr>
-<h3 id="&#x65B9;&#x6CD5;&#x5206;&#x6790;"><a href="#&#x65B9;&#x6CD5;&#x5206;&#x6790;" class="headerlink" title="&#x65B9;&#x6CD5;&#x5206;&#x6790;"></a>&#x65B9;&#x6CD5;&#x5206;&#x6790;</h3><h4 id="initWithNibName-bundle"><a href="#initWithNibName-bundle" class="headerlink" title="initWithNibName:bundle:"></a>initWithNibName:bundle:</h4><p>&#x521D;&#x59CB;&#x5316;UIViewController&#xFF0C;&#x6267;&#x884C;&#x5173;&#x952E;&#x6570;&#x636E;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x975E;StoryBoard&#x521B;&#x5EFA;UIViewController&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><br></p>
+<h3 id="II-&#x65B9;&#x6CD5;&#x5206;&#x6790;"><a href="#II-&#x65B9;&#x6CD5;&#x5206;&#x6790;" class="headerlink" title="II. &#x65B9;&#x6CD5;&#x5206;&#x6790;"></a>II. &#x65B9;&#x6CD5;&#x5206;&#x6790;</h3><hr>
+<h4 id="initWithNibName-bundle"><a href="#initWithNibName-bundle" class="headerlink" title="initWithNibName:bundle:"></a>initWithNibName:bundle:</h4><p>&#x521D;&#x59CB;&#x5316;UIViewController&#xFF0C;&#x6267;&#x884C;&#x5173;&#x952E;&#x6570;&#x636E;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x975E;StoryBoard&#x521B;&#x5EFA;UIViewController&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
 <blockquote>
 <p>&#x6CE8;&#x610F;: &#x4E0D;&#x8981;&#x5728;&#x8FD9;&#x91CC;&#x505A;View&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF0C;View&#x5728;loadView&#x65B9;&#x6CD5;&#x4E2D;&#x624D;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
 </blockquote>
@@ -457,16 +462,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/设计模式/06 - 设计模式.html" rel="next" title="title">
-                <i class="fa fa-chevron-left"></i> title
+              <a href="/posts/第三方库/13 - 第三方库.html" rel="next" title="iOS开发 -">
+                <i class="fa fa-chevron-left"></i> iOS开发 -
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/系统适配/17 - 系统适配.html" rel="prev" title="title">
-                title <i class="fa fa-chevron-right"></i>
+              <a href="/posts/05多线程/05 - 多线程.html" rel="prev" title="iOS开发 -">
+                iOS开发 - <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -585,7 +590,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用方法"><span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法分析"><span class="nav-text">方法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#initWithNibName-bundle"><span class="nav-text">initWithNibName:bundle:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initWithCoder"><span class="nav-text">initWithCoder:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awakeFromNib"><span class="nav-text">awakeFromNib</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loadView"><span class="nav-text">loadView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidLoad"><span class="nav-text">viewDidLoad</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillAppear"><span class="nav-text">viewWillAppear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillLayoutSubviews"><span class="nav-text">viewWillLayoutSubviews</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidLayoutSubviews"><span class="nav-text">viewDidLayoutSubviews</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidAppear"><span class="nav-text">viewDidAppear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillDisappear"><span class="nav-text">viewWillDisappear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidDisappear"><span class="nav-text">viewDidDisappear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dealloc"><span class="nav-text">dealloc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#didReceiveMemoryWarning"><span class="nav-text">didReceiveMemoryWarning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-常用方法"><span class="nav-text">I. 常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-方法分析"><span class="nav-text">II. 方法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#initWithNibName-bundle"><span class="nav-text">initWithNibName:bundle:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initWithCoder"><span class="nav-text">initWithCoder:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awakeFromNib"><span class="nav-text">awakeFromNib</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loadView"><span class="nav-text">loadView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidLoad"><span class="nav-text">viewDidLoad</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillAppear"><span class="nav-text">viewWillAppear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillLayoutSubviews"><span class="nav-text">viewWillLayoutSubviews</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidLayoutSubviews"><span class="nav-text">viewDidLayoutSubviews</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidAppear"><span class="nav-text">viewDidAppear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewWillDisappear"><span class="nav-text">viewWillDisappear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#viewDidDisappear"><span class="nav-text">viewDidDisappear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dealloc"><span class="nav-text">dealloc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#didReceiveMemoryWarning"><span class="nav-text">didReceiveMemoryWarning</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

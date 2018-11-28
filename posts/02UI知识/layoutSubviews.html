@@ -101,25 +101,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
 
-<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:
-
-
-I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5;- (CGSize)sizeThatFits:(CGSize)size- (void)sizeToFit- (void)layoutSubviews- (void)layoutIfNeeded- (void)setNeedsLayout- (v">
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发 - 关于layoutSubviews视图重绘">
+<meta property="og:title" content="iOS开发 - 关于 layoutSubviews 视图重绘">
 <meta property="og:url" content="http://www.licheng244.com/posts/02UI知识/layoutSubviews.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:
-
-
-I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5;- (CGSize)sizeThatFits:(CGSize)size- (void)sizeToFit- (void)layoutSubviews- (void)layoutIfNeeded- (void)setNeedsLayout- (v">
-<meta property="og:updated_time" content="2018-11-25T08:49:18.439Z">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:">
+<meta property="og:updated_time" content="2018-11-28T03:26:30.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发 - 关于layoutSubviews视图重绘">
-<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:
-
-
-I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5;- (CGSize)sizeThatFits:(CGSize)size- (void)sizeToFit- (void)layoutSubviews- (void)layoutIfNeeded- (void)setNeedsLayout- (v">
+<meta name="twitter:title" content="iOS开发 - 关于 layoutSubviews 视图重绘">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:">
 
 
 
@@ -143,7 +134,7 @@ I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5
   <link rel="canonical" href="http://www.licheng244.com/posts/02UI知识/layoutSubviews.html"/>
 
 
-  <title> iOS开发 - 关于layoutSubviews视图重绘 | 博客 </title>
+  <title> iOS开发 - 关于 layoutSubviews 视图重绘 | 博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +307,7 @@ I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5
             
             
               
-                iOS开发 - 关于layoutSubviews视图重绘
+                iOS开发 - 关于 layoutSubviews 视图重绘
               
             
           </h1>
@@ -370,7 +361,7 @@ I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5
 
           
           
-             <span id="/posts/02UI知识/layoutSubviews.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于layoutSubviews视图重绘">
+             <span id="/posts/02UI知识/layoutSubviews.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于 layoutSubviews 视图重绘">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -392,12 +383,16 @@ I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5
       
 
       
-        <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong></p>
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br><a id="more"></a></p>
 </blockquote>
-<hr>
-<h3 id="I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"><a href="#I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;" class="headerlink" title="I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"></a>I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">CGSize</span>)sizeThatFits:(<span class="built_in">CGSize</span>)size</div><div class="line">- (<span class="keyword">void</span>)sizeToFit</div><div class="line">- (<span class="keyword">void</span>)layoutSubviews</div><div class="line">- (<span class="keyword">void</span>)layoutIfNeeded</div><div class="line">- (<span class="keyword">void</span>)setNeedsLayout</div><div class="line">- (<span class="keyword">void</span>)setNeedsDisplay</div><div class="line">- (<span class="keyword">void</span>)drawRect</div></pre></td></tr></table></figure>
-<h3 id="II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"><a href="#II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;" class="headerlink" title="II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"></a>II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;</h3><ol>
+<p><br></p>
+<h3 id="I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"><a href="#I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;" class="headerlink" title="I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"></a>I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">CGSize</span>)sizeThatFits:(<span class="built_in">CGSize</span>)size</div><div class="line">- (<span class="keyword">void</span>)sizeToFit</div><div class="line">- (<span class="keyword">void</span>)layoutSubviews</div><div class="line">- (<span class="keyword">void</span>)layoutIfNeeded</div><div class="line">- (<span class="keyword">void</span>)setNeedsLayout</div><div class="line">- (<span class="keyword">void</span>)setNeedsDisplay</div><div class="line">- (<span class="keyword">void</span>)drawRect</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"><a href="#II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;" class="headerlink" title="II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"></a>II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;</h3><hr>
+<ol>
 <li><code>init</code>&#x521D;&#x59CB;&#x5316;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; layoutSubviews , &#x4F46;&#x662F;&#x662F;&#x7528;<code>initWithFrame</code>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x5F53;rect&#x7684;&#x503C;&#x4E0D;&#x4E3A;<code>CGRectZero</code>&#x65F6;,&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;</li>
 <li><code>addSubview</code>&#x4F1A;&#x89E6;&#x53D1;layoutSubviews</li>
 <li>&#x8BBE;&#x7F6E;view&#x7684;Frame&#x4F1A;&#x89E6;&#x53D1;layoutSubviews&#xFF0C;&#x5F53;&#x7136;&#x524D;&#x63D0;&#x662F;frame&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x524D;&#x540E;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;</li>
@@ -491,7 +486,7 @@ I. layout&amp;#x673A;&amp;#x5236;&amp;#x76F8;&amp;#x5173;&amp;#x65B9;&amp;#x6CD5
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="posts/02UI知识/layoutSubviews.html"
-           data-title="iOS开发 - 关于layoutSubviews视图重绘" data-url="http://www.licheng244.com/posts/02UI知识/layoutSubviews.html">
+           data-title="iOS开发 - 关于 layoutSubviews 视图重绘" data-url="http://www.licheng244.com/posts/02UI知识/layoutSubviews.html">
       </div>
     
 

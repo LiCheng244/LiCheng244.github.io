@@ -388,15 +388,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"><a href="#&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;" class="headerlink" title="&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"></a>&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;</h3><blockquote>
+          
+            <a id="more"></a>
+<h3 id="I-&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"><a href="#I-&#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;" class="headerlink" title="I. &#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;"></a>I. &#x4FEE;&#x6539;&#x7EA6;&#x675F;&#x7684;&#x7236;&#x89C6;&#x56FE;</h3><hr>
+<blockquote>
 <p>&#x6BD4;&#x5982;&#xFF1A;&#x5B50;&#x89C6;&#x56FE;&#x8DDD;&#x79BB;&#x7236;&#x89C6;&#x56FE;A &#x5E95;&#x90E8;20&#xFF0C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;&#x5B50;&#x89C6;&#x56FE;&#x8DDD;&#x79BB;&#x7236;&#x89C6;&#x56FE;B &#x5E95;&#x90E8;20&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5B50;&#x89C6;&#x56FE;&#x7684; top &#x7EA6;&#x675F;&#x4E2D;&#x7684;&#x7236;&#x89C6;&#x56FE;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
 </blockquote>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 1. &#x5220;&#x9664;&#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x7684;&#x7EA6;&#x675F;</span></div><div class="line">[<span class="built_in">NSLayoutConstraint</span> deactivateConstraints:@[<span class="keyword">self</span>.orderTopCon]];</div><div class="line"></div><div class="line"><span class="comment">// 2. &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7EA6;&#x675F;</span></div><div class="line"><span class="built_in">NSLayoutConstraint</span> *topCon = [<span class="built_in">NSLayoutConstraint</span> constraintWithItem:<span class="keyword">self</span>.orderBgView attribute:(<span class="built_in">NSLayoutAttributeTop</span>) relatedBy:<span class="number">0</span> toItem:<span class="keyword">self</span>.iconBgView attribute:(<span class="built_in">NSLayoutAttributeBottom</span>) multiplier:<span class="number">1</span> constant:<span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="comment">// 3. &#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x7EA6;&#x675F;</span></div><div class="line">[<span class="built_in">NSLayoutConstraint</span> activateConstraints:@[topCon]];</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/posts/02UI知识/AutoLayout.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<hr>
+
+          
         
       
     </div>
@@ -529,8 +530,12 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x57FA;&#x672C;&#x4F7F;&#x7528;"><a href="#&#x57FA;&#x672C;&#x4F7F;&#x7528;" class="headerlink" title="&#x57FA;&#x672C;&#x4F7F;&#x7528;"></a>&#x57FA;&#x672C;&#x4F7F;&#x7528;</h3><p>&#x5173;&#x4E8E;&#x63D0;&#x793A;&#x6846;, &#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;&#x63D0;&#x793A;&#x6846;&#x6709;&#x65F6;&#x53EF;&#x80FD;&#x6EE1;&#x8DB3;&#x4E0D;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;, &#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6846;&#x7684;&#x53D6;&#x6D88;&#x6309;&#x94AE;&#x6211;&#x9700;&#x8981;&#x7070;&#x8272;&#x5B57;&#x4F53;&#x663E;&#x793A;, &#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x63D0;&#x793A;&#x6846;&#x7684;&#x6837;&#x5F0F;&#x4E86;&#x3002;</p>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+<p>&#x5173;&#x4E8E;&#x63D0;&#x793A;&#x6846;, &#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;&#x63D0;&#x793A;&#x6846;&#x6709;&#x65F6;&#x53EF;&#x80FD;&#x6EE1;&#x8DB3;&#x4E0D;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;, &#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6846;&#x7684;&#x53D6;&#x6D88;&#x6309;&#x94AE;&#x6211;&#x9700;&#x8981;&#x7070;&#x8272;&#x5B57;&#x4F53;&#x663E;&#x793A;, &#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x63D0;&#x793A;&#x6846;&#x7684;&#x6837;&#x5F0F;&#x4E86;&#x3002;</p>
 <p>&#x82F9;&#x679C;&#x81EA;iOS8&#x5F00;&#x59CB;&#xFF0C;&#x5C31;&#x5DF2;&#x7ECF;&#x5E9F;&#x5F03;&#x4E86;&#x4E4B;&#x524D;&#x7528;&#x4E8E;&#x754C;&#x9762;&#x63D0;&#x9192;&#x7684;<code>UIAlertView</code>&#x7C7B;&#x4EE5;&#x53CA;<code>UIActionSheet</code>&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;<code>UIAlertController</code>&#x4EE5;&#x53CA;<code>UIAlertAction</code>&#xFF0C;&#x4ECE;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x6765;&#x770B;&#xFF0C;&#x82F9;&#x679C;&#x628A;&#x4E4B;&#x524D;&#x4E0D;&#x540C;&#x7C7B;&#x578B;/&#x6837;&#x5F0F;&#x7684;&#x901A;&#x77E5;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#x7EDF;&#x4E00;&#xFF0C;&#x7B80;&#x5316;&#x4E86;&#x6709;&#x5173;&#x63D0;&#x9192;&#x529F;&#x80FD;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIAlertController.html#more" rel="contents">
               阅读全文 &raquo;
@@ -669,7 +674,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         
           <hr>
-<h3 id="I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;"><a href="#I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;" class="headerlink" title="I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;"></a>I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;</h3><blockquote>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
 <p>&#x5728; iOS &#x5F00;&#x53D1;&#x4E2D;&#x6211;&#x4EEC;&#x4F1A;&#x5927;&#x91CF;&#x7528;&#x5230; <code>scrollView</code> &#x8FD9;&#x4E2A;&#x63A7;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684; <code>tableView/collectionview/textView</code> &#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x5B83;&#x3002;scrollView &#x7684;&#x9891;&#x7E41;&#x4F7F;&#x7528;&#x8BA9;&#x6211;&#x5BF9;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x4EA7;&#x751F;&#x4E86;&#x5174;&#x8DA3;&#xFF0C;&#x5B83;&#x5230;&#x5E95;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; scrollView &#xFF1F;</p>
 </blockquote>
 <p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x601D;&#x8003;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
@@ -816,7 +822,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;"><a href="#&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;" class="headerlink" title="&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;"></a>&#x4E00;&#x3001;&#x6E05;&#x9664;&#x8D85;&#x51FA;&#x7236;&#x89C6;&#x56FE;&#x90E8;&#x5206;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x6E05;&#x9664;</span></div><div class="line"><span class="keyword">self</span>.imgView.clearsContextBeforeDrawing = <span class="literal">YES</span>;</div></pre></td></tr></table></figure>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIImage.html#more" rel="contents">
               阅读全文 &raquo;
@@ -954,7 +963,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684;-cell"><a href="#&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684;-cell" class="headerlink" title="&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684; cell"></a>&#x9690;&#x85CF;&#x591A;&#x4F59;&#x7684; cell</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.tableFooterView = [[<span class="built_in">UIView</span> alloc] init];</div></pre></td></tr></table></figure>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p></blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UITableView.html#more" rel="contents">
               阅读全文 &raquo;
@@ -1092,10 +1103,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x4E00;-&#x901A;&#x8FC7;&#x5206;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;"><a href="#&#x4E00;-&#x901A;&#x8FC7;&#x5206;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4E00; &#x901A;&#x8FC7;&#x5206;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;"></a>&#x4E00; &#x901A;&#x8FC7;&#x5206;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;</h3><p>&#x8BE5;&#x65B9;&#x5F0F;&#x662F;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>imageView</code> &#x548C; <code>titleLabel</code> &#x7684; <code>titleEdgeInsets</code> &#x5C5E;&#x6027;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
-<ul>
-<li>&#x5982;&#x679C;&#x53EA;&#x6709; title&#xFF0C;&#x90A3;&#x5B83;&#x4E0A;&#x4E0B;&#x5DE6;&#x53F3;&#x90FD;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#x7684;&#xFF0C;image&#x4E5F;&#x662F;&#x4E00;&#x6837;&#xFF1B;</li>
-<li>&#x5982;&#x679C;&#x540C;&#x65F6;&#x6709;image&#x548C;label&#xFF0C;&#x90A3;&#x8FD9;&#x65F6;&#x5019;image&#x7684;&#x4E0A;&#x5DE6;&#x4E0B;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;label&#x7684;&#xFF1B;title&#x7684;&#x4E0A;&#x53F3;&#x4E0B;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;button&#xFF0C;&#x5DE6;&#x8FB9;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;image&#x7684;&#x3002;</li></ul>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p></blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIButton设置图片.html#more" rel="contents">
               阅读全文 &raquo;
@@ -1233,7 +1243,11 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x65B9;&#x5F0F;"><a href="#&#x65B9;&#x5F0F;" class="headerlink" title="&#x65B9;&#x5F0F;:"></a>&#x65B9;&#x5F0F;:</h3><p>&#x91CD;&#x5199;&#x4E00;&#x4E2A; Button &#x7C7B;&#xFF0C;&#x8FD9;&#x4E2A; button &#x7C7B;&#x7EE7;&#x627F; UIButton &#xFF0C;&#x91CD;&#x5199;<code>- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event;</code>&#x65B9;&#x6CD5;&#x4E2D;&#x4FEE;&#x6539; bounds &#x7684;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6269;&#x5927;&#x6309;&#x94AE;&#x7684;&#x70B9;&#x51FB;&#x533A;&#x57DF;&#x3002; </p>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+<p>&#x91CD;&#x5199;&#x4E00;&#x4E2A; Button &#x7C7B;&#xFF0C;&#x8FD9;&#x4E2A; button &#x7C7B;&#x7EE7;&#x627F; UIButton &#xFF0C;&#x91CD;&#x5199;<code>- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent*)event;</code>&#x65B9;&#x6CD5;&#x4E2D;&#x4FEE;&#x6539; bounds &#x7684;&#x503C;&#x5C31;&#x53EF;&#x4EE5;&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6269;&#x5927;&#x6309;&#x94AE;&#x7684;&#x70B9;&#x51FB;&#x533A;&#x57DF;&#x3002; </p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIButton扩大点击范围.html#more" rel="contents">
               阅读全文 &raquo;
@@ -1371,8 +1385,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x65B9;&#x5F0F;&#x4E00;"><a href="#&#x65B9;&#x5F0F;&#x4E00;" class="headerlink" title="&#x65B9;&#x5F0F;&#x4E00;"></a>&#x65B9;&#x5F0F;&#x4E00;</h3><h4 id="userInteractionEnabled"><a href="#userInteractionEnabled" class="headerlink" title="userInteractionEnabled:"></a>userInteractionEnabled:</h4><p>&#x4F7F;&#x7528; UIButton &#x7684; <code>userInteractionEnabled</code> &#x5C5E;&#x6027;&#x3002;&#x5728;&#x70B9;&#x51FB;&#x540E;&#xFF0C;&#x7981;&#x6B62;UIButton&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x76F4;&#x5230;&#x5B8C;&#x6210;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#x518D;&#x5C06;&#x5176; button &#x7684;&#x4EA4;&#x4E92;&#x6253;&#x5F00;&#x5373;&#x53EF;&#x3002;</p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">-(<span class="keyword">void</span>)actionFixMultiClick_enabled:(<span class="built_in">UIButton</span> *)sender {</div><div class="line">	sender.userInteractionEnabled = <span class="literal">NO</span>;</div><div class="line">	[<span class="keyword">self</span> btnClickedOperations];</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)btnClickedOperations {</div><div class="line"></div><div class="line">	<span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^{</div><div class="line">		btn.userInteractionEnabled = <span class="literal">YES</span>;</div><div class="line">	});</div><div class="line">}</div></pre></td></tr></table></figure>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIButton防重复点击.html#more" rel="contents">
               阅读全文 &raquo;

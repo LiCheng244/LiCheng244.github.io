@@ -529,7 +529,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController"><a href="#&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController" class="headerlink" title="&#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController"></a>&#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController</h3><h4 id="&#x83B7;&#x53D6;"><a href="#&#x83B7;&#x53D6;" class="headerlink" title="&#x83B7;&#x53D6;:"></a>&#x83B7;&#x53D6;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">- (<span class="built_in">UIViewController</span> *)getCurrentViewController{</div><div class="line">- </div><div class="line">	<span class="keyword">for</span> (<span class="built_in">UIView</span> *next = [<span class="keyword">self</span> superview]; next; next = next.superview) {</div><div class="line">		<span class="built_in">UIResponder</span> *nextResponder = [next nextResponder];</div><div class="line">		<span class="keyword">if</span> ([nextResponder isKindOfClass:[<span class="built_in">UIViewController</span> <span class="keyword">class</span>]]) {</div><div class="line">			<span class="keyword">return</span> (<span class="built_in">UIViewController</span>*)nextResponder;</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+          <blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p></blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIView.html#more" rel="contents">
               阅读全文 &raquo;
@@ -589,7 +590,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
                 
                 <a class="post-title-link" href="/posts/02UI知识/layoutSubviews.html" itemprop="url">
-                  iOS开发 - 关于layoutSubviews视图重绘
+                  iOS开发 - 关于 layoutSubviews 视图重绘
                 </a>
               
             
@@ -644,7 +645,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/02UI知识/layoutSubviews.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于layoutSubviews视图重绘">
+             <span id="/posts/02UI知识/layoutSubviews.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于 layoutSubviews 视图重绘">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -667,23 +668,14 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          
-            <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong></p>
-</blockquote>
-<hr>
-<h3 id="I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"><a href="#I-layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;" class="headerlink" title="I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;"></a>I. layout&#x673A;&#x5236;&#x76F8;&#x5173;&#x65B9;&#x6CD5;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">CGSize</span>)sizeThatFits:(<span class="built_in">CGSize</span>)size</div><div class="line">- (<span class="keyword">void</span>)sizeToFit</div><div class="line">- (<span class="keyword">void</span>)layoutSubviews</div><div class="line">- (<span class="keyword">void</span>)layoutIfNeeded</div><div class="line">- (<span class="keyword">void</span>)setNeedsLayout</div><div class="line">- (<span class="keyword">void</span>)setNeedsDisplay</div><div class="line">- (<span class="keyword">void</span>)drawRect</div></pre></td></tr></table></figure>
-<h3 id="II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"><a href="#II-layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;" class="headerlink" title="II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;"></a>II. layoutSubviews&#x8C03;&#x7528;&#x60C5;&#x51B5;</h3><ol>
-<li><code>init</code>&#x521D;&#x59CB;&#x5316;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; layoutSubviews , &#x4F46;&#x662F;&#x662F;&#x7528;<code>initWithFrame</code>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x5F53;rect&#x7684;&#x503C;&#x4E0D;&#x4E3A;<code>CGRectZero</code>&#x65F6;,&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;</li>
-<li><code>addSubview</code>&#x4F1A;&#x89E6;&#x53D1;layoutSubviews</li>
-<li>&#x8BBE;&#x7F6E;view&#x7684;Frame&#x4F1A;&#x89E6;&#x53D1;layoutSubviews&#xFF0C;&#x5F53;&#x7136;&#x524D;&#x63D0;&#x662F;frame&#x7684;&#x503C;&#x8BBE;&#x7F6E;&#x524D;&#x540E;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;</li>
-<li>&#x6EDA;&#x52A8;&#x4E00;&#x4E2A;<code>UIScrollView</code>&#x4F1A;&#x89E6;&#x53D1;layoutSubviews</li>
-<li>&#x65CB;&#x8F6C;<code>Screen</code>&#x4F1A;&#x89E6;&#x53D1;&#x7236;UIView&#x4E0A;&#x7684;layoutSubviews&#x4E8B;&#x4EF6;</li>
-<li>&#x6539;&#x53D8;&#x4E00;&#x4E2A;<code>UIView</code>&#x5927;&#x5C0F;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;&#x7236;UIView&#x4E0A;&#x7684;layoutSubviews&#x4E8B;&#x4EF6;</li>
-</ol>
-<hr>
-
-          
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br></p></blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/posts/02UI知识/layoutSubviews.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

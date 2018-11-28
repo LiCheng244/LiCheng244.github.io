@@ -101,19 +101,19 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
 
-<meta name="description" content="I. &amp;#x5173;&amp;#x4E8E; scrollView &amp;#x7684;&amp;#x601D;&amp;#x8003;
-&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0">
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x4F7F;&amp;#x7528;&amp;#x7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 - UIScrollView 底层实现">
 <meta property="og:url" content="http://www.licheng244.com/posts/02UI知识/UIScrollView底层实现.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="I. &amp;#x5173;&amp;#x4E8E; scrollView &amp;#x7684;&amp;#x601D;&amp;#x8003;
-&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0">
-<meta property="og:updated_time" content="2018-11-25T09:11:18.340Z">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x4F7F;&amp;#x7528;&amp;#x7">
+<meta property="og:updated_time" content="2018-11-28T03:32:52.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - UIScrollView 底层实现">
-<meta name="twitter:description" content="I. &amp;#x5173;&amp;#x4E8E; scrollView &amp;#x7684;&amp;#x601D;&amp;#x8003;
-&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;
+&amp;#x5728; iOS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x4F1A;&amp;#x5927;&amp;#x91CF;&amp;#x7528;&amp;#x5230; scrollView &amp;#x8FD9;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x4F7F;&amp;#x7528;&amp;#x7">
 
 
 
@@ -387,7 +387,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         <hr>
-<h3 id="I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;"><a href="#I-&#x5173;&#x4E8E;-scrollView-&#x7684;&#x601D;&#x8003;" class="headerlink" title="I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;"></a>I. &#x5173;&#x4E8E; scrollView &#x7684;&#x601D;&#x8003;</h3><blockquote>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
 <p>&#x5728; iOS &#x5F00;&#x53D1;&#x4E2D;&#x6211;&#x4EEC;&#x4F1A;&#x5927;&#x91CF;&#x7528;&#x5230; <code>scrollView</code> &#x8FD9;&#x4E2A;&#x63A7;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684; <code>tableView/collectionview/textView</code> &#x90FD;&#x7EE7;&#x627F;&#x81EA;&#x5B83;&#x3002;scrollView &#x7684;&#x9891;&#x7E41;&#x4F7F;&#x7528;&#x8BA9;&#x6211;&#x5BF9;&#x5B83;&#x7684;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x4EA7;&#x751F;&#x4E86;&#x5174;&#x8DA3;&#xFF0C;&#x5B83;&#x5230;&#x5E95;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; scrollView &#xFF1F;</p>
 </blockquote>
 <p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x601D;&#x8003;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
@@ -397,8 +398,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <li><code>scrollView</code> &#x91CC;&#x7684;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;&#x5982;<code>contentSize/contentOffSet&#x2026;&#x2026;</code></li>
 </ul>
 <p>&#x901A;&#x8FC7;&#x4E00;&#x6B65;&#x6B65;&#x89E3;&#x51B3;&#x4E0A;&#x8FB9;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x7684; scrollView&#x3002;<br><a id="more"></a></p>
-<hr>
-<h3 id="II-&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B9E;&#x73B0;-scrollView"><a href="#II-&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B9E;&#x73B0;-scrollView" class="headerlink" title="II. &#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B9E;&#x73B0; scrollView"></a>II. &#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B9E;&#x73B0; scrollView</h3><h4 id="1-&#x6DFB;&#x52A0;&#x624B;&#x52BF;"><a href="#1-&#x6DFB;&#x52A0;&#x624B;&#x52BF;" class="headerlink" title="1. &#x6DFB;&#x52A0;&#x624B;&#x52BF;:"></a>1. &#x6DFB;&#x52A0;&#x624B;&#x52BF;:</h4><p>&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053; scrollView &#x7EE7;&#x627F;&#x81EA; UIView&#xFF0C;&#x68C0;&#x6D4B;&#x624B;&#x6307;&#x6ED1;&#x52A8;&#x5E94;&#x8BE5;&#x662F;&#x5728; view &#x4E0A;&#x653E;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x624B;&#x52BF;&#x8BC6;&#x522B;&#xFF0C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><br></p>
+<h3 id="I-&#x5B9E;&#x73B0;-scrollView"><a href="#I-&#x5B9E;&#x73B0;-scrollView" class="headerlink" title="I. &#x5B9E;&#x73B0; scrollView"></a>I. &#x5B9E;&#x73B0; scrollView</h3><hr>
+<h4 id="1-&#x6DFB;&#x52A0;&#x624B;&#x52BF;"><a href="#1-&#x6DFB;&#x52A0;&#x624B;&#x52BF;" class="headerlink" title="1. &#x6DFB;&#x52A0;&#x624B;&#x52BF;:"></a>1. &#x6DFB;&#x52A0;&#x624B;&#x52BF;:</h4><p>&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053; scrollView &#x7EE7;&#x627F;&#x81EA; UIView&#xFF0C;&#x68C0;&#x6D4B;&#x624B;&#x6307;&#x6ED1;&#x52A8;&#x5E94;&#x8BE5;&#x662F;&#x5728; view &#x4E0A;&#x653E;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x624B;&#x52BF;&#x8BC6;&#x522B;&#xFF0C;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame {</div><div class="line">	<span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">self</span>) {</div><div class="line">		<span class="built_in">UIPanGestureRecognizer</span> *panGesture = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] init];</div><div class="line">		[panGesture addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(panGestureAction:)];</div><div class="line">		[<span class="keyword">self</span> addGestureRecognizer:panGesture];</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
 <h4 id="2-frame-&#x548C;-bounds"><a href="#2-frame-&#x548C;-bounds" class="headerlink" title="2. frame &#x548C; bounds:"></a>2. frame &#x548C; bounds:</h4><p>&#x8981;&#x641E;&#x6E05;&#x695A;&#x7B2C;&#x4E8C;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x7406;&#x89E3; frame &#x548C; bounds &#x7684;&#x6982;&#x5FF5;:</p>
 <p>&#x63D0;&#x5230;&#x5B83;&#x4EEC;&#xFF0C;&#x5927;&#x5BB6;&#x90FD;&#x77E5;&#x9053;<code>frame</code>&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x7236;&#x89C6;&#x56FE;&#x5750;&#x6807;&#x7CFB;&#x6765;&#x8BF4;&#x81EA;&#x5DF1;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5C3A;&#x5BF8;&#xFF0C;<code>bounds</code> &#x76F8;&#x5BF9;&#x4E8E;&#x81EA;&#x8EAB;&#x5750;&#x6807;&#x7CFB;&#x6765;&#x8BF4;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5C3A;&#x5BF8;&#xFF0C;&#x5E76;&#x4E14; origin &#x4E00;&#x822C;&#x4E3A;&#xFF08;0&#xFF0C;0&#xFF09;&#x3002;&#x4F46;&#x662F;<code>bounds</code>&#x7684; <code>origin</code> &#x6709;&#x4EC0;&#x4E48;&#x7528;&#x5904;&#xFF1F;&#x6539;&#x53D8;&#x5B83;&#x4F1A;&#x51FA;&#x73B0;&#x4EC0;&#x4E48;&#x6548;&#x679C;&#x5462;&#xFF1F;</p>
@@ -583,7 +585,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-关于-scrollView-的思考"><span class="nav-text">I. 关于 scrollView 的思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-一步一步实现-scrollView"><span class="nav-text">II. 一步一步实现 scrollView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-添加手势"><span class="nav-text">1. 添加手势:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-frame-和-bounds"><span class="nav-text">2. frame 和 bounds:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-优化"><span class="nav-text">3. 优化:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-实现-scrollView"><span class="nav-text">I. 实现 scrollView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-添加手势"><span class="nav-text">1. 添加手势:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-frame-和-bounds"><span class="nav-text">2. frame 和 bounds:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-优化"><span class="nav-text">3. 优化:</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

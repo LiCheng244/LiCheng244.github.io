@@ -388,7 +388,9 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="&#x4E00;-&#x5E38;&#x7528;&#x5C5E;&#x6027;"><a href="#&#x4E00;-&#x5E38;&#x7528;&#x5C5E;&#x6027;" class="headerlink" title="&#x4E00; &#x5E38;&#x7528;&#x5C5E;&#x6027;"></a>&#x4E00; &#x5E38;&#x7528;&#x5C5E;&#x6027;</h3><h4 id="&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;"><a href="#&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;" class="headerlink" title="&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;:"></a>&#x6587;&#x672C;&#x663E;&#x793A;&#x5C5E;&#x6027;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">textFiled.text 				<span class="comment">// &#x83B7;&#x53D6;&#x6587;&#x672C;&#x5185;&#x5BB9;</span></div><div class="line">textFiled.textColor 		<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x7684;&#x989C;&#x8272;</span></div><div class="line">textFiled.textAlignment 	<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;(&#x6C34;&#x5E73;&#x65B9;&#x5411;)</span></div><div class="line"></div><div class="line">textFiled.font 				<span class="comment">// &#x8BBE;&#x7F6E;&#x6587;&#x672C;&#x5B57;&#x4F53;</span></div><div class="line">textField.font = [<span class="built_in">UIFont</span> fontWithName:@&#x201C;Helevetica-Bold&#x201D; size: <span class="number">20</span>]; <span class="comment">// &#x9ED1;&#x4F53;&#x52A0;&#x7C97;</span></div><div class="line"></div><div class="line">textFiled.placeholder 		<span class="comment">// &#x8BBE;&#x7F6E;&#x5360;&#x4F4D;&#x7B26;(&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8F93;&#x5165;&#x65F6;,&#x7ED9;&#x51FA;&#x7684;&#x63D0;&#x793A;&#x5B57;&#x7B26;&#x4E32;)</span></div><div class="line"></div><div class="line">textFiled.autocapitalizationType <span class="comment">// &#x8BBE;&#x7F6E;&#x9996;&#x5B57;&#x6BCD;&#x662F;&#x5426;&#x5927;&#x5199;</span></div><div class="line"></div><div class="line">textFiled.autocorrectionType <span class="comment">//&#x662F;&#x5426;&#x7EA0;&#x9519;</span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div><div class="line">	<span class="built_in">UITextAutocorrectionTypeDefault</span>, <span class="comment">//&#x9ED8;&#x8BA4;</span></div><div class="line">	<span class="built_in">UITextAutocorrectionTypeNo</span>, <span class="comment">//&#x4E0D;&#x81EA;&#x52A8;&#x7EA0;&#x9519;</span></div><div class="line">	<span class="built_in">UITextAutocorrectionTypeYes</span>, <span class="comment">//&#x81EA;&#x52A8;&#x7EA0;&#x9519;</span></div><div class="line">} <span class="built_in">UITextAutocorrectionType</span>;</div></pre></td></tr></table></figure>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong><br></p></blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UITextFiled.html#more" rel="contents">
               阅读全文 &raquo;
@@ -526,7 +528,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h3 id="label-&#x6DFB;&#x52A0;&#x4E0B;&#x3001;&#x4E2D;&#x5212;&#x7EBF;"><a href="#label-&#x6DFB;&#x52A0;&#x4E0B;&#x3001;&#x4E2D;&#x5212;&#x7EBF;" class="headerlink" title="label &#x6DFB;&#x52A0;&#x4E0B;&#x3001;&#x4E2D;&#x5212;&#x7EBF;"></a>label &#x6DFB;&#x52A0;&#x4E0B;&#x3001;&#x4E2D;&#x5212;&#x7EBF;</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">UILabel</span> *label = [[<span class="built_in">UILabel</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">30</span>))];</div><div class="line"></div><div class="line"><span class="comment">// &#x4E2D;&#x5212;&#x7EBF; : NSStrikethroughStyleAttributeName</span></div><div class="line"><span class="comment">// &#x4E0B;&#x5212;&#x7EBF; : NSUnderlineStyleAttributeName</span></div><div class="line"><span class="built_in">NSDictionary</span> *attrDic = @{<span class="built_in">NSStrikethroughStyleAttributeName</span>: [<span class="built_in">NSNumber</span> numberWithInteger:<span class="built_in">NSUnderlineStyleSingle</span>]};</div><div class="line"><span class="built_in">NSMutableAttributedString</span> *attrStr = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:<span class="string">@&quot;30&#x5143;&quot;</span> attributes:attrDic];</div><div class="line"></div><div class="line"><span class="comment">// &#x8D4B;&#x503C;</span></div><div class="line">label.attributedText = attrStr;</div></pre></td></tr></table></figure>
+          <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UILabel.html#more" rel="contents">
               阅读全文 &raquo;
@@ -1196,7 +1201,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         
           <hr>
-<h3 id="I-&#x5B9E;&#x73B0;&#x539F;&#x7406;"><a href="#I-&#x5B9E;&#x73B0;&#x539F;&#x7406;" class="headerlink" title="I. &#x5B9E;&#x73B0;&#x539F;&#x7406;"></a>I. &#x5B9E;&#x73B0;&#x539F;&#x7406;</h3><p>&#x5BF9;&#x4E8E;&#x6EDA;&#x52A8;&#x578B;&#x7684;&#x534A;&#x5C4F;&#x6EDA;&#x52A8;&#xFF0C;&#x7531;&#x4E8E; <code>PagEnable</code> &#x6253;&#x5F00;&#x4EE5;&#x540E;&#x53EA;&#x80FD;&#x6839;&#x636E;&#x6EDA;&#x52A8;&#x89C6;&#x56FE;&#x672C;&#x8EAB;&#x7684;&#x9AD8;&#x5BBD;&#x8FDB;&#x884C;&#x6309;&#x9875;&#x6EDA;&#x52A8;&#xFF0C;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528; <code>DidScroll</code> &#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x8DDF;&#x8E2A;&#x6EDA;&#x52A8;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EFB;&#x610F;&#x8DDD;&#x79BB;&#x8DDF;&#x8E2A;&#x6EDA;&#x52A8;</p>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+<p>&#x5BF9;&#x4E8E;&#x6EDA;&#x52A8;&#x578B;&#x7684;&#x534A;&#x5C4F;&#x6EDA;&#x52A8;&#xFF0C;&#x7531;&#x4E8E; <code>PagEnable</code> &#x6253;&#x5F00;&#x4EE5;&#x540E;&#x53EA;&#x80FD;&#x6839;&#x636E;&#x6EDA;&#x52A8;&#x89C6;&#x56FE;&#x672C;&#x8EAB;&#x7684;&#x9AD8;&#x5BBD;&#x8FDB;&#x884C;&#x6309;&#x9875;&#x6EDA;&#x52A8;&#xFF0C;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x4E3B;&#x8981;&#x662F;&#x8C03;&#x7528; <code>DidScroll</code> &#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x8DDF;&#x8E2A;&#x6EDA;&#x52A8;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EFB;&#x610F;&#x8DDD;&#x79BB;&#x8DDF;&#x8E2A;&#x6EDA;&#x52A8;</p>
+</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/posts/02UI知识/UIScrollView半屏滚动效果.html#more" rel="contents">
               阅读全文 &raquo;

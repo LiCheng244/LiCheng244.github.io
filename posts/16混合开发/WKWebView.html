@@ -1,0 +1,1006 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WKWebView," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x6700;&amp;#x8FD1;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5927;&amp;#x91CF;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;webview&amp;#x52A0;&amp;#x8F7D;H5&amp;#xFF0C;&amp;#x9274;&amp;#x4E8E;WKWebView&amp;#x7684;&amp;#x6027;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - WKWebView 使用详情">
+<meta property="og:url" content="http://www.licheng244.com/posts/16混合开发/WKWebView.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x6700;&amp;#x8FD1;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5927;&amp;#x91CF;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;webview&amp;#x52A0;&amp;#x8F7D;H5&amp;#xFF0C;&amp;#x9274;&amp;#x4E8E;WKWebView&amp;#x7684;&amp;#x6027;&amp;#">
+<meta property="og:updated_time" content="2018-11-30T08:54:47.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - WKWebView 使用详情">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x6700;&amp;#x8FD1;&amp;#x516C;&amp;#x53F8;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5927;&amp;#x91CF;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;webview&amp;#x52A0;&amp;#x8F7D;H5&amp;#xFF0C;&amp;#x9274;&amp;#x4E8E;WKWebView&amp;#x7684;&amp;#x6027;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/16混合开发/WKWebView.html"/>
+
+
+  <title> iOS开发 - WKWebView 使用详情 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - WKWebView 使用详情
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-16【-混合开发-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__16【 混合开发 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/16混合开发/WKWebView.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/16混合开发/WKWebView.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/16混合开发/WKWebView.html" class="leancloud_visitors" data-flag-title="iOS开发 - WKWebView 使用详情">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong></p>
+<p>&#x6700;&#x8FD1;&#x516C;&#x53F8;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x5927;&#x91CF;&#x4F7F;&#x7528;&#x4E86;<code>webview</code>&#x52A0;&#x8F7D;H5&#xFF0C;&#x9274;&#x4E8E;<code>WKWebView</code>&#x7684;&#x6027;&#x80FD;&#x4F18;&#x4E8E;<code>UIWebView</code>&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x9009;&#x62E9;&#x4E86;<code>WKWebView</code>&#x3002;<code>WKWebView</code>&#x5728;&#x4F7F;&#x7528;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x8FC7;&#x5185;&#x5BB9;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x53BB;&#x8BB0;&#x5F55;&#x548C;&#x7814;&#x7A76;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x5C31;&#x505A;&#x4E86;&#x4E00;&#x4E0B;&#x603B;&#x7ED3;&#xFF0C;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;.</p>
+</blockquote>
+<p>WKWebView&#x6709;&#x5F88;&#x591A;&#x660E;&#x663E;&#x4F18;&#x52BF;:</p>
+<ul>
+<li>&#x66F4;&#x591A;&#x7684;&#x652F;&#x6301;HTML5&#x7684;&#x7279;&#x6027;</li>
+<li>&#x5B98;&#x65B9;&#x5BA3;&#x79F0;&#x7684;&#x9AD8;&#x8FBE;60fps&#x7684;&#x6EDA;&#x52A8;&#x5237;&#x65B0;&#x7387;&#x4EE5;&#x53CA;&#x5185;&#x7F6E;&#x624B;&#x52BF;</li>
+<li>&#x5C06;UIWebViewDelegate&#x4E0E;UIWebView&#x62C6;&#x5206;&#x6210;&#x4E86;14&#x7C7B;&#x4E0E;3&#x4E2A;&#x534F;&#x8BAE;,&#x4EE5;&#x524D;&#x5F88;&#x591A;&#x4E0D;&#x65B9;&#x4FBF;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x5F97;&#x4EE5;&#x5B9E;&#x73B0;&#x3002;&#x6587;&#x6863;</li>
+<li>Safari&#x76F8;&#x540C;&#x7684;JavaScript&#x5F15;&#x64CE;</li>
+<li>&#x5360;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x5185;&#x5B58;</li>
+</ul>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-WKWebView-&#x914D;&#x7F6E;&#x53CA;&#x521B;&#x5EFA;"><a href="#I-WKWebView-&#x914D;&#x7F6E;&#x53CA;&#x521B;&#x5EFA;" class="headerlink" title="I. WKWebView &#x914D;&#x7F6E;&#x53CA;&#x521B;&#x5EFA;"></a>I. WKWebView &#x914D;&#x7F6E;&#x53CA;&#x521B;&#x5EFA;</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/// &#x521B;&#x5EFA;&#x7F51;&#x9875;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;</span></div><div class="line">   <span class="built_in">WKWebViewConfiguration</span> *config = [[<span class="built_in">WKWebViewConfiguration</span> alloc] init];</div><div class="line">   config.allowsInlineMediaPlayback = <span class="literal">YES</span>;                     <span class="comment">// &#x662F;&#x4F7F;&#x7528;h5&#x7684;&#x89C6;&#x9891;&#x64AD;&#x653E;&#x5668;&#x5728;&#x7EBF;&#x64AD;&#x653E;, &#x8FD8;&#x662F;&#x4F7F;&#x7528;&#x539F;&#x751F;&#x64AD;&#x653E;&#x5668;&#x5168;&#x5C4F;&#x64AD;&#x653E;</span></div><div class="line">   config.mediaTypesRequiringUserActionForPlayback = <span class="literal">YES</span>;      <span class="comment">// &#x8BBE;&#x7F6E;&#x89C6;&#x9891;&#x662F;&#x5426;&#x9700;&#x8981;&#x7528;&#x6237;&#x624B;&#x52A8;&#x64AD;&#x653E;  &#x8BBE;&#x7F6E;&#x4E3A;NO&#x5219;&#x4F1A;&#x5141;&#x8BB8;&#x81EA;&#x52A8;&#x64AD;&#x653E;</span></div><div class="line">   config.allowsPictureInPictureMediaPlayback = <span class="literal">YES</span>;           <span class="comment">// &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x753B;&#x4E2D;&#x753B;&#x6280;&#x672F; &#x5728;&#x7279;&#x5B9A;&#x8BBE;&#x5907;&#x4E0A;&#x6709;&#x6548;</span></div><div class="line">   config.applicationNameForUserAgent = <span class="string">@&quot;ChinaDailyForiPad&quot;</span>;  <span class="comment">// &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x7684;User-Agent&#x4FE1;&#x606F;&#x4E2D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x540D;&#x79F0;  &#x203C;&#xFE0F;iOS9&#x540E;&#x53EF;&#x7528;</span></div><div class="line">   </div><div class="line">   <span class="comment">/// &#x521B;&#x5EFA;&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;</span></div><div class="line">   <span class="built_in">WKPreferences</span> *preference = [[<span class="built_in">WKPreferences</span> alloc] init];</div><div class="line">   preference.minimumFontSize = <span class="number">0</span>;                          <span class="comment">// &#x6700;&#x5C0F;&#x5B57;&#x4F53;&#x5927;&#x5C0F; &#x5F53;&#x5C06;javaScriptEnabled&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;NO&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x660E;&#x663E;&#x7684;&#x6548;&#x679C;</span></div><div class="line">   preference.javaScriptEnabled = <span class="literal">YES</span>;                      <span class="comment">// &#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x652F;&#x6301;javaScript &#x9ED8;&#x8BA4;&#x662F;&#x652F;&#x6301;&#x7684;</span></div><div class="line">   preference.javaScriptCanOpenWindowsAutomatically = <span class="literal">YES</span>;  <span class="comment">// &#x5728;iOS&#x4E0A;&#x9ED8;&#x8BA4;&#x4E3A;NO&#xFF0C;&#x8868;&#x793A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x4E0D;&#x7ECF;&#x8FC7;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x7531;javaScript&#x81EA;&#x52A8;&#x6253;&#x5F00;&#x7A97;&#x53E3;</span></div><div class="line">   config.preferences = preference;</div><div class="line"></div><div class="line">   </div><div class="line">   <span class="comment">/// &#x8FD9;&#x4E2A;&#x7C7B;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x505A;native&#x4E0E;JavaScript&#x7684;&#x4EA4;&#x4E92;&#x7BA1;&#x7406;</span></div><div class="line">   <span class="built_in">WKUserContentController</span> * wkUController = [[<span class="built_in">WKUserContentController</span> alloc] init];</div><div class="line">   [wkUController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@&quot;register&quot;</span>];     <span class="comment">// js &#x6267;&#x884C; &#x539F;&#x751F;&#x7684; register &#x65B9;&#x6CD5;</span></div><div class="line">   [wkUController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@&quot;goBack&quot;</span>];       <span class="comment">// js &#x6267;&#x884C; &#x539F;&#x751F;&#x7684; goBack &#x65B9;&#x6CD5;</span></div><div class="line">   config.userContentController = wkUController;</div><div class="line">   </div><div class="line">   <span class="comment">/// &#x521D;&#x59CB;&#x5316;</span></div><div class="line">   _webView = [[<span class="built_in">WKWebView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];</div><div class="line">   </div><div class="line">   _webView.UIDelegate = <span class="keyword">self</span>;                         <span class="comment">// UI&#x4EE3;&#x7406;</span></div><div class="line">   _webView.navigationDelegate = <span class="keyword">self</span>;                 <span class="comment">// &#x5BFC;&#x822A;&#x4EE3;&#x7406;</span></div><div class="line">   _webView.allowsBackForwardNavigationGestures = <span class="literal">YES</span>; <span class="comment">// &#x662F;&#x5426;&#x5141;&#x8BB8;&#x624B;&#x52BF;&#x5DE6;&#x6ED1;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x7EA7;, &#x7C7B;&#x4F3C;&#x5BFC;&#x822A;&#x63A7;&#x5236;&#x7684;&#x5DE6;&#x6ED1;&#x8FD4;&#x56DE;</span></div><div class="line">  </div><div class="line">   </div><div class="line">   <span class="comment">/// &#x52A0;&#x8F7D;&#x672C;&#x5730; html</span></div><div class="line">   <span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@&quot;JStoOC.html&quot;</span> ofType:<span class="literal">nil</span>];</div><div class="line">   <span class="built_in">NSString</span> *htmlString = [[<span class="built_in">NSString</span> alloc]initWithContentsOfFile:path encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</div><div class="line">   [_webView loadHTMLString:htmlString baseURL:[<span class="built_in">NSURL</span> fileURLWithPath:[[<span class="built_in">NSBundle</span> mainBundle] bundlePath]]];</div><div class="line">   </div><div class="line">   <span class="comment">/// &#x52A0;&#x8F7D; URL</span></div><div class="line">   <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;http://www.baidu.com&quot;</span>]];</div><div class="line">   [_webView loadRequest:request];</div><div class="line">   </div><div class="line">   </div><div class="line">   <span class="comment">/// &#x4E00;&#x4E9B;&#x65B9;&#x6CD5;</span></div><div class="line">   <span class="built_in">WKBackForwardList</span> *backForwardList = [_webView backForwardList]; <span class="comment">// //&#x53EF;&#x8FD4;&#x56DE;&#x7684;&#x9875;&#x9762;&#x5217;&#x8868;, &#x5B58;&#x50A8;&#x5DF2;&#x6253;&#x5F00;&#x8FC7;&#x7684;&#x7F51;&#x9875;</span></div><div class="line">   [_webView goBack];      <span class="comment">// &#x9875;&#x9762;&#x540E;&#x9000;</span></div><div class="line">   [_webView goForward];   <span class="comment">// &#x9875;&#x9762;&#x524D;&#x8FDB;</span></div><div class="line">   [_webView reload];      <span class="comment">// &#x5237;&#x65B0;&#x5F53;&#x524D;&#x9875;&#x9762;</span></div><div class="line">   [_webView reloadFromOrigin]; <span class="comment">// &#x6839;&#x636E;&#x7F13;&#x5B58;&#x6709;&#x6548;&#x671F;&#x6765;&#x5237;&#x65B0;&#x9875;&#x9762;</span></div><div class="line">   [_webView stopLoading]; <span class="comment">// &#x505C;&#x6B62;&#x52A0;&#x8F7D;&#x9875;&#x9762;</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="II-&#x4EE3;&#x7406;&#x65B9;&#x6CD5;"><a href="#II-&#x4EE3;&#x7406;&#x65B9;&#x6CD5;" class="headerlink" title="II. &#x4EE3;&#x7406;&#x65B9;&#x6CD5;"></a>II. &#x4EE3;&#x7406;&#x65B9;&#x6CD5;</h3><hr>
+<h4 id="WKScriptMessageHandler"><a href="#WKScriptMessageHandler" class="headerlink" title="WKScriptMessageHandler"></a>WKScriptMessageHandler</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#pragma mark - ------ WKScriptMessageHandler ------</span></div><div class="line"><span class="comment">/// &#x901A;&#x8FC7;&#x63A5;&#x6536;JS&#x4F20;&#x51FA;&#x6D88;&#x606F;&#x7684; name &#x8FDB;&#x884C;&#x6355;&#x6349;&#x7684; &#x56DE;&#x8C03;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">void</span>)userContentController:(<span class="built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="built_in">WKScriptMessage</span> *)message {</div><div class="line">    </div><div class="line">    <span class="comment">// js &#x6267;&#x884C;&#x539F;&#x751F;&#x65B9;&#x6CD5; --  &#x63A5;&#x6536; js &#x7684; register</span></div><div class="line">    <span class="keyword">if</span> ([message.name isEqualToString:<span class="string">@&quot;register&quot;</span>]) {</div><div class="line">        </div><div class="line">        <span class="comment">// &#x505A;&#x4E00;&#x4E9B;&#x539F;&#x751F;&#x64CD;&#x4F5C;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;</span></div><div class="line">    }</div><div class="line">    </div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="WKNavigationDelegate"><a href="#WKNavigationDelegate" class="headerlink" title="WKNavigationDelegate"></a>WKNavigationDelegate</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#pragma mark - ------ WKNavigationDelegate ------</span></div><div class="line"></div><div class="line"><span class="comment">/// &#x6839;&#x636E; WebView &#x5373;&#x5C06;&#x8DF3;&#x8F6C;&#x7684; HTTP &#x8BF7;&#x6C42;&#x5934;&#x4FE1;&#x606F;&#x548C;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8DF3;&#x8F6C;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView decidePolicyForNavigationAction:(<span class="built_in">WKNavigationAction</span> *)navigationAction decisionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">WKNavigationActionPolicy</span>))decisionHandler {</div><div class="line">    </div><div class="line">    <span class="comment">// &#x5141;&#x8BB8;&#x8DF3;&#x8F6C;</span></div><div class="line">    decisionHandler(<span class="built_in">WKNavigationActionPolicyAllow</span>);</div><div class="line">    </div><div class="line">    <span class="comment">// &#x4E0D;&#x5141;&#x8BB8;&#x8DF3;&#x8F6C;</span></div><div class="line">    <span class="comment">// decisionHandler(WKNavigationActionPolicyCancel);</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x6839;&#x636E; WebView &#x63A5;&#x6536;&#x7684;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x5934;&#x4EE5;&#x53CA;response&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView decidePolicyForNavigationResponse:(<span class="built_in">WKNavigationResponse</span> *)navigationResponse decisionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">WKNavigationResponsePolicy</span>))decisionHandler {</div><div class="line">    </div><div class="line">    <span class="comment">// &#x5141;&#x8BB8;&#x8DF3;&#x8F6C;</span></div><div class="line">    decisionHandler(<span class="built_in">WKNavigationResponsePolicyAllow</span>);</div><div class="line">    <span class="comment">// &#x4E0D;&#x5141;&#x8BB8;&#x8DF3;&#x8F6C;</span></div><div class="line">    <span class="comment">//decisionHandler(WKNavigationResponsePolicyCancel);</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5F53;&#x9875;&#x9762;&#x5F00;&#x59CB;&#x52A0;&#x8F7D;&#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didStartProvisionalNavigation:(<span class="built_in">WKNavigation</span> *)navigation {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;didStartProvisionalNavigation&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5F53;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didFailProvisionalNavigation:(<span class="built_in">WKNavigation</span> *)navigation withError:(<span class="built_in">NSError</span> *)error {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;didFailProvisionalNavigation&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5F53;&#x5185;&#x5BB9;&#x5F00;&#x59CB;&#x8FD4;&#x56DE;&#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didCommitNavigation:(<span class="built_in">WKNavigation</span> *)navigation {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;didCommitNavigation&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5F53;&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didFinishNavigation:(<span class="built_in">WKNavigation</span> *)navigation {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;didFinishNavigation&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/// &#x63A5;&#x6536;&#x5230;&#x670D;&#x52A1;&#x5668;&#x8DF3;&#x8F6C;&#x8BF7;&#x6C42;&#x5373;&#x670D;&#x52A1;&#x91CD;&#x5B9A;&#x5411;&#x65F6;&#x4E4B;&#x540E;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didReceiveServerRedirectForProvisionalNavigation:(<span class="built_in">WKNavigation</span> *)navigation {</div><div class="line">    </div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x63D0;&#x4EA4;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didFailNavigation:(<span class="built_in">WKNavigation</span> *)navigation withError:(<span class="built_in">NSError</span> *)error {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;didFailNavigation&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x6743;&#x9650;&#x8BA4;&#x8BC1;</span></div><div class="line">-(<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView didReceiveAuthenticationChallenge:(<span class="built_in">NSURLAuthenticationChallenge</span> *)challenge completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionAuthChallengeDisposition</span>, <span class="built_in">NSURLCredential</span> * _Nullable))completionHandler {</div><div class="line"></div><div class="line">    <span class="comment">// https &#x8BC1;&#x4E66;&#x76F8;&#x5173;</span></div><div class="line">    <span class="keyword">if</span> ([challenge.protectionSpace.authenticationMethod isEqualToString:<span class="built_in">NSURLAuthenticationMethodServerTrust</span>]) {</div><div class="line">        <span class="keyword">if</span> ([challenge previousFailureCount] == <span class="number">0</span>) {</div><div class="line">            <span class="built_in">NSURLCredential</span> *credential = [<span class="built_in">NSURLCredential</span> credentialForTrust:challenge.protectionSpace.serverTrust];</div><div class="line">            completionHandler(<span class="built_in">NSURLSessionAuthChallengeUseCredential</span>, credential);</div><div class="line">        } <span class="keyword">else</span> {</div><div class="line">            completionHandler(<span class="built_in">NSURLSessionAuthChallengeCancelAuthenticationChallenge</span>, <span class="literal">nil</span>);</div><div class="line">        }</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        completionHandler(<span class="built_in">NSURLSessionAuthChallengeCancelAuthenticationChallenge</span>, <span class="literal">nil</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x8FDB;&#x7A0B;&#x88AB;&#x7EC8;&#x6B62;&#x65F6;&#x8C03;&#x7528; 9.0&#x624D;&#x6709;</span></div><div class="line">- (<span class="keyword">void</span>)webViewWebContentProcessDidTerminate:(<span class="built_in">WKWebView</span> *)webView {</div><div class="line">    </div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="WKUIDelegate"><a href="#WKUIDelegate" class="headerlink" title="WKUIDelegate"></a>WKUIDelegate</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#pragma mark - ------ WKUIDelegate ------</span></div><div class="line"><span class="comment">/// &#x9875;&#x9762;&#x662F;&#x5F39;&#x51FA;&#x7A97;&#x53E3; _blank &#x5904;&#x7406;</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">WKWebView</span> *)webView:(<span class="built_in">WKWebView</span> *)webView createWebViewWithConfiguration:(<span class="built_in">WKWebViewConfiguration</span> *)configuration forNavigationAction:(<span class="built_in">WKNavigationAction</span> *)navigationAction windowFeatures:(<span class="built_in">WKWindowFeatures</span> *)windowFeatures {</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!navigationAction.targetFrame.isMainFrame) {</div><div class="line">        [webView loadRequest:navigationAction.request];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// 9.0 &#x4EE5;&#x540E;</span></div><div class="line">- (<span class="keyword">void</span>)webViewDidClose:(<span class="built_in">WKWebView</span> *)webView  {</div><div class="line">    </div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/// web&#x754C;&#x9762;&#x4E2D;&#x6709; &#x5F39;&#x51FA;&#x8B66;&#x544A;&#x6846; &#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView runJavaScriptAlertPanelWithMessage:(<span class="built_in">NSString</span> *)message initiatedByFrame:(<span class="built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completionHandler {</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertController</span> *alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@&quot;&#x63D0;&#x793A;&quot;</span></div><div class="line">                                                                   message:message</div><div class="line">                                                            preferredStyle:(<span class="built_in">UIAlertControllerStyleAlert</span>)];</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertAction</span> *action = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;&#x597D;&#x7684;&quot;</span></div><div class="line">                                                     style:(<span class="built_in">UIAlertActionStyleCancel</span>)</div><div class="line">                                                   handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) {</div><div class="line">                                                       completionHandler();</div><div class="line">                                                   }];</div><div class="line">    [alert addAction:action];</div><div class="line">    [<span class="keyword">self</span> presentViewController:alert animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// web&#x754C;&#x9762;&#x4E2D;&#x6709; &#x5F39;&#x51FA;&#x786E;&#x8BA4;&#x6846; &#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView runJavaScriptConfirmPanelWithMessage:(<span class="built_in">NSString</span> *)message initiatedByFrame:(<span class="built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span> result))completionHandler {</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertController</span> *alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@&quot;&#x63D0;&#x793A;&quot;</span></div><div class="line">                                                                   message:message</div><div class="line">                                                            preferredStyle:(<span class="built_in">UIAlertControllerStyleAlert</span>)];</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertAction</span> *action = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;&#x786E;&#x5B9A;&quot;</span></div><div class="line">                                                     style:(<span class="built_in">UIAlertActionStyleDefault</span>)</div><div class="line">                                                   handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) {</div><div class="line">                                                       completionHandler(<span class="literal">YES</span>);</div><div class="line">                                                   }];</div><div class="line">    <span class="built_in">UIAlertAction</span> *cancelAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;&#x53D6;&#x6D88;&quot;</span></div><div class="line">                                                           style:(<span class="built_in">UIAlertActionStyleCancel</span>)</div><div class="line">                                                         handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) {</div><div class="line">                                                             completionHandler(<span class="literal">NO</span>);</div><div class="line">                                                         }];</div><div class="line">    </div><div class="line">    [alert addAction:action];</div><div class="line">    [alert addAction:cancelAction];</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> presentViewController:alert animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// web&#x754C;&#x9762;&#x4E2D;&#x6709; &#x5F39;&#x51FA;&#x8F93;&#x5165;&#x6846; &#x65F6;&#x8C03;&#x7528;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView runJavaScriptTextInputPanelWithPrompt:(<span class="built_in">NSString</span> *)prompt defaultText:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)defaultText initiatedByFrame:(<span class="built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">NSString</span> * _Nullable result))completionHandler {</div><div class="line">    </div><div class="line">    <span class="built_in">UIAlertController</span> *alertController = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:prompt message:<span class="string">@&quot;&quot;</span> preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</div><div class="line">    [alertController addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) {</div><div class="line">        textField.text = defaultText;</div><div class="line">    }];</div><div class="line">    [alertController addAction:([<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;OK&quot;</span> style:<span class="built_in">UIAlertActionStyleDefault</span> handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) {</div><div class="line">        completionHandler(alertController.textFields[<span class="number">0</span>].text?:<span class="string">@&quot;&quot;</span>);</div><div class="line">    }])];</div><div class="line">    [<span class="keyword">self</span> presentViewController:alertController animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x662F;&#x5426;&#x663E;&#x793A;&#x9884;&#x89C8;  10.0&#x624D;&#x6709;</span></div><div class="line">- (<span class="built_in">BOOL</span>)webView:(<span class="built_in">WKWebView</span> *)webView shouldPreviewElement:(<span class="built_in">WKPreviewElementInfo</span> *)elementInfo {</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5141;&#x8BB8;&#x7ED9;&#x6307;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x89C6;&#x56FE;&#x63A7;&#x5236;&#x5668;  10.0&#x624D;&#x6709;</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIViewController</span> *)webView:(<span class="built_in">WKWebView</span> *)webView previewingViewControllerForElement:(<span class="built_in">WKPreviewElementInfo</span> *)elementInfo defaultActions:(<span class="built_in">NSArray</span>&lt;<span class="keyword">id</span> &lt;<span class="built_in">WKPreviewActionItem</span>&gt;&gt; *)previewActions {</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x957F;&#x6309;&#x5F39;&#x51FA;&#x89C6;&#x56FE;&#x63A7;&#x5236;&#x5668;&#x65F6;&#x8C03;&#x7528;  10.0 &#x624D;&#x6709;</span></div><div class="line">- (<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView commitPreviewingViewController:(<span class="built_in">UIViewController</span> *)previewingViewController {</div><div class="line">    </div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x539F;&#x751F;&#x4E0E;-JS-&#x4EA4;&#x4E92;"><a href="#III-&#x539F;&#x751F;&#x4E0E;-JS-&#x4EA4;&#x4E92;" class="headerlink" title="III. &#x539F;&#x751F;&#x4E0E; JS &#x4EA4;&#x4E92;"></a>III. &#x539F;&#x751F;&#x4E0E; JS &#x4EA4;&#x4E92;</h3><hr>
+<h4 id="&#x6CE8;&#x5165;-js-&#x4EE3;&#x7801;"><a href="#&#x6CE8;&#x5165;-js-&#x4EE3;&#x7801;" class="headerlink" title="&#x6CE8;&#x5165; js &#x4EE3;&#x7801;"></a>&#x6CE8;&#x5165; js &#x4EE3;&#x7801;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x6CE8;&#x5165;&#x70B9;&#x51FB;&#x65B9;&#x6CD5;</span></div><div class="line"><span class="built_in">NSString</span> *clickCode = <span class="string">@&quot;function clickTo(t) { var dataId = t.getAttribute(&apos;data-id&apos;); if (window.webkit) { window.webkit.messageHandlers.goToRecommend.postMessage(dataId); } else { window.AndroidWebView.goToRecommend(dataId) }};&quot;</span>;</div><div class="line">[<span class="keyword">self</span>.webView evaluateJavaScript:clickCode completionHandler:^(<span class="keyword">id</span> _Nullable result, <span class="built_in">NSError</span> * _Nullable error) {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;=== &#x6CE8;&#x5165;&#x70B9;&#x51FB;&#x63A8;&#x8350;&#x5217;&#x8868; : %@&quot;</span>,  (error != <span class="literal">nil</span>) ? <span class="string">@&quot;error&quot;</span> : <span class="string">@&quot;succ&quot;</span>);</div><div class="line">}];</div></pre></td></tr></table></figure>
+<h4 id="&#x6267;&#x884C;-js-&#x65B9;&#x6CD5;"><a href="#&#x6267;&#x884C;-js-&#x65B9;&#x6CD5;" class="headerlink" title="&#x6267;&#x884C; js &#x65B9;&#x6CD5;"></a>&#x6267;&#x884C; js &#x65B9;&#x6CD5;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x70B9;&#x51FB;&#x67D0;&#x4E2A;&#x5217;&#x8868;</span></div><div class="line"><span class="built_in">NSString</span> *js = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;appRecoList(%@,%@)&quot;</span>, uid, [DataManager manager].recommendJSONStr];</div><div class="line">[<span class="keyword">self</span>.webView evaluateJavaScript:js completionHandler:^(<span class="keyword">id</span> _Nullable result, <span class="built_in">NSError</span> * _Nullable error) {</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;=== &#x70B9;&#x51FB;&#x67D0;&#x4E2A;&#x5217;&#x8868; : %@&quot;</span>,  (error != <span class="literal">nil</span>) ? <span class="string">@&quot;error&quot;</span> : <span class="string">@&quot;succ&quot;</span>);</div><div class="line">}];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="IV-JS-&#x4E0E;-&#x539F;&#x751F;-&#x4EA4;&#x4E92;"><a href="#IV-JS-&#x4E0E;-&#x539F;&#x751F;-&#x4EA4;&#x4E92;" class="headerlink" title="IV. JS &#x4E0E; &#x539F;&#x751F; &#x4EA4;&#x4E92;"></a>IV. JS &#x4E0E; &#x539F;&#x751F; &#x4EA4;&#x4E92;</h3><hr>
+<h4 id="js-&#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x5165;&#x8981;&#x6267;&#x884C;&#x7684;&#x539F;&#x751F;&#x65B9;&#x6CD5;"><a href="#js-&#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x5165;&#x8981;&#x6267;&#x884C;&#x7684;&#x539F;&#x751F;&#x65B9;&#x6CD5;" class="headerlink" title="js &#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x5165;&#x8981;&#x6267;&#x884C;&#x7684;&#x539F;&#x751F;&#x65B9;&#x6CD5;"></a>js &#x4EE3;&#x7801;&#x4E2D;&#x52A0;&#x5165;&#x8981;&#x6267;&#x884C;&#x7684;&#x539F;&#x751F;&#x65B9;&#x6CD5;</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">closeRecTo</span>(<span class="params"></span>) </span>{</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (<span class="built_in">window</span>.webkit) { <span class="comment">// &#x6267;&#x884C; iOS</span></div><div class="line">           <span class="built_in">window</span>.webkit.messageHandlers.closeRec.postMessage(<span class="literal">null</span>);</div><div class="line">       } <span class="keyword">else</span> { <span class="comment">// &#x6267;&#x884C; &#x5B89;&#x5353;</span></div><div class="line">           <span class="built_in">window</span>.AndroidWebView.closeRec()</div><div class="line">       }</div><div class="line">   };</div></pre></td></tr></table></figure>
+<p><code>closeRec</code>: &#x5C31;&#x662F;&#x8981;&#x6267;&#x884C;&#x7684;&#x539F;&#x751F;&#x65B9;&#x6CD5;&#xFF0C; &#x539F;&#x751F;&#x4EE3;&#x7801;&#x4E2D;&#x8981; &#x76D1;&#x542C; closeRec&#x3002;</p>
+<h4 id="&#x6DFB;&#x52A0;&#x4EA4;&#x4E92;&#x76D1;&#x542C;"><a href="#&#x6DFB;&#x52A0;&#x4EA4;&#x4E92;&#x76D1;&#x542C;" class="headerlink" title="&#x6DFB;&#x52A0;&#x4EA4;&#x4E92;&#x76D1;&#x542C;"></a>&#x6DFB;&#x52A0;&#x4EA4;&#x4E92;&#x76D1;&#x542C;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/// &#x8FD9;&#x4E2A;&#x7C7B;&#x4E3B;&#x8981;&#x7528;&#x6765;&#x505A;native&#x4E0E;JavaScript&#x7684;&#x4EA4;&#x4E92;&#x7BA1;&#x7406;</span></div><div class="line"><span class="built_in">WKUserContentController</span> * wkUController = [[<span class="built_in">WKUserContentController</span> alloc] init];</div><div class="line">[wkUController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@&quot;register&quot;</span>];     <span class="comment">// &#x6CE8;&#x5165; register &#x534F;&#x8BAE;</span></div><div class="line">[wkUController addScriptMessageHandler:<span class="keyword">self</span> name:<span class="string">@&quot;goBack&quot;</span>];       <span class="comment">// &#x6CE8;&#x5165; goBack &#x534F;&#x8BAE;</span></div><div class="line">[wkUController removeScriptMessageHandlerForName:<span class="string">@&quot;register&quot;</span>];     <span class="comment">// &#x79FB;&#x9664;&#x6CE8;&#x5165;&#x7684;&#x534F;&#x8BAE;  dealloc</span></div><div class="line">[wkUController removeAllUserScripts];                              <span class="comment">// &#x79FB;&#x9664;&#x6240;&#x6709;&#x6CE8;&#x5165;&#x7684;&#x534F;&#x8BAE; dealloc</span></div><div class="line">config.userContentController = wkUController;</div></pre></td></tr></table></figure>
+<h4 id="&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x76D1;&#x542C;"><a href="#&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x76D1;&#x542C;" class="headerlink" title="&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x76D1;&#x542C;"></a>&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x63A5;&#x6536;&#x76D1;&#x542C;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/// &#x901A;&#x8FC7;&#x63A5;&#x6536;JS&#x4F20;&#x51FA;&#x6D88;&#x606F;&#x7684; name &#x8FDB;&#x884C;&#x6355;&#x6349;&#x7684; &#x56DE;&#x8C03;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">void</span>)userContentController:(<span class="built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="built_in">WKScriptMessage</span> *)message {</div><div class="line">    </div><div class="line">    <span class="comment">// js &#x6267;&#x884C;&#x539F;&#x751F;&#x65B9;&#x6CD5; --  &#x63A5;&#x6536; js &#x7684; closeRec</span></div><div class="line">    <span class="keyword">if</span> ([message.name isEqualToString:<span class="string">@&quot;closeRec&quot;</span>]) {</div><div class="line">        </div><div class="line">        <span class="comment">// &#x505A;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;&#x3002;</span></div><div class="line">    }</div><div class="line">    </div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="V-&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x6761;&#x7684;&#x5B9E;&#x73B0;"><a href="#V-&#x7F51;&#x9875;&#x5185;&#x5BB9;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x6761;&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="V. &#x7F51;&#x9875;&#x5185;&#x5BB9;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x6761;&#x7684;&#x5B9E;&#x73B0;"></a>V. &#x7F51;&#x9875;&#x5185;&#x5BB9;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x6761;&#x7684;&#x5B9E;&#x73B0;</h3><hr>
+<h4 id="&#x6DFB;&#x52A0;&#x89C2;&#x5BDF;&#x8005;"><a href="#&#x6DFB;&#x52A0;&#x89C2;&#x5BDF;&#x8005;" class="headerlink" title="&#x6DFB;&#x52A0;&#x89C2;&#x5BDF;&#x8005;"></a>&#x6DFB;&#x52A0;&#x89C2;&#x5BDF;&#x8005;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">//&#x6DFB;&#x52A0;&#x76D1;&#x6D4B;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x7684;&#x89C2;&#x5BDF;&#x8005;</span></div><div class="line">   [<span class="keyword">self</span>.webView addObserver:<span class="keyword">self</span></div><div class="line">                  forKeyPath:<span class="string">@&quot;estimatedProgress&quot;</span></div><div class="line">                     options:<span class="number">0</span></div><div class="line">                     context:<span class="literal">nil</span>];</div><div class="line">   <span class="comment">//&#x6DFB;&#x52A0;&#x76D1;&#x6D4B;&#x7F51;&#x9875;&#x6807;&#x9898;title&#x7684;&#x89C2;&#x5BDF;&#x8005;</span></div><div class="line">   [<span class="keyword">self</span>.webView addObserver:<span class="keyword">self</span></div><div class="line">                  forKeyPath:<span class="string">@&quot;title&quot;</span></div><div class="line">                     options:<span class="built_in">NSKeyValueObservingOptionNew</span></div><div class="line">                     context:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<h4 id="kvo-&#x76D1;&#x542C;&#x8FDB;&#x5EA6;"><a href="#kvo-&#x76D1;&#x542C;&#x8FDB;&#x5EA6;" class="headerlink" title="kvo &#x76D1;&#x542C;&#x8FDB;&#x5EA6;"></a>kvo &#x76D1;&#x542C;&#x8FDB;&#x5EA6;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/// kvo &#x76D1;&#x542C;&#x8FDB;&#x5EA6; &#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x6B64;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>,<span class="keyword">id</span>&gt; *)change context:(<span class="keyword">void</span> *)context {</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([keyPath isEqualToString:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(estimatedProgress))] &amp;&amp; object == _webView) {</div><div class="line">        <span class="comment">// &#x8FDB;&#x5EA6;&#x6761;</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;&#x7F51;&#x9875;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6; = %f&quot;</span>,_webView.estimatedProgress);</div><div class="line">        <span class="keyword">self</span>.progressView.progress = _webView.estimatedProgress;</div><div class="line">        <span class="keyword">if</span> (_webView.estimatedProgress &gt;= <span class="number">1.0</span>f) {</div><div class="line">            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">0.3</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^{</div><div class="line">                <span class="keyword">self</span>.progressView.progress = <span class="number">0</span>;</div><div class="line">            });</div><div class="line">        }</div><div class="line">        </div><div class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> ([keyPath isEqualToString:<span class="string">@&quot;title&quot;</span>] &amp;&amp; object == _webView ) {</div><div class="line">        <span class="comment">// &#x6807;&#x9898;</span></div><div class="line">        <span class="keyword">self</span>.navigationItem.title = _webView.title;</div><div class="line">        </div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        [<span class="keyword">super</span> observeValueForKeyPath:keyPath ofObject:object change:change context:context];</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x79FB;&#x9664;&#x89C2;&#x5BDF;&#x8005;"><a href="#&#x79FB;&#x9664;&#x89C2;&#x5BDF;&#x8005;" class="headerlink" title="&#x79FB;&#x9664;&#x89C2;&#x5BDF;&#x8005;"></a>&#x79FB;&#x9664;&#x89C2;&#x5BDF;&#x8005;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">//&#x79FB;&#x9664;&#x89C2;&#x5BDF;&#x8005;</span></div><div class="line">[_webView removeObserver:<span class="keyword">self</span></div><div class="line">              forKeyPath:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(estimatedProgress))];</div><div class="line"></div><div class="line">[_webView removeObserver:<span class="keyword">self</span></div><div class="line">              forKeyPath:<span class="built_in">NSStringFromSelector</span>(<span class="keyword">@selector</span>(title))];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="VI-&#x5E38;&#x89C1;&#x95EE;&#x9898;"><a href="#VI-&#x5E38;&#x89C1;&#x95EE;&#x9898;" class="headerlink" title="VI. &#x5E38;&#x89C1;&#x95EE;&#x9898;"></a>VI. &#x5E38;&#x89C1;&#x95EE;&#x9898;</h3><hr>
+<h4 id="1-url&#x4E2D;&#x6587;&#x5904;&#x7406;"><a href="#1-url&#x4E2D;&#x6587;&#x5904;&#x7406;" class="headerlink" title="1. url&#x4E2D;&#x6587;&#x5904;&#x7406;"></a>1. url&#x4E2D;&#x6587;&#x5904;&#x7406;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="built_in">NSURL</span> *)url{</div><div class="line">	<span class="meta">#pragma clang diagnostic push</span></div><div class="line">	<span class="meta">#pragma clang diagnostic ignored<span class="meta-string">&quot;-Wdeprecated-declarations&quot;</span></span></div><div class="line">    <span class="keyword">return</span> [<span class="built_in">NSURL</span> URLWithString:(<span class="built_in">NSString</span> *)<span class="built_in">CFBridgingRelease</span>(<span class="built_in">CFURLCreateStringByAddingPercentEscapes</span>(kCFAllocatorDefault, (<span class="built_in">CFStringRef</span>)<span class="keyword">self</span>, (<span class="built_in">CFStringRef</span>)<span class="string">@&quot;!$&amp;&apos;()*+,-./:;=?@_~%#[]&quot;</span>, <span class="literal">NULL</span>,kCFStringEncodingUTF8))];</div><div class="line"><span class="meta">#pragma clang diagnostic pop</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="2-&#x6DFB;&#x52A0;userAgent&#x4FE1;&#x606F;"><a href="#2-&#x6DFB;&#x52A0;userAgent&#x4FE1;&#x606F;" class="headerlink" title="2. &#x6DFB;&#x52A0;userAgent&#x4FE1;&#x606F;"></a>2. &#x6DFB;&#x52A0;userAgent&#x4FE1;&#x606F;</h4><p>&#x6709;&#x65F6;&#x5019;H5&#x7684;&#x4F19;&#x4F34;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x4E3A;<code>webview</code>&#x7684;&#x8BF7;&#x6C42;&#x6DFB;&#x52A0;<code>userAgent</code>&#xFF0C;&#x4EE5;&#x7528;&#x6765;&#x8BC6;&#x522B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7B49;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x6BCF;&#x6B21;&#x7528;&#x5230;webview&#x90FD;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x6B21;&#x7684;&#x8BDD;&#x4F1A;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x4E00;&#x52B3;&#x6C38;&#x9038;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;<code>Appdelegate</code>&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;<code>WKWebview</code>&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x542F;&#x52A8;app&#x65F6;&#x76F4;&#x63A5;&#xFF0C;&#x4E3A;&#x8BE5;&#x5C5E;&#x6027;&#x6DFB;&#x52A0;<code>userAgent</code>&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setUserAgent {</div><div class="line">    _webView = [[<span class="built_in">WKWebView</span> alloc] initWithFrame:<span class="built_in">CGRectZero</span>];</div><div class="line">    [_webView evaluateJavaScript:<span class="string">@&quot;navigator.userAgent&quot;</span> completionHandler:^(<span class="keyword">id</span> result, <span class="built_in">NSError</span> *error) {</div><div class="line">        <span class="keyword">if</span> (error) { <span class="keyword">return</span>; }</div><div class="line">        <span class="built_in">NSString</span> *userAgent = result;</div><div class="line">        <span class="keyword">if</span> (![userAgent containsString:<span class="string">@&quot;/mobile-iOS&quot;</span>]) {</div><div class="line">            userAgent = [userAgent stringByAppendingString:<span class="string">@&quot;/mobile-iOS&quot;</span>];</div><div class="line">            <span class="built_in">NSDictionary</span> *dict = @{<span class="string">@&quot;UserAgent&quot;</span>: userAgent};</div><div class="line">            [TKUserDefaults registerDefaults:dict];</div><div class="line">        }</div><div class="line">    }];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5728;app&#x4E2D;&#x521B;&#x5EFA;&#x7684;<code>webview</code>&#x90FD;&#x4F1A;&#x5B58;&#x5728;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x7684;userAgent&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<h4 id="3-&#x8BF7;&#x6C42;Cookie"><a href="#3-&#x8BF7;&#x6C42;Cookie" class="headerlink" title="3. &#x8BF7;&#x6C42;Cookie"></a>3. &#x8BF7;&#x6C42;Cookie</h4><p><code>Cookie</code>&#x662F; WKWebView &#x7684;&#x4E00;&#x5927;&#x77ED;&#x677F;&#x3002;<br>&#x9700;&#x8981;&#x5728;<code>loadRequest</code>&#x524D;&#x624B;&#x52A8;&#x6765;&#x6DFB;&#x52A0;<code>Cookie</code>&#xFF0C;&#x5728; <code>request header</code>&#x4E2D;&#x8BBE;&#x7F6E; Cookie, <strong>&#x89E3;&#x51B3;&#x9996;&#x4E2A;&#x8BF7;&#x6C42; <code>Cookie</code>&#x5E26;&#x4E0D;&#x4E0A;&#x7684;&#x95EE;&#x9898;:</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)injectCookies:(<span class="built_in">NSMutableURLRequest</span> *)request{</div><div class="line"></div><div class="line">    <span class="built_in">NSArray</span> *cookies = [[<span class="built_in">NSHTTPCookieStorage</span> sharedHTTPCookieStorage] cookies];</div><div class="line">    <span class="built_in">NSString</span> *validDomain = request.URL.host;</div><div class="line">    <span class="keyword">if</span> (!cookies || cookies.count &lt; <span class="number">1</span>) {</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="built_in">NSMutableString</span> *cookieString = [<span class="built_in">NSMutableString</span> stringWithString:<span class="string">@&quot;&quot;</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSHTTPCookie</span> *cookie <span class="keyword">in</span> cookies) {</div><div class="line">        <span class="keyword">if</span> (![validDomain hasSuffix:cookie.domain]) {</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        }</div><div class="line">        [cookieString appendString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@=%@;&quot;</span>, cookie.name, cookie.value]];</div><div class="line">    }</div><div class="line">    <span class="comment">//&#x5220;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x201C;;&#x201D;</span></div><div class="line">    <span class="keyword">if</span> (cookieString.length &gt; <span class="number">0</span>) {</div><div class="line">        [cookieString deleteCharactersInRange:<span class="built_in">NSMakeRange</span>(cookieString.length - <span class="number">1</span>, <span class="number">1</span>)];</div><div class="line">    }</div><div class="line"></div><div class="line">    [request setValue:cookieString forHTTPHeaderField:<span class="string">@&quot;Cookie&quot;</span>];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x901A;&#x8FC7; <code>document.cookie</code> &#x8BBE;&#x7F6E; <strong><code>Cookie</code> &#x89E3;&#x51B3;&#x540E;&#x7EED;&#x9875;&#x9762;(&#x540C;&#x57DF;)<code>Ajax&#x3001;iframe</code> &#x8BF7;&#x6C42;&#x7684; <code>Cookie</code> &#x95EE;&#x9898;</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)addUserCookieScript:(<span class="built_in">NSURLRequest</span> *)request{</div><div class="line">    <span class="built_in">NSArray</span> *cookies = [[<span class="built_in">NSHTTPCookieStorage</span> sharedHTTPCookieStorage] cookies];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!cookies || cookies.count &lt; <span class="number">1</span>) {</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">    <span class="built_in">NSMutableString</span> *cookieScript = [<span class="built_in">NSMutableString</span> stringWithString:<span class="string">@&quot;&quot;</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSHTTPCookie</span> *cookie <span class="keyword">in</span> cookies) {</div><div class="line">        [cookieScript appendString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;document.cookie=&apos;%@&apos;;&quot;</span>, [<span class="keyword">self</span> javascriptStringWithCookie:cookie]]];</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="built_in">WKUserScript</span> *script = [[<span class="built_in">WKUserScript</span> alloc]initWithSource:cookieScript injectionTime:<span class="built_in">WKUserScriptInjectionTimeAtDocumentStart</span> forMainFrameOnly:<span class="literal">NO</span>];</div><div class="line"></div><div class="line">    <span class="built_in">WKWebView</span> *wkWebView = (<span class="built_in">WKWebView</span>*)<span class="keyword">self</span>.realWebView;</div><div class="line">    [wkWebView.configuration.userContentController addUserScript:script];</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *)javascriptStringWithCookie:(<span class="built_in">NSHTTPCookie</span>*)cookie {</div><div class="line">    <span class="built_in">NSString</span> *string = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@=%@;domain=%@;path=%@;&quot;</span>,</div><div class="line">                        cookie.name,</div><div class="line">                        cookie.value,</div><div class="line">                        cookie.domain,</div><div class="line">                        cookie.path ?: <span class="string">@&quot;/&quot;</span>];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (cookie.secure) {</div><div class="line">        string = [string stringByAppendingString:<span class="string">@&quot;secure=true&quot;</span>];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> string;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="4-&#x591A;&#x4E2A;WKWebView&#x4E4B;&#x95F4;&#x5171;&#x4EAB;Cookie"><a href="#4-&#x591A;&#x4E2A;WKWebView&#x4E4B;&#x95F4;&#x5171;&#x4EAB;Cookie" class="headerlink" title="4. &#x591A;&#x4E2A;WKWebView&#x4E4B;&#x95F4;&#x5171;&#x4EAB;Cookie"></a>4. &#x591A;&#x4E2A;WKWebView&#x4E4B;&#x95F4;&#x5171;&#x4EAB;Cookie</h4><p><code>WKProcessPool</code>&#x8FD9;&#x4E2A;&#x7C7B;&#x7528;&#x6765;&#x914D;&#x7F6E;&#x8FDB;&#x7A0B;&#x6C60;&#xFF0C;&#x4E0E;&#x7F51;&#x9875;&#x89C6;&#x56FE;&#x7684;&#x8D44;&#x6E90;&#x5171;&#x4EAB;&#x6709;&#x5173;&#x3002;<code>WKProcessPool</code>&#x7C7B;&#x4E2D;&#x6CA1;&#x6709;&#x66B4;&#x9732;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x62FF;&#x4E0D;&#x5230;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x3002;<br>&#x4E3A; <code>&#x591A;&#x4E2A;WKWebView</code> &#x914D;&#x7F6E;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;<code>WKProcessPool</code>,&#x4F1A;&#x8BA9;&#x591A;&#x4E2A; WKWebView &#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;Cookie&#x3001;&#x7528;&#x6237;&#x51ED;&#x8BC1;&#x7B49;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">WKWebViewConfiguration</span> *config = [[<span class="built_in">WKWebViewConfiguration</span> alloc]init];</div><div class="line">configuration.processPool = [[<span class="built_in">WKWebViewPoolHandler</span> sharedInstance] defaultPool];</div></pre></td></tr></table></figure>
+<h4 id="5-&#x6E05;&#x9664;&#x7F13;&#x5B58;"><a href="#5-&#x6E05;&#x9664;&#x7F13;&#x5B58;" class="headerlink" title="5. &#x6E05;&#x9664;&#x7F13;&#x5B58;"></a>5. &#x6E05;&#x9664;&#x7F13;&#x5B58;</h4><p>WebKit&#x6846;&#x67B6;&#x91C7;&#x7528;&#x5176;&#x672C;&#x8EAB;&#x7684;&#x7F13;&#x5B58;&#x6846;&#x67B6;&#xFF0C;iOS 9 &#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x7528;<code>WKWebsiteDataStore</code> &#x7C7B;&#x6765;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">//WKWebsiteDataTypeDiskCache,</span></div><div class="line">   <span class="comment">//WKWebsiteDataTypeOfflineWebApplicationCache,</span></div><div class="line">   <span class="comment">//WKWebsiteDataTypeMemoryCache,</span></div><div class="line">   <span class="comment">//WKWebsiteDataTypeLocalStorage,</span></div><div class="line">   <span class="comment">//WKWebsiteDataTypeIndexedDBDatabases,</span></div><div class="line">   <span class="comment">//WKWebsiteDataTypeWebSQLDatabases</span></div><div class="line">   <span class="built_in">NSSet</span> *websiteDataTypes = [<span class="built_in">NSSet</span> setWithArray:@[<span class="built_in">WKWebsiteDataTypeCookies</span>, <span class="built_in">WKWebsiteDataTypeSessionStorage</span>]];</div><div class="line">   <span class="built_in">NSDate</span> *dateFrom = [<span class="built_in">NSDate</span> dateWithTimeIntervalSince1970:<span class="number">0</span>];</div><div class="line">   [[<span class="built_in">WKWebsiteDataStore</span> defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{}];</div></pre></td></tr></table></figure>
+<h4 id="6-&#x5904;&#x7406;&#x88AB;&#x7981;&#x6B62;&#x7684;&#x8DF3;&#x8F6C;"><a href="#6-&#x5904;&#x7406;&#x88AB;&#x7981;&#x6B62;&#x7684;&#x8DF3;&#x8F6C;" class="headerlink" title="6. &#x5904;&#x7406;&#x88AB;&#x7981;&#x6B62;&#x7684;&#x8DF3;&#x8F6C;"></a>6. &#x5904;&#x7406;&#x88AB;&#x7981;&#x6B62;&#x7684;&#x8DF3;&#x8F6C;</h4><p><strong><code>&#x6253;&#x5F00;ituns.apple.com&#x3001;&#x8DF3;&#x8F6C;&#x5230;appStore,&#x3001;&#x62E8;&#x6253;&#x7535;&#x8BDD;,&#x3001;&#x5524;&#x8D77;&#x90AE;&#x7BB1;&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C; WKWebView &#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x4EA4;&#x7ED9;UIApplication &#x6765;&#x5904;&#x7406;,&#x9664;&#x6B64;&#x4E4B;&#x5916;,js&#x7AEF;&#x901A;&#x8FC7;window.open() &#x6253;&#x5F00;&#x65B0;&#x7684;&#x7F51;&#x9875;&#x7684;&#x52A8;&#x4F5C;&#x4E5F;&#x88AB;&#x7981;&#x6389;&#x4E86;</code></strong>&#xFF0C; &#x9700;&#x8981;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5904;&#x7406;:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)webView:(<span class="built_in">WKWebView</span> *)webView decidePolicyForNavigationAction:(<span class="built_in">WKNavigationAction</span> *)navigationAction decisionHandler:(<span class="keyword">void</span> (^)(<span class="built_in">WKNavigationActionPolicy</span>))decisionHandler {</div><div class="line"></div><div class="line">   <span class="built_in">NSURL</span> *url = navigationAction.request.URL;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([url.scheme isEqualToString:<span class="string">@&quot;tel&quot;</span>]){ <span class="comment">// &#x6253;&#x7535;&#x8BDD;</span></div><div class="line">        <span class="keyword">if</span> (IS_IOS_10Later) {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url options:@{} completionHandler:<span class="literal">nil</span>];</div><div class="line">        }<span class="keyword">else</span> {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url];</div><div class="line">        }</div><div class="line">        decisionHandler(<span class="built_in">WKNavigationActionPolicyCancel</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([url.scheme isEqualToString:<span class="string">@&quot;itms-services&quot;</span>]) { <span class="comment">// &#x7B2C;&#x4E09;&#x65B9;&#x4E0B;&#x8F7D;</span></div><div class="line">        <span class="keyword">if</span> (IS_IOS_10Later) {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url options:@{} completionHandler:<span class="literal">nil</span>];</div><div class="line">        }<span class="keyword">else</span> {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url];</div><div class="line">        }</div><div class="line">        decisionHandler(<span class="built_in">WKNavigationActionPolicyCancel</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> ([url.absoluteString containsString:<span class="string">@&quot;ituns.apple.com&quot;</span>]) { <span class="comment">// &#x8DF3;&#x8F6C;&#x5230; appStroe</span></div><div class="line">        <span class="keyword">if</span> (IS_IOS_10Later) {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url options:@{} completionHandler:<span class="literal">nil</span>];</div><div class="line">        }<span class="keyword">else</span> {</div><div class="line">            [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url];</div><div class="line">        }</div><div class="line">        decisionHandler(<span class="built_in">WKNavigationActionPolicyCancel</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    }</div><div class="line">    </div><div class="line">    decisionHandler(<span class="built_in">WKNavigationActionPolicyAllow</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WKWebView/" rel="tag"><i class="fa fa-tag"></i>WKWebView</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/02UI知识/02 - UI 知识.html" rel="next" title="iOS开发 -">
+                <i class="fa fa-chevron-left"></i> iOS开发 -
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/10高级技术/10 - 高级技术.html" rel="prev" title="title">
+                title <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/16混合开发/WKWebView.html"
+           data-title="iOS开发 - WKWebView 使用详情" data-url="http://www.licheng244.com/posts/16混合开发/WKWebView.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-WKWebView-配置及创建"><span class="nav-text">I. WKWebView 配置及创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-代理方法"><span class="nav-text">II. 代理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WKScriptMessageHandler"><span class="nav-text">WKScriptMessageHandler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WKNavigationDelegate"><span class="nav-text">WKNavigationDelegate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WKUIDelegate"><span class="nav-text">WKUIDelegate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-原生与-JS-交互"><span class="nav-text">III. 原生与 JS 交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注入-js-代码"><span class="nav-text">注入 js 代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#执行-js-方法"><span class="nav-text">执行 js 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-JS-与-原生-交互"><span class="nav-text">IV. JS 与 原生 交互</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js-代码中加入要执行的原生方法"><span class="nav-text">js 代码中加入要执行的原生方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加交互监听"><span class="nav-text">添加交互监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理方法接收监听"><span class="nav-text">代理方法接收监听</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-网页内容加载进度条的实现"><span class="nav-text">V. 网页内容加载进度条的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加观察者"><span class="nav-text">添加观察者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#kvo-监听进度"><span class="nav-text">kvo 监听进度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除观察者"><span class="nav-text">移除观察者</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VI-常见问题"><span class="nav-text">VI. 常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-url中文处理"><span class="nav-text">1. url中文处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-添加userAgent信息"><span class="nav-text">2. 添加userAgent信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-请求Cookie"><span class="nav-text">3. 请求Cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-多个WKWebView之间共享Cookie"><span class="nav-text">4. 多个WKWebView之间共享Cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-清除缓存"><span class="nav-text">5. 清除缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-处理被禁止的跳转"><span class="nav-text">6. 处理被禁止的跳转</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

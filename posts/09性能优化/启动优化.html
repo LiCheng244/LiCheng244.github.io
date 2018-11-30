@@ -1,0 +1,1021 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="性能优化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4E00;&amp;#x4E2A;&amp;#x9879;&amp;#x76EE;&amp;#x505A;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x957F;&amp;#x4E86;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;&amp;#x6D41;&amp;#x7A0B;&amp;#x5F80;&amp;#x5F80;&amp;#x5BB9;&amp;#x6613;&amp;#x6742;&amp;#x4E71;&amp;#xFF0C;&amp;#x5E9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 启动时间优化">
+<meta property="og:url" content="http://www.licheng244.com/posts/09性能优化/启动优化.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4E00;&amp;#x4E2A;&amp;#x9879;&amp;#x76EE;&amp;#x505A;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x957F;&amp;#x4E86;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;&amp;#x6D41;&amp;#x7A0B;&amp;#x5F80;&amp;#x5F80;&amp;#x5BB9;&amp;#x6613;&amp;#x6742;&amp;#x4E71;&amp;#xFF0C;&amp;#x5E9">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/1543389595.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/18112800.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/18112801.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/18112802.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/18112803.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/09性能优化/../../img/18112804.jpg">
+<meta property="og:updated_time" content="2018-11-29T05:58:02.653Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - 启动时间优化">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4E00;&amp;#x4E2A;&amp;#x9879;&amp;#x76EE;&amp;#x505A;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x957F;&amp;#x4E86;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;&amp;#x6D41;&amp;#x7A0B;&amp;#x5F80;&amp;#x5F80;&amp;#x5BB9;&amp;#x6613;&amp;#x6742;&amp;#x4E71;&amp;#xFF0C;&amp;#x5E9">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/09性能优化/../../img/1543389595.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/09性能优化/启动优化.html"/>
+
+
+  <title> iOS开发 - 启动时间优化 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - 启动时间优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-09【-性能优化-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__09【 性能优化 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/09性能优化/启动优化.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/09性能优化/启动优化.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/09性能优化/启动优化.html" class="leancloud_visitors" data-flag-title="iOS开发 - 启动时间优化">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x505A;&#x7684;&#x65F6;&#x95F4;&#x957F;&#x4E86;&#xFF0C;&#x542F;&#x52A8;&#x6D41;&#x7A0B;&#x5F80;&#x5F80;&#x5BB9;&#x6613;&#x6742;&#x4E71;&#xFF0C;&#x5E93;&#x4E5F;&#x7528;&#x7684;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#xFF0C;APP&#x7684;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x4E5F;&#x4F1A;&#x6162;&#x6162;&#x53D8;&#x957F;&#x3002;&#x672C;&#x6B21;&#x5C06;&#x9488;&#x5BF9;iOS APP&#x7684;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x4F18;&#x5316;&#x4E00;&#x6CE2;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x9488;&#x5BF9;&#x4E00;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#x505A;&#x4F18;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x8981;&#x5148;&#x4E86;&#x89E3;&#x6E05;&#x695A;&#x8FD9;&#x4E2A;&#x6280;&#x672F;&#x70B9;&#x6709;&#x54EA;&#x4E9B;&#x6D41;&#x7A0B;&#xFF0C;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x5411;&#x5F80;&#x5F80;&#x662F;&#x51CF;&#x5C11;&#x6D41;&#x7A0B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4EE5;&#x53CA;&#x51CF;&#x5C11;&#x6BCF;&#x4E2A;&#x6D41;&#x7A0B;&#x7684;&#x6D88;&#x8017;&#x3002;</p>
+<a id="more"></a>
+<p>&#x672C;&#x6B21;&#x4F18;&#x5316;&#x4ECE;&#x7ED3;&#x679C;&#x4E0A;&#x6765;&#x770B;&#xFF0C;main&#x9636;&#x6BB5;&#x7684;&#x4F18;&#x5316;&#x6548;&#x679C;&#x6700;&#x663E;&#x8457;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x542F;&#x52A8;&#x65F6;&#x7684;&#x4E00;&#x4E9B;IO&#x64CD;&#x4F5C;&#x5904;&#x7406;&#xFF0C;&#x5BF9;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x7684;&#x51CF;&#x5C11;&#x6709;&#x5F88;&#x5927;&#x4F5C;&#x7528;&#x3002;&#x591A;&#x7EBF;&#x7A0B;&#x542F;&#x52A8;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x9A8C;&#x8BC1;&#x6700;&#x6709;&#x610F;&#x601D;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5B9E;&#x8DF5;&#x4E0A;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4E1A;&#x52A1;&#x672C;&#x8EAB;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x53EA;&#x5F00;&#x4E86;&#x989D;&#x5916;&#x4E00;&#x4E2A;&#x5B50;&#x7EBF;&#x7A0B;&#x6765;&#x5E76;&#x884C;&#x542F;&#x52A8;&#xFF0C;&#x4E14;&#x4EC5;&#x5728;&#x5B50;&#x7EBF;&#x7A0B;&#x505A;&#x4E86;&#x5C11;&#x91CF;&#x7684;&#x72EC;&#x7ACB;&#x64CD;&#x4F5C;&#xFF0C;&#x4E3B;&#x8981;&#x8FD8;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x4E1A;&#x52A1;&#x4E4B;&#x95F4;&#x8026;&#x5408;&#x6027;&#x592A;&#x5F3A;&#x4E86;&#xFF0C;&#x4E0D;&#x592A;&#x9002;&#x5408;&#x62C6;&#x5206;&#x5230;&#x5B50;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x8BF4;&#x6765;&#xFF0C;pre-main&#x9636;&#x6BB5;&#x7684;&#x5B9A;&#x4E49;&#x4E3A;APP&#x5F00;&#x59CB;&#x542F;&#x52A8;&#x5230;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;main&#x51FD;&#x6570;&#x8FD9;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF1B;main&#x9636;&#x6BB5;&#x5219;&#x4EE3;&#x8868;&#x4ECE;main&#x51FD;&#x6570;&#x5165;&#x53E3;&#x5230;&#x4E3B;UI&#x6846;&#x67B6;&#x7684;<code>viewDidAppear</code>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x8FD9;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x3002;&#xFF08;&#x672C;&#x6587;&#x540E;&#x7EED;main&#x9636;&#x6BB5;&#x7684;&#x65F6;&#x95F4;&#x7EDF;&#x8BA1;&#x90FD;&#x7528;<code>viewDidAppear</code>&#x4F5C;&#x4E3A;&#x57FA;&#x51C6;&#x800C;&#x975E;&#x7684;<code>applicationWillFinishLaunching</code>&#xFF09;</p>
+<p>&#x672C;&#x6587;&#x524D;&#x534A;&#x90E8;&#x5206;&#x8BB2;&#x539F;&#x7406;&#xFF08;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x662F;&#x4ECE;&#x7F51;&#x4E0A;&#x501F;&#x9274;/&#x6458;&#x5F55;&#xFF09;&#xFF0C;&#x540E;&#x534A;&#x90E8;&#x5206;&#x8BB2;&#x5B9E;&#x8DF5;&#xFF0C;pre-main&#x9636;&#x6BB5;&#x7684;&#x539F;&#x7406;&#x6BD4;&#x8F83;&#x96BE;&#x7406;&#x89E3;&#xFF0C;&#x4E0D;&#x8FC7;&#x5B9E;&#x8DF5;&#x5012;&#x662F;&#x6839;&#x636E;&#x7ED3;&#x8BBA;&#x76F4;&#x63A5;&#x505A;&#x5C31;&#x597D;&#x4E86;&#x3002;</p>
+</blockquote>
+<p><br></p>
+<h3 id="I-App&#x542F;&#x52A8;&#x8FC7;&#x7A0B;"><a href="#I-App&#x542F;&#x52A8;&#x8FC7;&#x7A0B;" class="headerlink" title="I. App&#x542F;&#x52A8;&#x8FC7;&#x7A0B;"></a>I. App&#x542F;&#x52A8;&#x8FC7;&#x7A0B;</h3><hr>
+<h4 id="1-&#x89E3;&#x6790;Info-plist"><a href="#1-&#x89E3;&#x6790;Info-plist" class="headerlink" title="1. &#x89E3;&#x6790;Info.plist"></a>1. &#x89E3;&#x6790;Info.plist</h4><ul>
+<li>&#x52A0;&#x8F7D;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x95EA;&#x5C4F;</li>
+<li>&#x6C99;&#x7BB1;&#x5EFA;&#x7ACB;&#x3001;&#x6743;&#x9650;&#x68C0;&#x67E5;</li>
+</ul>
+<h4 id="2-Mach-O&#x52A0;&#x8F7D;"><a href="#2-Mach-O&#x52A0;&#x8F7D;" class="headerlink" title="2. Mach-O&#x52A0;&#x8F7D;"></a>2. Mach-O&#x52A0;&#x8F7D;</h4><ul>
+<li>&#x5982;&#x679C;&#x662F;&#x80D6;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x5BFB;&#x627E;&#x5408;&#x9002;&#x5F53;&#x524D;CPU&#x67B6;&#x6784;&#x7684;&#x90E8;&#x5206;</li>
+<li>&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;Mach-O&#x6587;&#x4EF6;&#xFF08;&#x9012;&#x5F52;&#x8C03;&#x7528;Mach-O&#x52A0;&#x8F7D;&#x7684;&#x65B9;&#x6CD5;&#xFF09;</li>
+<li>&#x5B9A;&#x4F4D;&#x5185;&#x90E8;&#x3001;&#x5916;&#x90E8;&#x6307;&#x9488;&#x5F15;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x51FD;&#x6570;&#x7B49;</li>
+<li>&#x6267;&#x884C;&#x58F0;&#x660E;&#x4E3A;<strong>attribute</strong>((constructor))&#x7684;C&#x51FD;&#x6570;</li>
+<li>&#x52A0;&#x8F7D;&#x7C7B;&#x6269;&#x5C55;&#xFF08;Category&#xFF09;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>C++&#x9759;&#x6001;&#x5BF9;&#x8C61;&#x52A0;&#x8F7D;&#x3001;&#x8C03;&#x7528;ObjC&#x7684; +load &#x51FD;&#x6570;</li>
+</ul>
+<h4 id="3-&#x7A0B;&#x5E8F;&#x6267;&#x884C;"><a href="#3-&#x7A0B;&#x5E8F;&#x6267;&#x884C;" class="headerlink" title="3. &#x7A0B;&#x5E8F;&#x6267;&#x884C;"></a>3. &#x7A0B;&#x5E8F;&#x6267;&#x884C;</h4><ul>
+<li>&#x8C03;&#x7528;main()</li>
+<li>&#x8C03;&#x7528;UIApplicationMain()</li>
+<li>&#x8C03;&#x7528;applicationWillFinishLaunching</li>
+</ul>
+<p><strong>&#x6362;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x8BF4;&#x6CD5;&#x5C31;&#x662F;&#xFF1A;</strong></p>
+<p>App&#x5F00;&#x59CB;&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x7CFB;&#x7EDF;&#x9996;&#x5148;&#x52A0;&#x8F7D;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF08;&#x81EA;&#x8EAB;App&#x7684;&#x6240;&#x6709;.o&#x6587;&#x4EF6;&#x7684;&#x96C6;&#x5408;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x8F7D;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5668;dyld&#xFF0C;dyld&#x662F;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x7684;&#x5E93;&#x3002; &#x6267;&#x884C;&#x4ECE;dyld&#x5F00;&#x59CB;&#xFF0C;dyld&#x4ECE;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x5F00;&#x59CB;, &#x9012;&#x5F52;&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x3002;</p>
+<p>&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x5305;&#x62EC;&#xFF1A;iOS &#x4E2D;&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x7CFB;&#x7EDF; framework&#xFF0C;&#x52A0;&#x8F7D;OC <code>runtime</code>&#x65B9;&#x6CD5;&#x7684;<code>libobjc</code>&#xFF0C;&#x7CFB;&#x7EDF;&#x7EA7;&#x522B;&#x7684;<code>libSystem</code>&#xFF0C;&#x4F8B;&#x5982;<code>libdispatch(GCD)</code>&#x548C;<code>libsystem_blocks (Block)</code>&#x3002;</p>
+<p><br></p>
+<h3 id="II-&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x6838;&#x6D41;&#x7A0B;"><a href="#II-&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x6838;&#x6D41;&#x7A0B;" class="headerlink" title="II. &#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x6838;&#x6D41;&#x7A0B;"></a>II. &#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x6838;&#x6D41;&#x7A0B;</h3><hr>
+<p>&#x5982;&#x56FE;&#xFF0C;&#x5F53;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x6700;&#x540E;&#x4F1A;&#x6839;&#x636E;&#x4F60;&#x7684;&#x884C;&#x4E3A;&#x8C03;&#x7528;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;<code>fork</code>&#x548C;<code>execve</code>&#x3002;fork&#x529F;&#x80FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF1B;<code>execve</code>&#x529F;&#x80FD;&#x52A0;&#x8F7D;&#x548C;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;<code>execl</code>,<code>execv</code>&#x548C;<code>exect</code>&#xFF0C;&#x6BCF;&#x4E2A;&#x529F;&#x80FD;&#x63D0;&#x4F9B;&#x4E86;&#x4E0D;&#x540C;&#x4F20;&#x53C2;&#x548C;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x5230;&#x7A0B;&#x5E8F;&#x4E2D;&#x3002;&#x5728;OSX&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x8FD9;&#x4E9B;&#x5176;&#x4ED6;&#x7684;<code>exec</code>&#x8DEF;&#x5F84;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x4E86;&#x5185;&#x6838;&#x8DEF;&#x5F84;<code>execve</code>&#x3002;</p>
+<p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/1543389595.jpg" alt=""></div></p>
+<p>1&#x3001;&#x6267;&#x884C;<code>exec</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x7528;<code>fork()</code>&#x51FD;&#x6570;&#x65B0;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x8BA9;&#x8FDB;&#x7A0B;&#x53BB;&#x6267;&#x884C;<code>exec</code>&#x8C03;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5728;<code>fork()</code>&#x5EFA;&#x7ACB;&#x65B0;&#x8FDB;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x5171;&#x4EAB;&#x4EE3;&#x7801;&#x6BB5;(TEXT)&#xFF0C;&#x4F46;&#x6570;&#x636E;&#x7A7A;&#x95F4;(DATA)&#x662F;&#x5206;&#x5F00;&#x7684;&#xFF0C;&#x4F46;&#x7236;&#x8FDB;&#x7A0B;&#x4F1A;&#x628A;&#x81EA;&#x5DF1;&#x6570;&#x636E;&#x7A7A;&#x95F4;&#x7684;&#x5185;&#x5BB9;<code>copy</code>&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x53BB;&#xFF0C;&#x8FD8;&#x6709;&#x4E0A;&#x4E0B;&#x6587;&#x4E5F;&#x4F1A;<code>copy</code>&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x53BB;&#x3002;</p>
+<p>2&#x3001;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x91C7;&#x7528;&#x4E00;&#x79CD;&#x5199;&#x65F6;copy&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5373;&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;copy&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x62E5;&#x6709;&#x5171;&#x540C;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x5B50;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x5199;&#x5165;&#x6570;&#x636E;&#x65F6;(&#x5982;&#x5411;&#x7F13;&#x51B2;&#x533A;&#x5199;&#x5165;&#x6570;&#x636E;)&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x4F1A;&#x590D;&#x5236;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x590D;&#x5236;&#x7F13;&#x51B2;&#x533A;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x53BB;&#x3002;&#x4ECE;&#x800C;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x62E5;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x3002;&#x800C;&#x5BF9;&#x4E8E;<code>fork()</code>&#x4E4B;&#x540E;&#x6267;&#x884C;exec&#x540E;&#xFF0C;&#x8FD9;&#x79CD;&#x7B56;&#x7565;&#x80FD;&#x591F;&#x5F88;&#x597D;&#x7684;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x5F00;&#x59CB;&#x5C31;copy&#xFF0C;&#x90A3;&#x4E48;<code>exec</code>&#x4E4B;&#x540E;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#xFF08;&#x786E;&#x5B9A;&#x4E0D;&#x662F;&#x7236;&#x8FDB;&#x7A0B;&#xFF1F;&#xFF09;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x653E;&#x5F03;&#xFF0C;&#x88AB;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x6240;&#x4EE3;&#x66FF;&#x3002;</p>
+<p><br></p>
+<h3 id="III-&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x7684;&#x5206;&#x5E03;&#xFF0C;pre-main&#x548C;main&#x9636;&#x6BB5;&#x539F;&#x7406;&#x6D45;&#x6790;"><a href="#III-&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x7684;&#x5206;&#x5E03;&#xFF0C;pre-main&#x548C;main&#x9636;&#x6BB5;&#x539F;&#x7406;&#x6D45;&#x6790;" class="headerlink" title="III. &#x542F;&#x52A8;&#x65F6;&#x95F4;&#x7684;&#x5206;&#x5E03;&#xFF0C;pre-main&#x548C;main&#x9636;&#x6BB5;&#x539F;&#x7406;&#x6D45;&#x6790;"></a>III. &#x542F;&#x52A8;&#x65F6;&#x95F4;&#x7684;&#x5206;&#x5E03;&#xFF0C;pre-main&#x548C;main&#x9636;&#x6BB5;&#x539F;&#x7406;&#x6D45;&#x6790;</h3><hr>
+<p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/18112800.png" alt=""></div></p>
+<p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/18112801.jpg" alt=""></div></p>
+<p><code>rebase</code>&#x4FEE;&#x590D;&#x7684;&#x662F;&#x6307;&#x5411;&#x5F53;&#x524D;&#x955C;&#x50CF;&#x5185;&#x90E8;&#x7684;&#x8D44;&#x6E90;&#x6307;&#x9488;&#xFF1B; &#x800C;bind&#x6307;&#x5411;&#x7684;&#x662F;&#x955C;&#x50CF;&#x5916;&#x90E8;&#x7684;&#x8D44;&#x6E90;&#x6307;&#x9488;&#x3002;</p>
+<p><code>rebase</code>&#x6B65;&#x9AA4;&#x5148;&#x8FDB;&#x884C;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x955C;&#x50CF;&#x8BFB;&#x5165;&#x5185;&#x5B58;&#xFF0C;&#x5E76;&#x4EE5;page&#x4E3A;&#x5355;&#x4F4D;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#x9A8C;&#x8BC1;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E0D;&#x4F1A;&#x88AB;&#x7BE1;&#x6539;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x74F6;&#x9888;&#x5728;IO&#x3002;bind&#x5728;&#x5176;&#x540E;&#x8FDB;&#x884C;&#xFF0C;&#x7531;&#x4E8E;&#x8981;&#x67E5;&#x8BE2;&#x7B26;&#x53F7;&#x8868;&#xFF0C;&#x6765;&#x6307;&#x5411;&#x8DE8;&#x955C;&#x50CF;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x52A0;&#x4E0A;&#x5728;<code>rebase</code>&#x9636;&#x6BB5;&#xFF0C;&#x955C;&#x50CF;&#x5DF2;&#x88AB;&#x8BFB;&#x5165;&#x548C;&#x52A0;&#x5BC6;&#x9A8C;&#x8BC1;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x74F6;&#x9888;&#x5728;&#x4E8E;CPU&#x8BA1;&#x7B97;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#x5728;&#x4E0B;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x9610;&#x8FF0;&#x3002;</p>
+<h4 id="pre-main&#x8FC7;&#x7A0B;"><a href="#pre-main&#x8FC7;&#x7A0B;" class="headerlink" title="pre-main&#x8FC7;&#x7A0B;"></a>pre-main&#x8FC7;&#x7A0B;</h4><p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/18112802.jpg" alt=""></div></p>
+<h3 id="main&#x8FC7;&#x7A0B;"><a href="#main&#x8FC7;&#x7A0B;" class="headerlink" title="main&#x8FC7;&#x7A0B;"></a>main&#x8FC7;&#x7A0B;</h3><p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/18112803.jpg" alt=""></div></p>
+<p><br></p>
+<h3 id="IV-&#x4E00;&#x4E9B;&#x6982;&#x5FF5;"><a href="#IV-&#x4E00;&#x4E9B;&#x6982;&#x5FF5;" class="headerlink" title="IV. &#x4E00;&#x4E9B;&#x6982;&#x5FF5;"></a>IV. &#x4E00;&#x4E9B;&#x6982;&#x5FF5;</h3><hr>
+<h4 id="&#x4EC0;&#x4E48;&#x662F;dyld"><a href="#&#x4EC0;&#x4E48;&#x662F;dyld" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;dyld?"></a>&#x4EC0;&#x4E48;&#x662F;dyld?</h4><p>&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#x7684;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;&#x4E3B;&#x8981;&#x7531;dyld&#x6765;&#x5B8C;&#x6210;&#xFF0C;dyld&#x662F;&#x82F9;&#x679C;&#x7684;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5668;&#x3002;</p>
+<p>&#x7CFB;&#x7EDF;&#x5148;&#x8BFB;&#x53D6;App&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF08;Mach-O&#x6587;&#x4EF6;&#xFF09;&#xFF0C;&#x4ECE;&#x91CC;&#x9762;&#x83B7;&#x5F97;dyld&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x8F7D;dyld&#xFF0C;dyld&#x53BB;&#x521D;&#x59CB;&#x5316;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x5F00;&#x542F;&#x7F13;&#x5B58;&#x7B56;&#x7565;&#xFF0C;&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;&#x76F8;&#x5173;&#x4F9D;&#x8D56;&#x5E93;(&#x5176;&#x4E2D;&#x4E5F;&#x5305;&#x542B;&#x6211;&#x4EEC;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;)&#xFF0C;&#x5E76;&#x5BF9;&#x8FD9;&#x4E9B;&#x5E93;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;&#x4F9D;&#x8D56;&#x5E93;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;runtime&#x88AB;&#x521D;&#x59CB;&#x5316;&#x3002;<br>&#x5F53;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x5E93;&#x7684;&#x521D;&#x59CB;&#x5316;&#x540E;&#xFF0C;&#x8F6E;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4F4D;(&#x7A0B;&#x5E8F;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;)&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5728;&#x8FD9;&#x65F6;runtime&#x4F1A;&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x6240;&#x6709;&#x7C7B;&#x8FDB;&#x884C;&#x7C7B;&#x7ED3;&#x6784;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7684;load&#x65B9;&#x6CD5;&#x3002;&#x6700;&#x540E;dyld&#x8FD4;&#x56DE;main&#x51FD;&#x6570;&#x5730;&#x5740;&#xFF0C;main&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x4FBF;&#x6765;&#x5230;&#x4E86;&#x719F;&#x6089;&#x7684;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;&#x3002;</p>
+<p>&#x5F53;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A; Mach-O &#x6587;&#x4EF6; (&#x4E00;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x5E93;) &#x65F6;&#xFF0C;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5668;&#x9996;&#x5148;&#x4F1A;&#x68C0;&#x67E5;&#x5171;&#x4EAB;&#x7F13;&#x5B58;&#x770B;&#x770B;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5176;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x76F4;&#x63A5;&#x4ECE;&#x5171;&#x4EAB;&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x51FA;&#x6765;&#x4F7F;&#x7528;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x628A;&#x8FD9;&#x4E2A;&#x5171;&#x4EAB;&#x7F13;&#x5B58;&#x6620;&#x5C04;&#x5230;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5927;&#x5927;&#x4F18;&#x5316;&#x4E86; OS X &#x548C; iOS &#x4E0A;&#x7A0B;&#x5E8F;&#x7684;&#x542F;&#x52A8;&#x65F6;&#x95F4;&#x3002;</p>
+<p><div align="center"><img src="/posts/09&#x6027;&#x80FD;&#x4F18;&#x5316;/../../img/18112804.jpg" alt=""></div></p>
+<p>&#x95EE;&#x9898;&#xFF1A;&#x6D4B;&#x8BD5;&#x53D1;&#x73B0;&#xFF0C;&#x7531;&#x4E8E;&#x624B;&#x673A;&#x4ECE;&#x5F00;&#x673A;&#x540E;&#xFF0C;&#x8FDE;&#x7EED;&#x4E24;&#x6B21;&#x542F;&#x52A8;&#x540C;&#x4E00;&#x4E2A;APP&#x7684;pre-main&#x5B9E;&#x9645;&#x65F6;&#x95F4;&#x7684;&#x5DEE;&#x503C;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x53EF;&#x4EE5;&#x5728;&#x771F;&#x673A;&#x4E0A;&#x590D;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x6B21;&#x542F;&#x52A8;pre-main&#x7684;&#x65F6;&#x95F4;&#x5DEE;&#x503C;&#xFF0C;&#x662F;&#x8DDF;&#x7CFB;&#x7EDF;&#x7684;framework&#x5173;&#x7CFB;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x8FD8;&#x662F;&#x8DDF;APP&#x81EA;&#x8EAB;&#x4F9D;&#x8D56;&#x7684;&#x7B2C;&#x4E09;&#x65B9;framework&#x5173;&#x7CFB;&#x6BD4;&#x8F83;&#x5927;&#x5462;&#xFF1F;</p>
+<h4 id="Mach-O-&#x955C;&#x50CF;&#x6587;&#x4EF6;"><a href="#Mach-O-&#x955C;&#x50CF;&#x6587;&#x4EF6;" class="headerlink" title="Mach-O &#x955C;&#x50CF;&#x6587;&#x4EF6;"></a>Mach-O &#x955C;&#x50CF;&#x6587;&#x4EF6;</h4><p>Mach-O &#x88AB;&#x5212;&#x5206;&#x6210;&#x4E00;&#x4E9B; <code>segement</code>&#xFF0C;&#x6BCF;&#x4E2A; <code>segement</code> &#x53C8;&#x88AB;&#x5212;&#x5206;&#x6210;&#x4E00;&#x4E9B; <code>section</code>&#x3002;<code>segment</code> &#x7684;&#x540D;&#x5B57;&#x90FD;&#x662F;&#x5927;&#x5199;&#x7684;&#xFF0C;&#x4E14;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x4E3A;&#x9875;&#x7684;&#x6574;&#x6570;&#x3002;&#x9875;&#x7684;&#x5927;&#x5C0F;&#x8DDF;&#x786C;&#x4EF6;&#x6709;&#x5173;&#xFF0C;&#x5728; arm64 &#x67B6;&#x6784;&#x4E00;&#x9875;&#x662F; 16KB&#xFF0C;&#x5176;&#x4F59;&#x4E3A; 4KB&#x3002;</p>
+<p><code>section</code> &#x867D;&#x7136;&#x6CA1;&#x6709;&#x6574;&#x6570;&#x500D;&#x9875;&#x5927;&#x5C0F;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x4F46;&#x662F; <code>section</code> &#x4E4B;&#x95F4;&#x4E0D;&#x4F1A;&#x6709;&#x91CD;&#x53E0;&#x3002;&#x51E0;&#x4E4E;&#x6240;&#x6709;<code>Mach-O</code> &#x90FD;&#x5305;&#x542B;&#x8FD9;&#x4E09;&#x4E2A;&#x6BB5;&#xFF08;segment&#xFF09;&#xFF1A; <strong>TEXT&#xFF0C;</strong>DATA&#x548C;__LINKEDIT&#x3002;</p>
+<ul>
+<li><code>__TEXT</code> &#x5305;&#x542B; Mach header&#xFF0C;&#x88AB;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x53EA;&#x8BFB;&#x5E38;&#x91CF;&#xFF08;&#x5982;C &#x5B57;&#x7B26;&#x4E32;&#xFF09;&#x3002;&#x53EA;&#x8BFB;&#x53EF;&#x6267;&#x884C;&#xFF08;r-x&#xFF09;&#x3002;</li>
+<li><code>__DATA</code> &#x5305;&#x542B;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x7B49;&#x3002;&#x53EF;&#x8BFB;&#x5199;&#xFF08;rw-&#xFF09;&#x3002;</li>
+<li><code>__LINKEDIT</code> &#x5305;&#x542B;&#x4E86;&#x52A0;&#x8F7D;&#x7A0B;&#x5E8F;&#x7684;&#x300E;&#x5143;&#x6570;&#x636E;&#x300F;&#xFF0C;&#x6BD4;&#x5982;&#x51FD;&#x6570;&#x7684;&#x540D;&#x79F0;&#x548C;&#x5730;&#x5740;&#x3002;&#x53EA;&#x8BFB;&#xFF08;r&#x2013;&#xFF09;&#x3002;</li>
+</ul>
+<p>ASLR&#xFF08;Address Space Layout Randomization&#xFF09;&#xFF1A;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x5E03;&#x5C40;&#x968F;&#x673A;&#x5316;&#xFF0C;&#x955C;&#x50CF;&#x4F1A;&#x5728;&#x968F;&#x673A;&#x7684;&#x5730;&#x5740;&#x4E0A;&#x52A0;&#x8F7D;&#x3002;</p>
+<p>&#x4F20;&#x7EDF;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;&#x8FDB;&#x7A0B;&#x6BCF;&#x6B21;&#x542F;&#x52A8;&#x91C7;&#x7528;&#x7684;&#x90FD;&#x662F;&#x56FA;&#x5B9A;&#x53EF;&#x9884;&#x89C1;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x67B6;&#x6784;&#x4E0A;&#x7684;&#x8FDB;&#x7A0B;&#x521D;&#x59CB;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x90FD;&#x662F;&#x57FA;&#x672C;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF0C;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5730;&#x5740;&#x5206;&#x5E03;&#x5177;&#x6709;&#x975E;&#x5E38;&#x5F3A;&#x7684;&#x53EF;&#x9884;&#x6D4B;&#x6027;&#xFF0C;&#x8FD9;&#x7ED9;&#x4E86;&#x9ED1;&#x5BA2;&#x5F88;&#x5927;&#x7684;&#x65BD;&#x5C55;&#x7A7A;&#x95F4;&#xFF08;&#x4EE3;&#x7801;&#x6CE8;&#x5165;&#xFF0C;&#x91CD;&#x5199;&#x5185;&#x5B58;&#xFF09;&#xFF1B;</p>
+<p>&#x5982;&#x679C;&#x91C7;&#x7528;ASLR&#xFF0C;&#x8FDB;&#x7A0B;&#x6BCF;&#x6B21;&#x542F;&#x52A8;&#xFF0C;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x90FD;&#x4F1A;&#x88AB;&#x7B80;&#x5355;&#x5730;&#x968F;&#x673A;&#x5316;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x662F;&#x504F;&#x79FB;&#xFF0C;&#x4E0D;&#x662F;&#x6405;&#x4E71;&#x3002;&#x5927;&#x4F53;&#x5E03;&#x5C40;&#x2014;&#x2014;&#x7A0B;&#x5E8F;&#x6587;&#x672C;&#x3001;&#x6570;&#x636E;&#x548C;&#x5E93;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5177;&#x4F53;&#x7684;&#x5730;&#x5740;&#x90FD;&#x4E0D;&#x540C;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x963B;&#x6321;&#x9ED1;&#x5BA2;&#x5BF9;&#x5730;&#x5740;&#x7684;&#x731C;&#x6D4B; &#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x7B7E;&#x540D;&#xFF1A;&#x53EF;&#x80FD;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A; Xcode &#x4F1A;&#x628A;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x505A;&#x52A0;&#x5BC6; hash &#x5E76;&#x7528;&#x505A;&#x6570;&#x5B57;&#x7B7E;&#x540D;&#x3002;&#x5176;&#x5B9E;&#x4E3A;&#x4E86;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x9A8C;&#x8BC1; Mach-O &#x6587;&#x4EF6;&#x7684;&#x7B7E;&#x540D;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6BCF;&#x6B21;&#x91CD;&#x590D;&#x8BFB;&#x5165;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x662F;&#x628A;&#x6BCF;&#x9875;&#x5185;&#x5BB9;&#x90FD;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x52A0;&#x5BC6;&#x6563;&#x5217;&#x503C;&#xFF0C;&#x5E76;&#x5B58;&#x50A8;&#x5728; <code>__LINKEDIT</code> &#x4E2D;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x6587;&#x4EF6;&#x6BCF;&#x9875;&#x7684;&#x5185;&#x5BB9;&#x90FD;&#x80FD;&#x53CA;&#x65F6;&#x88AB;&#x6821;&#x9A8C;&#x786E;&#x5E76;&#x4FDD;&#x4E0D;&#x88AB;&#x7BE1;&#x6539;&#x3002;</p>
+<h4 id="&#x5173;&#x4E8E;&#x865A;&#x62DF;&#x5185;&#x5B58;"><a href="#&#x5173;&#x4E8E;&#x865A;&#x62DF;&#x5185;&#x5B58;" class="headerlink" title="&#x5173;&#x4E8E;&#x865A;&#x62DF;&#x5185;&#x5B58;"></a>&#x5173;&#x4E8E;&#x865A;&#x62DF;&#x5185;&#x5B58;</h4><p>&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x8005;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x6240;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x5185;&#x5B58;&#x5747;&#x4E3A;&#x865A;&#x62DF;&#x5185;&#x5B58;&#xFF0C;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x4F7F;App&#x8BA4;&#x4E3A;&#x5B83;&#x62E5;&#x6709;&#x8FDE;&#x7EED;&#x7684;&#x53EF;&#x7528;&#x7684;&#x5185;&#x5B58;&#xFF08;&#x4E00;&#x4E2A;&#x8FDE;&#x7EED;&#x5B8C;&#x6574;&#x7684;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF09;&#xFF0C;&#x8FD9;&#x662F;&#x7CFB;&#x7EDF;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x9988;&#x8D60;&#xFF0C;&#x800C;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5B83;&#x901A;&#x5E38;&#x662F;&#x5206;&#x5E03;&#x5728;&#x591A;&#x4E2A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF0C;&#x7CFB;&#x7EDF;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x6620;&#x5C04;vm_map&#x8D1F;&#x8D23;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x548C;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</p>
+<p>ARM&#x5904;&#x7406;&#x5668;64bit&#x7684;&#x67B6;&#x6784;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;0x000000000 - 0xFFFFFFFFF&#xFF0C;&#x6BCF;&#x4E2A;16&#x8FDB;&#x5236;&#x6570;&#x662F;4&#x4F4D;&#xFF0C;&#x5373;2&#x7684;36&#x6B21;&#x5E42;&#xFF0C;&#x5C31;&#x662F;64GB&#xFF0C;&#x5373;App&#x6700;&#x5927;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x4E3A;64GB&#x3002;</p>
+<p>&#x5171;&#x4EAB;&#x52A8;&#x6001;&#x5E93;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5171;&#x4EAB;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x90A3;&#x4EFD;&#x52A8;&#x6001;&#x5E93;&#xFF0C;App&#x865A;&#x62DF;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x5171;&#x4EAB;&#x52A8;&#x6001;&#x5E93;&#x5E76;&#x672A;&#x771F;&#x5B9E;&#x5206;&#x914D;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x4F1A;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4EFD;&#x7269;&#x7406;&#x5185;&#x5B58;&#x8FBE;&#x5230;&#x5171;&#x4EAB;&#x52A8;&#x6001;&#x5E93;&#x7684;&#x76EE;&#x7684;&#x3002;<br>iPhone7 PLUS&#xFF08;&#x4E4B;&#x524D;&#x7684;&#x4EA7;&#x54C1;&#x6700;&#x5927;&#x4E3A;2GB&#xFF09;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;RAM&#x4E5F;&#x53EA;&#x6709;3GB&#xFF0C;&#x90A3;&#x4E48;&#x8D85;&#x8FC7;3GB&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5982;&#x4F55;&#x5904;&#x7406;&#x5462;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x90E8;&#x5206;&#x786C;&#x76D8;&#x7A7A;&#x95F4;ROM&#x6765;&#x5145;&#x5F53;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#xFF0C;&#x5728;&#x9700;&#x8981;&#x65F6;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA4;&#x6362;&#xFF0C;&#x5F53;&#x7136;&#x78C1;&#x76D8;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x662F;&#x8FDC;&#x8FDC;&#x6162;&#x4E8E;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5185;&#x5B58;&#x8FC7;&#x8F7D;&#x65F6;&#xFF0C;App&#x5361;&#x987F;&#x7684;&#x539F;&#x56E0;&#x4E4B;&#x4E00;&#x3002;</p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性能优化/" rel="tag"><i class="fa fa-tag"></i>性能优化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/10高级技术/10 - 高级技术.html" rel="next" title="title">
+                <i class="fa fa-chevron-left"></i> title
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/02UI知识/UIView.html" rel="prev" title="iOS开发 - UIView 使用细节">
+                iOS开发 - UIView 使用细节 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/09性能优化/启动优化.html"
+           data-title="iOS开发 - 启动时间优化" data-url="http://www.licheng244.com/posts/09性能优化/启动优化.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-App启动过程"><span class="nav-text">I. App启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-解析Info-plist"><span class="nav-text">1. 解析Info.plist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Mach-O加载"><span class="nav-text">2. Mach-O加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-程序执行"><span class="nav-text">3. 程序执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-可执行文件的内核流程"><span class="nav-text">II. 可执行文件的内核流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-启动时间的分布，pre-main和main阶段原理浅析"><span class="nav-text">III. 启动时间的分布，pre-main和main阶段原理浅析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pre-main过程"><span class="nav-text">pre-main过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main过程"><span class="nav-text">main过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-一些概念"><span class="nav-text">IV. 一些概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是dyld"><span class="nav-text">什么是dyld?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mach-O-镜像文件"><span class="nav-text">Mach-O 镜像文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于虚拟内存"><span class="nav-text">关于虚拟内存</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

@@ -85,7 +85,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tag," />
+  <meta name="keywords" content="GCD," />
 
 
 
@@ -101,16 +101,19 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
 
-<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;Xcode6&amp;#x4E4B;&amp;#x524D;, &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5DE5;&amp;#x7A0B; Xcode&amp;#x4F1A;&amp;#x5728; Supporting files &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#x9762;&amp;#x81EA;&amp;#x52A">
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x4FE1;&amp;#x53F7;&amp;#x91CF;&amp;#xFF1A;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x53EF;&amp;#x7528;&amp;#x6765;&amp;#x63A7;&amp;#x5236;&amp;#x8BBF;&amp;#x95EE;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x6570;&amp;#x91CF;&amp;#x7684;&amp;#x6807;&amp;#x8B">
 <meta property="og:type" content="article">
-<meta property="og:title" content="title">
-<meta property="og:url" content="http://www.licheng244.com/posts/错误收集/12 - 报错收集.html">
+<meta property="og:title" content="iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用">
+<meta property="og:url" content="http://www.licheng244.com/posts/05多线程/GCD信号量.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;Xcode6&amp;#x4E4B;&amp;#x524D;, &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5DE5;&amp;#x7A0B; Xcode&amp;#x4F1A;&amp;#x5728; Supporting files &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#x9762;&amp;#x81EA;&amp;#x52A">
-<meta property="og:updated_time" content="2018-07-23T03:11:48.785Z">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x4FE1;&amp;#x53F7;&amp;#x91CF;&amp;#xFF1A;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x53EF;&amp;#x7528;&amp;#x6765;&amp;#x63A7;&amp;#x5236;&amp;#x8BBF;&amp;#x95EE;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x6570;&amp;#x91CF;&amp;#x7684;&amp;#x6807;&amp;#x8B">
+<meta property="og:updated_time" content="2018-12-06T08:11:41.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="title">
-<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728;Xcode6&amp;#x4E4B;&amp;#x524D;, &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5DE5;&amp;#x7A0B; Xcode&amp;#x4F1A;&amp;#x5728; Supporting files &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#x9762;&amp;#x81EA;&amp;#x52A">
+<meta name="twitter:title" content="iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:
+&amp;#x4FE1;&amp;#x53F7;&amp;#x91CF;&amp;#xFF1A;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x53EF;&amp;#x7528;&amp;#x6765;&amp;#x63A7;&amp;#x5236;&amp;#x8BBF;&amp;#x95EE;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x6570;&amp;#x91CF;&amp;#x7684;&amp;#x6807;&amp;#x8B">
 
 
 
@@ -131,10 +134,10 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
 
-  <link rel="canonical" href="http://www.licheng244.com/posts/错误收集/12 - 报错收集.html"/>
+  <link rel="canonical" href="http://www.licheng244.com/posts/05多线程/GCD信号量.html"/>
 
 
-  <title> title | 博客 </title>
+  <title> iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用 | 博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +310,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
             
               
-                title
+                iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用
               
             
           </h1>
@@ -319,8 +322,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
-              2016-11-01
+            <time itemprop="dateCreated" datetime="2016-10-28T22:16:36+08:00" content="2016-10-28">
+              2016-10-28
             </time>
           </span>
 
@@ -333,8 +336,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-12【-报错收集-】/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS__12【 报错收集 】</span>
+                  <a href="/categories/iOS-05【-多线程-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__05【 多线程 】</span>
                   </a>
                 </span>
 
@@ -349,8 +352,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/posts/错误收集/12 - 报错收集.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/错误收集/12 - 报错收集.html" itemprop="commentsCount"></span>
+                <a href="/posts/05多线程/GCD信号量.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/05多线程/GCD信号量.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -361,7 +364,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/posts/错误收集/12 - 报错收集.html" class="leancloud_visitors" data-flag-title="title">
+             <span id="/posts/05多线程/GCD信号量.html" class="leancloud_visitors" data-flag-title="iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -384,10 +387,28 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         <blockquote>
-<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5728;Xcode6&#x4E4B;&#x524D;, &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5DE5;&#x7A0B; Xcode&#x4F1A;&#x5728; Supporting files &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x201C;&#x5DE5;&#x7A0B;&#x540D;-Prefix.pch&#x201D;&#x6587;&#x4EF6;, &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;, pch&#x5934;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x88AB;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x6E90;&#x6587;&#x4EF6;&#x5171;&#x4EAB;&#x548C;&#x8BBF;&#x95EE;&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x3002;</p>
-<p>Xcode6&#x4EE5;&#x540E;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;, &#x4E0D;&#x518D;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;pch&#x6587;&#x4EF6;, &#x9700;&#x8981;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x3002;</p>
+<p><strong>&#x5F15;&#x8A00;:</strong></p>
+<p>&#x4FE1;&#x53F7;&#x91CF;&#xFF1A;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x53EF;&#x7528;&#x6765;&#x63A7;&#x5236;&#x8BBF;&#x95EE;&#x8D44;&#x6E90;&#x7684;&#x6570;&#x91CF;&#x7684;&#x6807;&#x8BC6;&#xFF0C;&#x8BBE;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x5728;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x4E4B;&#x524D;&#xFF0C;&#x52A0;&#x4E0A;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5219;&#x53EF;&#x544A;&#x77E5;&#x7CFB;&#x7EDF;&#x6309;&#x7167;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#x6570;&#x91CF;&#x6765;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;<br>&#x5176;&#x5B9E;&#xFF0C;&#x8FD9;&#x6709;&#x70B9;&#x7C7B;&#x4F3C;&#x9501;&#x673A;&#x5236;&#x4E86;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x4FE1;&#x53F7;&#x91CF;&#x90FD;&#x662F;&#x7CFB;&#x7EDF;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x4E4B;&#x524D;&#xFF0C;&#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x91CF;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x52A0;&#x4E0A;&#x4FE1;&#x53F7;&#x91CF;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x5C31;&#x884C;&#x4E86;&#x3002;</p>
 </blockquote>
 <a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x4E09;&#x4E2A;&#x51FD;&#x6570;"><a href="#I-&#x4E09;&#x4E2A;&#x51FD;&#x6570;" class="headerlink" title="I. &#x4E09;&#x4E2A;&#x51FD;&#x6570;"></a>I. &#x4E09;&#x4E2A;&#x51FD;&#x6570;</h3><hr>
+<h4 id="1-dispatch-semaphore-create"><a href="#1-dispatch-semaphore-create" class="headerlink" title="1. dispatch_semaphore_create"></a>1. dispatch_semaphore_create</h4><blockquote>
+<p>dispatch_semaphore_create&#xFF08;&#x4FE1;&#x53F7;&#x91CF;&#x503C;&#xFF09; &#x521B;&#x5EFA;&#x4FE1;&#x53F7;&#x91CF;</p>
+</blockquote>
+<p>&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E3A;long&#xFF0C;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;<code>dispatch_semaphore_t</code>&#x7C7B;&#x578B;&#x4E14;&#x503C;&#x4E3A;value&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#x3002;<br>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;value&#x5FC5;&#x987B;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;0&#xFF0C;&#x5426;&#x5219;dispatch_semaphore_create&#x4F1A;&#x8FD4;&#x56DE;NULL&#x3002;</p>
+<h4 id="2-dispatch-semaphore-signal"><a href="#2-dispatch-semaphore-signal" class="headerlink" title="2. dispatch_semaphore_signal"></a>2. dispatch_semaphore_signal</h4><blockquote>
+<p>dispatch_semaphore_signal(&#x4FE1;&#x53F7;&#x91CF;) &#x63D0;&#x9AD8;&#x4FE1;&#x53F7;&#x91CF;</p>
+</blockquote>
+<p>&#x5F53;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;0&#x65F6;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5E76;&#x6CA1;&#x6709;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5176;&#x5904;&#x7406;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x5176;&#x5904;&#x7406;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x503C;&#x52A0;1&#x5373;&#x53EF;&#x3002;&#x5F53;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x4E3A;0&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x5176;&#x5F53;&#x524D;&#x6709;&#xFF08;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#xFF09;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5176;&#x5904;&#x7406;&#x7684;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x51FD;&#x6570;&#x5524;&#x9192;&#x4E86;&#x4E00;&#x4E2A;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#xFF08;&#x5F53;&#x7EBF;&#x7A0B;&#x6709;&#x4F18;&#x5148;&#x7EA7;&#x65F6;&#xFF0C;&#x5524;&#x9192;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#x7684;&#x7EBF;&#x7A0B;&#xFF1B;&#x5426;&#x5219;&#x968F;&#x673A;&#x5524;&#x9192;&#xFF09;&#x3002;</p>
+<h4 id="3-dispatch-semaphore-wait"><a href="#3-dispatch-semaphore-wait" class="headerlink" title="3. dispatch_semaphore_wait"></a>3. dispatch_semaphore_wait</h4><blockquote>
+<p>dispatch_semaphore_wait&#xFF08;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#xFF09; &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x4F7F;&#x4F20;&#x5165;&#x7684;&#x4FE1;&#x53F7;&#x91CF;dsema&#x7684;&#x503C;&#x51CF;1&#xFF1B;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x503C; &gt; 0&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x6240;&#x5904;&#x7EBF;&#x7A0B;&#x5C31;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x503C;&#x51CF;1&#xFF1B;<br>&#x5982;&#x679C;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x503C; = 0&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85; timeout&#xFF08;&#x6CE8;&#x610F;timeout&#x7684;&#x7C7B;&#x578B;&#x4E3A;dispatch_time_t&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F20;&#x5165;&#x6574;&#x5F62;&#x6216;float&#x578B;&#x6570;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x7B49;&#x5F85;&#x7684;&#x671F;&#x95F4;desema&#x7684;&#x503C;&#x88AB;dispatch_semaphore_signal&#x51FD;&#x6570;&#x52A0;1&#x4E86;&#xFF0C;&#x4E14;&#x8BE5;&#x51FD;&#x6570;&#xFF08;&#x5373;dispatch_semaphore_wait&#xFF09;&#x6240;&#x5904;&#x7EBF;&#x7A0B;&#x83B7;&#x5F97;&#x4E86;&#x4FE1;&#x53F7;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6267;&#x884C;&#x5E76;&#x5C06;&#x4FE1;&#x53F7;&#x91CF;&#x51CF;1&#x3002;<br>&#x5982;&#x679C;&#x7B49;&#x5F85;&#x671F;&#x95F4;&#x6CA1;&#x6709;&#x83B7;&#x53D6;&#x5230;&#x4FE1;&#x53F7;&#x91CF;&#x6216;&#x8005;&#x4FE1;&#x53F7;&#x91CF;&#x7684;&#x503C;&#x4E00;&#x76F4;&#x4E3A;0&#xFF0C;&#x90A3;&#x4E48;&#x7B49;&#x5230;timeout&#x65F6;&#xFF0C;&#x5176;&#x6240;&#x5904;&#x7EBF;&#x7A0B;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5176;&#x540E;&#x8BED;&#x53E5;&#x3002;</p>
+<p>&#x5728;&#x8BBE;&#x7F6E;timeout&#x65F6;&#xFF0C;&#x6BD4;&#x8F83;&#x6709;&#x7528;&#x7684;&#x4E24;&#x4E2A;&#x5B8F;&#xFF1A;<code>DISPATCH_TIME_NOW</code> &#x548C; <code>DISPATCH_TIME_FOREVER</code>&#x3002;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">DISPATCH_TIME_NOW&#x3000;&#x3000;<span class="comment">// &#x8868;&#x793A;&#x5F53;&#x524D;&#xFF1B;</span></div><div class="line">DISPATCH_TIME_FOREVER&#x3000;<span class="comment">//&#x3000;&#x8868;&#x793A;&#x9065;&#x8FDC;&#x7684;&#x672A;&#x6765;&#xFF1B;</span></div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="II-&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#II-&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="II. &#x4F7F;&#x7528;&#x573A;&#x666F;"></a>II. &#x4F7F;&#x7528;&#x573A;&#x666F;</h3><hr>
+<p>&#x5728;&#x65E5;&#x5E38;&#x5F00;&#x53D1;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230; &#x9700;&#x8981;&#x540C;&#x65F6;&#x8BF7;&#x6C42;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C; &#x5728;&#x591A;&#x4E2A;&#x63A5;&#x53E3;&#x540C;&#x65F6;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x65F6;&#x518D;&#x505A;&#x76F8;&#x5173;&#x4E1A;&#x52A1;&#x5904;&#x7406;&#x3002;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#pragma mark - &#x52A0;&#x8F7D;&#x6570;&#x636E;</span></div><div class="line">- (<span class="keyword">void</span>)loadDataSuccess:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))success</div><div class="line">                failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSString</span> *errorMessage))failure {</div><div class="line">    </div><div class="line">    <span class="comment">// 3&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5168;&#x90E8;&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x540E;&#x5237;&#x65B0;tableView</span></div><div class="line">    <span class="built_in">NSInteger</span> totalCount = <span class="number">3</span>;</div><div class="line">    __block <span class="built_in">NSInteger</span> requestCount = <span class="number">0</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x91CF; &#x503C;&#x4E3A;0</span></div><div class="line">    dispatch_semaphore_t sem = dispatch_semaphore_create(<span class="number">0</span>);</div><div class="line">    </div><div class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^{</div><div class="line">        </div><div class="line">        <span class="comment">/// &#x8BF7;&#x6C42;1</span></div><div class="line">        <span class="comment">// &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x65F6;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x4EE3;&#x7801;</span></div><div class="line">        </div><div class="line">        <span class="comment">// &#x8BF7;&#x6C42;&#x6210;&#x529F; requestCount+1 &#x540E; &#x4E0E; totalCount &#x6BD4;&#x8F83; &#x76F8;&#x7B49;&#x65F6; &#x8BF4;&#x660E;3&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#xFF0C; &#x4FE1;&#x53F7;&#x91CF;&#x52A0;1</span></div><div class="line">        <span class="keyword">if</span> (++requestCount == totalCount) {</div><div class="line">            </div><div class="line">            dispatch_semaphore_signal(sem); <span class="comment">// &#x63D0;&#x9AD8;&#x4FE1;&#x53F7;&#x91CF;  &#x4FE1;&#x53F7;&#x91CF;&#x52A0;1</span></div><div class="line">        }</div><div class="line">        </div><div class="line">        </div><div class="line">        <span class="comment">/// &#x8BF7;&#x6C42;2</span></div><div class="line">        <span class="comment">// &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x65F6;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x4EE3;&#x7801;</span></div><div class="line">        <span class="keyword">if</span> (++requestCount == totalCount) {</div><div class="line">            dispatch_semaphore_signal(sem);</div><div class="line">        }</div><div class="line">        </div><div class="line">        <span class="comment">/// &#x8BF7;&#x6C42;3</span></div><div class="line">        <span class="comment">// &#x8BF7;&#x6C42;&#x6210;&#x529F;&#x65F6;&#x52A0;&#x5165;&#x4E0B;&#x9762;&#x4EE3;&#x7801;</span></div><div class="line">        <span class="keyword">if</span> (++requestCount == totalCount) {</div><div class="line">            dispatch_semaphore_signal(sem);</div><div class="line">        }</div><div class="line">        </div><div class="line">        <span class="comment">// &#x7B49;&#x5F85;&#x964D;&#x4F4E;&#x4FE1;&#x53F7;&#x91CF;</span></div><div class="line">        <span class="comment">// sem = 0 &#x65F6;&#xFF0C;&#x51FD;&#x6570;&#x4F1A;&#x963B;&#x585E;&#x5F53;&#x524D;&#x7EBF;&#x7A0B; &#x7B49;&#x5F85; timeout &#x540E;</span></div><div class="line">        <span class="comment">// sem &gt; 0 &#x65F6;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x6240;&#x5904;&#x7EBF;&#x7A0B;&#x4F1A;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x8BED;&#x53E5;&#xFF0C;&#x5E76;&#x5C06;&#x4FE1;&#x53F7;&#x91CF;&#x51CF;1</span></div><div class="line">        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);</div><div class="line">        </div><div class="line">        <span class="comment">// &#x4FE1;&#x53F7;&#x91CF;&#x5927;&#x4E8E;0&#x65F6; &#x4F1A;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;</span></div><div class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^{</div><div class="line">            </div><div class="line">            <span class="comment">/// &#x6240;&#x6709;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;</span></div><div class="line">            <span class="comment">// &#x5B9E;&#x73B0;&#x56DE;&#x8C03;</span></div><div class="line">            success();</div><div class="line">        });</div><div class="line">    });</div><div class="line">}</div></pre></td></tr></table></figure></p>
 <hr>
 
       
@@ -426,7 +447,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         <div class="post-tags">
           
-            <a href="/tags/tag/" rel="tag"><i class="fa fa-tag"></i>tag</a>
+            <a href="/tags/GCD/" rel="tag"><i class="fa fa-tag"></i>GCD</a>
           
         </div>
       
@@ -435,16 +456,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/00基础知识/沙盒机制.html" rel="next" title="iOS开发 - 沙盒机制">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 沙盒机制
+              <a href="/posts/17系统适配/APP 跳转.html" rel="next" title="iOS开发 - APP 跳转到相应的设置界面">
+                <i class="fa fa-chevron-left"></i> iOS开发 - APP 跳转到相应的设置界面
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/读书笔记/25 - 读书笔记.html" rel="prev" title="title">
-                title <i class="fa fa-chevron-right"></i>
+              <a href="/posts/08动画绘图/drawRect.html" rel="prev" title="iOS开发 - 重绘之 drawRect">
+                iOS开发 - 重绘之 drawRect <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,8 +494,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="posts/错误收集/12 - 报错收集.html"
-           data-title="title" data-url="http://www.licheng244.com/posts/错误收集/12 - 报错收集.html">
+      <div class="ds-thread" data-thread-key="posts/05多线程/GCD信号量.html"
+           data-title="iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用" data-url="http://www.licheng244.com/posts/05多线程/GCD信号量.html">
       </div>
     
 
@@ -517,7 +538,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">102</span>
+              <span class="site-state-item-count">101</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -563,7 +584,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-三个函数"><span class="nav-text">I. 三个函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-dispatch-semaphore-create"><span class="nav-text">1. dispatch_semaphore_create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-dispatch-semaphore-signal"><span class="nav-text">2. dispatch_semaphore_signal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-dispatch-semaphore-wait"><span class="nav-text">3. dispatch_semaphore_wait</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-使用场景"><span class="nav-text">II. 使用场景</span></a></li></ol></div>
             
           </div>
         </section>

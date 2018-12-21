@@ -1,0 +1,969 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="项目配置," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x6587;&amp;#x7AE0;&amp;#x7684;&amp;#x521D;&amp;#x8877;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x80FD;&amp;#x591F;&amp;#x6B63;&amp;#x5E38;&amp;#x663E;&amp;#x793A;&amp;#x6253;&amp;#x5370;&amp;#x51FA;&amp;#x5B57;&amp;#x51">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - NSLog 解决中文乱码并显示成JSON格式">
+<meta property="og:url" content="http://www.licheng244.com/posts/项目配置/NSLog.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x6587;&amp;#x7AE0;&amp;#x7684;&amp;#x521D;&amp;#x8877;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x80FD;&amp;#x591F;&amp;#x6B63;&amp;#x5E38;&amp;#x663E;&amp;#x793A;&amp;#x6253;&amp;#x5370;&amp;#x51FA;&amp;#x5B57;&amp;#x51">
+<meta property="og:image" content="http://www.licheng244.com/posts/项目配置/../../img/18112900.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/项目配置/../../img/18112901.png">
+<meta property="og:updated_time" content="2018-12-20T09:15:49.861Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - NSLog 解决中文乱码并显示成JSON格式">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x6587;&amp;#x7AE0;&amp;#x7684;&amp;#x521D;&amp;#x8877;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x80FD;&amp;#x591F;&amp;#x6B63;&amp;#x5E38;&amp;#x663E;&amp;#x793A;&amp;#x6253;&amp;#x5370;&amp;#x51FA;&amp;#x5B57;&amp;#x51">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/项目配置/../../img/18112900.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/项目配置/NSLog.html"/>
+
+
+  <title> iOS开发 - NSLog 解决中文乱码并显示成JSON格式 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - NSLog 解决中文乱码并显示成JSON格式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-18【-项目配置-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__18【 项目配置 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/项目配置/NSLog.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/项目配置/NSLog.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/项目配置/NSLog.html" class="leancloud_visitors" data-flag-title="iOS开发 - NSLog 解决中文乱码并显示成JSON格式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x6587;&#x7AE0;&#x7684;&#x521D;&#x8877;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x663E;&#x793A;&#x6253;&#x5370;&#x51FA;&#x5B57;&#x5178;&#x91CC;&#x9762;&#x7684;&#x4E2D;&#x6587;&#x3002;&#x56E0;&#x4E3A;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x76F4;&#x63A5;&#x6253;&#x5370;&#x5B57;&#x5178;&#x7684;&#x8BDD;&#xFF0C;&#x5728;Xcode&#x63A7;&#x5236;&#x53F0;&#x4E0A;&#xFF0C;&#x4E2D;&#x6587;&#x4F1A;&#x662F;&#x4E71;&#x7801;&#x7684;&#xFF0C;&#x9700;&#x8981;Unicode&#x8F6C;&#x7801;&#x624D;&#x80FD;&#x770B;&#x5230;&#x4E2D;&#x6587;&#x3002;</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x6B63;&#x5E38;&#x6253;&#x5370;"><a href="#I-&#x6B63;&#x5E38;&#x6253;&#x5370;" class="headerlink" title="I. &#x6B63;&#x5E38;&#x6253;&#x5370;"></a>I. &#x6B63;&#x5E38;&#x6253;&#x5370;</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = @{<span class="string">@&quot;name&quot;</span>:<span class="string">@&quot;&#x5F20;&#x4E09;&quot;</span>,</div><div class="line">                       <span class="string">@&quot;job&quot;</span>:<span class="string">@&quot;iOS&#x5F00;&#x53D1;&#x5DE5;&#x7A0B;&#x662F;&quot;</span>,</div><div class="line">                       	<span class="string">@&quot;author&quot;</span>:@{<span class="string">@&quot;nickName&quot;</span>:<span class="string">@&quot;&#x8C26;&#x8A00;&#x5FD8;&#x8BED;&quot;</span>,</div><div class="line">                       		<span class="string">@&quot;blog&quot;</span>:<span class="string">@&quot;https://www.jianshu.com/u/cc2cf725ac0c&quot;</span>,</div><div class="line">                       		<span class="string">@&quot;work&quot;</span>:<span class="string">@&quot;iOS&#x5DE5;&#x7A0B;&#x5E08;&quot;</span>}</div><div class="line">                       };</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;&#x6253;&#x5370;&#x51FA;&#x7684;&#x5B57;&#x5178;&#xFF1A;%@&quot;</span>,dict);</div></pre></td></tr></table></figure>
+<p>&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><div algin="center"><img src="/posts/&#x9879;&#x76EE;&#x914D;&#x7F6E;/../../img/18112900.png" alt=""></div></p>
+<p><br></p>
+<h3 id="II-&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#II-&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="II. &#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>II. &#x89E3;&#x51B3;&#x65B9;&#x6848;</h3><hr>
+<p>&#x5229;&#x7528;<code>runtime</code>&#x7684;&#x65B9;&#x6CD5;&#x4EA4;&#x6362; &#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/// DEBUG&#x6A21;&#x5F0F;&#x751F;&#x6548;</span></div><div class="line"><span class="meta">#ifdef DEBUG</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">&quot;SQPrintJsonLog.h&quot;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - &#x65B9;&#x6CD5;&#x4EA4;&#x6362;</span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> sq_swizzleSelector(Class <span class="keyword">class</span>, SEL originalSelector, SEL swizzledSelector) {</div><div class="line">    </div><div class="line">    Method originalMethod = class_getInstanceMethod(<span class="keyword">class</span>, originalSelector);</div><div class="line">    Method swizzledMethod = class_getInstanceMethod(<span class="keyword">class</span>, swizzledSelector);</div><div class="line">    </div><div class="line">    <span class="built_in">BOOL</span> didAddMethod = class_addMethod(<span class="keyword">class</span>,</div><div class="line">                                        originalSelector,</div><div class="line">                                        method_getImplementation(swizzledMethod),</div><div class="line">                                        method_getTypeEncoding(swizzledMethod));</div><div class="line">    <span class="keyword">if</span> (didAddMethod) {</div><div class="line">        class_replaceMethod(<span class="keyword">class</span>,</div><div class="line">                            swizzledSelector,</div><div class="line">                            method_getImplementation(originalMethod),</div><div class="line">                            method_getTypeEncoding(originalMethod));</div><div class="line">    } <span class="keyword">else</span> {</div><div class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - --- NSObject &#x5206;&#x7C7B; ---</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">SQJSON</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/// &#x5C06;obj&#x8F6C;&#x6362;&#x6210;json&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5982;&#x679C;&#x5931;&#x8D25;&#x5219;&#x8FD4;&#x56DE;nil.</span></div><div class="line">- (<span class="built_in">NSString</span> *)convertToJsonString {</div><div class="line">    </div><div class="line">    <span class="comment">//&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x80FD;&#x8F6C;&#x5316;&#x4E3A;JSON&#x683C;&#x5F0F;</span></div><div class="line">    <span class="keyword">if</span> (![<span class="built_in">NSJSONSerialization</span> isValidJSONObject:<span class="keyword">self</span>])  <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</div><div class="line">    <span class="built_in">NSData</span> *jsonData = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:<span class="keyword">self</span> options:<span class="built_in">NSJSONWritingPrettyPrinted</span>  error:&amp;error];</div><div class="line">    <span class="keyword">if</span> (error || !jsonData) <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    <span class="built_in">NSString</span> *jsonString = [[<span class="built_in">NSString</span> alloc] initWithData:jsonData encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="keyword">return</span> jsonString;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - ---NSDictionary &#x5206;&#x7C7B; ---</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSDictionary</span> (<span class="title">SQJsonLog</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; descriptionWithLocale: &#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x4EE3;&#x7801;&#x6253;&#x5370;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_descriptionWithLocale:(<span class="keyword">id</span>)locale{</div><div class="line"></div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];<span class="comment">//&#x8F6C;&#x6362;&#x6210;JSON&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;</span></div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_descriptionWithLocale:locale];<span class="comment">//&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x8F6C;&#x6362;&#xFF0C;&#x5C31;&#x4F7F;&#x7528;&#x539F;&#x5148;&#x7684;&#x683C;&#x5F0F;</span></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; descriptionWithLocale:indent:&#x65B9;&#x6CD5;&#x3002;&#x529F;&#x80FD;&#x540C;&#x4E0A;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_descriptionWithLocale:(<span class="keyword">id</span>)locale indent:(<span class="built_in">NSUInteger</span>)level {</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];</div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_descriptionWithLocale:locale indent:level];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; debugDescription &#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4F7F;&#x7528;po&#x6253;&#x5370;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_debugDescription{</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];</div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_debugDescription];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x5728;load&#x65B9;&#x6CD5;&#x4E2D;&#x5B8C;&#x6210;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;</span></div><div class="line">+ (<span class="keyword">void</span>)load {</div><div class="line">    </div><div class="line">    <span class="comment">//&#x65B9;&#x6CD5;&#x4EA4;&#x6362;</span></div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^{</div><div class="line">        </div><div class="line">        Class <span class="keyword">class</span> = [<span class="keyword">self</span> <span class="keyword">class</span>];</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(descriptionWithLocale:), <span class="keyword">@selector</span>(sqjsonlog_descriptionWithLocale:));</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(descriptionWithLocale:indent:), <span class="keyword">@selector</span>(sqjsonlog_descriptionWithLocale:indent:));</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(debugDescription), <span class="keyword">@selector</span>(sqjsonlog_debugDescription));</div><div class="line">    });</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - --- NSArray &#x5206;&#x7C7B; ---</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSArray</span> (<span class="title">SQJsonLog</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; descriptionWithLocale: &#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x4EE3;&#x7801;&#x6253;&#x5370;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_descriptionWithLocale:(<span class="keyword">id</span>)locale{</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];</div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_descriptionWithLocale:locale];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; descriptionWithLocale:indent:&#x65B9;&#x6CD5;&#x3002;&#x529F;&#x80FD;&#x540C;&#x4E0A;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_descriptionWithLocale:(<span class="keyword">id</span>)locale indent:(<span class="built_in">NSUInteger</span>)level {</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];</div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_descriptionWithLocale:locale indent:level];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/// &#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4EA4;&#x6362;&#x7CFB;&#x7EDF;&#x7684; debugDescription &#x65B9;&#x6CD5;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4F7F;&#x7528;po&#x6253;&#x5370;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</span></div><div class="line">- (<span class="built_in">NSString</span> *)sqjsonlog_debugDescription{</div><div class="line">    </div><div class="line">    <span class="built_in">NSString</span> *result = [<span class="keyword">self</span> convertToJsonString];</div><div class="line">    <span class="keyword">if</span> (!result) <span class="keyword">return</span> [<span class="keyword">self</span> sqjsonlog_debugDescription];</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)load {</div><div class="line">    </div><div class="line">    <span class="comment">//&#x65B9;&#x6CD5;&#x4EA4;&#x6362;</span></div><div class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^{</div><div class="line">        </div><div class="line">        Class <span class="keyword">class</span> = [<span class="keyword">self</span> <span class="keyword">class</span>];</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(descriptionWithLocale:), <span class="keyword">@selector</span>(sqjsonlog_descriptionWithLocale:));</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(descriptionWithLocale:indent:), <span class="keyword">@selector</span>(sqjsonlog_descriptionWithLocale:indent:));</div><div class="line">        sq_swizzleSelector(<span class="keyword">class</span>, <span class="keyword">@selector</span>(debugDescription), <span class="keyword">@selector</span>(sqjsonlog_debugDescription));</div><div class="line">    });</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#endif</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x6253;&#x5370;&#x6548;&#x679C;"><a href="#III-&#x6253;&#x5370;&#x6548;&#x679C;" class="headerlink" title="III. &#x6253;&#x5370;&#x6548;&#x679C;"></a>III. &#x6253;&#x5370;&#x6548;&#x679C;</h3><hr>
+<p><div algin="center"><img src="/posts/&#x9879;&#x76EE;&#x914D;&#x7F6E;/../../img/18112901.png" alt=""></div></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/项目配置/" rel="tag"><i class="fa fa-tag"></i>项目配置</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/01OC知识/对象初始化.html" rel="next" title="iOS开发 - 总结 Objective-C 的 self. 用法">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 总结 Objective-C 的 self. 用法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/安全攻防/11 - 安全攻防.html" rel="prev" title="title">
+                title <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/项目配置/NSLog.html"
+           data-title="iOS开发 - NSLog 解决中文乱码并显示成JSON格式" data-url="http://www.licheng244.com/posts/项目配置/NSLog.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-正常打印"><span class="nav-text">I. 正常打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-解决方案"><span class="nav-text">II. 解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-打印效果"><span class="nav-text">III. 打印效果</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

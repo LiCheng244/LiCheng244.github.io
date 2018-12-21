@@ -110,7 +110,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:
 &amp;#x4E2A;&amp;#x4EBA;&amp;#x8BA4;&amp;#x4E3A;&amp;#x8981;&amp;#x60F3;&amp;#x628A;&amp;#x76F4;&amp;#x64AD;&amp;#x4ECE;&amp;#x96F6;&amp;#x5F00;&amp;#x59CB;&amp;#x505A;&amp;#x51FA;&amp;#x6765;&amp;#xFF0C;&amp;#x7EDD;&amp;#x5BF9;&amp;#x662F;&amp;#x725B;&amp;#x903C;&amp;#x4">
 <meta property="og:image" content="http://www.licheng244.com/posts/14多媒体/../../img/18113000.jpg">
-<meta property="og:updated_time" content="2018-11-30T08:28:40.622Z">
+<meta property="og:updated_time" content="2018-12-20T02:05:34.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 直播类APP开发流程解析">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:
@@ -395,14 +395,25 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 </blockquote>
 <a id="more"></a>
 <p><br></p>
-<h3 id="I-&#x76F4;&#x64AD;APP&#x539F;&#x7406;"><a href="#I-&#x76F4;&#x64AD;APP&#x539F;&#x7406;" class="headerlink" title="I. &#x76F4;&#x64AD;APP&#x539F;&#x7406;"></a>I. &#x76F4;&#x64AD;APP&#x539F;&#x7406;</h3><hr>
+<h3 id="I-&#x76F4;&#x64AD;app&#x529F;&#x80FD;"><a href="#I-&#x76F4;&#x64AD;app&#x529F;&#x80FD;" class="headerlink" title="I. &#x76F4;&#x64AD;app&#x529F;&#x80FD;"></a>I. &#x76F4;&#x64AD;app&#x529F;&#x80FD;</h3><hr>
+<p><strong>1. &#x804A;&#x5929;: </strong><br>&#x79C1;&#x804A;&#x3001;&#x804A;&#x5929;&#x5BA4;&#x3001;&#x70B9;&#x4EAE;&#x3001;&#x63A8;&#x9001;&#x3001;&#x9ED1;&#x540D;&#x5355;&#x7B49;;</p>
+<p><strong>2. &#x793C;&#x7269;: </strong><br>&#x666E;&#x901A;&#x793C;&#x7269;&#x3001;&#x8C6A;&#x534E;&#x793C;&#x7269;&#x3001;&#x7EA2;&#x5305;&#x3001;&#x6392;&#x884C;&#x699C;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x5145;&#x503C;&#x3001;&#x5185;&#x8D2D;&#x3001;&#x793C;&#x7269;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#x3001;&#x63D0;&#x73B0;&#x7B49;&#xFF1B;</p>
+<p><strong>3. &#x76F4;&#x64AD;&#x5217;&#x8868;: </strong><br>&#x5173;&#x6CE8;&#x3001;&#x70ED;&#x95E8;&#x3001;&#x6700;&#x65B0;&#x3001;&#x5206;&#x7C7B;&#x76F4;&#x64AD;&#x7528;&#x6237;&#x5217;&#x8868;&#x7B49;&#xFF1B;</p>
+<p><strong>4. &#x81EA;&#x5DF1;&#x76F4;&#x64AD;: </strong><br>&#x5F55;&#x5236;&#x3001;&#x63A8;&#x6D41;&#x3001;&#x89E3;&#x7801;&#x3001;&#x64AD;&#x653E;&#x3001;&#x7F8E;&#x989C;&#x3001;&#x5FC3;&#x8DF3;&#x3001;&#x540E;&#x53F0;&#x5207;&#x6362;&#x3001;&#x4E3B;&#x64AD;&#x5BF9;&#x7BA1;&#x7406;&#x5458;&#x64CD;&#x4F5C;&#x3001;&#x7BA1;&#x7406;&#x5458;&#x5BF9;&#x7528;&#x6237;&#x7B49;&#xFF1B;</p>
+<p><strong>5. &#x623F;&#x95F4;&#x903B;&#x8F91;: </strong><br>&#x521B;&#x5EFA;&#x623F;&#x95F4;&#x3001;&#x8FDB;&#x5165;&#x623F;&#x95F4;&#x3001;&#x9000;&#x51FA;&#x623F;&#x95F4;&#x3001;&#x5173;&#x95ED;&#x623F;&#x95F4;&#x3001;&#x5207;&#x6362;&#x623F;&#x95F4;&#x3001;&#x623F;&#x95F4;&#x7BA1;&#x7406;&#x5458;&#x8BBE;&#x7F6E;&#x3001;&#x623F;&#x95F4;&#x7528;&#x6237;&#x5217;&#x8868;&#x7B49;&#xFF1B;</p>
+<p><strong>6. &#x7528;&#x6237;&#x903B;&#x8F91;: </strong><br>&#x666E;&#x901A;&#x767B;&#x9646;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;&#x3001;&#x6CE8;&#x518C;&#x3001;&#x641C;&#x7D22;&#x3001;&#x4FEE;&#x6539;&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;&#x3001;&#x5173;&#x6CE8;&#x5217;&#x8868;&#x3001;&#x7C89;&#x4E1D;&#x5217;&#x8868;&#x3001;&#x5FD8;&#x8BB0;&#x5BC6;&#x7801;&#x3001;&#x67E5;&#x770B;&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;&#x3001;&#x6536;&#x5165;&#x699C;&#x3001;&#x5173;&#x6CE8;&#x548C;&#x53D6;&#x5173;&#x3001;&#x68C0;&#x7D22;&#x7B49;&#xFF1B;</p>
+<p><strong>7. &#x89C2;&#x770B;&#x76F4;&#x64AD;: </strong><br>&#x804A;&#x5929;&#x4FE1;&#x606F;&#x3001;&#x6EDA;&#x5C4F;&#x5F39;&#x5E55;&#x3001;&#x793C;&#x7269;&#x663E;&#x793A;&#x3001;&#x52A0;&#x8F7D;&#x754C;&#x9762;&#x7B49;&#xFF1B;</p>
+<p><strong>8. &#x7EDF;&#x8BA1;:</strong><br>APP&#x4E1A;&#x52A1;&#x7EDF;&#x8BA1;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x7EDF;&#x8BA1;&#x7B49;&#xFF1B;</p>
+<p><strong>9. &#x8D85;&#x7BA1;: </strong><br>&#x7981;&#x64AD;&#x3001;&#x9690;&#x85CF;&#x3001;&#x5BA1;&#x6838;&#x7B49;&#xFF1B;</p>
+<p><br></p>
+<h3 id="II-&#x76F4;&#x64AD;APP&#x539F;&#x7406;"><a href="#II-&#x76F4;&#x64AD;APP&#x539F;&#x7406;" class="headerlink" title="II. &#x76F4;&#x64AD;APP&#x539F;&#x7406;"></a>II. &#x76F4;&#x64AD;APP&#x539F;&#x7406;</h3><hr>
 <p>&#x628A;&#x4E3B;&#x64AD;&#x5F55;&#x5236;&#x7684;&#x89C6;&#x9891;&#xFF0C;&#x63A8;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5728;&#x7531;&#x670D;&#x52A1;&#x5668;&#x5206;&#x53D1;&#x7ED9;&#x89C2;&#x4F17;&#x89C2;&#x770B;&#x3002;</p>
 <p><strong>&#x63A8;&#x6D41;&#x7AEF;:</strong><br><code>&#xFF08;&#x91C7;&#x96C6;&#x3001;&#x7F8E;&#x989C;&#x5904;&#x7406;&#x3001;&#x7F16;&#x7801;&#x3001;&#x63A8;&#x6D41;&#xFF09;</code></p>
 <p><strong>&#x670D;&#x52A1;&#x7AEF;&#x5904;&#x7406;:</strong><br><code>&#xFF08;&#x8F6C;&#x7801;&#x3001;&#x5F55;&#x5236;&#x3001;&#x622A;&#x56FE;&#x3001;&#x9274;&#x9EC4;&#xFF09;</code></p>
 <p><strong>&#x64AD;&#x653E;&#x5668;:</strong><br><code>&#xFF08;&#x62C9;&#x6D41;&#x3001;&#x89E3;&#x7801;&#x3001;&#x6E32;&#x67D3;&#xFF09;</code></p>
 <p><strong>&#x4E92;&#x52A8;&#x7CFB;&#x7EDF;</strong><br><code>&#xFF08;&#x804A;&#x5929;&#x5BA4;&#x3001;&#x793C;&#x7269;&#x7CFB;&#x7EDF;&#x3001;&#x8D5E;&#xFF09;</code></p>
 <p><br></p>
-<h3 id="II-&#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;"><a href="#II-&#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;" class="headerlink" title="II. &#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;"></a>II. &#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;</h3><hr>
+<h3 id="III-&#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;"><a href="#III-&#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;" class="headerlink" title="III. &#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;"></a>III. &#x76F4;&#x64AD;APP&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;</h3><hr>
 <h4 id="1-&#x91C7;&#x96C6;&#x89C6;&#x9891;&#x3001;&#x97F3;&#x9891;"><a href="#1-&#x91C7;&#x96C6;&#x89C6;&#x9891;&#x3001;&#x97F3;&#x9891;" class="headerlink" title="1. &#x91C7;&#x96C6;&#x89C6;&#x9891;&#x3001;&#x97F3;&#x9891;"></a>1. &#x91C7;&#x96C6;&#x89C6;&#x9891;&#x3001;&#x97F3;&#x9891;</h4><ul>
 <li><code>AVFoundation:</code>&#x662F;&#x7528;&#x6765;&#x64AD;&#x653E;&#x548C;&#x521B;&#x5EFA;&#x5B9E;&#x65F6;&#x7684;&#x89C6;&#x542C;&#x5A92;&#x4F53;&#x6570;&#x636E;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x4F9B;Objective-C&#x63A5;&#x53E3;&#x6765;&#x64CD;&#x4F5C;&#x8FD9;&#x4E9B;&#x89C6;&#x542C;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982;&#x7F16;&#x8F91;&#xFF0C;&#x65CB;&#x8F6C;&#xFF0C;&#x91CD;&#x7F16;&#x7801;</li>
 <li><code>CCD:</code>&#x56FE;&#x50CF;&#x4F20;&#x611F;&#x5668;, &#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x91C7;&#x96C6;&#x548C;&#x5904;&#x7406;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x628A;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x6210;&#x7535;&#x4FE1;&#x53F7;&#x3002;</li>
@@ -444,7 +455,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <h4 id="9-&#x804A;&#x5929;&#x4E92;&#x52A8;"><a href="#9-&#x804A;&#x5929;&#x4E92;&#x52A8;" class="headerlink" title="9.&#x804A;&#x5929;&#x4E92;&#x52A8;"></a>9.&#x804A;&#x5929;&#x4E92;&#x52A8;</h4><p><strong>IM:(InstantMessaging)&#x5373;&#x65F6;&#x901A;&#x8BAF;:</strong><br>&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x65F6;&#x901A;&#x4FE1;&#x7CFB;&#x7EDF;&#xFF0C;&#x5141;&#x8BB8;&#x4E24;&#x4EBA;&#x6216;&#x591A;&#x4EBA;&#x4F7F;&#x7528;&#x7F51;&#x7EDC;&#x5B9E;&#x65F6;&#x7684;&#x4F20;&#x9012;&#x6587;&#x5B57;&#x6D88;&#x606F;&#x3001;&#x6587;&#x4EF6;&#x3001;&#x8BED;&#x97F3;&#x4E0E;&#x89C6;&#x9891;&#x4EA4;&#x6D41;.<br>IM&#x5728;&#x76F4;&#x64AD;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x662F;&#x5B9E;&#x73B0;&#x89C2;&#x4F17;&#x4E0E;&#x4E3B;&#x64AD;&#x3001;&#x89C2;&#x4F17;&#x4E0E;&#x89C2;&#x4F17;&#x4E4B;&#x95F4;&#x7684;&#x6587;&#x5B57;&#x4E92;&#x52A8;.</p>
 <p><strong>&#x7B2C;&#x4E09;&#x65B9;SDK</strong><br><code>&#x817E;&#x8BAF;&#x4E91;&#xFF1A;</code>&#x817E;&#x8BAF;&#x63D0;&#x4F9B;&#x7684;&#x5373;&#x65F6;&#x901A;&#x8BAF;SDK&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;&#x76F4;&#x64AD;&#x7684;&#x804A;&#x5929;&#x5BA4;<br><code>&#x878D;&#x4E91;&#xFF1A;</code>&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x5373;&#x65F6;&#x901A;&#x8BAF;SDK&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;&#x76F4;&#x64AD;&#x7684;&#x804A;&#x5929;&#x5BA4;</p>
 <p><br></p>
-<h3 id="III-&#x6D41;&#x7A0B;&#x56FE;"><a href="#III-&#x6D41;&#x7A0B;&#x56FE;" class="headerlink" title="III. &#x6D41;&#x7A0B;&#x56FE;"></a>III. &#x6D41;&#x7A0B;&#x56FE;</h3><hr>
+<h3 id="IV-&#x6D41;&#x7A0B;&#x56FE;"><a href="#IV-&#x6D41;&#x7A0B;&#x56FE;" class="headerlink" title="IV. &#x6D41;&#x7A0B;&#x56FE;"></a>IV. &#x6D41;&#x7A0B;&#x56FE;</h3><hr>
 <p><img src="/posts/14&#x591A;&#x5A92;&#x4F53;/../../img/18113000.jpg" alt=""></p>
 <hr>
 
@@ -493,16 +504,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/04网络/请求头.html" rel="next" title="iOS开发 - HTTP 的请求头和响应头">
-                <i class="fa fa-chevron-left"></i> iOS开发 - HTTP 的请求头和响应头
+              <a href="/posts/06设计模式/设计模式.html" rel="next" title="iOS开发 - 23种 设计模式">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 23种 设计模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/01OC知识/Copy.html" rel="prev" title="iOS开发 - 从经典问题来看 Copy 方法">
-                iOS开发 - 从经典问题来看 Copy 方法 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/17系统适配/17 - 系统适配.html" rel="prev" title="title">
+                title <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,7 +586,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">101</span>
+              <span class="site-state-item-count">112</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -592,7 +603,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -621,7 +632,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-直播APP原理"><span class="nav-text">I. 直播APP原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-直播APP实现流程"><span class="nav-text">II. 直播APP实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-采集视频、音频"><span class="nav-text">1. 采集视频、音频</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-视频处理（美颜，水印）"><span class="nav-text">2. 视频处理（美颜，水印）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-音视频编码解码"><span class="nav-text">3. 音视频编码解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-推流"><span class="nav-text">4.推流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-流媒体服务器"><span class="nav-text">5. 流媒体服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-拉流"><span class="nav-text">6. 拉流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-解码"><span class="nav-text">7. 解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-播放"><span class="nav-text">8.播放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-聊天互动"><span class="nav-text">9.聊天互动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-流程图"><span class="nav-text">III. 流程图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-直播app功能"><span class="nav-text">I. 直播app功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-直播APP原理"><span class="nav-text">II. 直播APP原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-直播APP实现流程"><span class="nav-text">III. 直播APP实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-采集视频、音频"><span class="nav-text">1. 采集视频、音频</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-视频处理（美颜，水印）"><span class="nav-text">2. 视频处理（美颜，水印）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-音视频编码解码"><span class="nav-text">3. 音视频编码解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-推流"><span class="nav-text">4.推流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-流媒体服务器"><span class="nav-text">5. 流媒体服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-拉流"><span class="nav-text">6. 拉流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-解码"><span class="nav-text">7. 解码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-播放"><span class="nav-text">8.播放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-聊天互动"><span class="nav-text">9.聊天互动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-流程图"><span class="nav-text">IV. 流程图</span></a></li></ol></div>
             
           </div>
         </section>

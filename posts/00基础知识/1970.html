@@ -1,0 +1,963 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="时间," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4ECA;&amp;#x5929;&amp;#x6211;&amp;#x4EEC;&amp;#x6765;&amp;#x8BA8;&amp;#x8BBA;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x6709;&amp;#x610F;&amp;#x601D;&amp;#x7684;&amp;#x4E8B;&amp;#xFF0C;&amp;#x90A3;&amp;#x5C31;&amp;#x662F;&amp;#x4F60;&amp;#x77E5;&amp;#x905">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 计算机时间要从1970年1月1日开始算起？">
+<meta property="og:url" content="http://www.licheng244.com/posts/00基础知识/1970.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4ECA;&amp;#x5929;&amp;#x6211;&amp;#x4EEC;&amp;#x6765;&amp;#x8BA8;&amp;#x8BBA;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x6709;&amp;#x610F;&amp;#x601D;&amp;#x7684;&amp;#x4E8B;&amp;#xFF0C;&amp;#x90A3;&amp;#x5C31;&amp;#x662F;&amp;#x4F60;&amp;#x77E5;&amp;#x905">
+<meta property="og:updated_time" content="2018-12-20T07:21:18.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - 计算机时间要从1970年1月1日开始算起？">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x4ECA;&amp;#x5929;&amp;#x6211;&amp;#x4EEC;&amp;#x6765;&amp;#x8BA8;&amp;#x8BBA;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x6709;&amp;#x610F;&amp;#x601D;&amp;#x7684;&amp;#x4E8B;&amp;#xFF0C;&amp;#x90A3;&amp;#x5C31;&amp;#x662F;&amp;#x4F60;&amp;#x77E5;&amp;#x905">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/00基础知识/1970.html"/>
+
+
+  <title> iOS开发 - 计算机时间要从1970年1月1日开始算起？ | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - 计算机时间要从1970年1月1日开始算起？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T00:00:00+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-00【-基础知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__00【 基础知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/00基础知识/1970.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/00基础知识/1970.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/00基础知识/1970.html" class="leancloud_visitors" data-flag-title="iOS开发 - 计算机时间要从1970年1月1日开始算起？">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x4ECA;&#x5929;&#x6211;&#x4EEC;&#x6765;&#x8BA8;&#x8BBA;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x610F;&#x601D;&#x7684;&#x4E8B;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x4F60;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x8BA1;&#x7B97;&#x673A;&#x65F6;&#x95F4;&#x548C;&#x4F17;&#x591A;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x65F6;&#x95F4;&#x90FD;&#x8981;&#x4ECE;1970&#x5E74;1&#x6708;1&#x65E5;&#x5F00;&#x59CB;&#x7B97;&#x8D77;&#x5462;&#xFF0C;&#x65F6;&#x95F4;&#x8BA1;&#x65F6;&#x8D77;&#x70B9;&#x5230;&#x5E95;&#x4E3A;&#x4EC0;&#x4E48;&#x662F; 1970&#x5E74;1&#x6708;1&#x53F7;&#x5462;&#xFF1F;&#x6211;&#x60F3;&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x77E5;&#x9053;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4F30;&#x8BA1;&#x5927;&#x5BB6;&#x51E0;&#x4E4E;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x6CA1;&#x6709;&#x60F3;&#x8FC7;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x5C31;&#x4E00;&#x8D77;&#x6765;&#x804A;&#x804A;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x6700;&#x61D2;&#x7684;&#x89E3;&#x91CA;"><a href="#I-&#x6700;&#x61D2;&#x7684;&#x89E3;&#x91CA;" class="headerlink" title="I. &#x6700;&#x61D2;&#x7684;&#x89E3;&#x91CA;"></a>I. &#x6700;&#x61D2;&#x7684;&#x89E3;&#x91CA;</h3><hr>
+<p>&#x5F88;&#x591A;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x8D77;&#x6E90;&#x4E8E;<code>UNIX</code>&#x7CFB;&#x7EDF;&#xFF0C;&#x800C;<code>UNIX</code>&#x7CFB;&#x7EDF;&#x8BA4;&#x4E3A;1970&#x5E74;1&#x6708;1&#x65E5;0&#x70B9;&#x662F;&#x65F6;&#x95F4;&#x7EAA;&#x5143;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5E38;&#x8BF4;&#x7684;<code>UNIX</code>&#x65F6;&#x95F4;&#x6233;&#x662F;&#x4EE5;1970&#x5E74;1&#x6708;1&#x65E5;0&#x70B9;&#x4E3A;&#x8BA1;&#x65F6;&#x8D77;&#x70B9;&#x65F6;&#x95F4;&#x7684;&#x3002;</p>
+<p>&#x8BF4;&#x4E86;&#x8FD9;&#x4E2A;&#x61D2;&#x4EBA;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x4F30;&#x8BA1;&#x5927;&#x5BB6;&#x8FD8;&#x6CA1;&#x6709;&#x61C2;&#x5F97;&#x771F;&#x6B63;&#x7684;&#x610F;&#x601D;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x3002;</p>
+<p><br></p>
+<h3 id="II-&#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;"><a href="#II-&#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;" class="headerlink" title="II. &#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;"></a>II. &#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;</h3><hr>
+<p>&#x6700;&#x521D;&#x8BA1;&#x7B97;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x662F;32&#x4F4D;&#xFF0C;&#x800C;&#x65F6;&#x95F4;&#x4E5F;&#x662F;&#x7528;32&#x4F4D;&#x8868;&#x793A;&#x3002;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">System.out.println(Integer.MAX_VALUE);</div><div class="line"><span class="comment">// 2147483647</span></div></pre></td></tr></table></figure></p>
+<p><code>Integer</code> &#x5728;JAVA&#x5185;&#x7528;32&#x4F4D;&#x8868;&#x793A;&#xFF0C;&#x56E0;&#x6B64;32&#x4F4D;&#x80FD;&#x8868;&#x793A;&#x7684;&#x6700;&#x5927;&#x503C;&#x662F;2147483647&#x3002;&#x53E6;&#x5916;1&#x5E74;365 &#x5929;&#x7684;&#x603B;&#x79D2;&#x6570;&#x662F; 31536000&#xFF0C;2147483647/31536000 = 68.1&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;32&#x4F4D;&#x80FD;&#x8868;&#x793A;&#x7684;&#x6700;&#x957F;&#x65F6;&#x95F4;&#x662F;68&#x5E74;&#xFF0C;&#x4ECE;1970&#x5E74;&#x5F00;&#x59CB;&#x7684;&#x8BDD;&#xFF0C;&#x52A0;&#x4E0A;68.1&#xFF0C;&#x5B9E;&#x9645;&#x6700;&#x7EC8;&#x5230;2038&#x5E74;01&#x6708;19&#x65E5;03&#x65F6;14&#x5206;07&#x79D2;&#xFF0C;&#x4FBF;&#x4F1A;&#x5230; &#x8FBE;&#x6700;&#x5927;&#x65F6;&#x95F4;&#xFF0C;&#x8FC7;&#x4E86;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#xFF0C;&#x6240;&#x6709;32&#x4F4D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x4FBF;&#x4F1A;&#x53D8;&#x4E3A;10000000 00000000 00000000 00000000&#xFF0C;&#x7B97;&#x4E0B;&#x6765;&#x4E5F;&#x5C31;&#x662F;1901&#x5E74;12&#x6708;13&#x65E5;20&#x65F6;45&#x5206;52&#x79D2;&#xFF0C;&#x8FD9;&#x6837;&#x4FBF;&#x4F1A;&#x51FA;&#x73B0;&#x65F6;&#x95F4;&#x56DE;&#x5F52;&#x7684;&#x73B0;&#x8C61;&#xFF0C;&#x5F88;&#x591A;&#x8F6F;&#x4EF6;&#x4FBF;&#x4F1A;&#x8FD0;&#x884C;&#x5F02;&#x5E38;&#x4E86;&#x3002;</p>
+<p>&#x5230; &#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x60F3;&#x95EE;&#x9898;&#x7684;&#x7B54;&#x6848;&#x5DF2;&#x7ECF;&#x663E;&#x73B0;&#x51FA;&#x6765;&#x4E86;&#xFF0C;&#x90A3;&#x5C31;&#x662F;:</p>
+<p>&#x56E0;&#x4E3A;&#x7528;32&#x4F4D;&#x6765;&#x8868;&#x793A;&#x65F6;&#x95F4;&#x7684;&#x6700;&#x5927;&#x95F4;&#x9694;&#x662F;68&#x5E74;&#xFF0C;&#x800C;&#x6700;&#x65E9;&#x51FA;&#x73B0;&#x7684;UNIX&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8003;&#x8651;&#x5230;&#x8BA1;&#x7B97;&#x673A;&#x4EA7;&#x751F;&#x7684;&#x5E74;&#x4EE3;&#x548C;&#x5E94;&#x7528;&#x7684; &#x65F6;&#x9650;&#x7EFC;&#x5408;&#x53D6;&#x4E86;1970&#x5E74;1&#x6708;1&#x65E5;&#x4F5C;&#x4E3A;UNIX TIME&#x7684;&#x7EAA;&#x5143;&#x65F6;&#x95F4;(&#x5F00;&#x59CB;&#x65F6;&#x95F4;)&#xFF0C;&#x81F3;&#x4E8E;&#x65F6;&#x95F4;&#x56DE;&#x5F52;&#x7684;&#x73B0;&#x8C61;&#x76F8;&#x4FE1;&#x968F;&#x7740;64&#x4E3A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4EA7;&#x751F;&#x9010;&#x6E10;&#x5F97;&#x5230;&#x89E3;&#x51B3;&#xFF0C;&#x56E0;&#x4E3A;&#x7528;64&#x4F4D;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x5230; 292,277,026,596&#x5E74;12&#x6708;4&#x65E5;15&#x65F6;30&#x5206;08&#x79D2;&#xFF0C;&#x76F8;&#x4FE1;&#x6211;&#x4EEC;&#x7684;N&#x4EE3;&#x5B50;&#x5B59;&#xFF0C;&#x54EA;&#x6015;&#x5730;&#x7403;&#x6BC1;&#x706D;&#x90A3;&#x5929;&#x90FD;&#x4E0D;&#x7528;&#x6101;&#x4E0D;&#x591F;&#x7528;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x5DF2;&#x7ECF;&#x662F;&#x5343;&#x4EBF;&#x5E74;&#x4EE5;&#x540E; &#x4E86;&#x3002;</p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/时间/" rel="tag"><i class="fa fa-tag"></i>时间</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/00基础知识/00 - 基础知识.html" rel="next" title="title">
+                <i class="fa fa-chevron-left"></i> title
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/04网络/URL.html" rel="prev" title="iOS开发 - 关于 URL 的相关知识">
+                iOS开发 - 关于 URL 的相关知识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/00基础知识/1970.html"
+           data-title="iOS开发 - 计算机时间要从1970年1月1日开始算起？" data-url="http://www.licheng244.com/posts/00基础知识/1970.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-最懒的解释"><span class="nav-text">I. 最懒的解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-深入的了解"><span class="nav-text">II. 深入的了解</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

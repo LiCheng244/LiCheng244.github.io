@@ -1,0 +1,968 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UINavigationBar," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x9A8C;&amp;#x8BC1;&amp;#x7801;&amp;#x5012;&amp;#x8BA1;&amp;#x65F6;&amp;#x6309;&amp;#x94AE;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x662F;&amp;#x975E;&amp;#x5E38;&amp;#x666E;&amp;#x904D;&amp;#x7684;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - UINavigationBar 自定义导航栏搜索框">
+<meta property="og:url" content="http://www.licheng244.com/posts/15功能封装/占位图.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x9A8C;&amp;#x8BC1;&amp;#x7801;&amp;#x5012;&amp;#x8BA1;&amp;#x65F6;&amp;#x6309;&amp;#x94AE;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x662F;&amp;#x975E;&amp;#x5E38;&amp;#x666E;&amp;#x904D;&amp;#x7684;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E">
+<meta property="og:image" content="http://www.licheng244.com/posts/15功能封装/../../img/18122601.png">
+<meta property="og:updated_time" content="2018-12-26T09:59:43.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - UINavigationBar 自定义导航栏搜索框">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x9A8C;&amp;#x8BC1;&amp;#x7801;&amp;#x5012;&amp;#x8BA1;&amp;#x65F6;&amp;#x6309;&amp;#x94AE;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x662F;&amp;#x975E;&amp;#x5E38;&amp;#x666E;&amp;#x904D;&amp;#x7684;&amp;#xFF0C;&amp;#x672C;&amp;#x6587;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/15功能封装/../../img/18122601.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/15功能封装/占位图.html"/>
+
+
+  <title> iOS开发 - UINavigationBar 自定义导航栏搜索框 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - UINavigationBar 自定义导航栏搜索框
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-11-03T12:00:00+08:00" content="2018-11-03">
+              2018-11-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-15【-功能封装-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__15【 功能封装 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/15功能封装/占位图.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/15功能封装/占位图.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/15功能封装/占位图.html" class="leancloud_visitors" data-flag-title="iOS开发 - UINavigationBar 自定义导航栏搜索框">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x9A8C;&#x8BC1;&#x7801;&#x5012;&#x8BA1;&#x65F6;&#x6309;&#x94AE;&#x7684;&#x5E94;&#x7528;&#x662F;&#x975E;&#x5E38;&#x666E;&#x904D;&#x7684;&#xFF0C;&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x4E86;<strong>IOS&#x5B9E;&#x73B0;&#x9A8C;&#x8BC1;&#x7801;&#x5012;&#x8BA1;&#x65F6;&#x529F;&#x80FD;</strong>&#xFF0C;&#x70B9;&#x51FB;&#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;&#xFF0C;&#x8FDB;&#x5165;&#x65F6;&#x95F4;&#x5012;&#x8BA1;&#x65F6;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#x4EEC;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E00;&#x4E0B;:</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x6548;&#x679C;&#x56FE;"><a href="#I-&#x6548;&#x679C;&#x56FE;" class="headerlink" title="I. &#x6548;&#x679C;&#x56FE;"></a>I. &#x6548;&#x679C;&#x56FE;</h3><hr>
+<p><div align="center"><img src="/posts/15&#x529F;&#x80FD;&#x5C01;&#x88C5;/../../img/18122601.png" alt=""></div></p>
+<p><br></p>
+<h3 id="II-&#x5B9E;&#x73B0;&#x4EE3;&#x7801;"><a href="#II-&#x5B9E;&#x73B0;&#x4EE3;&#x7801;" class="headerlink" title="II. &#x5B9E;&#x73B0;&#x4EE3;&#x7801;"></a>II. &#x5B9E;&#x73B0;&#x4EE3;&#x7801;</h3><hr>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x4E2A; LCSearchBarView &#x7EE7;&#x627F;&#x81EA; UIView&#x3002; </p>
+<p>LCSearchBarView.h</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@class</span> <span class="title">LCSearchBarView</span>;</span></div><div class="line"><span class="comment">/** &#x4EE3;&#x7406; */</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">LCSearchBarViewDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@optional</span></div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)lc_searchBarViewShouldBeginEditing:(LCSearchBarView *)searchBarView;</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewDidBeginEditing:(LCSearchBarView *)searchBarView;</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewShouldEndEditing:(LCSearchBarView *)searchBarView;</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewDidEndEditing:(LCSearchBarView *)searchBarView;</div><div class="line"></div><div class="line"><span class="comment">/** &#x8F93;&#x5165;&#x6846;&#x5185;&#x5BB9;&#x6539;&#x53D8;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5; */</span></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarView:(LCSearchBarView *)searchBarView textDidChange:(<span class="built_in">NSString</span> *)searchText;</div><div class="line"></div><div class="line"><span class="comment">/** &#x641C;&#x7D22;&#x6309;&#x94AE;&#x89E6;&#x53D1;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5; */</span></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewSearchButtonClicked:(LCSearchBarView *)searchBarView;</div><div class="line"><span class="comment">/** &#x5173;&#x95ED;&#x6309;&#x94AE;&#x89E6;&#x53D1;&#x7684;&#x4EE3;&#x7406;&#x65B9;&#x6CD5; */</span></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewCancelButtonClicked:(LCSearchBarView *)searchBarView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LCSearchBarView</span> : <span class="title">UIView</span></span></div><div class="line"></div><div class="line"><span class="comment">/** &#x5185;&#x5BB9; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *lc_text;</div><div class="line"><span class="comment">/** &#x5B57;&#x4F53; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIFont</span> *lc_font;</div><div class="line"><span class="comment">/** &#x5149;&#x6807;&#x989C;&#x8272; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)  <span class="built_in">UIColor</span> *lc_tintColor;</div><div class="line"><span class="comment">/** &#x5185;&#x5BB9;&#x989C;&#x8272; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *lc_textColor;</div><div class="line"><span class="comment">/** &#x5360;&#x4F4D;&#x6587;&#x5B57; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *lc_placeholder;</div><div class="line"><span class="comment">/** &#x5360;&#x4F4D;&#x6587;&#x5B57;&#x989C;&#x8272; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *lc_placeholderColor;</div><div class="line"></div><div class="line"><span class="comment">/** &#x80CC;&#x666F;&#x989C;&#x8272; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *lc_backgroundColor;</div><div class="line"></div><div class="line"><span class="comment">/** &#x662F;&#x5426;&#x5F39;&#x51FA;&#x952E;&#x76D8; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> lc_isFirstResponder;</div><div class="line"></div><div class="line"><span class="comment">/** &#x662F;&#x5426;&#x663E;&#x793A;&#x5173;&#x95ED;&#x6309;&#x94AE; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> lc_isShowCloseImage;</div><div class="line"><span class="comment">/** &#x5173;&#x95ED;&#x6309;&#x94AE;&#x6837;&#x5F0F; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIImage</span> *lc_closeImage;</div><div class="line"></div><div class="line"><span class="comment">/** &#x4EE3;&#x7406; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;LCSearchBarViewDelegate&gt;lc_delegate;</div></pre></td></tr></table></figure>
+<p><br><br>LCSearchBarView.m:</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&quot;LCSearchBarView.h&quot;</span></span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#define ImageWith 20</span></div><div class="line"><span class="meta">#define IntervalMargin 10</span></div><div class="line"><span class="meta">#define TopMargin 2</span></div><div class="line"></div><div class="line"><span class="meta">#define ViewWith self.frame.size.width</span></div><div class="line"><span class="meta">#define ViewHeight self.frame.size.height</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">LCSearchBarView</span> ()&lt;<span class="title">UITextFieldDelegate</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">/** &#x641C;&#x7D22;&#x56FE;&#x7247; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)  <span class="built_in">UIImageView</span> *leftImgView;</div><div class="line"><span class="comment">/** &#x8F93;&#x5165;&#x6846; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)  <span class="built_in">UITextField</span> *textFiled;</div><div class="line"><span class="comment">/** &#x5173;&#x95ED;&#x6309;&#x94AE; */</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)  <span class="built_in">UIButton</span> *closeBtn;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LCSearchBarView</span></span></div><div class="line"></div><div class="line">-(<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame{</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) {</div><div class="line">        [<span class="keyword">self</span> setupSearchBarView];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/** &#x521D;&#x59CB;&#x5316;&#x641C;&#x7D22;&#x6846; */</span></div><div class="line">-(<span class="keyword">void</span>)setupSearchBarView{</div><div class="line"></div><div class="line">    <span class="comment">// &#x8BBE;&#x7F6E;&#x5706;&#x89D2;</span></div><div class="line">    <span class="keyword">self</span>.layer.cornerRadius = ViewHeight / <span class="number">2</span>;</div><div class="line">    <span class="keyword">self</span>.layer.masksToBounds = <span class="literal">YES</span>;</div><div class="line"></div><div class="line">    <span class="comment">// &#x641C;&#x7D22;&#x56FE;&#x7247;</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.leftImgView == <span class="literal">nil</span>) {</div><div class="line">        <span class="keyword">self</span>.leftImgView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(IntervalMargin, (ViewHeight - ImageWith)/<span class="number">2</span>, ImageWith, ImageWith))];</div><div class="line">        <span class="keyword">self</span>.leftImgView.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;search&quot;</span>];</div><div class="line">        [<span class="keyword">self</span> addSubview:<span class="keyword">self</span>.leftImgView];</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// &#x8F93;&#x5165;&#x6846;</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.textFiled == <span class="literal">nil</span>) {</div><div class="line">        <span class="built_in">CGFloat</span> textFiledX = <span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span>.leftImgView.frame) + <span class="number">10</span>;</div><div class="line">        <span class="built_in">CGFloat</span> textFiledY = <span class="number">2</span>;</div><div class="line">        <span class="built_in">CGFloat</span> textFiledW = ViewWith - (<span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span>.leftImgView.frame));</div><div class="line">        <span class="built_in">CGFloat</span> textFiledH = ViewHeight - <span class="number">4</span>;</div><div class="line">        <span class="keyword">self</span>.textFiled = [[<span class="built_in">UITextField</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(textFiledX, textFiledY, textFiledW, textFiledH))];</div><div class="line">        <span class="keyword">self</span>.textFiled.backgroundColor = [<span class="built_in">UIColor</span> clearColor];</div><div class="line">        <span class="keyword">self</span>.textFiled.delegate = <span class="keyword">self</span>;</div><div class="line">        <span class="keyword">self</span>.textFiled.returnKeyType = <span class="built_in">UIReturnKeyDone</span>;</div><div class="line">        [<span class="keyword">self</span>.textFiled addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(textFiledValueChange:) forControlEvents:(<span class="built_in">UIControlEventEditingChanged</span>)];</div><div class="line">        [<span class="keyword">self</span> addSubview:<span class="keyword">self</span>.textFiled];</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// &#x5173;&#x95ED;&#x6309;&#x94AE;</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.closeBtn == <span class="literal">nil</span>) {</div><div class="line">        <span class="keyword">self</span>.closeBtn = [<span class="built_in">UIButton</span> buttonWithType:(<span class="built_in">UIButtonTypeCustom</span>)];</div><div class="line">        <span class="built_in">CGFloat</span> closeBtnX = <span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span>.textFiled.frame)  - ImageWith - IntervalMargin * <span class="number">2</span>;</div><div class="line">        <span class="built_in">CGFloat</span> closeBtnY = (ViewHeight - ImageWith) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">self</span>.closeBtn.frame = <span class="built_in">CGRectMake</span>(closeBtnX,closeBtnY, ImageWith, ImageWith);</div><div class="line">        <span class="keyword">self</span>.closeBtn.backgroundColor = [<span class="built_in">UIColor</span> clearColor];</div><div class="line">        [<span class="keyword">self</span>.closeBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;close&quot;</span>] forState:(<span class="built_in">UIControlStateNormal</span>)];</div><div class="line">        [<span class="keyword">self</span>.closeBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(closeClick) forControlEvents:(<span class="built_in">UIControlEventTouchUpInside</span>)];</div><div class="line">        [<span class="keyword">self</span> addSubview:<span class="keyword">self</span>.closeBtn];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;set&#x65B9;&#x6CD5;&gt;</span></span></div><div class="line">-(<span class="keyword">void</span>)setLc_font:(<span class="built_in">UIFont</span> *)lc_font{</div><div class="line">    _lc_font = lc_font;</div><div class="line">    <span class="keyword">self</span>.textFiled.font = lc_font;</div><div class="line">    [<span class="keyword">self</span>.textFiled setValue:lc_font forKeyPath:<span class="string">@&quot;_placeholderLabel.font&quot;</span>];</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLc_text:(<span class="built_in">NSString</span> *)lc_text{</div><div class="line">    _lc_text = lc_text;</div><div class="line">    <span class="keyword">self</span>.textFiled.text = lc_text;</div><div class="line">}</div><div class="line">-(<span class="keyword">void</span>)setLc_tintColor:(<span class="built_in">UIColor</span> *)lc_tintColor{</div><div class="line">    _lc_tintColor = lc_tintColor;</div><div class="line">    <span class="keyword">self</span>.textFiled.tintColor = lc_tintColor;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLc_textColor:(<span class="built_in">UIColor</span> *)lc_textColor{</div><div class="line">    _lc_textColor = lc_textColor;</div><div class="line">    <span class="keyword">self</span>.textFiled.textColor = lc_textColor;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLc_placeholder:(<span class="built_in">NSString</span> *)lc_placeholder{</div><div class="line">    _lc_placeholder = lc_placeholder;</div><div class="line">    <span class="keyword">self</span>.textFiled.placeholder = lc_placeholder;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLc_placeholderColor:(<span class="built_in">UIColor</span> *)lc_placeholderColor{</div><div class="line">    _lc_placeholderColor = lc_placeholderColor;</div><div class="line">    [<span class="keyword">self</span>.textFiled setValue:lc_placeholderColor forKeyPath:<span class="string">@&quot;_placeholderLabel.textColor&quot;</span>];</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLc_backgroundColor:(<span class="built_in">UIColor</span> *)lc_backgroundColor{</div><div class="line">    _lc_backgroundColor = lc_backgroundColor;</div><div class="line">    <span class="keyword">self</span>.backgroundColor = lc_backgroundColor;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/** &#x662F;&#x5426;&#x5F39;&#x51FA;&#x952E;&#x76D8; */</span></div><div class="line">-(<span class="keyword">void</span>)setLc_isFirstResponder:(<span class="built_in">BOOL</span>)lc_isFirstResponder{</div><div class="line">    lc_isFirstResponder = lc_isFirstResponder;</div><div class="line">    <span class="keyword">if</span> (lc_isFirstResponder) {</div><div class="line">        [<span class="keyword">self</span>.textFiled becomeFirstResponder];</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        [<span class="keyword">self</span>.textFiled resignFirstResponder];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/** &#x662F;&#x5426;&#x663E;&#x793A;&#x5173;&#x95ED;&#x6309;&#x94AE; */</span></div><div class="line">-(<span class="keyword">void</span>)setLc_isShowCloseImage:(<span class="built_in">BOOL</span>)lc_isShowCloseImage{</div><div class="line">    _lc_isShowCloseImage = lc_isShowCloseImage;</div><div class="line">    <span class="keyword">if</span> (lc_isShowCloseImage) {</div><div class="line">        <span class="keyword">self</span>.closeBtn.hidden = <span class="literal">NO</span>;</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        <span class="keyword">self</span>.closeBtn.hidden = <span class="literal">YES</span>;</div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="comment">/** &#x5173;&#x95ED;&#x6309;&#x94AE;&#x56FE;&#x7247; */</span></div><div class="line">-(<span class="keyword">void</span>)setLc_closeImage:(<span class="built_in">UIImage</span> *)lc_closeImage{</div><div class="line">    _lc_closeImage = lc_closeImage;</div><div class="line">    [<span class="keyword">self</span>.closeBtn setImage:lc_closeImage forState:(<span class="built_in">UIControlStateNormal</span>)];</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;&#x6309;&#x94AE;&#x89E6;&#x53D1;&#x65B9;&#x6CD5;&gt;</span></span></div><div class="line"><span class="comment">/** &#x70B9;&#x51FB;&#x5173;&#x95ED;&#x6309;&#x94AE;&#x65F6;&#x89E6;&#x53D1; */</span></div><div class="line">-(<span class="keyword">void</span>)closeClick{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewCancelButtonClicked:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewCancelButtonClicked:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="comment">/** &#x8F93;&#x5165;&#x6587;&#x5B57;&#x6539;&#x53D8;&#x65F6;&#x89E6;&#x53D1; */</span></div><div class="line">-(<span class="keyword">void</span>)textFiledValueChange:(<span class="built_in">UITextField</span> *)textFiled{</div><div class="line"></div><div class="line">    _lc_text = textFiled.text;</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarView:textDidChange:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarView:<span class="keyword">self</span> textDidChange:textFiled.text];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;LCSearchBarViewDelegate&gt;</span></span></div><div class="line">-(<span class="built_in">BOOL</span>)textFieldShouldBeginEditing:(<span class="built_in">UITextField</span> *)textField{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewShouldBeginEditing:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewShouldBeginEditing:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)textFieldDidBeginEditing:(<span class="built_in">UITextField</span> *)textField{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewDidBeginEditing:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewDidBeginEditing:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)textFieldShouldEndEditing:(<span class="built_in">UITextField</span> *)textField{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewShouldEndEditing:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewShouldEndEditing:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)textFieldDidEndEditing:(<span class="built_in">UITextField</span> *)textField{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewDidEndEditing:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewDidEndEditing:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)textFieldShouldReturn:(<span class="built_in">UITextField</span> *)textField{</div><div class="line">    <span class="keyword">if</span> ([_lc_delegate respondsToSelector:<span class="keyword">@selector</span>(lc_searchBarViewSearchButtonClicked:)]) {</div><div class="line">        [<span class="keyword">self</span>.lc_delegate lc_searchBarViewSearchButtonClicked:<span class="keyword">self</span>];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x4F7F;&#x7528;"><a href="#III-&#x4F7F;&#x7528;" class="headerlink" title="III. &#x4F7F;&#x7528;"></a>III. &#x4F7F;&#x7528;</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">    <span class="keyword">self</span>.searchBarView = [[LCSearchBarView alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.width - <span class="number">80</span>, <span class="number">30</span>))];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_backgroundColor = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">255</span>/<span class="number">255.0</span> green:<span class="number">132</span>/<span class="number">255.0</span> blue:<span class="number">0</span>/<span class="number">255.0</span> alpha:<span class="number">0.5</span>];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_placeholder = <span class="string">@&quot;&#x641C;&#x7D22;&quot;</span>;</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_placeholderColor = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_textColor = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_tintColor = [<span class="built_in">UIColor</span> whiteColor];</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_isShowCloseImage = <span class="literal">YES</span>;</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_delegate = <span class="keyword">self</span>;</div><div class="line">    <span class="keyword">self</span>.navigationItem.titleView = <span class="keyword">self</span>.searchBarView;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - <span class="meta-string">&lt;LCSearchBarViewDelegate&gt;</span></span></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewSearchButtonClicked:(LCSearchBarView *)searchBarView{</div><div class="line"></div><div class="line">    <span class="comment">// &#x5FAE;&#x535A;&#x641C;&#x7D22;&#x6548;&#x679C;</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.searchBarView.lc_text.length == <span class="number">0</span>) {</div><div class="line">        <span class="keyword">self</span>.searchBarView.lc_text = <span class="keyword">self</span>.searchBarView.lc_placeholder;</div><div class="line">    }</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_isFirstResponder = <span class="literal">NO</span>;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewCancelButtonClicked:(LCSearchBarView *)searchBarView{</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_text = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">self</span>.searchBarView.lc_isFirstResponder = <span class="literal">NO</span>;</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="built_in">BOOL</span>)lc_searchBarViewShouldBeginEditing:(LCSearchBarView *)searchBarView{</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewDidBeginEditing:(LCSearchBarView *)searchBarView{</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;33333&quot;</span>);</div><div class="line">}</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewShouldEndEditing:(LCSearchBarView *)searchBarView{</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;11111&quot;</span>);</div><div class="line">}</div><div class="line">-(<span class="keyword">void</span>)lc_searchBarViewDidEndEditing:(LCSearchBarView *)searchBarView{</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;44444&quot;</span>);</div><div class="line">}</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)lc_searchBarView:(LCSearchBarView *)searchBarView textDidChange:(<span class="built_in">NSString</span> *)searchText{</div><div class="line">}</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UINavigationBar/" rel="tag"><i class="fa fa-tag"></i>UINavigationBar</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/04网络/iOS12获取WiFi信息.html" rel="next" title="iOS开发 - Xcode 10 / iOS 12 获取 WiFi 信息">
+                <i class="fa fa-chevron-left"></i> iOS开发 - Xcode 10 / iOS 12 获取 WiFi 信息
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/16混合开发/webview清空缓存.html" rel="prev" title="iOS开发 - WKWebView 缓存清理的实现">
+                iOS开发 - WKWebView 缓存清理的实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/15功能封装/占位图.html"
+           data-title="iOS开发 - UINavigationBar 自定义导航栏搜索框" data-url="http://www.licheng244.com/posts/15功能封装/占位图.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">91</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-效果图"><span class="nav-text">I. 效果图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-实现代码"><span class="nav-text">II. 实现代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-使用"><span class="nav-text">III. 使用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UI关键字," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;&amp;#xFF1A;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload">
+<meta property="og:url" content="http://www.licheng244.com/posts/02UI知识/关键字loadView.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;&amp;#xFF1A;">
+<meta property="og:updated_time" content="2019-01-02T05:45:04.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;&amp;#xFF1A;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/02UI知识/关键字loadView.html"/>
+
+
+  <title> iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-02T12:00:00+08:00" content="2018-09-02">
+              2018-09-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__02【 UI 知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/02UI知识/关键字loadView.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/关键字loadView.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/02UI知识/关键字loadView.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;&#xFF1A;</strong></p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-loadView"><a href="#I-loadView" class="headerlink" title="I. loadView"></a>I. loadView</h3><hr>
+<h4 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;"><a href="#&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;" class="headerlink" title="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?"></a>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?</h4><p>&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;<code>UIViewController</code>&#x7684;<code>view</code>(&#x6BD4;&#x5982;controller.view&#x3001;self.view)&#x800C;&#x4E14;view &#x4E3A;<code>nil</code>, loadView&#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<h4 id="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;"><a href="#&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;" class="headerlink" title="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?"></a>&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?</h4><p>loadView&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x6765;&#x8D1F;&#x8D23;&#x521B;&#x5EFA;UIViewController&#x7684;view</p>
+<h4 id="&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x6837;&#x7684;"><a href="#&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x6837;&#x7684;" class="headerlink" title="&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x6837;&#x7684;?"></a>&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x6837;&#x7684;?</h4><p>&#x5373;<code>[super loadView]</code>&#x91CC;&#x9762;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x60C5;&#x3002;</p>
+<p><strong>&#x4E00;&#xFF1A;</strong><br>&#x5B83;&#x4F1A;&#x5148;&#x53BB;&#x67E5;&#x627E;&#x4E0E;<code>UIViewController</code>&#x76F8;&#x5173;&#x8054;&#x7684;xib&#x6587;&#x4EF6;,&#x901A;&#x8FC7;&#x52A0;&#x8F7D;xib&#x6587;&#x4EF6;&#x6765;&#x521B;&#x5EFA;UIViewController &#x7684;view&#x3002;<br>&#x5982;&#x679C;&#x5728;&#x521D;&#x59CB;&#x5316;<code>UIViewController</code>&#x6307;&#x5B9A;&#x4E86;xib&#x6587;&#x4EF6;&#x540D;,&#x5C31;&#x4F1A;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;xib&#x6587;&#x4EF6;&#x540D;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;xib&#x6587;&#x4EF6;<code>[[MJViewController alloc] initWithNibName:@&quot;MJViewController&quot; bundle:nil];</code><br>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x660E;&#x663E;&#x5730;&#x4F20;xib&#x6587;&#x4EF6;&#x540D;,&#x5C31;&#x4F1A;&#x52A0;&#x8F7D;&#x8DDF;UIViewController&#x540C;&#x540D;&#x7684;xib&#x6587;&#x4EF6; <code>[[MJViewController alloc] init];</code> // &#x52A0;&#x8F7D;MJViewController.xib </p>
+<p><strong>&#x4E8C;:</strong><br>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x76F8;&#x5173;&#x8054;&#x7684;xib&#x6587;&#x4EF6;,&#x5C31;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x7684;<code>UIView</code>,&#x7136;&#x540E;&#x8D4B;&#x503C;&#x7ED9;UIViewController&#x7684; view &#x5C5E;&#x6027;,&#x5927;&#x81F4;&#x5982;&#x4E0B;:<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].applicationFrame];</div><div class="line"><span class="comment">// applicationFrame&#x7684;&#x503C;&#x662F;:{{x = 0, y = 20}, {width = 320, height = 460}}</span></div></pre></td></tr></table></figure></p>
+<h4 id="&#x600E;&#x6837;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;"><a href="#&#x600E;&#x6837;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;" class="headerlink" title="&#x600E;&#x6837;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;?"></a>&#x600E;&#x6837;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;?</h4><p>&#x5927;&#x5BB6;&#x90FD;&#x77E5;&#x9053;<code>UIViewControlle</code>r&#x7684;view&#x53EF;&#x4EE5;&#x901A;&#x8FC7;xib&#x6587;&#x4EF6;&#x6765;&#x521B;&#x5EFA;,&#x4F46;&#x662F;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;,xib&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x5730;&#x7075;&#x6D3B;,&#x6240;&#x4EE5;&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x60F3;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x6765;&#x521B;&#x5EFA;UIView,&#x6BD4;&#x5982;:<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.view = [[<span class="built_in">UIWebView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].applicationFrame];</div></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x60F3;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x6765;&#x521B;&#x5EFA;UIViewController&#x7684;view, &#x5C31;&#x8981;&#x91CD;&#x5199;loadView&#x65B9;&#x6CD5;,&#x5E76;&#x4E14;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528;<code>[super loadView]</code>, &#x56E0;&#x4E3A;&#x5728;&#x7B2C;3&#x70B9;&#x91CC;&#x9762;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;:&#x82E5;&#x6CA1;&#x6709;xib&#x6587;&#x4EF6;,<code>[super loadView]</code>&#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x7684;<code>UIView</code>&#x3002;&#x6211;&#x4EEC;&#x65E2;&#x7136;&#x8981;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x6765;&#x81EA;&#x5B9A;&#x4E49;UIView,&#x90A3;&#x4E48;&#x5C31;&#x6CA1;&#x5FC5;&#x8981;&#x4E8B;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x767D;&#x7684;UIView,&#x4EE5;&#x8282;&#x7701;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5F00;&#x9500;&#x3002;&#x6B63;&#x786E;&#x7684;&#x505A;&#x6CD5;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x6837;:<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)loadView {</div><div class="line">    <span class="keyword">self</span>.view = [[<span class="built_in">UIWebView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].applicationFrame];</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528;<code>[super loadView]</code>,&#x4F60;&#x8C03;&#x7528;&#x4E86;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;,&#x53EA;&#x662F;&#x9020;&#x6210;&#x4E86;&#x4E00;&#x4E9B;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
+<p><strong>&#x603B;&#x7ED3;&#x4E00;&#x53E5;&#x8BDD;,&#x82F9;&#x679C;&#x8BBE;&#x8BA1;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x7ED9;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;UIViewController&#x7684;view&#x7528;&#x7684;&#x3002;</strong></p>
+<p><br></p>
+<h3 id="II-viewDidLoad"><a href="#II-viewDidLoad" class="headerlink" title="II. viewDidLoad"></a>II. viewDidLoad</h3><hr>
+<h4 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;-1"><a href="#&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;-1" class="headerlink" title="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?"></a>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?</h4><p>&#x65E0;&#x8BBA;&#x4F60;&#x662F;&#x901A;&#x8FC7;xib&#x6587;&#x4EF6;&#x8FD8;&#x662F;&#x91CD;&#x5199;<code>loadView</code>&#x65B9;&#x6CD5;&#x521B;&#x5EFA;UIViewController&#x7684;view,&#x5728;view&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x540E;,&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x8C03;&#x7528;<code>viewDidLoad</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;-1"><a href="#&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;-1" class="headerlink" title="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?"></a>&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?</h4><p>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x505A;&#x754C;&#x9762;&#x4E0A;&#x7684;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;,&#x6BD4;&#x5982;&#x5F80;view&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x5B50;&#x89C6;&#x56FE;&#x3001;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#x52A0;&#x8F7D;&#x6A21;&#x578B;&#x6570;&#x636E; &#x88C5;&#x914D;&#x5230;&#x5B50;&#x89C6;&#x56FE;&#x4E2D;&#x3002;&#x4F8B;&#x5982;:<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">-&#xAD; (<span class="keyword">void</span>)viewDidLoad{</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6309;&#x94AE;</span></div><div class="line">    <span class="built_in">UIButton</span> *button = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeContactAdd</span>];</div><div class="line">    [button addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(click)</div><div class="line">forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:button];</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="III-viewDidUnload"><a href="#III-viewDidUnload" class="headerlink" title="III. viewDidUnload"></a>III. viewDidUnload</h3><hr>
+<h4 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;-2"><a href="#&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;-2" class="headerlink" title="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?"></a>&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x8C03;&#x7528;?</h4><p>iOS&#x8BBE;&#x5907;&#x7684;&#x5185;&#x5B58;&#x662F;&#x6781;&#x5176;&#x6709;&#x9650;&#x7684;,&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x8FC7;&#x591A;&#x7684;&#x8BDD;,&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53D1;&#x51FA;&#x5185;&#x5B58;&#x8B66;&#x544A;&#x3002;<code>UIViewController</code> &#x5C31;&#x4F1A;&#x6536;&#x5230;<code>didReceiveMemoryWarning</code>&#x6D88;&#x606F;&#x3002; </p>
+<p><code>didReceiveMemoryWarning</code>&#x65B9;&#x6CD5;&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x662F;:<br>&#x5982;&#x679C;&#x5F53;&#x524D;UIViewController&#x7684;view&#x4E0D;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x89C6;&#x56FE;&#x5C42;&#x6B21;&#x7ED3;&#x6784;(View Hierarchy) &#x4E2D;, &#x5373;view&#x7684;superview&#x4E3A;nil&#x7684;&#x65F6;&#x5019;, &#x5C31;&#x4F1A;&#x5C06;view&#x91CA;&#x653E;, &#x5E76;&#x4E14;&#x8C03;&#x7528; <code>viewDidUnload</code> &#x65B9;&#x6CD5;&#x3002;</p>
+<h4 id="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;-2"><a href="#&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;-2" class="headerlink" title="&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?"></a>&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;?</h4><p>&#x4E0A;&#x9762;&#x8BF4;&#x5230;,&#x53D1;&#x51FA;&#x5185;&#x5B58;&#x8B66;&#x544A;&#x4E14;view&#x88AB;&#x91CA;&#x653E;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x8C03;&#x7528;<code>viewDidUnload</code>&#x65B9;&#x6CD5;,&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x5728;&#x91CA;&#x653E;&#x8D44;&#x6E90;,&#x4E3B;&#x8981;&#x662F;&#x91CA;&#x653E;&#x754C;&#x9762;&#x5143;&#x7D20;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6E90;,&#x5C06;&#x76F8;&#x5173;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x8D4B;&#x503C;&#x4E3A;nil:<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidUnload {</div><div class="line">    [<span class="keyword">super</span> viewDidUnload];</div><div class="line">    <span class="keyword">self</span>.name = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">self</span>.pwd = <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="dealloc&#x4E5F;&#x662F;&#x7528;&#x6765;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;-&#x90A3;&#x8DDF;viewDidUnload&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;"><a href="#dealloc&#x4E5F;&#x662F;&#x7528;&#x6765;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;-&#x90A3;&#x8DDF;viewDidUnload&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;" class="headerlink" title="dealloc&#x4E5F;&#x662F;&#x7528;&#x6765;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;,&#x90A3;&#x8DDF;viewDidUnload&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;?"></a>dealloc&#x4E5F;&#x662F;&#x7528;&#x6765;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;,&#x90A3;&#x8DDF;viewDidUnload&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;?</h4><p>&#x5F53;&#x53D1;&#x51FA;&#x5185;&#x5B58;&#x8B66;&#x544A;&#x8C03;&#x7528;<code>viewDidUnload</code>&#x65B9;&#x6CD5;&#x65F6;,&#x53EA;&#x662F;&#x91CA;&#x653E;&#x4E86;<code>view</code>,&#x5E76;&#x6CA1;&#x6709;&#x91CA;&#x653E;<code>UIViewController</code>,&#x6240;&#x4EE5;&#x5E76;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;<code>dealloc</code>&#x65B9;&#x6CD5;&#x3002;<br>&#x5373;<code>viewDidUnload</code>&#x548C;<code>dealloc</code>&#x65B9;&#x6CD5;&#x5E76;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;, <code>dealloc</code>&#x65B9;&#x6CD5;&#x53EA;&#x4F1A;&#x5728;<code>UIViewController</code>&#x88AB;&#x91CA;&#x653E;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</p>
+<p><br></p>
+<h3 id="IV-&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;"><a href="#IV-&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;" class="headerlink" title="IV.&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;"></a>IV.&#x4E09;&#x8005;&#x7684;&#x5173;&#x7CFB;</h3><hr>
+<ol>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;<code>UIViewController</code>&#x7684;<code>view</code>&#x65F6;,view&#x4E3A;<code>nil</code>,&#x7136;&#x540E;&#x5C31;&#x4F1A;&#x8C03;&#x7528;<code>loadView</code>&#x65B9;&#x6CD5;&#x521B;&#x5EFA;view ;</li>
+<li>view&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x540E;&#x4F1A;&#x8C03;&#x7528;<code>viewDidLoad</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x754C;&#x9762;&#x5143;&#x7D20;&#x7684;&#x521D;&#x59CB;&#x5316;;</li>
+<li>&#x5F53;&#x5185;&#x5B58;&#x8B66;&#x544A;&#x65F6;,&#x7CFB;&#x7EDF;&#x53EF;&#x80FD;&#x4F1A;&#x91CA;&#x653E;UIViewController&#x7684;view,&#x5C06;view&#x8D4B;&#x503C;&#x4E3A;nil,&#x5E76;&#x4E14;&#x8C03; &#x7528;<code>viewDidUnload</code>&#x65B9;&#x6CD5;;</li>
+<li>&#x5F53;&#x518D;&#x6B21;&#x8BBF;&#x95EE;UIViewController&#x7684;view&#x65F6;,view&#x5DF2;&#x7ECF;&#x5728;3&#x4E2D;&#x88AB;&#x8D4B;&#x503C;&#x4E3A;nil,&#x6240;&#x4EE5;&#x53C8;&#x4F1A;&#x8C03;&#x7528;<code>loadView</code>&#x65B9;&#x6CD5; &#x91CD;&#x65B0;&#x521B;&#x5EFA;view;</li>
+<li>view&#x88AB;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x540E;,&#x8FD8;&#x662F;&#x4F1A;&#x8C03;&#x7528;<code>viewDidLoad</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x754C;&#x9762;&#x5143;&#x7D20;&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;</li>
+</ol>
+<p><br></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UI关键字/" rel="tag"><i class="fa fa-tag"></i>UI关键字</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/02UI知识/关键字position.html" rel="next" title="iOS开发 - 关于  position 与 anchorPoint">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 关于  position 与 anchorPoint
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/02UI知识/UITableView计时器.html" rel="prev" title="iOS开发 - UITableView 中使用计时器">
+                iOS开发 - UITableView 中使用计时器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/02UI知识/关键字loadView.html"
+           data-title="iOS开发 - 关于 loadView 、viewDidLoad 和 viewDidUnload" data-url="http://www.licheng244.com/posts/02UI知识/关键字loadView.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">108</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-loadView"><span class="nav-text">I. loadView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候被调用"><span class="nav-text">什么时候被调用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有什么作用"><span class="nav-text">有什么作用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认实现是怎样的"><span class="nav-text">默认实现是怎样的?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#怎样正确使用这个方法"><span class="nav-text">怎样正确使用这个方法?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-viewDidLoad"><span class="nav-text">II. viewDidLoad</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候被调用-1"><span class="nav-text">什么时候被调用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有什么作用-1"><span class="nav-text">有什么作用?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-viewDidUnload"><span class="nav-text">III. viewDidUnload</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候被调用-2"><span class="nav-text">什么时候被调用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有什么作用-2"><span class="nav-text">有什么作用?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dealloc也是用来释放资源的-那跟viewDidUnload有什么关系"><span class="nav-text">dealloc也是用来释放资源的,那跟viewDidUnload有什么关系?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-三者的关系"><span class="nav-text">IV.三者的关系</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

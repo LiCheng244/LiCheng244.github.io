@@ -107,7 +107,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:url" content="http://www.licheng244.com/posts/17系统适配/APP 跳转.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x">
-<meta property="og:updated_time" content="2018-11-28T06:49:23.953Z">
+<meta property="og:updated_time" content="2019-01-02T07:49:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - APP 跳转到相应的设置界面">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5728; iOS5.0 &amp;#x4E4B;&amp;#x540E; apple &amp;#x5F00;&amp;#x653E;&amp;#x4E86; app &amp;#x5BF9; setting &amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7; app &amp;#x81EA;&amp;#x">
@@ -390,7 +390,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <a id="more"></a>
 <p><br></p>
 <h3 id="I-&#x7528;&#x6CD5;"><a href="#I-&#x7528;&#x6CD5;" class="headerlink" title="I. &#x7528;&#x6CD5;"></a>I. &#x7528;&#x6CD5;</h3><hr>
-<p>&#x5176;&#x5B9E;&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#x4E3B;&#x8981;&#x662F;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSURL</span>*url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;prefs:root=&#x53C2;&#x6570;&quot;</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url]</div><div class="line">{</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url]; </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><strong>iOS 10&#x4E4B;&#x540E;&#xFF1A;</strong><br>&#x82F9;&#x679C;&#x4E0D;&#x5141;&#x8BB8;&#x968F;&#x610F;&#x8DF3;&#x8F6C;&#x5230;&#x5177;&#x4F53;&#x7684;&#x8BBE;&#x7F6E;&#x754C;&#x9762;&#x3002; &#x53EF;&#x4EE5;&#x8DF3;&#x8F6C;&#x5230;&#x8BBE;&#x7F6E;&#x754C;&#x9762;&#x7136;&#x540E;&#x5728;&#x81EA;&#x5DF1;&#x9009;&#x62E9;&#x5177;&#x4F53;&#x8BBE;&#x7F6E;&#x754C;&#x9762;&#x3002;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="built_in">UIApplicationOpenSettingsURLString</span>]];</div></pre></td></tr></table></figure></p>
+<p><strong>iOS 10&#x4E4B;&#x524D;&#xFF1A;</strong><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSURL</span>*url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;prefs:root=&#x53C2;&#x6570;&quot;</span>];</div><div class="line"><span class="keyword">if</span> ([[<span class="built_in">UIApplication</span> sharedApplication] canOpenURL:url]{</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:url]; </div><div class="line">}</div></pre></td></tr></table></figure></p>
 <p><br></p>
 <h3 id="II-&#x5E38;&#x7528;&#x53C2;&#x6570;"><a href="#II-&#x5E38;&#x7528;&#x53C2;&#x6570;" class="headerlink" title="II. &#x5E38;&#x7528;&#x53C2;&#x6570;"></a>II. &#x5E38;&#x7528;&#x53C2;&#x6570;</h3><hr>
 <table>
@@ -631,16 +632,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/02UI知识/Label 下划线.html" rel="next" title="iOS开发 - 给Label加下划线、中划线">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 给Label加下划线、中划线
+              <a href="/posts/17系统适配/打电话.html" rel="next" title="iOS开发 - 调用电话、 邮箱、 短信功能">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 调用电话、 邮箱、 短信功能
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/05多线程/GCD信号量.html" rel="prev" title="iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用">
-                iOS开发 - GCD 中 dispatch_semaphore 信号量的理解与使用 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/08动画绘图/drawRect.html" rel="prev" title="iOS开发 - 重绘之 drawRect">
+                iOS开发 - 重绘之 drawRect <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -713,7 +714,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">98</span>
+              <span class="site-state-item-count">108</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -730,7 +731,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

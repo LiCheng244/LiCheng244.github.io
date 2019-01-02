@@ -1,0 +1,981 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="系统方法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x7528;&amp;#x5230;&amp;#x83B7;&amp;#x53D6;&amp;#x624B;&amp;#x673A;&amp;#x5404;&amp;#x79CD;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 -  获取手机各种信息">
+<meta property="og:url" content="http://www.licheng244.com/posts/17系统适配/获取手机信息.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x7528;&amp;#x5230;&amp;#x83B7;&amp;#x53D6;&amp;#x624B;&amp;#x673A;&amp;#x5404;&amp;#x79CD;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;">
+<meta property="og:updated_time" content="2019-01-02T07:57:15.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 -  获取手机各种信息">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x7528;&amp;#x5230;&amp;#x83B7;&amp;#x53D6;&amp;#x624B;&amp;#x673A;&amp;#x5404;&amp;#x79CD;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/17系统适配/获取手机信息.html"/>
+
+
+  <title> iOS开发 -  获取手机各种信息 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 -  获取手机各种信息
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T12:00:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-17【-系统适配-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__17【 系统适配 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/17系统适配/获取手机信息.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/17系统适配/获取手机信息.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/17系统适配/获取手机信息.html" class="leancloud_visitors" data-flag-title="iOS开发 -  获取手机各种信息">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5E94;&#x7528;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x7528;&#x5230;&#x83B7;&#x53D6;&#x624B;&#x673A;&#x5404;&#x79CD;&#x4FE1;&#x606F;&#x3002;</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x83B7;&#x53D6;&#x624B;&#x673A;&#x7535;&#x91CF;"><a href="#I-&#x83B7;&#x53D6;&#x624B;&#x673A;&#x7535;&#x91CF;" class="headerlink" title="I. &#x83B7;&#x53D6;&#x624B;&#x673A;&#x7535;&#x91CF;"></a>I. &#x83B7;&#x53D6;&#x624B;&#x673A;&#x7535;&#x91CF;</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x83B7;&#x53D6;&#x72B6;&#x6001;&#x680F;</span></div><div class="line"><span class="built_in">UIStatusBar</span> *statusBar = [[<span class="built_in">UIApplication</span> sharedApplication] valueForKey:<span class="string">@&quot;_statusBar&quot;</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x83B7;&#x53D6;&#x72B6;&#x6001;&#x680F;&#x7684;&#x524D;&#x89C6;&#x56FE;&#xFF08;&#x89C6;&#x56FE;&#x4E2D;&#x5305;&#x62EC;&#x8FD0;&#x8425;&#x5546;&#xFF0C;&#x7535;&#x6C60;&#x7535;&#x91CF;&#xFF0C;&#x4FE1;&#x53F7;&#xFF0C;&#x65F6;&#x95F4;&#x7B49;&#x7B49;&#xFF09;</span></div><div class="line"><span class="built_in">UIView</span> *foregroundView = [[[[<span class="built_in">UIApplication</span> sharedApplication] valueForKey:<span class="string">@&quot;_statusBar&quot;</span>] subviews] lastObject];</div><div class="line"></div><div class="line"><span class="comment">// &#x83B7;&#x53D6;&#x5230;&#x72B6;&#x6001;&#x680F;&#x524D;&#x89C6;&#x56FE;&#x7684;&#x6240;&#x6709;&#x63A7;&#x4EF6;</span></div><div class="line"><span class="built_in">NSArray</span> *statusBarSubviews = [[[[[<span class="built_in">UIApplication</span> sharedApplication] valueForKey:<span class="string">@&quot;_statusBar&quot;</span>] subviews] lastObject] subviews];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">id</span> subview <span class="keyword">in</span> statusBarSubviews) {</div><div class="line">    <span class="comment">// &#x901A;&#x8FC7;&#x7C7B;&#x540D;&#x6765;&#x83B7;&#x5F97;&#x7535;&#x91CF;</span></div><div class="line">    <span class="keyword">if</span> ([subview isKindOfClass:<span class="built_in">NSClassFromString</span>(<span class="string">@&quot;UIStatusBarBatteryPercentItemView&quot;</span>)])</div><div class="line">    {</div><div class="line">        <span class="comment">//&#x7CFB;&#x7EDF;&#x65B9;&#x6CD5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x952E;&#x503C;&#x5BF9;&#x62FF;&#x5230;100%</span></div><div class="line">        result = [subview valueForKey:<span class="string">@&quot;_percentString&quot;</span>];</div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="comment">// &#x5F97;&#x5230;&#x7684;&#x7535;&#x91CF;</span></div><div class="line"><span class="keyword">return</span> result;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="II-&#x83B7;&#x53D6;&#x624B;&#x673A;&#x4FE1;&#x606F;"><a href="#II-&#x83B7;&#x53D6;&#x624B;&#x673A;&#x4FE1;&#x606F;" class="headerlink" title="II. &#x83B7;&#x53D6;&#x624B;&#x673A;&#x4FE1;&#x606F;"></a>II. &#x83B7;&#x53D6;&#x624B;&#x673A;&#x4FE1;&#x606F;</h3><hr>
+<h4 id="&#x7535;&#x6C60;&#x72B6;&#x6001;"><a href="#&#x7535;&#x6C60;&#x72B6;&#x6001;" class="headerlink" title="&#x7535;&#x6C60;&#x72B6;&#x6001;"></a>&#x7535;&#x6C60;&#x72B6;&#x6001;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSInteger</span> i = [<span class="built_in">UIDevice</span> currentDevice].systemName;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *   UIDeviceBatteryStateUnknown&#xFF1A;&#x65E0;&#x6CD5;&#x53D6;&#x5F97;&#x5145;&#x7535;&#x72B6;&#x6001;&#x60C5;&#x51B5;</div><div class="line">     UIDeviceBatteryStateUnplugged&#xFF1A;&#x975E;&#x5145;&#x7535;&#x72B6;&#x6001;</div><div class="line">     UIDeviceBatteryStateCharging&#xFF1A;&#x5145;&#x7535;&#x72B6;&#x6001;</div><div class="line">     UIDeviceBatteryStateFull&#xFF1A;&#x5145;&#x6EE1;&#x72B6;&#x6001;&#xFF08;&#x8FDE;&#x63A5;&#x5145;&#x7535;&#x5668;&#x5145;&#x6EE1;&#x72B6;&#x6001;&#xFF09;</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h4 id="&#x8BBE;&#x5907;&#x6240;&#x6709;&#x8005;&#x540D;&#x79F0;"><a href="#&#x8BBE;&#x5907;&#x6240;&#x6709;&#x8005;&#x540D;&#x79F0;" class="headerlink" title="&#x8BBE;&#x5907;&#x6240;&#x6709;&#x8005;&#x540D;&#x79F0;"></a>&#x8BBE;&#x5907;&#x6240;&#x6709;&#x8005;&#x540D;&#x79F0;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">UIDevice</span> *device = [<span class="built_in">UIDevice</span> currentDevice];</div><div class="line"><span class="built_in">NSString</span> *name = device.name;</div></pre></td></tr></table></figure>
+<h4 id="&#x8BBE;&#x5907;&#x7C7B;&#x578B;"><a href="#&#x8BBE;&#x5907;&#x7C7B;&#x578B;" class="headerlink" title="&#x8BBE;&#x5907;&#x7C7B;&#x578B;"></a>&#x8BBE;&#x5907;&#x7C7B;&#x578B;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// iphone ipad iwatch</span></div><div class="line"><span class="built_in">NSString</span> *name = [<span class="built_in">UIDevice</span> currentDevice].model;</div></pre></td></tr></table></figure>
+<h4 id="&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;"><a href="#&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;"></a>&#x7CFB;&#x7EDF;&#x7C7B;&#x578B;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// iOS</span></div><div class="line"><span class="built_in">NSString</span> *name = [<span class="built_in">UIDevice</span> currentDevice].systemName;</div></pre></td></tr></table></figure>
+<h4 id="&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x53F7;"><a href="#&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x53F7;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x53F7;"></a>&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x53F7;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 10.1</span></div><div class="line"><span class="built_in">NSString</span> *name = [<span class="built_in">UIDevice</span> currentDevice].systemVersion;</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7B26;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7B26;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7B26;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7B26;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 6C0AA68D-303F-4422-9E4C-5FED956F9408</span></div><div class="line"><span class="built_in">UIDevice</span> *device = [<span class="built_in">UIDevice</span> currentDevice];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, [device.identifierForVendor UUIDString]);</div></pre></td></tr></table></figure>
+<h4 id="&#x8FD0;&#x884C;&#x5546;&#x7684;&#x540D;&#x79F0;"><a href="#&#x8FD0;&#x884C;&#x5546;&#x7684;&#x540D;&#x79F0;" class="headerlink" title="&#x8FD0;&#x884C;&#x5546;&#x7684;&#x540D;&#x79F0;"></a>&#x8FD0;&#x884C;&#x5546;&#x7684;&#x540D;&#x79F0;</h4><p>&#x5BFC;&#x5165;&#x4E24;&#x4E2A;&#x5934;&#x6587;&#x4EF6;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"> </div><div class="line"><span class="meta">#import <span class="meta-string">&lt;CoreTelephony/CTCarrier.h&gt;</span> </span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;CoreTelephony/CTTelephonyNetworkInfo.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="built_in">CTTelephonyNetworkInfo</span> *info = [[<span class="built_in">CTTelephonyNetworkInfo</span> alloc] init];</div><div class="line"><span class="built_in">NSString</span> *operators = [info subscriberCellularProvider].carrierName;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, operators);</div></pre></td></tr></table></figure></p>
+<h4 id="&#x7F51;&#x7EDC;&#x72B6;&#x6001;"><a href="#&#x7F51;&#x7EDC;&#x72B6;&#x6001;" class="headerlink" title="&#x7F51;&#x7EDC;&#x72B6;&#x6001;"></a>&#x7F51;&#x7EDC;&#x72B6;&#x6001;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSArray</span> *children = [[[[<span class="built_in">UIApplication</span> sharedApplication] valueForKeyPath:<span class="string">@&quot;statusBar&quot;</span>] valueForKeyPath:<span class="string">@&quot;foregroundView&quot;</span>] subviews];</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> *state = [[<span class="built_in">NSString</span> alloc] init];</div><div class="line"><span class="keyword">int</span> netType = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="comment">//&#x83B7;&#x53D6;&#x5230;&#x7F51;&#x7EDC;&#x8FD4;&#x56DE;&#x7801;</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">id</span> child <span class="keyword">in</span> children) {</div><div class="line">    <span class="keyword">if</span> ([child isKindOfClass:<span class="built_in">NSClassFromString</span>(<span class="string">@&quot;UIStatusBarDataNetworkItemView&quot;</span>)]) {</div><div class="line"></div><div class="line">        <span class="comment">//&#x83B7;&#x53D6;&#x5230;&#x72B6;&#x6001;&#x680F;</span></div><div class="line">        netType = [[child valueForKeyPath:<span class="string">@&quot;dataNetworkType&quot;</span>]intValue];</div><div class="line">        <span class="keyword">switch</span> (netType) {</div><div class="line">            <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                state = <span class="string">@&quot;&#x65E0;&#x7F51;&#x7EDC;&quot;</span>;<span class="comment">//&#x65E0;&#x7F51;&#x6A21;&#x5F0F;</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                state = <span class="string">@&quot;2G&quot;</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                state = <span class="string">@&quot;3G&quot;</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">                state = <span class="string">@&quot;4G&quot;</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> <span class="number">5</span>:</div><div class="line">                state = <span class="string">@&quot;WIFI&quot;</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x83B7;&#x53D6;&#x5185;&#x5B58;"><a href="#III-&#x83B7;&#x53D6;&#x5185;&#x5B58;" class="headerlink" title="III. &#x83B7;&#x53D6;&#x5185;&#x5B58;"></a>III. &#x83B7;&#x53D6;&#x5185;&#x5B58;</h3><hr>
+<p>&#x9700;&#x8981;&#x5BFC;&#x5165;<code>#import &lt;mach/mach.h&gt;</code>&#x5305;&#x3002;</p>
+<h4 id="&#x624B;&#x673A;&#x5185;&#x5B58;"><a href="#&#x624B;&#x673A;&#x5185;&#x5B58;" class="headerlink" title="&#x624B;&#x673A;&#x5185;&#x5B58;"></a>&#x624B;&#x673A;&#x5185;&#x5B58;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x83B7;&#x5F97;&#x624B;&#x673A;&#x5185;&#x5B58;</span></div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> fileSize = [<span class="built_in">NSProcessInfo</span> processInfo].physicalMemory;</div><div class="line"></div><div class="line"><span class="comment">// &#x5BB9;&#x91CF;&#x8F6C;&#x6362;</span></div><div class="line"><span class="built_in">NSInteger</span> KB = <span class="number">1024</span>;</div><div class="line"><span class="built_in">NSInteger</span> MB = KB*KB;</div><div class="line"><span class="built_in">NSInteger</span> GB = MB*</div><div class="line"><span class="built_in">NSString</span> *fileSizeStr = <span class="string">@&quot;&quot;</span>;</div><div class="line"><span class="keyword">if</span> (fileSize &lt; <span class="number">10</span>)  {</div><div class="line">    fileSizeStr =  <span class="string">@&quot;0 B&quot;</span>;</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; KB)    {</div><div class="line">    fileSizeStr = <span class="string">@&quot;&lt; 1 KB&quot;</span>;</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; MB)    {</div><div class="line">    fileSizeStr =  [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f KB&quot;</span>,((<span class="built_in">CGFloat</span>)fileSize)/KB];</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; GB)    {</div><div class="line">    fileSizeStr =  [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f MB&quot;</span>,((<span class="built_in">CGFloat</span>)fileSize)/MB];</div><div class="line">}<span class="keyword">else</span>   {</div><div class="line">    fileSizeStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f GB&quot;</span>,((<span class="built_in">CGFloat</span>)fileSize)/GB];</div><div class="line">}</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, fileSizeStr);</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x53EF;&#x7528;&#x5185;&#x5B58;"><a href="#&#x83B7;&#x53D6;&#x53EF;&#x7528;&#x5185;&#x5B58;" class="headerlink" title="&#x83B7;&#x53D6;&#x53EF;&#x7528;&#x5185;&#x5B58;"></a>&#x83B7;&#x53D6;&#x53EF;&#x7528;&#x5185;&#x5B58;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// &#x83B7;&#x53D6;&#x53EF;&#x7528;&#x5185;&#x5B58;</span></div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> usableFileSize = <span class="number">0</span>;</div><div class="line">vm_statistics_data_t vmStats;</div><div class="line">mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;</div><div class="line">kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&amp;vmStats, &amp;infoCount);</div><div class="line"><span class="keyword">if</span> (kernReturn != KERN_SUCCESS){</div><div class="line">    usableFileSize =  <span class="built_in">NSNotFound</span>;</div><div class="line">}</div><div class="line">usableFileSize = ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));</div><div class="line"></div><div class="line"><span class="comment">// &#x5BB9;&#x91CF;&#x8F6C;&#x6362;</span></div><div class="line"><span class="built_in">NSInteger</span> KB = <span class="number">1024</span>;</div><div class="line"><span class="built_in">NSInteger</span> MB = KB*KB;</div><div class="line"><span class="built_in">NSInteger</span> GB = MB*KB;</div><div class="line"><span class="built_in">NSString</span> *usableFileSizeStr = <span class="string">@&quot;&quot;</span>;</div><div class="line"><span class="keyword">if</span> (usableFileSize &lt; <span class="number">10</span>)  {</div><div class="line">    usableFileSizeStr =  <span class="string">@&quot;0 B&quot;</span>;</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (usableFileSize &lt; KB)    {</div><div class="line">    usableFileSizeStr = <span class="string">@&quot;&lt; 1 KB&quot;</span>;</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (usableFileSize &lt; MB)    {</div><div class="line">    usableFileSizeStr =  [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f KB&quot;</span>,((<span class="built_in">CGFloat</span>)usableFileSize)/KB];</div><div class="line">}<span class="keyword">else</span> <span class="keyword">if</span> (usableFileSize &lt; GB)    {</div><div class="line">    usableFileSizeStr =  [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f MB&quot;</span>,((<span class="built_in">CGFloat</span>)usableFileSize)/MB];</div><div class="line">}<span class="keyword">else</span>   {</div><div class="line">    usableFileSizeStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%.1f GB&quot;</span>,((<span class="built_in">CGFloat</span>)usableFileSize)/GB];</div><div class="line">}</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>, usableFileSizeStr);</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="IV-&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7C7B;&#x578B;"><a href="#IV-&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7C7B;&#x578B;" class="headerlink" title="IV. &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7C7B;&#x578B;"></a>IV. &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7C7B;&#x578B;</h3><hr>
+<p>&#x9700;&#x8981;&#x5BFC;&#x5165;&#xFF1A;<code>#import &lt;sys/sysctl.h&gt;</code>&#x5305;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x8C03;&#x7528;</span></div><div class="line"><span class="built_in">NSString</span> *deviceType = [<span class="keyword">self</span> getCurrentDeviceModel:<span class="keyword">self</span>]&#xFF1B;</div><div class="line"><span class="comment">//5.&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x578B;&#x53F7;</span></div><div class="line">-(<span class="built_in">NSString</span> *)getCurrentDeviceModel:(<span class="built_in">UIViewController</span> *)controller</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> mib[<span class="number">2</span>];</div><div class="line">    size_t len;</div><div class="line">    <span class="keyword">char</span> *machine;</div><div class="line"></div><div class="line">    mib[<span class="number">0</span>] = <span class="built_in">CTL_HW</span>;</div><div class="line">    mib[<span class="number">1</span>] = HW_MACHINE;</div><div class="line">    sysctl(mib, <span class="number">2</span>, <span class="literal">NULL</span>, &amp;len, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">    machine = malloc(len);</div><div class="line">    sysctl(mib, <span class="number">2</span>, machine, &amp;len, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="built_in">NSString</span> *platform = [<span class="built_in">NSString</span> stringWithCString:machine encoding:<span class="built_in">NSASCIIStringEncoding</span>];</div><div class="line">    free(machine);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone5,1&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5 (A1428)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone5,2&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5 (A1429/A1442)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone5,3&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5c (A1456/A1532)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone5,4&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5c (A1507/A1516/A1526/A1529)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone6,1&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5s (A1453/A1533)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone6,2&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 5s (A1457/A1518/A1528/A1530)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone7,1&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 6 Plus (A1522/A1524)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone7,2&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 6 (A1549/A1586)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone8,1&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 6s&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone8,2&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 6s Plus&quot;</span>;</div><div class="line"></div><div class="line">    <span class="comment">//&#x6DFB;&#x52A0; 7 &#x5224;&#x65AD;</span></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone9,1&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 7&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPhone9,2&quot;</span>]) <span class="keyword">return</span> <span class="string">@&quot;iPhone 7 Plus&quot;</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPod1,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPod Touch 1G (A1213)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPod2,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPod Touch 2G (A1288)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPod3,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPod Touch 3G (A1318)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPod4,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPod Touch 4G (A1367)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPod5,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPod Touch 5G (A1421/A1509)&quot;</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad1,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 1G (A1219/A1337)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 2 (A1395)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,2&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 2 (A1396)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,3&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 2 (A1397)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,4&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 2 (A1395+New Chip)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,5&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 1G (A1432)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,6&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 1G (A1454)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad2,7&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 1G (A1455)&quot;</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 3 (A1416)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,2&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 3 (A1403)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,3&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 3 (A1430)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,4&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 4 (A1458)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,5&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 4 (A1459)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad3,6&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad 4 (A1460)&quot;</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,1&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Air (A1474)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,2&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Air (A1475)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,3&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Air (A1476)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,4&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 2G (A1489)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,5&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 2G (A1490)&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;iPad4,6&quot;</span>])   <span class="keyword">return</span> <span class="string">@&quot;iPad Mini 2G (A1491)&quot;</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;i386&quot;</span>])      <span class="keyword">return</span> <span class="string">@&quot;iPhone Simulator&quot;</span>;</div><div class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@&quot;x86_64&quot;</span>])    <span class="keyword">return</span> <span class="string">@&quot;iPhone Simulator&quot;</span>;</div><div class="line">    <span class="keyword">return</span> platform;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="V-&#x83B7;&#x53D6;-IP-&#x5730;&#x5740;"><a href="#V-&#x83B7;&#x53D6;-IP-&#x5730;&#x5740;" class="headerlink" title="V. &#x83B7;&#x53D6; IP &#x5730;&#x5740;"></a>V. &#x83B7;&#x53D6; IP &#x5730;&#x5740;</h3><hr>
+<p>&#x9700;&#x8981;&#x5BFC;&#x5165;&#x4E0B;&#x5217;&#x5305;&#xFF1A;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;sys/sysctl.h&gt;</span>//&#x5185;&#x5B58;</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;mach/mach.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;ifaddrs.h&gt;</span>  //ip</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;net/if.h&gt;</span></span></div></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#pragma mark - &#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5F53;&#x524D;&#x7F51;&#x7EDC;IP&#x5730;&#x5740; (WiFi &#x624B;&#x673A;&#x6D41;&#x91CF;&#x901A;&#x7528;)</span></div><div class="line">- (<span class="built_in">NSString</span> *)getIPAddressWithPreferIPv4:(<span class="built_in">BOOL</span>)preferIPv4</div><div class="line">{</div><div class="line">    <span class="built_in">NSArray</span> *searchArray = preferIPv4 ?</div><div class="line">    @[ IOS_VPN <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4, IOS_VPN <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6, IOS_WIFI <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4, IOS_WIFI <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6, IOS_CELLULAR <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4, IOS_CELLULAR <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6 ] :</div><div class="line">    @[ IOS_VPN <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6, IOS_VPN <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4, IOS_WIFI <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6, IOS_WIFI <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4, IOS_CELLULAR <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv6, IOS_CELLULAR <span class="string">@&quot;/&quot;</span> IP_ADDR_IPv4 ] ;</div><div class="line"></div><div class="line">    <span class="built_in">NSDictionary</span> *addresses = [<span class="keyword">self</span> getIPAddresses];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;addresses: %@&quot;</span>, addresses);</div><div class="line"></div><div class="line">    __block <span class="built_in">NSString</span> *address;</div><div class="line">    [searchArray enumerateObjectsUsingBlock:^(<span class="built_in">NSString</span> *key, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop)</div><div class="line">     {</div><div class="line">         address = addresses[key];</div><div class="line">         <span class="comment">//&#x7B5B;&#x9009;&#x51FA;IP&#x5730;&#x5740;&#x683C;&#x5F0F;</span></div><div class="line">         <span class="keyword">if</span>([<span class="keyword">self</span> isValidatIP:address]) *stop = <span class="literal">YES</span>;</div><div class="line">     } ];</div><div class="line">    <span class="keyword">return</span> address ? address : <span class="string">@&quot;0.0.0.0&quot;</span>;</div><div class="line"></div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)isValidatIP:(<span class="built_in">NSString</span> *)ipAddress {</div><div class="line">    <span class="keyword">if</span> (ipAddress.length == <span class="number">0</span>) {</div><div class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">    }</div><div class="line">    <span class="built_in">NSString</span> *urlRegEx = <span class="string">@&quot;^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.&quot;</span></div><div class="line">    <span class="string">&quot;([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.&quot;</span></div><div class="line">    <span class="string">&quot;([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.&quot;</span></div><div class="line">    <span class="string">&quot;([01]?\\d\\d?|2[0-4]\\d|25[0-5])$&quot;</span>;</div><div class="line"></div><div class="line">    <span class="built_in">NSError</span> *error;</div><div class="line">    <span class="built_in">NSRegularExpression</span> *regex = [<span class="built_in">NSRegularExpression</span> regularExpressionWithPattern:urlRegEx options:<span class="number">0</span> error:&amp;error];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (regex != <span class="literal">nil</span>) {</div><div class="line">        <span class="built_in">NSTextCheckingResult</span> *firstMatch=[regex firstMatchInString:ipAddress options:<span class="number">0</span> range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, [ipAddress length])];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (firstMatch) {</div><div class="line">            <span class="built_in">NSRange</span> resultRange = [firstMatch rangeAtIndex:<span class="number">0</span>];</div><div class="line">            <span class="built_in">NSString</span> *result=[ipAddress substringWithRange:resultRange];</div><div class="line">            <span class="comment">//&#x8F93;&#x51FA;&#x7ED3;&#x679C;</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,result);</div><div class="line">            <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="built_in">NSDictionary</span> *)getIPAddresses</div><div class="line">{</div><div class="line">    <span class="built_in">NSMutableDictionary</span> *addresses = [<span class="built_in">NSMutableDictionary</span> dictionaryWithCapacity:<span class="number">8</span>];</div><div class="line"></div><div class="line">    <span class="comment">// retrieve the current interfaces - returns 0 on success</span></div><div class="line">    <span class="keyword">struct</span> ifaddrs *interfaces;</div><div class="line">    <span class="keyword">if</span>(!getifaddrs(&amp;interfaces)) {</div><div class="line">        <span class="comment">// Loop through linked list of interfaces</span></div><div class="line">        <span class="keyword">struct</span> ifaddrs *interface;</div><div class="line">        <span class="keyword">for</span>(interface=interfaces; interface; interface=interface-&gt;ifa_next) {</div><div class="line">            <span class="keyword">if</span>(!(interface-&gt;ifa_flags &amp; IFF_UP) <span class="comment">/* || (interface-&gt;ifa_flags &amp; IFF_LOOPBACK) */</span> ) {</div><div class="line">                <span class="keyword">continue</span>; <span class="comment">// deeply nested code harder to read</span></div><div class="line">            }</div><div class="line">            <span class="keyword">const</span> <span class="keyword">struct</span> sockaddr_in *addr = (<span class="keyword">const</span> <span class="keyword">struct</span> sockaddr_in*)interface-&gt;ifa_addr;</div><div class="line">            <span class="keyword">char</span> addrBuf[ MAX(INET_ADDRSTRLEN, INET6_ADDRSTRLEN) ];</div><div class="line">            <span class="keyword">if</span>(addr &amp;&amp; (addr-&gt;sin_family==AF_INET || addr-&gt;sin_family==AF_INET6)) {</div><div class="line">                <span class="built_in">NSString</span> *name = [<span class="built_in">NSString</span> stringWithUTF8String:interface-&gt;ifa_name];</div><div class="line">                <span class="built_in">NSString</span> *type;</div><div class="line">                <span class="keyword">if</span>(addr-&gt;sin_family == AF_INET) {</div><div class="line">                    <span class="keyword">if</span>(inet_ntop(AF_INET, &amp;addr-&gt;sin_addr, addrBuf, INET_ADDRSTRLEN)) {</div><div class="line">                        type = IP_ADDR_IPv4;</div><div class="line">                    }</div><div class="line">                } <span class="keyword">else</span> {</div><div class="line">                    <span class="keyword">const</span> <span class="keyword">struct</span> sockaddr_in6 *addr6 = (<span class="keyword">const</span> <span class="keyword">struct</span> sockaddr_in6*)interface-&gt;ifa_addr;</div><div class="line">                    <span class="keyword">if</span>(inet_ntop(AF_INET6, &amp;addr6-&gt;sin6_addr, addrBuf, INET6_ADDRSTRLEN)) {</div><div class="line">                        type = IP_ADDR_IPv6;</div><div class="line">                    }</div><div class="line">                }</div><div class="line">                <span class="keyword">if</span>(type) {</div><div class="line">                    <span class="built_in">NSString</span> *key = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@&quot;%@/%@&quot;</span>, name, type];</div><div class="line">                    addresses[key] = [<span class="built_in">NSString</span> stringWithUTF8String:addrBuf];</div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="comment">// Free memory</span></div><div class="line">        freeifaddrs(interfaces);</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> [addresses count] ? addresses : <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="VI-&#x83B7;&#x53D6;&#x5F53;&#x524D;-WiFi-&#x540D;&#x79F0;"><a href="#VI-&#x83B7;&#x53D6;&#x5F53;&#x524D;-WiFi-&#x540D;&#x79F0;" class="headerlink" title="VI. &#x83B7;&#x53D6;&#x5F53;&#x524D; WiFi &#x540D;&#x79F0;"></a>VI. &#x83B7;&#x53D6;&#x5F53;&#x524D; WiFi &#x540D;&#x79F0;</h3><p>&#x9700;&#x8981;&#x5BFC;&#x5165;&#xFF1A;<code>#import &lt;SystemConfiguration/CaptiveNetwork.h&gt;</code>&#x5305;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x5F53;&#x524D;&#x624B;&#x673A;&#x8FDE;&#x63A5;&#x7684;WIFI&#x540D;&#x79F0;(SSID)</span></div><div class="line">- (<span class="built_in">NSString</span> *)getWifiName</div><div class="line">{</div><div class="line">    <span class="built_in">NSString</span> *wifiName = <span class="literal">nil</span>;</div><div class="line"></div><div class="line">    <span class="built_in">CFArrayRef</span> wifiInterfaces = <span class="built_in">CNCopySupportedInterfaces</span>();</div><div class="line">    <span class="keyword">if</span> (!wifiInterfaces) {</div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="built_in">NSArray</span> *interfaces = (__bridge <span class="built_in">NSArray</span> *)wifiInterfaces;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *interfaceName <span class="keyword">in</span> interfaces) {</div><div class="line">        <span class="built_in">CFDictionaryRef</span> dictRef = <span class="built_in">CNCopyCurrentNetworkInfo</span>((__bridge <span class="built_in">CFStringRef</span>)(interfaceName));</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (dictRef) {</div><div class="line">            <span class="built_in">NSDictionary</span> *networkInfo = (__bridge <span class="built_in">NSDictionary</span> *)dictRef;</div><div class="line"></div><div class="line">            wifiName = [networkInfo objectForKey:(__bridge <span class="built_in">NSString</span> *)kCNNetworkInfoKeySSID];</div><div class="line"></div><div class="line">            <span class="built_in">CFRelease</span>(dictRef);</div><div class="line">        }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(wifiInterfaces);</div><div class="line">    <span class="keyword">return</span> wifiName;</div><div class="line">}</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/系统方法/" rel="tag"><i class="fa fa-tag"></i>系统方法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/17系统适配/应用间跳转.html" rel="next" title="iOS开发 - APP 应用之间跳转、传值">
+                <i class="fa fa-chevron-left"></i> iOS开发 - APP 应用之间跳转、传值
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/17系统适配/打电话.html" rel="prev" title="iOS开发 - 调用电话、 邮箱、 短信功能">
+                iOS开发 - 调用电话、 邮箱、 短信功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/17系统适配/获取手机信息.html"
+           data-title="iOS开发 -  获取手机各种信息" data-url="http://www.licheng244.com/posts/17系统适配/获取手机信息.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">108</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-获取手机电量"><span class="nav-text">I. 获取手机电量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-获取手机信息"><span class="nav-text">II. 获取手机信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电池状态"><span class="nav-text">电池状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备所有者名称"><span class="nav-text">设备所有者名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备类型"><span class="nav-text">设备类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统类型"><span class="nav-text">系统类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统版本号"><span class="nav-text">系统版本号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取设备唯一标识符"><span class="nav-text">获取设备唯一标识符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行商的名称"><span class="nav-text">运行商的名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络状态"><span class="nav-text">网络状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-获取内存"><span class="nav-text">III. 获取内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#手机内存"><span class="nav-text">手机内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取可用内存"><span class="nav-text">获取可用内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-获取设备类型"><span class="nav-text">IV. 获取设备类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-获取-IP-地址"><span class="nav-text">V. 获取 IP 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VI-获取当前-WiFi-名称"><span class="nav-text">VI. 获取当前 WiFi 名称</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

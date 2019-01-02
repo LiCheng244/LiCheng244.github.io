@@ -1,0 +1,1001 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="系统方法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:APP&amp;#x5F00;&amp;#x53D1;&amp;#x907F;&amp;#x514D;&amp;#x4E0D;&amp;#x5F00;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6743;&amp;#x9650;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x5728;APP&amp;#x4EE5;&amp;#x66F4;&amp;#x52A0;&amp;#x53CB;&amp;#x597D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - APP 系统权限的查询">
+<meta property="og:url" content="http://www.licheng244.com/posts/17系统适配/系统权限.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:APP&amp;#x5F00;&amp;#x53D1;&amp;#x907F;&amp;#x514D;&amp;#x4E0D;&amp;#x5F00;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6743;&amp;#x9650;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x5728;APP&amp;#x4EE5;&amp;#x66F4;&amp;#x52A0;&amp;#x53CB;&amp;#x597D">
+<meta property="og:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010127.png">
+<meta property="og:updated_time" content="2019-01-02T08:47:53.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - APP 系统权限的查询">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:APP&amp;#x5F00;&amp;#x53D1;&amp;#x907F;&amp;#x514D;&amp;#x4E0D;&amp;#x5F00;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6743;&amp;#x9650;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x5728;APP&amp;#x4EE5;&amp;#x66F4;&amp;#x52A0;&amp;#x53CB;&amp;#x597D">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010127.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/17系统适配/系统权限.html"/>
+
+
+  <title> iOS开发 - APP 系统权限的查询 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - APP 系统权限的查询
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T12:00:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-17【-系统适配-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__17【 系统适配 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/17系统适配/系统权限.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/17系统适配/系统权限.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/17系统适配/系统权限.html" class="leancloud_visitors" data-flag-title="iOS开发 - APP 系统权限的查询">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>APP&#x5F00;&#x53D1;&#x907F;&#x514D;&#x4E0D;&#x5F00;&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x4F55;&#x5728;APP&#x4EE5;&#x66F4;&#x52A0;&#x53CB;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x5411;&#x7528;&#x6237;&#x5C55;&#x793A;&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#xFF0C;&#x4F3C;&#x4E4E;&#x4E5F;&#x662F;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x503C;&#x5F97;&#x6DF1;&#x601D;&#x7684;&#x4E00;&#x4EF6;&#x4E8B;&#xFF1B;</p>
+<p>&#x90A3;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x83B7;&#x53D6;iOS&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x7684;&#x901A;&#x8FC7;&#x7387;&#x5462;&#xFF1F;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;:<br>1.&#x5728;&#x7528;&#x6237;&#x6253;&#x5F00;APP&#x65F6;&#x5C31;&#x5411;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x6743;&#x9650;&#xFF1B;<br>2.&#x544A;&#x77E5;&#x7528;&#x6237;&#x6388;&#x6743;&#x6743;&#x9650;&#x540E;&#x80FD;&#x591F;&#x83B7;&#x5F97;&#x597D;&#x5904;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x5411;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x6743;&#x9650;&#xFF1B;<br>3.&#x5728;&#x7EDD;&#x5BF9;&#x5FC5;&#x8981;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x5411;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x6743;&#x9650;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x7167;&#x7247;&#x5E93;&#x65F6;&#x8BF7;&#x6C42;&#x8BBF;&#x95EE;&#x7CFB;&#x7EDF;&#x76F8;&#x518C;&#x6743;&#x9650;&#xFF1B;<br>4.&#x5728;&#x5C55;&#x793A;&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#x524D;&#xFF0C;&#x5148;&#x5411;&#x7528;&#x6237;&#x663E;&#x793A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x82E5;&#x7528;&#x6237;&#x9009;&#x62E9;&#x4E0D;&#x5141;&#x8BB8;&#xFF0C;&#x9ED8;&#x8BA4;&#x65E0;&#x64CD;&#x4F5C;&#xFF0C;&#x82E5;&#x7528;&#x6237;&#x9009;&#x62E9;&#x5141;&#x8BB8;&#xFF0C;&#x518D;&#x5C55;&#x793A;&#x7CFB;&#x7EDF;&#x5BF9;&#x8BDD;&#x6846;&#x3002;</p>
+<p>&#x4E0A;&#x8FF0;&#x60C5;&#x51B5;&#x5728;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x662F;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7684;&#xFF0C;&#x4E0D;&#x540C;&#x65B9;&#x5F0F;&#x7684;&#x9009;&#x62E9;&#x4F1A;&#x5F71;&#x54CD;&#x6700;&#x540E;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x4F53;&#x9A8C;&#x3002;&#x8FD9;&#x4E00;&#x70B9;&#x611F;&#x609F;&#x6B63;&#x662F;&#x6E90;&#x4E8E;&#x4E0A;&#x4E00;&#x5468;&#x5DE5;&#x4F5C;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x9002;&#x914D;iOS10&#xFF0C;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5E94;&#x7528;&#x8054;&#x7F51;&#x6743;&#x9650;&#x7528;&#x4EE5;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x5BF9;&#x8BDD;&#x6846;&#x7684;&#x663E;&#x793A;&#x7BA1;&#x7406;&#x3002;&#x5F53;&#x6211;&#x628A;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x540E;&#xFF0C;&#x611F;&#x89C9;&#x6709;&#x5FC5;&#x8981;&#x5C06;&#x5E38;&#x7528;&#x7684;iOS&#x7CFB;&#x7EDF;&#x6743;&#x9650;&#x505A;&#x4E00;&#x4E2A;&#x603B;&#x7ED3;&#xFF0C;&#x4EE5;&#x4FBF;&#x540E;&#x7528;&#x3002;</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x6743;&#x9650;&#x5206;&#x7C7B;"><a href="#I-&#x6743;&#x9650;&#x5206;&#x7C7B;" class="headerlink" title="I. &#x6743;&#x9650;&#x5206;&#x7C7B;"></a>I. &#x6743;&#x9650;&#x5206;&#x7C7B;</h3><hr>
+<ul>
+<li>&#x63A8;&#x9001;&#x6743;&#x9650;</li>
+<li>&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;</li>
+<li>&#x8054;&#x7F51;&#x6743;&#x9650;</li>
+<li>&#x76F8;&#x673A;&#x3001;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;</li>
+<li>&#x76F8;&#x518C;&#x6743;&#x9650;</li>
+<li>&#x5B9A;&#x4F4D;&#x6743;&#x9650;</li>
+<li>&#x65E5;&#x5386;&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;</li>
+</ul>
+<p><br></p>
+<h3 id="II-&#x63A8;&#x9001;&#x6743;&#x9650;"><a href="#II-&#x63A8;&#x9001;&#x6743;&#x9650;" class="headerlink" title="II. &#x63A8;&#x9001;&#x6743;&#x9650;"></a>II. &#x63A8;&#x9001;&#x6743;&#x9650;</h3><hr>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">UIUserNotificationSettings</span> *settings = [[<span class="built_in">UIApplication</span> sharedApplication] currentUserNotificationSettings];</div><div class="line"><span class="keyword">switch</span> (settings.types) {</div><div class="line">  <span class="keyword">case</span> <span class="built_in">UIUserNotificationTypeNone</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;None&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">UIUserNotificationTypeAlert</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Alert Notification&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">UIUserNotificationTypeBadge</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Badge Notification&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">UIUserNotificationTypeSound</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;sound Notification&apos;&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line"></div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;"><a href="#&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;" class="headerlink" title="&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;"></a>&#x83B7;&#x53D6;&#x63A8;&#x9001;&#x6743;&#x9650;&#xFF1A;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (@available(iOS <span class="number">10.0</span>, *)) {</div><div class="line">    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions: UNAuthorizationOptionBadge|UNAuthorizationOptionSound |UNAuthorizationOptionAlert completionHandler:^(<span class="built_in">BOOL</span> granted, <span class="built_in">NSError</span> * _Nullable error) {</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;&#x6388;&#x6743; %@&quot;</span>,granted == <span class="literal">YES</span> ? <span class="string">@&quot;&#x6210;&#x529F;&quot;</span> : <span class="string">@&quot;&#x5931;&#x8D25;&quot;</span>);</div><div class="line">    }];</div><div class="line">} <span class="keyword">else</span> {</div><div class="line"></div><div class="line">    <span class="built_in">UIUserNotificationSettings</span> *seting = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:(<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span>) categories:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] registerUserNotificationSettings:seting];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;"><a href="#III-&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="III. &#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;"></a>III. &#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;</h3><hr>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;:"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;:</h4><p>&#x5BFC;&#x5165;&#x5934;&#x6587;&#x4EF6; <code>#import &quot;AddressBook.h&quot;</code><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">    ABAuthorizationStatus ABstatus = ABAddressBookGetAuthorizationStatus();</div><div class="line"><span class="keyword">switch</span> (ABstatus) {</div><div class="line">  <span class="keyword">case</span> kABAuthorizationStatusAuthorized:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kABAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&apos;&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kABAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kABAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="&#x83B7;&#x53D6;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;"><a href="#&#x83B7;&#x53D6;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="&#x83B7;&#x53D6;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;:"></a>&#x83B7;&#x53D6;&#x901A;&#x8BAF;&#x5F55;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(<span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">ABAddressBookRequestAccessWithCompletion(addressBook, ^(<span class="keyword">bool</span> granted, <span class="built_in">CFErrorRef</span> error) {</div><div class="line">  <span class="keyword">if</span> (granted) {</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="built_in">CFRelease</span>(addressBook);</div><div class="line">  }<span class="keyword">else</span>{</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied or Restricted&quot;</span>);</div><div class="line">  }</div><div class="line">});</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="III-&#x8054;&#x7F51;&#x6743;&#x9650;"><a href="#III-&#x8054;&#x7F51;&#x6743;&#x9650;" class="headerlink" title="III. &#x8054;&#x7F51;&#x6743;&#x9650;"></a>III. &#x8054;&#x7F51;&#x6743;&#x9650;</h3><hr>
+<h4 id="&#x68C0;&#x6D4B;&#x5E94;&#x7528;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8054;&#x7F51;&#x6743;&#x9650;"><a href="#&#x68C0;&#x6D4B;&#x5E94;&#x7528;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8054;&#x7F51;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x6D4B;&#x5E94;&#x7528;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8054;&#x7F51;&#x6743;&#x9650;"></a>&#x68C0;&#x6D4B;&#x5E94;&#x7528;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8054;&#x7F51;&#x6743;&#x9650;</h4><p>&#x5F15;&#x5165;&#x5934;&#x6587;&#x4EF6; <code>#import &quot;CoreTelephony.h&quot;</code><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">CTCellularData</span> *cellularData = [[<span class="built_in">CTCellularData</span> alloc]init];</div><div class="line">cellularData.cellularDataRestrictionDidUpdateNotifier =  ^(<span class="built_in">CTCellularDataRestrictedState</span> state){</div><div class="line">  <span class="comment">//&#x83B7;&#x53D6;&#x8054;&#x7F51;&#x72B6;&#x6001;</span></div><div class="line">  <span class="keyword">switch</span> (state) {</div><div class="line">      <span class="keyword">case</span> kCTCellularDataRestricted:</div><div class="line">          <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricrted&quot;</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">case</span> kCTCellularDataNotRestricted:</div><div class="line">          <span class="built_in">NSLog</span>(<span class="string">@&quot;Not Restricted&quot;</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">case</span> kCTCellularDataRestrictedStateUnknown:</div><div class="line">          <span class="built_in">NSLog</span>(<span class="string">@&quot;Unknown&quot;</span>);</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">default</span>:</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">  };</div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="IV-&#x76F8;&#x673A;&#x548C;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;"><a href="#IV-&#x76F8;&#x673A;&#x548C;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;" class="headerlink" title="IV. &#x76F8;&#x673A;&#x548C;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;"></a>IV. &#x76F8;&#x673A;&#x548C;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;</h3><hr>
+<p>&#x5BFC;&#x5165;&#x5934;&#x6587;&#x4EF6;<code>@import AVFoundation;</code></p>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;:"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">AVAuthorizationStatus</span> <span class="built_in">AVstatus</span> = [<span class="built_in">AVCaptureDevice</span> authorizationStatusForMediaType:<span class="built_in">AVMediaTypeVideo</span>];<span class="comment">//&#x76F8;&#x673A;&#x6743;&#x9650;</span></div><div class="line"><span class="built_in">AVAuthorizationStatus</span> <span class="built_in">AVstatus</span> = [<span class="built_in">AVCaptureDevice</span> authorizationStatusForMediaType:<span class="built_in">AVMediaTypeAudio</span>];<span class="comment">//&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;</span></div><div class="line"></div><div class="line"><span class="keyword">switch</span> (<span class="built_in">AVstatus</span>) {</div><div class="line">  <span class="keyword">case</span> <span class="built_in">AVAuthorizationStatusAuthorized</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">AVAuthorizationStatusDenied</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">AVAuthorizationStatusNotDetermined</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="built_in">AVAuthorizationStatusRestricted</span>:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;"><a href="#&#x83B7;&#x53D6;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;" class="headerlink" title="&#x83B7;&#x53D6;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;:"></a>&#x83B7;&#x53D6;&#x76F8;&#x673A;&#x6216;&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">[<span class="built_in">AVCaptureDevice</span> requestAccessForMediaType:<span class="built_in">AVMediaTypeVideo</span> completionHandler:^(<span class="built_in">BOOL</span> granted) {<span class="comment">//&#x76F8;&#x673A;&#x6743;&#x9650;</span></div><div class="line">  <span class="keyword">if</span> (granted) {</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">  }<span class="keyword">else</span>{</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied or Restricted&quot;</span>);</div><div class="line">  }</div><div class="line">}];</div><div class="line"></div><div class="line">[<span class="built_in">AVCaptureDevice</span> requestAccessForMediaType:<span class="built_in">AVMediaTypeAudio</span> completionHandler:^(<span class="built_in">BOOL</span> granted) {<span class="comment">//&#x9EA6;&#x514B;&#x98CE;&#x6743;&#x9650;</span></div><div class="line">  <span class="keyword">if</span> (granted) {</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">  }<span class="keyword">else</span>{</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied or Restricted&quot;</span>);</div><div class="line">  }</div><div class="line">}];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="V-&#x76F8;&#x518C;&#x6743;&#x9650;"><a href="#V-&#x76F8;&#x518C;&#x6743;&#x9650;" class="headerlink" title="V. &#x76F8;&#x518C;&#x6743;&#x9650;"></a>V. &#x76F8;&#x518C;&#x6743;&#x9650;</h3><hr>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x518C;&#x6743;&#x9650;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x518C;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x518C;&#x6743;&#x9650;"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x76F8;&#x518C;&#x6743;&#x9650;</h4><p><strong>iOS 9.0&#x4E4B;&#x524D;</strong><br>&#x5BFC;&#x5165;&#x5934;&#x6587;&#x4EF6;<code>@import AssetsLibrary;</code></p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];</div><div class="line"><span class="keyword">switch</span> (status) {</div><div class="line">  <span class="keyword">case</span> ALAuthorizationStatusAuthorized:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> ALAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> ALAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> ALAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line"></div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><strong>iOS 8.0&#x4E4B;&#x540E;</strong><br>&#x5BFC;&#x5165;&#x5934;&#x6587;&#x4EF6;<code>@import Photos;</code><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">PHAuthorizationStatus photoAuthorStatus = [PHPhotoLibrary authorizationStatus];</div><div class="line"><span class="keyword">switch</span> (photoAuthorStatus) {</div><div class="line">  <span class="keyword">case</span> PHAuthorizationStatusAuthorized:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> PHAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> PHAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> PHAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x6743;&#x9650;"><a href="#&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x6743;&#x9650;" class="headerlink" title="&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x6743;&#x9650;"></a>&#x83B7;&#x53D6;&#x76F8;&#x518C;&#x6743;&#x9650;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">[PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {</div><div class="line">  <span class="keyword">if</span> (status == PHAuthorizationStatusAuthorized) {</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">  }<span class="keyword">else</span>{</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied or Restricted&quot;</span>);</div><div class="line">  }</div><div class="line">}];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="VI-&#x5B9A;&#x4F4D;&#x6743;&#x9650;"><a href="#VI-&#x5B9A;&#x4F4D;&#x6743;&#x9650;" class="headerlink" title="VI.&#x5B9A;&#x4F4D;&#x6743;&#x9650;"></a>VI.&#x5B9A;&#x4F4D;&#x6743;&#x9650;</h3><hr>
+<p>&#x5BFC;&#x5165;&#x5934;&#x6587;&#x4EF6;<code>@import CoreLocation;</code></p>
+<p>&#x7531;&#x4E8E;iOS8.0&#x4E4B;&#x540E;&#x5B9A;&#x4F4D;&#x65B9;&#x6CD5;&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x9700;&#x8981;&#x5728;<code>info.plist</code>&#x4E2D;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF1B;<br><img src="/posts/17&#x7CFB;&#x7EDF;&#x9002;&#x914D;/../../img/19010127.png" alt=""></p>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5B9A;&#x4F4D;&#x6743;&#x9650;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5B9A;&#x4F4D;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5B9A;&#x4F4D;&#x6743;&#x9650;:"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5B9A;&#x4F4D;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">BOOL</span> isLocation = [<span class="built_in">CLLocationManager</span> locationServicesEnabled];</div><div class="line"><span class="keyword">if</span> (!isLocation) {</div><div class="line">  <span class="built_in">NSLog</span>(<span class="string">@&quot;not turn on the location&quot;</span>);</div><div class="line">}</div><div class="line"><span class="built_in">CLAuthorizationStatus</span> <span class="built_in">CLstatus</span> = [<span class="built_in">CLLocationManager</span> authorizationStatus];</div><div class="line"><span class="keyword">switch</span> (<span class="built_in">CLstatus</span>) {</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusAuthorizedAlways:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Always Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusAuthorizedWhenInUse:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;AuthorizedWhenInUse&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x6743;&#x9650;"><a href="#&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x6743;&#x9650;" class="headerlink" title="&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x6743;&#x9650;:"></a>&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">CLLocationManager</span> *manager = [[<span class="built_in">CLLocationManager</span> alloc] init];</div><div class="line"><span class="comment">// &#x4E00;&#x76F4;&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x4FE1;&#x606F;</span></div><div class="line">[manager requestAlwaysAuthorization];</div><div class="line"><span class="comment">// &#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x83B7;&#x53D6;&#x5B9A;&#x4F4D;&#x4FE1;&#x606F;</span></div><div class="line">[manager requestWhenInUseAuthorization];</div><div class="line">* &#x5728;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x4E2D;&#x67E5;&#x770B;&#x6743;&#x9650;&#x662F;&#x5426;&#x6539;&#x53D8;</div><div class="line">- (<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didChangeAuthorizationStatus:(<span class="built_in">CLAuthorizationStatus</span>)status{</div><div class="line"><span class="keyword">switch</span> (status) {</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusAuthorizedAlways:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Always Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusAuthorizedWhenInUse:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;AuthorizedWhenInUse&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> kCLAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="&#x2166;-&#x65E5;&#x5386;&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;"><a href="#&#x2166;-&#x65E5;&#x5386;&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="&#x2166;. &#x65E5;&#x5386;&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;"></a>&#x2166;. &#x65E5;&#x5386;&#x3001;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;</h3><hr>
+<h4 id="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x65E5;&#x5386;&#x6216;&#x8005;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;"><a href="#&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x65E5;&#x5386;&#x6216;&#x8005;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x65E5;&#x5386;&#x6216;&#x8005;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;:"></a>&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x65E5;&#x5386;&#x6216;&#x8005;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSUInteger</span>, EKEntityType) {</div><div class="line">  EKEntityTypeEvent,<span class="comment">//&#x65E5;&#x5386;</span></div><div class="line">  EKEntityTypeReminder <span class="comment">//&#x5907;&#x5FD8;</span></div><div class="line">};</div><div class="line"></div><div class="line">EKAuthorizationStatus EKstatus = [EKEventStore  authorizationStatusForEntityType:EKEntityTypeEvent];</div><div class="line"><span class="keyword">switch</span> (EKstatus) {</div><div class="line">  <span class="keyword">case</span> EKAuthorizationStatusAuthorized:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> EKAuthorizationStatusDenied:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied&apos;&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> EKAuthorizationStatusNotDetermined:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;not Determined&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> EKAuthorizationStatusRestricted:</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Restricted&quot;</span>);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;&#x65E5;&#x5386;&#x6216;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;"><a href="#&#x83B7;&#x53D6;&#x65E5;&#x5386;&#x6216;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;" class="headerlink" title="&#x83B7;&#x53D6;&#x65E5;&#x5386;&#x6216;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;:"></a>&#x83B7;&#x53D6;&#x65E5;&#x5386;&#x6216;&#x5907;&#x5FD8;&#x5F55;&#x6743;&#x9650;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">EKEventStore *store = [[EKEventStore alloc]init];</div><div class="line">[store requestAccessToEntityType:EKEntityTypeEvent completion:^(<span class="built_in">BOOL</span> granted, <span class="built_in">NSError</span> * _Nullable error) {</div><div class="line">  <span class="keyword">if</span> (granted) {</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Authorized&quot;</span>);</div><div class="line">  }<span class="keyword">else</span>{</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@&quot;Denied or Restricted&quot;</span>);</div><div class="line">  }</div><div class="line">}];</div></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/系统方法/" rel="tag"><i class="fa fa-tag"></i>系统方法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/02UI知识/Label 下划线.html" rel="next" title="iOS开发 - 给Label加下划线、中划线">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 给Label加下划线、中划线
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/17系统适配/应用间跳转.html" rel="prev" title="iOS开发 - APP 应用之间跳转、传值">
+                iOS开发 - APP 应用之间跳转、传值 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/17系统适配/系统权限.html"
+           data-title="iOS开发 - APP 系统权限的查询" data-url="http://www.licheng244.com/posts/17系统适配/系统权限.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">108</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-权限分类"><span class="nav-text">I. 权限分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-推送权限"><span class="nav-text">II. 推送权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有推送权限："><span class="nav-text">检查是否有推送权限：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取推送权限："><span class="nav-text">获取推送权限：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-通讯录权限"><span class="nav-text">III. 通讯录权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有通讯录权限"><span class="nav-text">检查是否有通讯录权限:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取通讯录权限"><span class="nav-text">获取通讯录权限:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-联网权限"><span class="nav-text">III. 联网权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检测应用中是否有联网权限"><span class="nav-text">检测应用中是否有联网权限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-相机和麦克风权限"><span class="nav-text">IV. 相机和麦克风权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有相机或麦克风权限"><span class="nav-text">检查是否有相机或麦克风权限:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取相机或麦克风权限"><span class="nav-text">获取相机或麦克风权限:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-相册权限"><span class="nav-text">V. 相册权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有相册权限"><span class="nav-text">检查是否有相册权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取相册权限"><span class="nav-text">获取相册权限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VI-定位权限"><span class="nav-text">VI.定位权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有定位权限"><span class="nav-text">检查是否有定位权限:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取定位权限"><span class="nav-text">获取定位权限:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅶ-日历、备忘录权限"><span class="nav-text">Ⅶ. 日历、备忘录权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否有日历或者备忘录权限"><span class="nav-text">检查是否有日历或者备忘录权限:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取日历或备忘录权限"><span class="nav-text">获取日历或备忘录权限:</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

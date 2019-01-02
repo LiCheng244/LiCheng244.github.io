@@ -1,0 +1,1154 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="系统方法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5B9E;&amp;#x73B0;app&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x8DF3;&amp;#x8F6C;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x4E24;&amp;#x65B9;&amp;#x9762;: 1.&amp;#x5B9E;&amp;#x73B0;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;; 2. &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - APP 应用之间跳转、传值">
+<meta property="og:url" content="http://www.licheng244.com/posts/17系统适配/应用间跳转.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5B9E;&amp;#x73B0;app&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x8DF3;&amp;#x8F6C;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x4E24;&amp;#x65B9;&amp;#x9762;: 1.&amp;#x5B9E;&amp;#x73B0;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;; 2. &amp;">
+<meta property="og:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010124.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010125.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010126.png">
+<meta property="og:updated_time" content="2019-01-02T08:12:38.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - APP 应用之间跳转、传值">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:&amp;#x5B9E;&amp;#x73B0;app&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x8DF3;&amp;#x8F6C;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x4E24;&amp;#x65B9;&amp;#x9762;: 1.&amp;#x5B9E;&amp;#x73B0;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;; 2. &amp;">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/17系统适配/../../img/19010124.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/17系统适配/应用间跳转.html"/>
+
+
+  <title> iOS开发 - APP 应用之间跳转、传值 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - APP 应用之间跳转、传值
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T12:00:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-17【-系统适配-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__17【 系统适配 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/17系统适配/应用间跳转.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/17系统适配/应用间跳转.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/17系统适配/应用间跳转.html" class="leancloud_visitors" data-flag-title="iOS开发 - APP 应用之间跳转、传值">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>&#x5B9E;&#x73B0;app&#x4E4B;&#x95F4;&#x7684;&#x8DF3;&#x8F6C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x4E24;&#x65B9;&#x9762;: 1.&#x5B9E;&#x73B0;&#x8DF3;&#x8F6C;&#x7684;&#x4EE3;&#x7801;; 2. &#x914D;&#x7F6E;url&#x53CA;url&#x767D;&#x540D;&#x5355;&#x3002;</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-&#x914D;&#x7F6E;url"><a href="#I-&#x914D;&#x7F6E;url" class="headerlink" title="I.&#x914D;&#x7F6E;url"></a>I.&#x914D;&#x7F6E;url</h3><hr>
+<p>&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x5DE5;&#x7A0B;&#x5206;&#x522B;&#x53EB;MyApp&#x548C;YourApp&#xFF0C; &#x8BBE;&#x7F6E;MyApp&#x7684;url&#xFF0C;&#x8BBE;&#x7F6E;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x79CD;&#x90FD;&#x662F;&#x7B49;&#x6548;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;: </p>
+<p><strong>&#x5728;&#x89C6;&#x56FE;&#x4E2D;&#x8BBE;&#x7F6E;&#xFF1A;</strong><br><img src="/posts/17&#x7CFB;&#x7EDF;&#x9002;&#x914D;/../../img/19010124.png" alt=""></p>
+<p><strong>&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8BBE;&#x7F6E;:</strong><br><img src="/posts/17&#x7CFB;&#x7EDF;&#x9002;&#x914D;/../../img/19010125.png" alt=""></p>
+<p><br></p>
+<h3 id="II-&#x8BBE;&#x7F6E;MyApp&#x7684;&#x767D;&#x540D;&#x5355;"><a href="#II-&#x8BBE;&#x7F6E;MyApp&#x7684;&#x767D;&#x540D;&#x5355;" class="headerlink" title="II. &#x8BBE;&#x7F6E;MyApp&#x7684;&#x767D;&#x540D;&#x5355;"></a>II. &#x8BBE;&#x7F6E;MyApp&#x7684;&#x767D;&#x540D;&#x5355;</h3><hr>
+<p>&#x5728;<code>info.plist</code>&#x4E2D;&#x6DFB;&#x52A0;<code>LSApplicationQueriesSchemes</code>&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x542B;&#x6709;&#x4E00;&#x4E2A;string&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5373;&#x4E3A;&#x4F60;&#x8981;&#x8DF3;&#x8F6C;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;App&#x7684;url&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp&#xFF0C;&#x6211;&#x4EEC;&#x628A;YourApp&#x7684;url&#x8BBE;&#x7F6E;&#x4E3A;your&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8981;&#x5199;&#x5165;YourApp&#x7684;url&#x201C;your&#x201D; : </p>
+<p><img src="/posts/17&#x7CFB;&#x7EDF;&#x9002;&#x914D;/../../img/19010126.png" alt=""></p>
+<p><br></p>
+<h3 id="III-&#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp"><a href="#III-&#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp" class="headerlink" title="III. &#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp"></a>III. &#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)gotoYoueApp:(<span class="built_in">UIButton</span> *)sender {</div><div class="line">    <span class="comment">// 1.&#x83B7;&#x53D6;application&#x5BF9;&#x8C61;</span></div><div class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</div><div class="line"></div><div class="line">    <span class="comment">// 2.&#x521B;&#x5EFA;&#x8981;&#x6253;&#x5F00;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;URL</span></div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;your://&quot;</span>];</div><div class="line"></div><div class="line">    <span class="comment">// 3.&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#x53E6;&#x4E00;&#x4E2A;&#x5E94;&#x7528;</span></div><div class="line">    <span class="keyword">if</span> ([app canOpenURL:url]) {</div><div class="line">        <span class="comment">// &#x80FD;&#xFF0C;&#x5C31;&#x6253;&#x5F00;</span></div><div class="line">        [app openURL:url];</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x5931;&#x8D25;&quot;</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="IV-&#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp&#x7684;&#x6307;&#x5B9A;&#x9875;&#x9762;"><a href="#IV-&#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp&#x7684;&#x6307;&#x5B9A;&#x9875;&#x9762;" class="headerlink" title="IV. &#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp&#x7684;&#x6307;&#x5B9A;&#x9875;&#x9762;"></a>IV. &#x4ECE;MyApp&#x8DF3;&#x8F6C;&#x5230;YourApp&#x7684;&#x6307;&#x5B9A;&#x9875;&#x9762;</h3><hr>
+<p><strong>MyApp&#x8DF3;&#x8F6C;:</strong><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)gotoYoueApp:(<span class="built_in">UIButton</span> *)sender {</div><div class="line">    <span class="comment">// 1.&#x83B7;&#x53D6;application&#x5BF9;&#x8C61;</span></div><div class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</div><div class="line"></div><div class="line">    <span class="comment">// 2.&#x521B;&#x5EFA;&#x8981;&#x6253;&#x5F00;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;URL</span></div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;your://aaa&quot;</span>]; <span class="comment">// &#x8BB0;&#x5F97;&#x4F20;&#x6807;&#x8BB0;</span></div><div class="line"></div><div class="line">    <span class="comment">// 3.&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#x53E6;&#x4E00;&#x4E2A;&#x5E94;&#x7528;</span></div><div class="line">    <span class="keyword">if</span> ([app canOpenURL:url]) {</div><div class="line">        <span class="comment">// &#x80FD;&#xFF0C;&#x5C31;&#x6253;&#x5F00;</span></div><div class="line">        [app openURL:url];</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x5931;&#x8D25;&quot;</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><strong>YourApp&#x63A5;&#x6536;:</strong><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">//&#x7528;&#x4E8E;&#x54CD;&#x5E94;&#x4ECE;URL&#x8DF3;&#x8F6C;&#x8FC7;&#x6765;&#x7684;&#x65B9;&#x6CD5;</span></div><div class="line">-(<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application openURL:(<span class="built_in">NSURL</span> *)url sourceApplication:(<span class="built_in">NSString</span> *)sourceApplication annotation:(<span class="keyword">id</span>)annotation</div><div class="line">{</div><div class="line">    <span class="comment">//&#x83B7;&#x53D6;window&#x4E2D;&#x52A0;&#x8F7D;&#x7684;&#x6839;&#x89C6;&#x56FE;,&#x4E5F;&#x5C31;&#x662F;&#x90A3;&#x4E2A;&#x5BFC;&#x822A;</span></div><div class="line">    <span class="built_in">UINavigationController</span> *navi = (<span class="built_in">UINavigationController</span> *)<span class="keyword">self</span>.window.rootViewController;</div><div class="line">    ViewController *vc = (ViewController *)navi.topViewController;</div><div class="line"></div><div class="line">    <span class="comment">//1.&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x7684;URL&#x5730;&#x5740;</span></div><div class="line">    <span class="built_in">NSString</span> *absoluteStr = [url absoluteString];</div><div class="line">    <span class="built_in">NSString</span> *host = url.host; <span class="comment">// &#x83B7;&#x53D6;&#x6807;&#x8BB0;</span></div><div class="line"></div><div class="line">    <span class="comment">//2.&#x5224;&#x65AD;&#x5730;&#x5740;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x4FE1;&#x606F;&#x4E3A;bbb&#x5219;&#x6253;&#x5F00;&#x7B2C;&#x4E8C;&#x4E2A;&#x9875;&#x9762;</span></div><div class="line">    <span class="keyword">if</span> ([urlString hasPrefix:<span class="string">@&quot;your://bbb&quot;</span>])</div><div class="line">    {</div><div class="line">        [vc performSegueWithIdentifier:<span class="string">@&quot;pushWhiteSegue&quot;</span> sender:<span class="literal">nil</span>];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="V-&#x4ECE;YourApp&#x4F7F;&#x7528;&#x8DF3;&#x8F6C;url&#x7684;&#x65B9;&#x5F0F;&#x8DF3;&#x56DE;MyApp"><a href="#V-&#x4ECE;YourApp&#x4F7F;&#x7528;&#x8DF3;&#x8F6C;url&#x7684;&#x65B9;&#x5F0F;&#x8DF3;&#x56DE;MyApp" class="headerlink" title="V. &#x4ECE;YourApp&#x4F7F;&#x7528;&#x8DF3;&#x8F6C;url&#x7684;&#x65B9;&#x5F0F;&#x8DF3;&#x56DE;MyApp"></a>V. &#x4ECE;YourApp&#x4F7F;&#x7528;&#x8DF3;&#x8F6C;url&#x7684;&#x65B9;&#x5F0F;&#x8DF3;&#x56DE;MyApp</h3><hr>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)goBackMyApp:(<span class="keyword">id</span>)sender {</div><div class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;my://&quot;</span>];</div><div class="line">    <span class="keyword">if</span> ([app canOpenURL:url]) {</div><div class="line">        [app openURL:url];</div><div class="line">    }<span class="keyword">else</span>{</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@&quot;&#x8DF3;&#x56DE;&#x5230;myapp&#x5931;&#x8D25;&quot;</span>);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="VI-&#x5E38;&#x7528;&#x7684;URL-Scheme"><a href="#VI-&#x5E38;&#x7528;&#x7684;URL-Scheme" class="headerlink" title="VI. &#x5E38;&#x7528;&#x7684;URL Scheme"></a>VI. &#x5E38;&#x7528;&#x7684;URL Scheme</h3><hr>
+<h4 id="&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;"><a href="#&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;" class="headerlink" title="&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;"></a>&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;</h4><table>
+<thead>
+<tr>
+<th>&#x540D;&#x79F0;</th>
+<th>URL Scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Safari&#xFF1A;</td>
+<td>http://</td>
+</tr>
+<tr>
+<td>maps&#xFF1A;</td>
+<td><a href="http://maps.google.com" target="_blank" rel="external">http://maps.google.com</a></td>
+</tr>
+<tr>
+<td>Phone&#xFF1A;</td>
+<td>tel:</td>
+</tr>
+<tr>
+<td>SMS&#xFF1A;</td>
+<td>sms:</td>
+</tr>
+<tr>
+<td>Mail&#xFF1A;</td>
+<td>mailto:</td>
+</tr>
+<tr>
+<td>iBooks&#xFF1A;</td>
+<td>ibooks://</td>
+</tr>
+<tr>
+<td>App Store&#xFF1A;</td>
+<td><a href="http://itunes.apple.com" target="_blank" rel="external">http://itunes.apple.com</a></td>
+</tr>
+<tr>
+<td>iTunes&#xFF1A;</td>
+<td>http:<a href="http://phobos.apple.com" target="_blank" rel="external">http://phobos.apple.com</a></td>
+</tr>
+<tr>
+<td>Music / iPod&#xFF1A;</td>
+<td>music:</td>
+</tr>
+<tr>
+<td>Videos&#xFF1A;</td>
+<td>videos:</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x7B2C;&#x4E09;&#x65B9;&#x8F6F;&#x4EF6;"><a href="#&#x7B2C;&#x4E09;&#x65B9;&#x8F6F;&#x4EF6;" class="headerlink" title="&#x7B2C;&#x4E09;&#x65B9;&#x8F6F;&#x4EF6;"></a>&#x7B2C;&#x4E09;&#x65B9;&#x8F6F;&#x4EF6;</h4><table>
+<thead>
+<tr>
+<th>&#x540D;&#x79F0;</th>
+<th>URL Scheme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QQ&#xFF1A;</td>
+<td>mqq://</td>
+</tr>
+<tr>
+<td>&#x5FAE;&#x4FE1;&#xFF1A;</td>
+<td>weixin://</td>
+</tr>
+<tr>
+<td>&#x817E;&#x8BAF;&#x5FAE;&#x535A;&#xFF1A;</td>
+<td>TencentWeibo://</td>
+</tr>
+<tr>
+<td>&#x6DD8;&#x5B9D;&#xFF1A;</td>
+<td>taobao://</td>
+</tr>
+<tr>
+<td>&#x652F;&#x4ED8;&#x5B9D;&#xFF1A;</td>
+<td>alipay://</td>
+</tr>
+<tr>
+<td>&#x5FAE;&#x535A;&#xFF1A;</td>
+<td>sinaweibo://</td>
+</tr>
+<tr>
+<td>weico&#x5FAE;&#x535A;&#xFF1A;</td>
+<td>weico://</td>
+</tr>
+<tr>
+<td>QQ&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</td>
+<td>mqqbrowser://</td>
+</tr>
+<tr>
+<td>uc&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</td>
+<td>ucbrowser://</td>
+</tr>
+<tr>
+<td>&#x6D77;&#x8C5A;&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</td>
+<td>dolphin://</td>
+</tr>
+<tr>
+<td>&#x6B27;&#x670B;&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</td>
+<td>o<a href="http://&#xFF08;&#x540E;&#x8981;&#x63A5;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x7136;&#x51FA;&#x9519;&#xFF09;" target="_blank" rel="external">http://&#xFF08;&#x540E;&#x8981;&#x63A5;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x7136;&#x51FA;&#x9519;&#xFF09;</a></td>
+</tr>
+<tr>
+<td>&#x641C;&#x72D7;&#x6D4F;&#x89C8;&#x5668;&#xFF1A;</td>
+<td>SogouMSE://</td>
+</tr>
+<tr>
+<td>&#x767E;&#x5EA6;&#x5730;&#x56FE;&#xFF1A;</td>
+<td>baidumap:// bdmap://</td>
+</tr>
+<tr>
+<td>Chrome&#xFF1A;</td>
+<td>googlechrome://</td>
+</tr>
+<tr>
+<td>&#x4F18;&#x9177;&#xFF1A;</td>
+<td>youku://</td>
+</tr>
+<tr>
+<td>&#x4EAC;&#x4E1C;&#xFF1A;</td>
+<td>openapp.jdmoble://</td>
+</tr>
+<tr>
+<td>&#x4EBA;&#x4EBA;&#xFF1A;</td>
+<td>renren://</td>
+</tr>
+<tr>
+<td>&#x7F8E;&#x56E2;&#xFF1A;</td>
+<td>imeituan://</td>
+</tr>
+<tr>
+<td>1&#x53F7;&#x5E97;&#xFF1A;</td>
+<td>wccbyihaodian://</td>
+</tr>
+<tr>
+<td>&#x6211;&#x67E5;&#x67E5;&#xFF1A;</td>
+<td>wcc://</td>
+</tr>
+<tr>
+<td>&#x6709;&#x9053;&#x8BCD;&#x5178;&#xFF1A;</td>
+<td>yddictproapp://</td>
+</tr>
+<tr>
+<td>&#x77E5;&#x4E4E;&#xFF1A;</td>
+<td>zhihu://</td>
+</tr>
+<tr>
+<td>&#x70B9;&#x8BC4;&#xFF1A;</td>
+<td>dianping://  dianping://search</td>
+</tr>
+<tr>
+<td>&#x5FAE;&#x76D8;&#xFF1A;</td>
+<td>sinavdisk://</td>
+</tr>
+<tr>
+<td>&#x8C46;&#x74E3;fm&#xFF1A;</td>
+<td>doubanradio://</td>
+</tr>
+<tr>
+<td>&#x7F51;&#x6613;&#x516C;&#x5F00;&#x8BFE;&#xFF1A;</td>
+<td>ntesopen://</td>
+</tr>
+<tr>
+<td>&#x540D;&#x7247;&#x5168;&#x80FD;&#x738B;&#xFF1A;</td>
+<td>camcard://</td>
+</tr>
+<tr>
+<td>&#x6DD8;&#x5B9D;&#x5B9D;&#x8D1D;&#x641C;&#x7D22;</td>
+<td>taobao://<a href="http://s.taobao.com/?q=[prompt" target="_blank" rel="external">http://s.taobao.com/?q=[prompt</a>]</td>
+</tr>
+<tr>
+<td>&#x6DD8;&#x5B9D;&#x5E97;&#x94FA;&#x641C;&#x7D22;</td>
+<td>taobao://<a href="http://shopsearch.taobao.com/browse/shop_search.htm?q=[prompt" target="_blank" rel="external">http://shopsearch.taobao.com/browse/shop_search.htm?q=[prompt</a>]</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/系统方法/" rel="tag"><i class="fa fa-tag"></i>系统方法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/17系统适配/系统权限.html" rel="next" title="iOS开发 - APP 系统权限的查询">
+                <i class="fa fa-chevron-left"></i> iOS开发 - APP 系统权限的查询
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/17系统适配/获取手机信息.html" rel="prev" title="iOS开发 -  获取手机各种信息">
+                iOS开发 -  获取手机各种信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/17系统适配/应用间跳转.html"
+           data-title="iOS开发 - APP 应用之间跳转、传值" data-url="http://www.licheng244.com/posts/17系统适配/应用间跳转.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">108</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-配置url"><span class="nav-text">I.配置url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-设置MyApp的白名单"><span class="nav-text">II. 设置MyApp的白名单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-从MyApp跳转到YourApp"><span class="nav-text">III. 从MyApp跳转到YourApp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-从MyApp跳转到YourApp的指定页面"><span class="nav-text">IV. 从MyApp跳转到YourApp的指定页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-从YourApp使用跳转url的方式跳回MyApp"><span class="nav-text">V. 从YourApp使用跳转url的方式跳回MyApp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VI-常用的URL-Scheme"><span class="nav-text">VI. 常用的URL Scheme</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#系统自带"><span class="nav-text">系统自带</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三方软件"><span class="nav-text">第三方软件</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

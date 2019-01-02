@@ -1,0 +1,1014 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="tag," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;:Charles&amp;#x4E3B;&amp;#x8981;&amp;#x7684;&amp;#x529F;&amp;#x80FD;:1.&amp;#x622A;&amp;#x53D6;Http&amp;#x3001;Https&amp;#x7F51;&amp;#x7EDC;&amp;#x8BF7;&amp;#x6C42;&amp;#x5185;&amp;#x5BB9;2.&amp;#x652F;&amp;#x6301;&amp;#x4FEE;&amp;#x6539;&amp;#x7F51;&amp;#x7EDC;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 -  开发者必会的 Charles">
+<meta property="og:url" content="http://www.licheng244.com/posts/20开发工具/Charles.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;:Charles&amp;#x4E3B;&amp;#x8981;&amp;#x7684;&amp;#x529F;&amp;#x80FD;:1.&amp;#x622A;&amp;#x53D6;Http&amp;#x3001;Https&amp;#x7F51;&amp;#x7EDC;&amp;#x8BF7;&amp;#x6C42;&amp;#x5185;&amp;#x5BB9;2.&amp;#x652F;&amp;#x6301;&amp;#x4FEE;&amp;#x6539;&amp;#x7F51;&amp;#x7EDC;">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010128.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010129.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010130.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010131.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010132.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010133.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010134.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010135.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010136.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010137.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010138.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010139.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010140.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010141.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010142.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010143.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010144.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010145.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010146.jpg">
+<meta property="og:updated_time" content="2019-01-02T09:35:37.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 -  开发者必会的 Charles">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:Charles&amp;#x4E3B;&amp;#x8981;&amp;#x7684;&amp;#x529F;&amp;#x80FD;:1.&amp;#x622A;&amp;#x53D6;Http&amp;#x3001;Https&amp;#x7F51;&amp;#x7EDC;&amp;#x8BF7;&amp;#x6C42;&amp;#x5185;&amp;#x5BB9;2.&amp;#x652F;&amp;#x6301;&amp;#x4FEE;&amp;#x6539;&amp;#x7F51;&amp;#x7EDC;">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/20开发工具/../../img/19010128.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/20开发工具/Charles.html"/>
+
+
+  <title> iOS开发 -  开发者必会的 Charles | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 -  开发者必会的 Charles
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-01-01T00:00:00+08:00" content="2019-01-01">
+              2019-01-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-20【-开发工具-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__20【 开发工具 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/20开发工具/Charles.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/20开发工具/Charles.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/20开发工具/Charles.html" class="leancloud_visitors" data-flag-title="iOS开发 -  开发者必会的 Charles">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;:</strong><br>Charles&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;:<br>1.&#x622A;&#x53D6;Http&#x3001;Https&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5185;&#x5BB9;<br>2.&#x652F;&#x6301;&#x4FEE;&#x6539;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF0C;&#x65B9;&#x4FBF;&#x8C03;&#x8BD5;<br>3.&#x652F;&#x6301;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x7684;&#x622A;&#x53D6; &#x5E76;&#x52A8;&#x6001;&#x4FEE;&#x6539;</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010128.jpg" alt=""></p>
+<p><br></p>
+<h3 id="I-&#x5C06;-Charles-&#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;"><a href="#I-&#x5C06;-Charles-&#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;" class="headerlink" title="I. &#x5C06; Charles &#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;"></a>I. &#x5C06; Charles &#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;</h3><hr>
+<p>&#x542F;&#x52A8; Charles &#x540E;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21; Charles &#x4F1A;&#x8BF7;&#x6C42;&#x4F60;&#x7ED9;&#x5B83;&#x8BBE;&#x7F6E;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;&#x7684;&#x6743;&#x9650;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x767B;&#x5F55;&#x5BC6;&#x7801;&#x6388;&#x4E88; Charles &#x8BE5;&#x6743;&#x9650;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8BE5;&#x8BF7;&#x6C42;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9700;&#x8981;&#x5C06; Charles &#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;&#x65F6;&#xFF0C;&#x9009;&#x62E9;&#x83DC;&#x5355;&#x4E2D;&#x7684;<code>&#x201C;Proxy&#x201D; -&gt; &#x201C;Mac OS X Proxy&#x201D;</code> &#x6765;&#x5C06; Charles &#x8BBE;&#x7F6E;&#x6210;&#x7CFB;&#x7EDF;&#x4EE3;&#x7406;&#x3002;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010129.jpg" alt=""></p>
+<p>&#x5176;&#x4E2D;Charles &#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E24;&#x79CD;&#x67E5;&#x770B;&#x5C01;&#x5305;&#x7684;&#x89C6;&#x56FE;&#xFF0C;&#x5206;&#x522B;&#x540D;&#x4E3A; <code>&#x201C;Structure&#x201D;</code> &#x548C; <code>&#x201C;Sequence&#x201D;</code>&#x3002;</p>
+<p><strong>Structure:</strong> &#x89C6;&#x56FE;&#x5C06;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6309;&#x8BBF;&#x95EE;&#x7684;&#x57DF;&#x540D;&#x5206;&#x7C7B;&#x3002;<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010130.jpg" alt=""></p>
+<p><strong>Sequence:</strong> &#x89C6;&#x56FE;&#x5C06;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6309;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x95F4;&#x6392;&#x5E8F;&#x3002;<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010131.jpg" alt=""></p>
+<p><br></p>
+<h3 id="II-&#x8FC7;&#x6EE4;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;"><a href="#II-&#x8FC7;&#x6EE4;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;" class="headerlink" title="II. &#x8FC7;&#x6EE4;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;"></a>II. &#x8FC7;&#x6EE4;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</h3><hr>
+<p>&#x5728;Filter &#x680F;&#x4E2D;&#x586B;&#x5165;&#x9700;&#x8981;&#x8FC7;&#x6EE4;&#x51FA;&#x6765;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF08;&#x53EF;&#x6A21;&#x7CCA;&#x641C;&#x7D22;&#xFF09;:<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010132.jpg" alt=""></p>
+<p>&#x6BD4;&#x5982;:<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010133.jpg" alt=""></p>
+<p><br></p>
+<h3 id="III-&#x6A21;&#x62DF;&#x6162;&#x901F;&#x7F51;&#x7EDC;"><a href="#III-&#x6A21;&#x62DF;&#x6162;&#x901F;&#x7F51;&#x7EDC;" class="headerlink" title="III. &#x6A21;&#x62DF;&#x6162;&#x901F;&#x7F51;&#x7EDC;"></a>III. &#x6A21;&#x62DF;&#x6162;&#x901F;&#x7F51;&#x7EDC;</h3><hr>
+<p>&#x5728; Charles &#x7684;&#x83DC;&#x5355;&#x4E0A;&#xFF0C;&#x9009;&#x62E9;<code>Proxy -&gt;Throttle Setting-&gt;Enable Throttling</code>:<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010134.jpg" alt=""></p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53EA;&#x60F3;&#x6A21;&#x62DF;&#x6307;&#x5B9A;&#x7F51;&#x7AD9;&#x7684;&#x6162;&#x901F;&#x7F51;&#x7EDC;&#xFF0C;&#x53EF;&#x4EE5;&#x518D;&#x52FE;&#x9009;&#x4E0A;&#x56FE;&#x4E2D;&#x7684;<code>&#x201C;Only for selected hosts&#x201D;</code>&#x9879;&#x5373;&#x53EF;&#x3002;</p>
+<p><br></p>
+<h3 id="IV-&#x4FEE;&#x6539;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5185;&#x5BB9;"><a href="#IV-&#x4FEE;&#x6539;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5185;&#x5BB9;" class="headerlink" title="IV. &#x4FEE;&#x6539;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5185;&#x5BB9;"></a>IV. &#x4FEE;&#x6539;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x5185;&#x5BB9;</h3><hr>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x8BE5;&#x8BF7;&#x6C42;&#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC; URL &#x5730;&#x5740;&#x3001;&#x53C2;&#x6570;&#x7B49;&#xFF0C;&#x4E4B;&#x540E;&#x70B9;&#x51FB; &#x201C;Execute&#x201D; &#x5373;&#x53EF;&#x53D1;&#x9001;&#x8BE5;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF08;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF09;&#x3002;Charles &#x652F;&#x6301;&#x6211;&#x4EEC;&#x591A;&#x6B21;&#x4FEE;&#x6539;&#x548C;&#x53D1;&#x9001;&#x8BE5;&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8C03;&#x8BD5;&#x63A5;&#x53E3;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010135.jpg" alt=""></p>
+<p><br></p>
+<h3 id="V-&#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;"><a href="#V-&#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;" class="headerlink" title="V. &#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;"></a>V. &#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;</h3><hr>
+<p>&#x7406;&#x7531;:iOS&#x524D;&#x7AEF;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x72EC;&#x7ACB;&#x5B8C;&#x6210;&#x6D4B;&#x8BD5;&#x800C;&#x4E0D;&#x7528;&#x62C9;&#x8FC7;&#x6765;&#x4E00;&#x4E2A;&#x540E;&#x7AEF;&#x4E00;&#x8D77;&#x8054;&#x8C03;&#x3002;&#x5E76;&#x4E14;&#x5404;&#x79CD;&#x7279;&#x6B8A;&#x7EF4;&#x5EA6;&#xFF0C;&#x6216;&#x662F;&#x4E34;&#x754C;&#x7684;&#x8D26;&#x53F7;&#x4E5F;&#x4E0D;&#x7528;&#x518D;&#x53BB;&#x8F9B;&#x82E6;&#x627E;&#x4E86;&#xFF0C;&#x4EC5;&#x4EC5;&#x81EA;&#x5DF1;&#x5728;&#x9752;&#x82B1;&#x74F7;&#x4E0A;&#x6539;&#x6765;&#x6539;&#x53BB;&#x5C31;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x6548;&#x679C;&#x4E86;&#x3002;&#x6BD4;&#x5982;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x4E86;nil&#x7A0B;&#x5E8F;&#x4F1A;&#x4E0D;&#x4F1A;&#x5D29;&#xFF0C;&#x76F4;&#x63A5;&#x6539;response&#x5C31;&#x884C;&#x4E86;.</p>
+<h4 id="&#x6B65;&#x9AA4;&#xFF1A;"><a href="#&#x6B65;&#x9AA4;&#xFF1A;" class="headerlink" title="&#x6B65;&#x9AA4;&#xFF1A;"></a>&#x6B65;&#x9AA4;&#xFF1A;</h4><p>&#x9996;&#x5148; &#x8981;&#x4FDD;&#x8BC1;&#x662F;&#x5F00;&#x542F;&#x8BF7;&#x6C42;&#x65AD;&#x70B9;&#x662F;&#x6253;&#x5F00;&#x7684;</p>
+<p>&#x9009;&#x62E9;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x63A5;&#x53E3;&#x5185;&#x5BB9; &#xFF0C;&#x52FE;&#x9009;Breakpoints<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010136.jpg" alt=""></p>
+<p>&#x6253;&#x5F00;&#x9752;&#x82B1;&#x74F7;&#x5207;&#x6362;&#x6210;&#x7ED3;&#x6784;&#x9875;&#x9762;,&#x5207;&#x6362;&#x6210;Structure<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010137.jpg" alt=""></p>
+<p>&#x70B9;&#x51FB;Execute&#x4E4B;&#x540E;&#xFF0C;&#x4FEE;&#x6539;&#x5185;&#x5BB9;<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010138.jpg" alt=""></p>
+<p>&#x6CA1;&#x6539;&#x4E4B;&#x524D;:<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010139.jpg" alt=""><br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010140.jpg" alt=""></p>
+<p>&#x6539;&#x5B8C;&#x4E4B;&#x540E;&#xFF1A;<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010141.jpg" alt=""><br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010142.jpg" alt=""></p>
+<p><br></p>
+<h3 id="VI-&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x505A;&#x538B;&#x529B;&#x6D4B;&#x8BD5;"><a href="#VI-&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x505A;&#x538B;&#x529B;&#x6D4B;&#x8BD5;" class="headerlink" title="VI. &#x7ED9;&#x670D;&#x52A1;&#x5668;&#x505A;&#x538B;&#x529B;&#x6D4B;&#x8BD5;"></a>VI. &#x7ED9;&#x670D;&#x52A1;&#x5668;&#x505A;&#x538B;&#x529B;&#x6D4B;&#x8BD5;</h3><hr>
+<p>&#x63A5;&#x7740;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x5F39;&#x51FA;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#x4E2D;&#xFF0C;&#x9009;&#x62E9;&#x6253;&#x538B;&#x7684;&#x5E76;&#x53D1;&#x7EBF;&#x7A0B;&#x6570;&#x4EE5;&#x53CA;&#x6253;&#x538B;&#x6B21;&#x6570;&#xFF0C;&#x786E;&#x5B9A;&#x4E4B;&#x540E;&#xFF0C;&#x5373;&#x53EF;&#x5F00;&#x59CB;&#x6253;&#x538B;&#x3002;&#xFF08;&#x5F00;&#x53D1;&#x90E8;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7684;&#x6D3B;&#xFF0C;&#x4E0D;&#x80FD;&#x7AEF;&#x4E86;&#x4EBA;&#x5BB6;&#x7684;&#x996D;&#x7897;&#xFF09;</p>
+<p><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010143.jpg" alt=""></p>
+<p><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010144.jpg" alt=""></p>
+<p><br></p>
+<h3 id="VII-&#x6293;&#x53D6;&#x624B;&#x673A;App&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;"><a href="#VII-&#x6293;&#x53D6;&#x624B;&#x673A;App&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;" class="headerlink" title="VII. &#x6293;&#x53D6;&#x624B;&#x673A;App&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;"></a>VII. &#x6293;&#x53D6;&#x624B;&#x673A;App&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</h3><hr>
+<p>&#x5728; Charles &#x7684;&#x83DC;&#x5355;&#x680F;&#x4E0A;&#x9009;&#x62E9; <code>&#x201C;Proxy&#x201D;-&gt;&#x201D;Proxy Settings&#x201D;</code>&#xFF0C;&#x586B;&#x5165;&#x4EE3;&#x7406;&#x7AEF;&#x53E3; <code>8888</code><br>&#x5E76;&#x4E14;&#x52FE;&#x4E0A; <code>&#x201C;Enable transparent HTTP proxying&#x201D;</code> &#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x5728; Charles &#x4E0A;&#x7684;&#x8BBE;&#x7F6E;.<br><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010145.jpg" alt=""></p>
+<p>&#x83B7;&#x53D6; Charles &#x8FD0;&#x884C;&#x6240;&#x5728;&#x7535;&#x8111;&#x7684; IP &#x5730;&#x5740;&#xFF0C;Charles &#x7684;&#x9876;&#x90E8;&#x83DC;&#x5355;&#x7684;<code>&#x201C;Help&#x201D;-&gt;&#x201D;Local IP Address&#x201D;</code>&#xFF0C;&#x5373;&#x53EF;&#x5728;&#x5F39;&#x51FA;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#x4E2D;&#x770B;&#x5230; IP &#x5730;&#x5740;:</p>
+<p><img src="/posts/20&#x5F00;&#x53D1;&#x5DE5;&#x5177;/../../img/19010146.jpg" alt=""></p>
+<p><br></p>
+<hr>
+<p><strong>&#x53C2;&#x8003;&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x4F5C;&#x8005;&#xFF1A; flowerflower<br>&#x8FDE;&#x63A5;&#xFF1A; <a href="https://www.jianshu.com/p/970559cfdb6f" target="_blank" rel="external">https://www.jianshu.com/p/970559cfdb6f</a></p>
+<hr>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tag/" rel="tag"><i class="fa fa-tag"></i>tag</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/06设计模式/被误解的MVC.html" rel="next" title="iOS开发 - 被误解的【MVC 模式】">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 被误解的【MVC 模式】
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/20开发工具/Charles.html"
+           data-title="iOS开发 -  开发者必会的 Charles" data-url="http://www.licheng244.com/posts/20开发工具/Charles.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">109</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-将-Charles-设置成系统代理"><span class="nav-text">I. 将 Charles 设置成系统代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-过滤网络请求"><span class="nav-text">II. 过滤网络请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-模拟慢速网络"><span class="nav-text">III. 模拟慢速网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IV-修改网络请求内容"><span class="nav-text">IV. 修改网络请求内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#V-修改服务器返回内容"><span class="nav-text">V. 修改服务器返回内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤："><span class="nav-text">步骤：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VI-给服务器做压力测试"><span class="nav-text">VI. 给服务器做压力测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VII-抓取手机App网络请求"><span class="nav-text">VII. 抓取手机App网络请求</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

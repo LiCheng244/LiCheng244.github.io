@@ -104,19 +104,19 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta name="description" content="&amp;#x5F15;&amp;#x8A00; 
 iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x5B89;&amp;#x5168;&amp;#x4F53;&amp;#x7CFB;, &amp;#x89C4;&amp;#x5B9A;&amp;#x4E86;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x53EA;&amp;#x80F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发 - 沙盒机制">
+<meta property="og:title" content="iOS开发 - 关于沙盒机制(sandBox)">
 <meta property="og:url" content="http://www.licheng244.com/posts/00基础知识/沙盒机制.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00; 
 iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x5B89;&amp;#x5168;&amp;#x4F53;&amp;#x7CFB;, &amp;#x89C4;&amp;#x5B9A;&amp;#x4E86;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x53EA;&amp;#x80F">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/shahe.png">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/shahemulu.png">
-<meta property="og:updated_time" content="2018-11-27T08:01:11.651Z">
+<meta property="og:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010102.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010103.png">
+<meta property="og:updated_time" content="2019-01-02T02:19:43.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发 - 沙盒机制">
+<meta name="twitter:title" content="iOS开发 - 关于沙盒机制(sandBox)">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00; 
 iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x5B89;&amp;#x5168;&amp;#x4F53;&amp;#x7CFB;, &amp;#x89C4;&amp;#x5B9A;&amp;#x4E86;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x53EA;&amp;#x80F">
-<meta name="twitter:image" content="http://ogewbn1ek.bkt.clouddn.com/shahe.png">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010102.png">
 
 
 
@@ -140,7 +140,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
   <link rel="canonical" href="http://www.licheng244.com/posts/00基础知识/沙盒机制.html"/>
 
 
-  <title> iOS开发 - 沙盒机制 | 博客 </title>
+  <title> iOS开发 - 关于沙盒机制(sandBox) | 博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +313,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
             
             
               
-                iOS开发 - 沙盒机制
+                iOS开发 - 关于沙盒机制(sandBox)
               
             
           </h1>
@@ -367,7 +367,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
 
           
           
-             <span id="/posts/00基础知识/沙盒机制.html" class="leancloud_visitors" data-flag-title="iOS开发 - 沙盒机制">
+             <span id="/posts/00基础知识/沙盒机制.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于沙盒机制(sandBox)">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -401,13 +401,13 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
 <li>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0D;&#x80FD;&#x7FFB;&#x8FC7;&#x81EA;&#x5DF1;&#x7684;&#x56F4;&#x5899;&#x53BB;&#x8BBF;&#x95EE;&#x522B;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x7684;&#x5185;&#x5BB9;</li>
 <li>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x90FD;&#x8981;&#x901A;&#x8FC7;&#x6743;&#x9650;&#x68C0;&#x6D4B;&#xFF0C;&#x5047;&#x5982;&#x4E0D;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x8BDD;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x653E;&#x884C;&#x3002;</li>
 </ol>
-<p><img src="http://ogewbn1ek.bkt.clouddn.com/shahe.png" width="400"></p>
+<p><img src="/posts/00&#x57FA;&#x7840;&#x77E5;&#x8BC6;/../../img/19010102.png" width="400" align="center"></p>
 <p>&#x901A;&#x8FC7;&#x8FD9;&#x5F20;&#x56FE;&#x53EA;&#x80FD;&#x4ECE;&#x8868;&#x5C42;&#x4E0A;&#x7406;&#x89E3;sandbox&#x662F;&#x4E00;&#x79CD;&#x5B89;&#x5168;&#x4F53;&#x7CFB;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x8981;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x4F53;&#x7CFB;&#x6765;&#x6267;&#x884C;&#xFF0C;&#x5176;&#x4E2D;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x662F;&#xFF1A;<strong>sandbox&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x7684;&#x6743;&#x9650;&#x9650;&#x5236;&#x3002;</strong></p>
 <p><br></p>
 <h3 id="II-&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><a href="#II-&#x76EE;&#x5F55;&#x7ED3;&#x6784;" class="headerlink" title="II. &#x76EE;&#x5F55;&#x7ED3;&#x6784;"></a>II. &#x76EE;&#x5F55;&#x7ED3;&#x6784;</h3><hr>
 <p>&#x56E0;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x6C99;&#x76D2;&#x673A;&#x5236;&#xFF0C;&#x5E94;&#x7528;&#x53EA;&#x80FD;&#x5728;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x6C99;&#x76D2;&#x542B;&#x6709;3&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF1A;<code>Documents</code>, <code>Library</code> &#x548C; <code>tmp</code>:</p>
 <p>&#x6BCF;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x6C99;&#x76D2;&#x76EE;&#x5F55;&#x90FD;&#x662F;&#x76F8;&#x4F3C;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x56FE;&#x4E2D;&#x6240;&#x793A;&#x7684;4&#x4E2A;&#x76EE;&#x5F55;&#xFF1A;</p>
-<p><img src="http://ogewbn1ek.bkt.clouddn.com/shahemulu.png" width="300"></p>
+<p><img src="/posts/00&#x57FA;&#x7840;&#x77E5;&#x8BC6;/../../img/19010103.png" width="300" align="center"></p>
 <h4 id="1&#x3001;MyApp-app"><a href="#1&#x3001;MyApp-app" class="headerlink" title="1&#x3001;MyApp.app"></a>1&#x3001;MyApp.app</h4><p><code>&#x2460; &#x5B58;&#x653E;&#x5185;&#x5BB9;</code><br>&#x8BE5;&#x76EE;&#x5F55;&#x5305;&#x542B;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x672C;&#x8EAB;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x548C;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7B49;&#x3002;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x4EE5;&#x540E;&#xFF0C;&#x4F1A;&#x6839;&#x636E;&#x9700;&#x8981;&#x4ECE;&#x8BE5;&#x76EE;&#x5F55;&#x4E2D;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x4EE3;&#x7801;&#x6216;&#x8D44;&#x6E90;&#x5230;&#x5185;&#x5B58;&#xFF0C;&#x8FD9;&#x91CC;&#x7528;&#x5230;&#x4E86;lazy loading&#x7684;&#x601D;&#x60F3;&#x3002;</p>
 <p><code>&#x2461; &#x6574;&#x4E2A;&#x76EE;&#x5F55;&#x662F;&#x53EA;&#x8BFB;&#x7684;</code><br>&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x88AB;&#x7BE1;&#x6539;&#xFF0C;&#x5E94;&#x7528;&#x5728;&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5C06;&#x8BE5;&#x76EE;&#x5F55;&#x7B7E;&#x540D;&#x3002;&#x975E;&#x8D8A;&#x72F1;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x76EE;&#x5F55;&#x4E2D;&#x5185;&#x5BB9;&#x662F;&#x65E0;&#x6CD5;&#x66F4;&#x6539;&#x7684;&#xFF1B;&#x5728;&#x8D8A;&#x72F1;&#x8BBE;&#x5907;&#x4E0A;&#x5982;&#x679C;&#x66F4;&#x6539;&#x4E86;&#x76EE;&#x5F55;&#x5185;&#x5BB9;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x7B7E;&#x540D;&#x5C31;&#x4F1A;&#x88AB;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x82F9;&#x679C;&#x5B98;&#x7F51;&#x63CF;&#x8FF0;&#x7684;&#x540E;&#x679C;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x65E0;&#x6CD5;&#x542F;&#x52A8;&#xFF0C;&#x6211;&#x6CA1;&#x5B9E;&#x8DF5;&#x8FC7;&#x3002;</p>
 <p><code>&#x2462; &#x662F;&#x5426;&#x4F1A;&#x88AB;iTunes&#x540C;&#x6B65;</code><br>&#x5426;</p>
@@ -483,16 +483,16 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/11项目配置/开发证书.html" rel="next" title="iOS开发 - 开发者账号总结">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 开发者账号总结
+              <a href="/posts/02UI知识/UIView.html" rel="next" title="iOS开发 - UIView 使用细节">
+                <i class="fa fa-chevron-left"></i> iOS开发 - UIView 使用细节
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/11项目配置/pch文件.html" rel="prev" title="iOS开发 - 关于 pch 文件的创建与配置">
-                iOS开发 - 关于 pch 文件的创建与配置 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/14多媒体/直播流程.html" rel="prev" title="iOS开发 - 直播类APP开发流程解析">
+                iOS开发 - 直播类APP开发流程解析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -522,7 +522,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="posts/00基础知识/沙盒机制.html"
-           data-title="iOS开发 - 沙盒机制" data-url="http://www.licheng244.com/posts/00基础知识/沙盒机制.html">
+           data-title="iOS开发 - 关于沙盒机制(sandBox)" data-url="http://www.licheng244.com/posts/00基础知识/沙盒机制.html">
       </div>
     
 
@@ -565,7 +565,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -630,7 +630,7 @@ iOS&amp;#x4E2D;&amp;#x7684;&amp;#x6C99;&amp;#x76D2;&amp;#x673A;&amp;#x5236;&amp;
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

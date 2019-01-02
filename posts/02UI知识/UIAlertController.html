@@ -109,13 +109,13 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;
 &amp;#x5173;&amp;#x4E8E;&amp;#x63D0;&amp;#x793A;&amp;#x6846;, &amp;#x7CFB;&amp;#x7EDF;&amp;#x81EA;&amp;#x5E26;&amp;#x7684;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x6709;&amp;#x65F6;&amp;#x53EF;&amp;#x80FD;&amp;#x6EE1;&amp;#x8DB3;&amp;#x4E0D;&amp;#x4E86;&amp;#x6211;&amp;#x">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/alert.png">
-<meta property="og:updated_time" content="2018-11-28T03:26:38.977Z">
+<meta property="og:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19010106.png">
+<meta property="og:updated_time" content="2019-01-02T02:35:14.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - UIAlertController 使用细节">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;
 &amp;#x5173;&amp;#x4E8E;&amp;#x63D0;&amp;#x793A;&amp;#x6846;, &amp;#x7CFB;&amp;#x7EDF;&amp;#x81EA;&amp;#x5E26;&amp;#x7684;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x6709;&amp;#x65F6;&amp;#x53EF;&amp;#x80FD;&amp;#x6EE1;&amp;#x8DB3;&amp;#x4E0D;&amp;#x4E86;&amp;#x6211;&amp;#x">
-<meta name="twitter:image" content="http://ogewbn1ek.bkt.clouddn.com/alert.png">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19010106.png">
 
 
 
@@ -404,7 +404,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">UIAlertController</span> *alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@&quot;&#x6807;&#x9898;&quot;</span> message:<span class="string">@&quot;&#x5185;&#x5BB9;&quot;</span> preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x4F7F;&#x7528;&#x5BCC;&#x6587;&#x672C;&#x6765;&#x6539;&#x53D8;alert&#x7684;title&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x548C;&#x989C;&#x8272;</span></div><div class="line"><span class="built_in">NSMutableAttributedString</span> *titleText = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:<span class="string">@&quot;&#x8FD9;&#x91CC;&#x662F;&#x6807;&#x9898;&quot;</span>];</div><div class="line">[titleText addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">24</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">2</span>)];</div><div class="line">[titleText addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> redColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">2</span>)];</div><div class="line">[alert setValue:titleText forKey:<span class="string">@&quot;attributedTitle&quot;</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x4F7F;&#x7528;&#x5BCC;&#x6587;&#x672C;&#x6765;&#x6539;&#x53D8;alert&#x7684;message&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x548C;&#x989C;&#x8272;</span></div><div class="line"><span class="comment">// NSMakeRange(0, 2) &#x4EE3;&#x8868;:&#x4ECE;0&#x4F4D;&#x7F6E;&#x5F00;&#x59CB; &#x4E24;&#x4E2A;&#x5B57;&#x7B26;</span></div><div class="line"><span class="built_in">NSMutableAttributedString</span> *messageText = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:<span class="string">@&quot;&#x8FD9;&#x91CC;&#x662F;&#x6B63;&#x6587;&#x4FE1;&#x606F;&quot;</span>];</div><div class="line">[messageText addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">10</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">6</span>)];</div><div class="line">[messageText addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> redColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">2</span>)];</div><div class="line">[messageText addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> brownColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">3</span>, <span class="number">3</span>)];</div><div class="line">[alert setValue:messageText forKey:<span class="string">@&quot;attributedMessage&quot;</span>];</div><div class="line"><span class="built_in">UIAlertAction</span> *cancelAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;&#x53D6;&#x6D88;&quot;</span> style:<span class="built_in">UIAlertActionStyleCancel</span> handler:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x8BBE;&#x7F6E;&#x6309;&#x94AE;&#x80CC;&#x666F;&#x56FE;&#x7247;</span></div><div class="line"><span class="built_in">UIImage</span> *accessoryImage = [[<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;selectRDImag.png&quot;</span>] imageWithRenderingMode:<span class="built_in">UIImageRenderingModeAlwaysOriginal</span>];</div><div class="line">[cancelAction setValue:accessoryImage forKey:<span class="string">@&quot;image&quot;</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x8BBE;&#x7F6E;&#x6309;&#x94AE;&#x7684;title&#x989C;&#x8272;</span></div><div class="line">[cancelAction setValue:[<span class="built_in">UIColor</span> lightGrayColor] forKey:<span class="string">@&quot;titleTextColor&quot;</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x8BBE;&#x7F6E;&#x6309;&#x94AE;&#x7684;title&#x7684;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</span></div><div class="line">[cancelAction setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="built_in">NSTextAlignmentLeft</span>] forKey:<span class="string">@&quot;titleTextAlignment&quot;</span>];</div><div class="line"><span class="built_in">UIAlertAction</span> *okAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@&quot;&#x786E;&#x8BA4;&quot;</span> style:<span class="built_in">UIAlertActionStyleDefault</span> handler:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">[alert addAction:okAction];</div><div class="line">[alert addAction:cancelAction];</div><div class="line">[<span class="keyword">self</span> presentViewController:alert animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="III-&#x6548;&#x679C;&#x56FE;"><a href="#III-&#x6548;&#x679C;&#x56FE;" class="headerlink" title="III. &#x6548;&#x679C;&#x56FE;"></a>III. &#x6548;&#x679C;&#x56FE;</h3><hr>
-<p><img src="http://ogewbn1ek.bkt.clouddn.com/alert.png" width="200"></p>
+<p><img src="/posts/02UI&#x77E5;&#x8BC6;/../../img/19010106.png" width="300"></p>
 <hr>
 
       
@@ -534,7 +534,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -599,7 +599,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

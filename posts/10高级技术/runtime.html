@@ -103,23 +103,23 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 <meta name="description" content="&amp;#x5F15;&amp;#x8A00;
 
-&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62DF">
+&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 - runtime 的使用">
 <meta property="og:url" content="http://www.licheng244.com/posts/10高级技术/runtime.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;
 
-&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62DF">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/rungtime1.png">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/runtime2.png">
-<meta property="og:updated_time" content="2018-11-28T06:31:55.377Z">
+&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62D">
+<meta property="og:image" content="http://www.licheng244.com/posts/10高级技术/../../img/19010111.png">
+<meta property="og:image" content="http://www.licheng244.com/posts/10高级技术/../../img/19010112.png">
+<meta property="og:updated_time" content="2019-01-02T02:58:53.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - runtime 的使用">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;
 
-&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62DF">
-<meta name="twitter:image" content="http://ogewbn1ek.bkt.clouddn.com/rungtime1.png">
+&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x8FD0;&amp;#x884C;&amp;#x73AF;&amp;#x5883;&amp;#xFF0C;&amp;#x7C7B;&amp;#x4F3C; java &amp;#x7684;&amp;#x865A;&amp;#x62D">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/10高级技术/../../img/19010111.png">
 
 
 
@@ -392,7 +392,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
 
       
-        <blockquote>
+        <hr>
+<blockquote>
 <p><strong>&#x5F15;&#x8A00;</strong></p>
 <ol>
 <li>&#x662F;&#x4E00;&#x79CD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x7C7B;&#x4F3C; java &#x7684;&#x865A;&#x62DF;&#x673A;&#x3002;</li>
@@ -404,7 +405,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 </blockquote>
 <a id="more"></a>
 <p><br></p>
-<h3 id="I-&#x53D1;&#x9001;&#x6D88;&#x606F;"><a href="#I-&#x53D1;&#x9001;&#x6D88;&#x606F;" class="headerlink" title="I. &#x53D1;&#x9001;&#x6D88;&#x606F;"></a>I. &#x53D1;&#x9001;&#x6D88;&#x606F;</h3><h4 id="&#x7528;&#x9014;&#xFF1A;"><a href="#&#x7528;&#x9014;&#xFF1A;" class="headerlink" title="&#x7528;&#x9014;&#xFF1A;"></a>&#x7528;&#x9014;&#xFF1A;</h4><ol>
+<h3 id="I-&#x53D1;&#x9001;&#x6D88;&#x606F;"><a href="#I-&#x53D1;&#x9001;&#x6D88;&#x606F;" class="headerlink" title="I. &#x53D1;&#x9001;&#x6D88;&#x606F;"></a>I. &#x53D1;&#x9001;&#x6D88;&#x606F;</h3><hr>
+<h4 id="&#x7528;&#x9014;&#xFF1A;"><a href="#&#x7528;&#x9014;&#xFF1A;" class="headerlink" title="&#x7528;&#x9014;&#xFF1A;"></a>&#x7528;&#x9014;&#xFF1A;</h4><ol>
 <li>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x7684;&#x672C;&#x8D28;&#xFF0C;&#x5C31;&#x662F;&#x8BA9;&#x5BF9;&#x8C61;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;</li>
 <li>objc_msgSend,&#x53EA;&#x6709;&#x5BF9;&#x8C61;&#x624D;&#x80FD;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x56E0;&#x6B64;&#x4EE5; objc &#x5F00;&#x5934;&#x3002;</li>
 <li>&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x673A;&#x5236;&#xFF0C;&#x5FC5;&#x987B;&#x5BFC;&#x5165;<code>#import &lt;objc/message.h&gt;</code></li>
@@ -444,8 +446,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <li>&#x4EA4;&#x6362;&#x65B9;&#x6CD5;&#xFF1A;<code>method_exchangeImplementations(originalMethod, swizzledMethod);</code></li>
 </ul>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span> (<span class="title">Tracking</span>)</span></div><div class="line"></div><div class="line"><span class="comment">// &#x5728;&#x6BCF;&#x4E2A;&#x7C7B;&#x88AB;&#x88C5;&#x8F7D;&#x5230;Runtime&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;</span></div><div class="line"><span class="comment">// &#x56E0;&#x4E3A;&#x65B9;&#x6CD5;&#x4EA4;&#x53C9;&#x5F71;&#x54CD;&#x7684;&#x662F;&#x5168;&#x5C40;&#x72B6;&#x6001;&#xFF0C;+load&#x4E2D;&#x80FD;&#x4FDD;&#x8BC1;&#x5728;class &#x88C5;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#x4EA4;&#x53C9;</span></div><div class="line">+ (<span class="keyword">void</span>)load {</div><div class="line"></div><div class="line"><span class="comment">// &#x4FDD;&#x8BC1;&#x53EA;&#x4EA4;&#x53C9;&#x4E00;&#x6B21;</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^{</div><div class="line"></div><div class="line"><span class="comment">// &#x4EA4;&#x6362;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</span></div><div class="line">Method originalMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(viewWillAppear:));</div><div class="line">Method swizzledMethod = class_getInstanceMethod([<span class="keyword">self</span> <span class="keyword">class</span>], <span class="keyword">@selector</span>(lc_viewWillAppear:));</div><div class="line"></div><div class="line"><span class="comment">// &#x4EA4;&#x6362;&#x7C7B;&#x65B9;&#x6CD5;&#x65F6;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;:</span></div><div class="line"><span class="comment">// Method originalMethod = class_getClassMethod(object_getClass((id)self), originalSelector);</span></div><div class="line"><span class="comment">// Method swizzledMethod = class_getClassMethod(object_getClass((id)self), swizzledSelector);</span></div><div class="line"></div><div class="line"><span class="built_in">BOOL</span> didAddMethod = class_addMethod([<span class="keyword">self</span> <span class="keyword">class</span>],</div><div class="line"><span class="keyword">@selector</span>(viewWillAppear:),</div><div class="line">method_getImplementation(swizzledMethod),</div><div class="line">method_getTypeEncoding(swizzledMethod));</div><div class="line"></div><div class="line"><span class="keyword">if</span> (didAddMethod) {</div><div class="line">class_replaceMethod([<span class="keyword">self</span> <span class="keyword">class</span>],</div><div class="line"><span class="keyword">@selector</span>(lc_viewWillAppear:),</div><div class="line">method_getImplementation(originalMethod),</div><div class="line">method_getTypeEncoding(originalMethod));</div><div class="line">} <span class="keyword">else</span> {</div><div class="line"><span class="comment">// &#x4EA4;&#x6362;&#x65B9;&#x6CD5;</span></div><div class="line">method_exchangeImplementations(originalMethod, swizzledMethod);</div><div class="line">}</div><div class="line">});</div><div class="line">}</div><div class="line"></div><div class="line"><span class="meta">#pragma mark - &#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</span></div><div class="line">- (<span class="keyword">void</span>)lc_viewWillAppear:(<span class="built_in">BOOL</span>)animated {</div><div class="line">[<span class="keyword">self</span> lc_viewWillAppear:animated];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;viewWillAppear: %@&quot;</span>, <span class="keyword">self</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<h4 id="&#x56FE;&#x89E3;&#xFF1A;"><a href="#&#x56FE;&#x89E3;&#xFF1A;" class="headerlink" title="&#x56FE;&#x89E3;&#xFF1A;"></a>&#x56FE;&#x89E3;&#xFF1A;</h4><p><strong>&#x4EA4;&#x53C9;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</strong><br><img src="http://ogewbn1ek.bkt.clouddn.com/rungtime1.png" alt=""></p>
-<p><strong>&#x4EA4;&#x53C9;&#x4E4B;&#x540E;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</strong><br><img src="http://ogewbn1ek.bkt.clouddn.com/runtime2.png" alt=""></p>
+<h4 id="&#x56FE;&#x89E3;&#xFF1A;"><a href="#&#x56FE;&#x89E3;&#xFF1A;" class="headerlink" title="&#x56FE;&#x89E3;&#xFF1A;"></a>&#x56FE;&#x89E3;&#xFF1A;</h4><p><strong>&#x4EA4;&#x53C9;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</strong><br><img src="/posts/10&#x9AD8;&#x7EA7;&#x6280;&#x672F;/../../img/19010111.png" alt=""></p>
+<p><strong>&#x4EA4;&#x53C9;&#x4E4B;&#x540E;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</strong><br><img src="/posts/10&#x9AD8;&#x7EA7;&#x6280;&#x672F;/../../img/19010112.png" alt=""></p>
 <h4 id="&#x4EA4;&#x53C9;&#x540E;&#x7684;Runtime&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF1A;"><a href="#&#x4EA4;&#x53C9;&#x540E;&#x7684;Runtime&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF1A;" class="headerlink" title="&#x4EA4;&#x53C9;&#x540E;&#x7684;Runtime&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF1A;"></a>&#x4EA4;&#x53C9;&#x540E;&#x7684;Runtime&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF1A;</h4><ol>
 <li>&#x6839;&#x636E;<code>@selector(viewWillAppear:)</code> &#x627E;&#x5230;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>lc_viewWillAppear</code> &#x5B9E;&#x73B0;&#xFF1B;</li>
 <li>&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>lc_viewWillAppear</code> &#x5B9E;&#x73B0;&#xFF0C;&#x5411; self &#x53D1;&#x9001; <code>@selector(lc_viewWillAppear)</code> &#xFF1B;</li>
@@ -597,7 +599,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -662,7 +664,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

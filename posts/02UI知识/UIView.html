@@ -107,7 +107,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:url" content="http://www.licheng244.com/posts/02UI知识/UIView.html">
 <meta property="og:site_name" content="博客">
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;">
-<meta property="og:updated_time" content="2018-11-28T03:38:17.027Z">
+<meta property="og:updated_time" content="2019-01-02T02:25:09.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - UIView 使用细节">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;">
@@ -389,7 +389,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><br></p>
 <h3 id="I-&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController"><a href="#I-&#x83B7;&#x53D6;&#x5F53;&#x524D;-view-&#x6240;&#x5728;&#x7684;-ViewController" class="headerlink" title="I. &#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController"></a>I. &#x83B7;&#x53D6;&#x5F53;&#x524D; view &#x6240;&#x5728;&#x7684; ViewController</h3><hr>
 </blockquote>
-<h4 id="&#x83B7;&#x53D6;"><a href="#&#x83B7;&#x53D6;" class="headerlink" title="&#x83B7;&#x53D6;:"></a>&#x83B7;&#x53D6;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">- (<span class="built_in">UIViewController</span> *)getCurrentViewController{</div><div class="line">- </div><div class="line">	<span class="keyword">for</span> (<span class="built_in">UIView</span> *next = [<span class="keyword">self</span> superview]; next; next = next.superview) {</div><div class="line">		<span class="built_in">UIResponder</span> *nextResponder = [next nextResponder];</div><div class="line">		<span class="keyword">if</span> ([nextResponder isKindOfClass:[<span class="built_in">UIViewController</span> <span class="keyword">class</span>]]) {</div><div class="line">			<span class="keyword">return</span> (<span class="built_in">UIViewController</span>*)nextResponder;</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<h4 id="&#x83B7;&#x53D6;"><a href="#&#x83B7;&#x53D6;" class="headerlink" title="&#x83B7;&#x53D6;:"></a>&#x83B7;&#x53D6;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"></div><div class="line">- (<span class="built_in">UIViewController</span> *)getCurrentViewController{</div><div class="line">	<span class="keyword">for</span> (<span class="built_in">UIView</span> *next = [<span class="keyword">self</span> superview]; next; next = next.superview) {</div><div class="line">		<span class="built_in">UIResponder</span> *nextResponder = [next nextResponder];</div><div class="line">		<span class="keyword">if</span> ([nextResponder isKindOfClass:[<span class="built_in">UIViewController</span> <span class="keyword">class</span>]]) {</div><div class="line">			<span class="keyword">return</span> (<span class="built_in">UIViewController</span>*)nextResponder;</div><div class="line">		}</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
 <!--more-->
 <h4 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;:"></a>&#x4F7F;&#x7528;:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">UIViewController</span> *vc = [<span class="keyword">self</span> getCurrentViewController];</div></pre></td></tr></table></figure>
 <p><br></p>
@@ -446,16 +446,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/11项目配置/NSLog.html" rel="next" title="iOS开发 - NSLog 解决中文乱码并显示成JSON格式">
-                <i class="fa fa-chevron-left"></i> iOS开发 - NSLog 解决中文乱码并显示成JSON格式
+              <a href="/posts/13第三方库/SDWebImage.html" rel="next" title="iOS开发 - SDWebImage 框架实现原理">
+                <i class="fa fa-chevron-left"></i> iOS开发 - SDWebImage 框架实现原理
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/13第三方库/SDWebImage.html" rel="prev" title="iOS开发 - SDWebImage 框架实现原理">
-                iOS开发 - SDWebImage 框架实现原理 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/00基础知识/沙盒机制.html" rel="prev" title="iOS开发 - 关于沙盒机制(sandBox)">
+                iOS开发 - 关于沙盒机制(sandBox) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -528,7 +528,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -593,7 +593,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

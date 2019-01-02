@@ -113,16 +113,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 1. &amp;#x7A0B;&amp;#x5E8F;&amp;#x542F;&amp;#x52A8;&amp;#x7684;&amp;#x5B8C;&amp;#x6574;&amp;#x8FC7;&amp;#x7A0B;:
 &amp;#x521B;&amp;#x5EFA; UIApplication &amp;#x5BF9;&amp;#x8C61;
 &amp;#x521B;&amp;#x5EFA; UIApplication &amp;#x7684">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/11.jpg">
-<meta property="og:image" content="http://ogewbn1ek.bkt.clouddn.com/infoplist.png">
-<meta property="og:updated_time" content="2018-11-27T08:28:31.048Z">
+<meta property="og:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010100.jpg">
+<meta property="og:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010101.png">
+<meta property="og:updated_time" content="2019-01-02T02:08:29.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - APP 的生命周期">
 <meta name="twitter:description" content="I. &amp;#x7A0B;&amp;#x5E8F;&amp;#x542F;&amp;#x52A8;
 1. &amp;#x7A0B;&amp;#x5E8F;&amp;#x542F;&amp;#x52A8;&amp;#x7684;&amp;#x5B8C;&amp;#x6574;&amp;#x8FC7;&amp;#x7A0B;:
 &amp;#x521B;&amp;#x5EFA; UIApplication &amp;#x5BF9;&amp;#x8C61;
 &amp;#x521B;&amp;#x5EFA; UIApplication &amp;#x7684">
-<meta name="twitter:image" content="http://ogewbn1ek.bkt.clouddn.com/11.jpg">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/00基础知识/../../img/19010100.jpg">
 
 
 
@@ -408,7 +408,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <li>&#x521B;&#x5EFA;&#x548C;&#x8BBE;&#x7F6E;UIWindow&#x7684;rootViewController</li>
 <li>&#x663E;&#x793A;&#x7A97;&#x53E3;</li>
 </ul>
-<p><img src="http://ogewbn1ek.bkt.clouddn.com/11.jpg" alt=""></p>
+<p><img src="/posts/00&#x57FA;&#x7840;&#x77E5;&#x8BC6;/../../img/19010100.jpg" alt=""></p>
 <h4 id="2-UIApplicationMain"><a href="#2-UIApplicationMain" class="headerlink" title="2. UIApplicationMain:"></a>2. UIApplicationMain:</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&quot;AppDelegate.h&quot;</span></span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) {</div><div class="line"><span class="keyword">@autoreleasepool</span> {</div><div class="line"><span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([AppDelegate <span class="keyword">class</span>]));</div><div class="line">}</div><div class="line">}</div></pre></td></tr></table></figure>
 <p><code>main</code>&#x51FD;&#x6570;&#x4E2D;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x4E2A;<code>UIApplicationMain</code>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;:<br><code>intUIApplicationMain(int argc, char *argv[], NSString *principalClassName, NSString *delegateClassName);</code></p>
 <h5 id="argc&#x3001;argv&#xFF1A;"><a href="#argc&#x3001;argv&#xFF1A;" class="headerlink" title="argc&#x3001;argv&#xFF1A;"></a>argc&#x3001;argv&#xFF1A;</h5><p>&#x76F4;&#x63A5;&#x4F20;&#x9012;&#x7ED9;UIApplicationMain&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x5904;&#x7406;&#x5373;&#x53EF;</p>
@@ -429,7 +429,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><strong>2&#xFF09;&#x8BBE;&#x7F6E;&#x8054;&#x7F51;&#x6307;&#x793A;&#x5668;&#x7684;&#x53EF;&#x89C1;&#x6027;</strong></p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x8BBE;&#x7F6E;&#x8054;&#x7F51;&#x6307;&#x793A;&#x5668;&#x53EF;&#x89C1;&#x6027; - &#x663E;&#x793A;</span></div><div class="line">[<span class="built_in">UIApplication</span> sharedApplication].networkActivityIndicatorVisible = <span class="literal">YES</span>;&#xB7;</div></pre></td></tr></table></figure>
 <p><strong>3&#xFF09;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#x680F;</strong></p>
-<p>&#x5982;&#x679C;&#x60F3;&#x5229;&#x7528;UIApplication&#x6765;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#x680F;&#xFF0C;&#x9996;&#x5148;&#x5F97;&#x4FEE;&#x6539;Info.plist&#x7684;&#x8BBE;&#x7F6E;&#xFF1A;<br><img src="http://ogewbn1ek.bkt.clouddn.com/infoplist.png" alt=""></p>
+<p>&#x5982;&#x679C;&#x60F3;&#x5229;&#x7528;UIApplication&#x6765;&#x7BA1;&#x7406;&#x72B6;&#x6001;&#x680F;&#xFF0C;&#x9996;&#x5148;&#x5F97;&#x4FEE;&#x6539;Info.plist&#x7684;&#x8BBE;&#x7F6E;&#xFF1A;<br><img src="/posts/00&#x57FA;&#x7840;&#x77E5;&#x8BC6;/../../img/19010101.png" alt=""></p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">// &#x9ED1;&#x8272;</span></div><div class="line">[<span class="built_in">UIApplication</span> sharedApplication].statusBarStyle = <span class="built_in">UIStatusBarStyleDefault</span>;</div><div class="line"></div><div class="line"><span class="comment">// &#x767D;&#x8272; + &#x52A8;&#x753B;</span></div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarStyle:(<span class="built_in">UIStatusBarStyleLightContent</span>) animated:<span class="literal">YES</span>];</div><div class="line"></div><div class="line"><span class="comment">// &#x9690;&#x85CF;&#x72B6;&#x6001;&#x680F;</span></div><div class="line">[<span class="built_in">UIApplication</span> sharedApplication].statusBarHidden = <span class="literal">YES</span>;</div><div class="line"></div><div class="line"><span class="comment">// &#x9690;&#x85CF; + &#x52A8;&#x753B;&#x6548;&#x679C;</span></div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarHidden:<span class="literal">YES</span> withAnimation:(<span class="built_in">UIStatusBarAnimationFade</span>)];</div></pre></td></tr></table></figure>
 <p><strong> 4&#xFF09;openURL:&#x65B9;&#x6CD5; </strong><br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</div><div class="line"><span class="comment">// &#x6253;&#x7535;&#x8BDD;</span></div><div class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;tel://10086&quot;</span>]];</div><div class="line"><span class="comment">// &#x53D1;&#x77ED;&#x4FE1;</span></div><div class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;sms://10086&quot;</span>]];</div><div class="line"><span class="comment">// &#x53D1;&#x90AE;&#x4EF6;</span></div><div class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;mailto://12345@qq.com&quot;</span>]];</div><div class="line"><span class="comment">// &#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x7F51;&#x9875;&#x8D44;&#x6E90;</span></div><div class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@&quot;http://ios.itcast.cn&quot;</span>]];</div></pre></td></tr></table></figure></p>
 <p>openURL&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6253;&#x5F00;&#x5176;&#x4ED6;APP&#x3002;</p>
@@ -528,16 +528,16 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/09性能优化/启动优化.html" rel="next" title="iOS开发 - 启动时间优化">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 启动时间优化
+              <a href="/posts/02UI知识/TabBar动画.html" rel="next" title="iOS开发 - TabBar 添加点击动画效果">
+                <i class="fa fa-chevron-left"></i> iOS开发 - TabBar 添加点击动画效果
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/posts/00基础知识/Controller生命周期.html" rel="prev" title="iOS开发 - ViewController 的生命周期">
-                iOS开发 - ViewController 的生命周期 <i class="fa fa-chevron-right"></i>
+              <a href="/posts/01OC知识/alloc和init.html" rel="prev" title="iOS开发 - 创建对象时 alloc 和 init 的作用">
+                iOS开发 - 创建对象时 alloc 和 init 的作用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +610,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -675,7 +675,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

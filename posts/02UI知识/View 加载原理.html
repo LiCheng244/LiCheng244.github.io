@@ -112,7 +112,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2996699-a0cc9d4d667b034f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2996699-8770cb8869127531.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2996699-54788249191211f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-28T03:41:19.025Z">
+<meta property="og:updated_time" content="2019-01-02T02:30:24.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 深入理解控制器与类以及view的加载">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;:ViewController&amp;#x662F;iOS&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;MVC&amp;#x6A21;&amp;#x5F0F;&amp;#x4E2D;&amp;#x7684;C(&amp;#x89C6;&amp;#x56FE;&amp;#x63A7;&amp;#x5236;&amp;#x5668;)&amp;#xFF0C;ViewController&amp;#x662F;view&amp;#x7684;controller&amp;#">
@@ -397,43 +397,29 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><br></p>
 <h3 id="I-&#x7B80;&#x4ECB;"><a href="#I-&#x7B80;&#x4ECB;" class="headerlink" title="I. &#x7B80;&#x4ECB;"></a>I. &#x7B80;&#x4ECB;</h3><hr>
 <p>&#x5728;IOS&#x4E2D;&#xFF0C;&#x6709;&#x4E24;&#x7C7B;ViewController:    </p>
-<blockquote>
-<ul>
-<li><p>&#x4E00;&#x7C7B;&#x4E3B;&#x8981;&#x7528;&#x4E8E;<b>&#x5C55;&#x793A;&#x5185;&#x5BB9;</b>&#xFF0C;&#x6BD4;&#x5982;<b style="background-color:#f7eef1;color:#c75c8c">UIViewController</b>&#x3001;<b style="background-color:#f7eef1;color:#c75c8c">UITableViewController</b>&#x7B49;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7EE7;&#x627F;&#x81EA;UIViewController&#x7684;UIViewController&#xFF1B;</p>
-</li>
-<li><p>&#x53E6;&#x4E00;&#x7C7B;&#x662F;<b>ViewController&#x5BB9;&#x5668;</b>&#xFF0C;<b style="background-color:#f7eef1;color:#c75c8c">UINavigationViewController</b>&#x548C;<b style="background-color:#f7eef1;color:#c75c8c">UITabBarController</b>&#x7B49;&#xFF0C;UINavigationController&#x662F;&#x4EE5;Stack&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5B58;&#x50A8;&#x548C;&#x7BA1;&#x7406;ViewController&#xFF0C;UITabBarController&#x662F;&#x4EE5;Array&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x7BA1;&#x7406;ViewController&#x3002;</p>
-</li>
-</ul>
-</blockquote>
+<p><strong>&#x7528;&#x4E8E;&#x5C55;&#x793A;&#x5185;&#x5BB9;:</strong><br>&#x6BD4;&#x5982;<code>UIViewController</code>&#x3001;<code>UITableViewController</code>&#x7B49;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7EE7;&#x627F;&#x81EA;UIViewController&#x7684;UIViewController&#xFF1B;</p>
+<p><strong>ViewController&#x5BB9;&#x5668;:</strong><br>&#x6BD4;&#x5982;&#xFF0C;<code>UINavigationViewController</code>&#x548C;<code>UITabBarController</code>&#x7B49;&#xFF0C;UINavigationController&#x662F;&#x4EE5;Stack&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5B58;&#x50A8;&#x548C;&#x7BA1;&#x7406;ViewController&#xFF0C;UITabBarController&#x662F;&#x4EE5;Array&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x7BA1;&#x7406;ViewController&#x3002;</p>
 <p>&#x4E0D;&#x7BA1;&#x662F;&#x54EA;&#x7C7B;ViewController,&#x90FD;&#x7EE7;&#x627F;&#x81EA;UIViewController</p>
 <p><br></p>
 <h3 id="II-UIViewController"><a href="#II-UIViewController" class="headerlink" title="II. UIViewController"></a>II. UIViewController</h3><hr>
 <h4 id="&#x63A7;&#x5236;&#x5668;&#x4ECE;&#x521B;&#x5EFA;&#x5230;&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"><a href="#&#x63A7;&#x5236;&#x5668;&#x4ECE;&#x521B;&#x5EFA;&#x5230;&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;" class="headerlink" title="&#x63A7;&#x5236;&#x5668;&#x4ECE;&#x521B;&#x5EFA;&#x5230;&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"></a>&#x63A7;&#x5236;&#x5668;&#x4ECE;&#x521B;&#x5EFA;&#x5230;&#x9500;&#x6BC1;&#x65B9;&#x6CD5;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</h4><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">load-&gt;</div><div class="line">initialize-&gt;</div><div class="line">init(initWithNibName)&#x2014;&gt;  </div><div class="line">loadView&#x2014;&gt;</div><div class="line">viewDidLoad&#x2014;&gt;</div><div class="line">viewWillApper&#x2014;&gt;</div><div class="line">viewDidApper&#x2014;&gt;  </div><div class="line">viewWillDisapper&#x2014;&gt;</div><div class="line">viewDidDisapper&#x2014;&gt;</div><div class="line">viewWillUnload-&gt;  </div><div class="line">viewDidUnload&#x2014;&gt;</div><div class="line">dealloc</div></pre></td></tr></table></figure>
 <p>&#x5176;&#x4E2D;viewWillUnload<code>&#x8DDF;</code>viewDidUnLoad<code>&#x5728;iOS6&#x4EE5;&#x540E;&#x5C31;&#x8FC7;&#x671F;&#x4E86;.
 &#x6536;&#x5230;</code>low-memory<code>&#x65F6;&#x7CFB;&#x7EDF;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;</code>view<code>&#xFF0C;&#x800C;&#x53EA;&#x662F;&#x91CA;&#x653E;</code>controller<code>&#x7684;</code>resource`&#x3002;</p>
-<h4 id="&#x6CE8;&#x610F;&#x70B9;"><a href="#&#x6CE8;&#x610F;&#x70B9;" class="headerlink" title="&#x6CE8;&#x610F;&#x70B9;:"></a>&#x6CE8;&#x610F;&#x70B9;:</h4><ul>
-<li><p><code>LoadView:</code>    </p>
+<h4 id="&#x6CE8;&#x610F;&#x70B9;"><a href="#&#x6CE8;&#x610F;&#x70B9;" class="headerlink" title="&#x6CE8;&#x610F;&#x70B9;:"></a>&#x6CE8;&#x610F;&#x70B9;:</h4><p><code>LoadView:</code>    </p>
 <ol>
 <li>&#x63A7;&#x5236;&#x5668;&#x8C03;&#x7528;loadView&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x63A7;&#x5236;&#x5668;&#x7684;view.&#x5F53;&#x63A7;&#x5236;&#x5668;&#x7684;view&#x5B58;&#x5728;&#x4E86;&#x5C31;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;.</li>
 <li>&#x4E0D;&#x8981;&#x518D;LoadView&#x4E2D;&#x8C03;&#x7528;<code>[super loadView]</code>,&#x4F1A;&#x5F71;&#x54CD;CPU&#x6027;&#x80FD;</li>
-<li>&#x82F9;&#x679C;&#x5B98;&#x65B9;&#x6587;&#x6863;:    <ul>
-<li><blockquote>
-<p>You should never call this method directly. The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.</p>
-</blockquote>
-</li>
-</ul>
-</li>
 </ol>
-</li>
-<li><p>&#x5F53;&#x7CFB;&#x7EDF;&#x8981;&#x5C55;&#x793A;&#x8FD9;&#x4E2A;&#x63A7;&#x5236;&#x5668;view&#x7684;&#x65F6;&#x5019;,&#x4F1A;&#x5148;&#x53BB;view&#x7684;getter&#x65B9;&#x6CD5;&#x4E2D;&#x5BFB;&#x627E;&#x6709;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;view,&#x5982;&#x679C;<code>view == nil</code>,&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x4E3B;&#x52A8;&#x53BB;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;.</p>
-</li>
-<li><p>&#x63A7;&#x5236;&#x5668;&#x7684;view&#x90FD;&#x662F;&#x61D2;&#x52A0;&#x8F7D;,&#x5F53;&#x9700;&#x8981;&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x53BB;&#x521B;&#x5EFA;</p>
+<p>&#x82F9;&#x679C;&#x5B98;&#x65B9;&#x6587;&#x6863;:    </p>
+<blockquote>
+<p>You should never call this method directly. The view controller calls this method when its view property is requested but is currently nil. This method loads or creates a view and assigns it to the view property.</p>
+<p>&#x5F53;&#x7CFB;&#x7EDF;&#x8981;&#x5C55;&#x793A;&#x8FD9;&#x4E2A;&#x63A7;&#x5236;&#x5668;view&#x7684;&#x65F6;&#x5019;,&#x4F1A;&#x5148;&#x53BB;view&#x7684;getter&#x65B9;&#x6CD5;&#x4E2D;&#x5BFB;&#x627E;&#x6709;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;view,&#x5982;&#x679C;<code>view == nil</code>,&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x4E3B;&#x52A8;&#x53BB;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;.</p>
+</blockquote>
+<p>&#x63A7;&#x5236;&#x5668;&#x7684;view&#x90FD;&#x662F;&#x61D2;&#x52A0;&#x8F7D;,&#x5F53;&#x9700;&#x8981;&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x53BB;&#x521B;&#x5EFA;</p>
 <ol>
 <li>&#x61D2;&#x52A0;&#x8F7D;:&#x91CD;&#x5199;getter&#x65B9;&#x6CD5;</li>
 <li>&#x597D;&#x5904;:&#x4E0D;&#x7528;&#x7BA1;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x9700;&#x8981;&#x521B;&#x5EFA;,&#x505A;&#x5230;&#x8981;&#x7528;&#x65F6;&#x518D;&#x521B;&#x5EFA;</li>
 </ol>
-</li>
-</ul>
 <p><br></p>
 <h3 id="III-view&#x7684;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;"><a href="#III-view&#x7684;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;" class="headerlink" title="III. view&#x7684;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;"></a>III. view&#x7684;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;</h3><hr>
 <p>&#x8FD9;&#x91CC;&#x6307;&#x7684;View&#x662F;&#x6307;Controller&#x7684;View&#x3002;&#x5B83;&#x4F5C;&#x4E3A;Controler&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x751F;&#x547D;&#x5468;&#x671F;&#x5728;Controller&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5185;&#x3002;&#x5C31;&#x662F;&#x8BF4;&#x4F60;&#x7684;Controller&#x4E0D;&#x80FD;&#x5728;view&#x91CA;&#x653E;&#x524D;&#x5C31;&#x91CA;&#x653E;&#x4E86;&#x3002;<br><img src="http://ogewbn1ek.bkt.clouddn.com/view%E7%9A%84%E6%89%A7%E8%A1%8C.png" alt=""></p>
@@ -591,7 +577,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -656,7 +642,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

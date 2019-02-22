@@ -1,0 +1,977 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UITabBar," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F15;&amp;#x8A00;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 关于 UITabBar 的疑难杂症">
+<meta property="og:url" content="http://www.licheng244.com/posts/02UI知识/UITabBar.html">
+<meta property="og:site_name" content="博客">
+<meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;">
+<meta property="og:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19011102.jpg">
+<meta property="og:updated_time" content="2019-01-11T03:37:48.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - 关于 UITabBar 的疑难杂症">
+<meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;">
+<meta name="twitter:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19011102.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.licheng244.com/posts/02UI知识/UITabBar.html"/>
+
+
+  <title> iOS开发 - 关于 UITabBar 的疑难杂症 | 博客 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">写代码</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-lifes">
+          <a href="/lifes" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发 - 关于 UITabBar 的疑难杂症
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-10-03T00:00:00+08:00" content="2018-10-03">
+              2018-10-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-02【-UI-知识-】/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS__02【 UI 知识 】</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/posts/02UI知识/UITabBar.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="posts/02UI知识/UITabBar.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+          
+
+          
+          
+             <span id="/posts/02UI知识/UITabBar.html" class="leancloud_visitors" data-flag-title="iOS开发 - 关于 UITabBar 的疑难杂症">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<blockquote>
+<p><strong>&#x5F15;&#x8A00;</strong></p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h3 id="I-barItem-&#x67D3;&#x8272;&#x5F02;&#x5E38;&#x95EE;&#x9898;"><a href="#I-barItem-&#x67D3;&#x8272;&#x5F02;&#x5E38;&#x95EE;&#x9898;" class="headerlink" title="I. barItem &#x67D3;&#x8272;&#x5F02;&#x5E38;&#x95EE;&#x9898;"></a>I. barItem &#x67D3;&#x8272;&#x5F02;&#x5E38;&#x95EE;&#x9898;</h3><hr>
+<h4 id="&#x95EE;&#x9898;&#x8868;&#x73B0;"><a href="#&#x95EE;&#x9898;&#x8868;&#x73B0;" class="headerlink" title="&#x95EE;&#x9898;&#x8868;&#x73B0;:"></a>&#x95EE;&#x9898;&#x8868;&#x73B0;:</h4><p>&#x6DFB;&#x52A0;UITabBarItem&#x5230;tabbar&#x4E0A;&#xFF0C;&#x4F46;&#x662F;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x67D3;&#x6210;&#x84DD;&#x8272;&#xFF1B;</p>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;"><a href="#&#x95EE;&#x9898;&#x5206;&#x6790;" class="headerlink" title="&#x95EE;&#x9898;&#x5206;&#x6790;:"></a>&#x95EE;&#x9898;&#x5206;&#x6790;:</h4><p><code>tabbar</code>&#x9ED8;&#x8BA4;&#x4F1A;&#x5E2E;&#x6211;&#x4EEC;&#x67D3;&#x8272;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x7684; <code>UITabBarItem</code> &#x9ED8;&#x8BA4;&#x4F1A;&#x88AB; <code>tinkColor</code> &#x67D3;&#x8272;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<h4 id="&#x95EE;&#x9898;&#x89E3;&#x51B3;"><a href="#&#x95EE;&#x9898;&#x89E3;&#x51B3;" class="headerlink" title="&#x95EE;&#x9898;&#x89E3;&#x51B3;:"></a>&#x95EE;&#x9898;&#x89E3;&#x51B3;:</h4><p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x6DFB;&#x52A0;&#x53C2;&#x6570; <code>imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal</code>&#xFF0C;&#x8FD9;&#x6837; UITabBarItem &#x7684;&#x56FE;&#x7247;&#x53D8;&#x4E0D;&#x4F1A;&#x53D7;&#x5230;tinkColor&#x5F71;&#x54CD;&#x3002;</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">UIImage</span> *nomalImg = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;tab&quot;</span>];</div><div class="line"><span class="built_in">UIImage</span> *selImg   = [[<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;tab_sel&quot;</span>] imageWithRenderingMode:<span class="built_in">UIImageRenderingModeAlwaysOriginal</span>];</div><div class="line"></div><div class="line"><span class="built_in">UITabBarItem</span> *item1 = [[<span class="built_in">UITabBarItem</span> alloc] initWithTitle:<span class="string">@&quot;&#x5546;&#x57CE;&quot;</span> image:nomalImg selectedImage:selImg];</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="II-tabbar-&#x80CC;&#x666F;&#x8272;&#x95EE;&#x9898;"><a href="#II-tabbar-&#x80CC;&#x666F;&#x8272;&#x95EE;&#x9898;" class="headerlink" title="II. tabbar &#x80CC;&#x666F;&#x8272;&#x95EE;&#x9898;"></a>II. tabbar &#x80CC;&#x666F;&#x8272;&#x95EE;&#x9898;</h3><hr>
+<h4 id="&#x95EE;&#x9898;&#x8868;&#x73B0;-1"><a href="#&#x95EE;&#x9898;&#x8868;&#x73B0;-1" class="headerlink" title="&#x95EE;&#x9898;&#x8868;&#x73B0;:"></a>&#x95EE;&#x9898;&#x8868;&#x73B0;:</h4><p>&#x8BBE;&#x7F6E;<code>tabbar</code>&#x7684;&#x80CC;&#x666F;&#x8272;&#x662F;<code>0xFFFFFF</code>&#x7684;&#x767D;&#x8272;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x7684;&#x6548;&#x679C;&#x786E;&#x662F;&#x7070;&#x767D;&#x8272;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x5168;&#x767D;&#x8272;&#xFF1B;</p>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;-1"><a href="#&#x95EE;&#x9898;&#x5206;&#x6790;-1" class="headerlink" title="&#x95EE;&#x9898;&#x5206;&#x6790;:"></a>&#x95EE;&#x9898;&#x5206;&#x6790;:</h4><p>tabbar &#x9ED8;&#x8BA4;&#x662F;&#x900F;&#x660E;&#x7684;&#xFF08;&#x5C5E;&#x6027;<code>translucent</code>&#xFF09;&#xFF0C;&#x4F1A;&#x5BF9; tabbar &#x4E0B;&#x9762;&#x7684;&#x89C6;&#x56FE;&#x8FDB;&#x884C;&#x9AD8;&#x65AF;&#x6A21;&#x7CCA;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4E0E;&#x80CC;&#x666F;&#x8272;&#x6DF7;&#x5408;&#x3002;</p>
+<h4 id="&#x95EE;&#x9898;&#x89E3;&#x51B3;-1"><a href="#&#x95EE;&#x9898;&#x89E3;&#x51B3;-1" class="headerlink" title="&#x95EE;&#x9898;&#x89E3;&#x51B3;:"></a>&#x95EE;&#x9898;&#x89E3;&#x51B3;:</h4><p><strong>1.&#x81EA;&#x7531;&#x505A;&#x6CD5;: </strong><br><code>addSubview:</code>&#x4E00;&#x4E2A; view &#x5230; tabbar &#x4E0A;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x81EA;&#x5DF1;&#x7ED8;&#x5236;4&#x4E2A;&#x6309;&#x94AE;&#xFF1B;&#xFF08;&#x53EF;&#x64CD;&#x4F5C;&#x6027;&#x5F3A;&#xFF0C;&#x7F3A;&#x70B9;&#x662F; tabbar &#x7684;&#x903B;&#x8F91;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x518D;&#x5B9E;&#x73B0;&#x4E00;&#x904D;&#xFF09;</p>
+<p><strong>2.&#x6539;&#x53D8;tabbar&#x900F;&#x660E;&#x5EA6;:</strong><br>&#x8BBE;&#x7F6E;<code>translucent=YES</code>&#xFF0C;&#x518D;&#x4FEE;&#x6539;&#x80CC;&#x666F;&#x8272;&#xFF1B;&#xFF08;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x5DE8;&#x5927;&#x7684;&#x5751;&#xFF0C;&#x5BFC;&#x81F4;<code>UITabbarViewController</code>&#x4E0A;&#x9762;&#x7684;&#x5B50;VC&#x7684;<code>self.view</code>&#x5C5E;&#x6027;&#x9AD8;&#x5EA6;&#x4F1A;&#x53D8;&#x5316;&#xFF01;&#xFF09;</p>
+<p><strong>3.&#x7A7A;&#x767D;&#x56FE;&#x505A;&#x6CD5;:</strong><br>&#x628A;&#x80CC;&#x666F;&#x56FE;&#x90FD;&#x7528;&#x4E00;&#x5F20;&#x7A7A;&#x767D;&#x7684;&#x56FE;&#x7247;&#x66FF;&#x4EE3;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;&#xFF08;&#x6700;&#x7EC8;&#x91C7;&#x7EB3;&#x7684;&#x505A;&#x6CD5;&#xFF09;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.tabBar.backgroundImage = [[<span class="built_in">UIImage</span> alloc] init];</div><div class="line"><span class="keyword">self</span>.tabBar.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="III-tabbar-&#x9876;&#x90E8;&#x7EBF;&#x6761;&#x95EE;&#x9898;"><a href="#III-tabbar-&#x9876;&#x90E8;&#x7EBF;&#x6761;&#x95EE;&#x9898;" class="headerlink" title="III. tabbar &#x9876;&#x90E8;&#x7EBF;&#x6761;&#x95EE;&#x9898;"></a>III. tabbar &#x9876;&#x90E8;&#x7EBF;&#x6761;&#x95EE;&#x9898;</h3><hr>
+<h4 id="&#x95EE;&#x9898;&#x8868;&#x73B0;-2"><a href="#&#x95EE;&#x9898;&#x8868;&#x73B0;-2" class="headerlink" title="&#x95EE;&#x9898;&#x8868;&#x73B0;:"></a>&#x95EE;&#x9898;&#x8868;&#x73B0;:</h4><p>UITabbar &#x9ED8;&#x8BA4;&#x5728; tabbar &#x7684;&#x9876;&#x90E8;&#x4F1A;&#x6709;&#x4E00;&#x6761;&#x7070;&#x8272;&#x7684;&#x7EBF;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x5176;&#x989C;&#x8272;&#x3002;</p>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;-2"><a href="#&#x95EE;&#x9898;&#x5206;&#x6790;-2" class="headerlink" title="&#x95EE;&#x9898;&#x5206;&#x6790;:"></a>&#x95EE;&#x9898;&#x5206;&#x6790;:</h4><p>&#x4ECE;Xcode&#x7684;&#x5DE5;&#x5177;&#x6765;&#x770B;&#xFF0C;&#x8FD9;&#x6761;&#x7EBF;&#x662F;&#x4E00;&#x4E2A;UIImageView&#xFF1A;<br><img src="/posts/02UI&#x77E5;&#x8BC6;/../../img/19011102.jpg" alt=""></p>
+<p>&#x518D;&#x4ECE;<code>UITabbar</code>&#x7684;&#x5934;&#x6587;&#x4EF6;&#x6765;&#x770B;&#xFF0C;&#x8FD9;&#x6761;&#x7EBF;&#x7684;&#x56FE;&#x7247;&#x53EF;&#x80FD;&#x662F;<code>shadowImage</code>&#x3002;</p>
+<h4 id="&#x95EE;&#x9898;&#x89E3;&#x51B3;-2"><a href="#&#x95EE;&#x9898;&#x89E3;&#x51B3;-2" class="headerlink" title="&#x95EE;&#x9898;&#x89E3;&#x51B3;:"></a>&#x95EE;&#x9898;&#x89E3;&#x51B3;:</h4><p><strong>1.&#x81EA;&#x5B9A;&#x4E49;View:</strong><br>&#x5C06;<code>shadowImage</code>&#x7528;&#x4E00;&#x5F20;&#x7A7A;&#x767D;&#x7684;&#x56FE;&#x7247;&#x66FF;&#x4EE3;&#xFF0C;&#x7136;&#x540E;&#x81EA;&#x5DF1;&#x518D;&#x6DFB;&#x52A0;&#x60F3;&#x8981;&#x7684;&#x7EBF;&#x6761;&#x5927;&#x5C0F;&#x548C;&#x989C;&#x8272;&#x3002;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.tabBar.shadowImage = [[<span class="built_in">UIImage</span> alloc] init];</div><div class="line"><span class="built_in">UIView</span> *lineView = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.tabBar.width, <span class="number">0.5</span>)];</div><div class="line">lineView.backgroundColor = [<span class="built_in">UIColor</span> colorWithHexString:<span class="string">@&quot;e8e8e8&quot;</span>];</div><div class="line">[<span class="keyword">self</span>.tabBar addSubview:lineView];</div></pre></td></tr></table></figure></p>
+<p><strong>2.&#x81EA;&#x5B9A;&#x4E49;&#x56FE;&#x7247;:</strong><br>&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x56FE;&#x7247; &#x8BBE;&#x7F6E;&#x7ED9; <code>shadowImage</code>;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="keyword">self</span>.tabBar.shadowImage = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@&quot;xxx&quot;</span>];</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  		
+   			<div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">
+-------------本文结束
+<i class="fa fa-paw"></i>
+感谢您的阅读-------------
+</div>
+
+</div>
+
+  		
+	</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UITabBar/" rel="tag"><i class="fa fa-tag"></i>UITabBar</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/02UI知识/关键字frame.html" rel="next" title="iOS开发 - 关于 Frame、Bounds 和 Center">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 关于 Frame、Bounds 和 Center
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/02UI知识/UITableView计时器.html" rel="prev" title="iOS开发 - UITableView 中使用计时器">
+                iOS开发 - UITableView 中使用计时器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="posts/02UI知识/UITabBar.html"
+           data-title="iOS开发 - 关于 UITabBar 的疑难杂症" data-url="http://www.licheng244.com/posts/02UI知识/UITabBar.html">
+      </div>
+    
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Li Cheng" />
+          <p class="site-author-name" itemprop="name">Li Cheng</p>
+          <p class="site-description motion-element" itemprop="description">| 写写代码 | 做做设计 | <br>记录着工作和学习中的点点滴滴 ~~~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">114</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-barItem-染色异常问题"><span class="nav-text">I. barItem 染色异常问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题表现"><span class="nav-text">问题表现:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析"><span class="nav-text">问题分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-text">问题解决:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-tabbar-背景色问题"><span class="nav-text">II. tabbar 背景色问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题表现-1"><span class="nav-text">问题表现:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析-1"><span class="nav-text">问题分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决-1"><span class="nav-text">问题解决:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-tabbar-顶部线条问题"><span class="nav-text">III. tabbar 顶部线条问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题表现-2"><span class="nav-text">问题表现:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题分析-2"><span class="nav-text">问题分析:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决-2"><span class="nav-text">问题解决:</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Cheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"licheng244344094"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SJtE0CaYCSQVrkVXmWMYWJOd-gzGzoHsz", "TfVyU54NEToMYg0SId3KELgz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

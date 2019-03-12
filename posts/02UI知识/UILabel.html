@@ -109,7 +109,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:description" content="&amp;#x5F15;&amp;#x8A00;">
 <meta property="og:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19010115.png">
 <meta property="og:image" content="http://www.licheng244.com/posts/02UI知识/../../img/19010116.png">
-<meta property="og:updated_time" content="2019-03-12T02:53:49.044Z">
+<meta property="og:updated_time" content="2019-03-12T02:57:03.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - UILabel 使用细节">
 <meta name="twitter:description" content="&amp;#x5F15;&amp;#x8A00;">
@@ -405,7 +405,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <h3 id="III-&#x663E;&#x793A;-HTML-&#x6570;&#x636E;"><a href="#III-&#x663E;&#x793A;-HTML-&#x6570;&#x636E;" class="headerlink" title="III. &#x663E;&#x793A; HTML &#x6570;&#x636E;"></a>III. &#x663E;&#x793A; HTML &#x6570;&#x636E;</h3><hr>
 <p>&#x4F7F;&#x7528; &#x5BCC;&#x6587;&#x672C; <code>NSHTMLTextDocumentType</code> &#x5B9E;&#x73B0; :</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *htmlStr = <span class="string">@&quot;&lt;h1&gt;Header&lt;/h1&gt;&lt;h2&gt;Subheader&lt;/h2&gt;&lt;p&gt;Some &lt;em&gt;text&lt;/em&gt;&lt;/p&gt;&lt;img src=&apos;http://blogs.babble.com/famecrawler/files/2010/11/mickey_mouse-1097.jpg&apos; width=70 height=100 /&gt;&quot;</span>;</div><div class="line">   </div><div class="line">   <span class="built_in">UILabel</span> *label = [[<span class="built_in">UILabel</span> alloc] initWithFrame:(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">30</span>))];</div><div class="line">   <span class="built_in">NSAttributedString</span> *attr = [[<span class="built_in">NSAttributedString</span> alloc] initWithData:[htmlStr dataUsingEncoding:<span class="built_in">NSUnicodeStringEncoding</span>]</div><div class="line">                                                               options:@{<span class="built_in">NSDocumentTypeDocumentAttribute</span>:<span class="built_in">NSHTMLTextDocumentType</span>}</div><div class="line">                                                    documentAttributes:<span class="literal">nil</span></div><div class="line">                                                                 error:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">   label.attributedText = attr;</div></pre></td></tr></table></figure>
-<hr>
 <p><br></p>
 <h3 id="IV-&#x8BA1;&#x7B97;&#x6587;&#x672C;&#x9AD8;&#x5EA6;"><a href="#IV-&#x8BA1;&#x7B97;&#x6587;&#x672C;&#x9AD8;&#x5EA6;" class="headerlink" title="IV. &#x8BA1;&#x7B97;&#x6587;&#x672C;&#x9AD8;&#x5EA6;"></a>IV. &#x8BA1;&#x7B97;&#x6587;&#x672C;&#x9AD8;&#x5EA6;</h3><hr>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong> &#x8BA1;&#x7B97;&#x9AD8;&#x5EA6;&#x4E00;&#x5B9A;&#x8981;&#x5728;&#x7ED9; label &#x8BBE;&#x7F6E;&#x4E86;&#x6587;&#x672C;&#x4E4B;&#x540E;&#xFF1B; &#x8981;&#x5148;&#x786E;&#x4FDD;&#x8BBE;&#x7F6E;&#x4E86; width &#x624D;&#x80FD;&#x53BB;&#x8BA1;&#x7B97;&#x9AD8;&#x5EA6;&#xFF1B;<br><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x8BA1;&#x7B97; size   &#x8981;&#x5148;&#x786E;&#x4FDD;&#x8BBE;&#x7F6E;&#x4E86; width</div><div class="line"> *</div><div class="line"> * @param lineS           &#x884C;&#x95F4;&#x8DDD;</div><div class="line"> * @param wordS           &#x5B57;&#x95F4;&#x8DDD;</div><div class="line"> */</div><div class="line">- (<span class="built_in">CGSize</span>)lc_computeSizeWithLineSpace:(<span class="keyword">float</span>)lineS</div><div class="line">                            wordSpace:(<span class="keyword">float</span>)wordS {</div><div class="line">    </div><div class="line">    <span class="comment">// &#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;&#x5BBD;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x9650;&#x5EA6;</span></div><div class="line">    <span class="built_in">CGSize</span> size = <span class="built_in">CGSizeMake</span>(<span class="keyword">self</span>.lc_width, MAXFLOAT);</div><div class="line">    </div><div class="line">    <span class="comment">// &#x8BA1;&#x7B97;&#x65B9;&#x5F0F;</span></div><div class="line">    <span class="built_in">NSStringDrawingOptions</span> options = <span class="built_in">NSStringDrawingUsesFontLeading</span> | <span class="built_in">NSStringDrawingTruncatesLastVisibleLine</span> | <span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// &#x5BCC;&#x6587;&#x672C;</span></div><div class="line">    <span class="built_in">CGFloat</span> ss = lineS - (<span class="keyword">self</span>.font.lineHeight - <span class="keyword">self</span>.font.pointSize);</div><div class="line">    <span class="built_in">NSMutableParagraphStyle</span> *paragraphStyle = [[<span class="built_in">NSMutableParagraphStyle</span> alloc] init];</div><div class="line">    paragraphStyle.lineSpacing = ss;</div><div class="line">    <span class="built_in">NSDictionary</span> *attributes = @{<span class="built_in">NSFontAttributeName</span>: <span class="keyword">self</span>.font,                <span class="comment">// &#x5B57;&#x53F7;</span></div><div class="line">                                 <span class="built_in">NSParagraphStyleAttributeName</span>: paragraphStyle, <span class="comment">// &#x884C;&#x95F4;&#x8DDD;</span></div><div class="line">                                 <span class="built_in">NSKernAttributeName</span>: @(wordS) };               <span class="comment">// &#x5B57;&#x95F4;&#x8DDD;</span></div><div class="line">    </div><div class="line">    <span class="built_in">CGRect</span> rect = [<span class="keyword">self</span>.text boundingRectWithSize:size options:options attributes:attributes context:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(<span class="keyword">self</span>.lc_width, rect.size.height);</div><div class="line">}</div></pre></td></tr></table></figure></p>
@@ -455,8 +454,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/23面试题/百度面试题.html" rel="next" title="iOS开发 - 百度 面试题">
-                <i class="fa fa-chevron-left"></i> iOS开发 - 百度 面试题
+              <a href="/posts/23面试题/腾讯面试题.html" rel="next" title="iOS开发 - 腾讯面试题">
+                <i class="fa fa-chevron-left"></i> iOS开发 - 腾讯面试题
               </a>
             
           </div>
@@ -537,7 +536,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">114</span>
+              <span class="site-state-item-count">115</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
